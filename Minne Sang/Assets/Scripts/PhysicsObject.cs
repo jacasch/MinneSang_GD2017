@@ -6,9 +6,12 @@ public class PhysicsObject : MonoBehaviour {
     public float minGroundNormalY = 0.65f;
     public float gravityModifier = 1f;
 
-    protected bool grounded = false;
+    public bool grounded = false;
+
+    protected Vector2 targetVelocity;
     protected Rigidbody2D rb2d;
     protected Vector2 velocity;
+    protected Vector2 groundNormal;
     protected ContactFilter2D contactFilter;
     protected RaycastHit2D[] rayBuffer = new RaycastHit2D[16];
     protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);
@@ -30,18 +33,26 @@ public class PhysicsObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        targetVelocity = Vector2.zero;
+        ComputeVelocity();
 	}
+
+    protected virtual void ComputeVelocity() {
+    }
 
     void FixedUpdate(){
         grounded = false;
         velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
+        velocity.x = targetVelocity.x;
         Vector2 deltaPosition = velocity * Time.deltaTime;
-        Vector2 movement = Vector2.up * deltaPosition.y;
-        Move(movement);
+        Vector2 moveAlongGround = new Vector2(groundNormal.y, -groundNormal.x);
+        Vector2 movement = moveAlongGround * deltaPosition.x;
+        Move(movement, false);
+        movement = Vector2.up * deltaPosition.y;
+        Move(movement, true);
     }
 
-    private void Move(Vector2 movement)
+    private void Move(Vector2 movement, bool yMovement)
     {
         float dist = movement.magnitude;
         if (dist > minMoveDist) {
@@ -50,16 +61,28 @@ public class PhysicsObject : MonoBehaviour {
             for (int i = 0; i < count; i++) {
                 hitBufferList.Add(rayBuffer[i]);
             }
-
+            //check for grounding
             for (int i = 0; i < hitBufferList.Count; i++) {
                 Vector2 currentNormal = hitBufferList[i].normal;
                 if (currentNormal.y > minGroundNormalY) {
                     grounded = true;
+                    if (yMovement) {
+                        groundNormal = currentNormal;
+                        currentNormal.x = 0;
+                    }
                 }
+
+                float projection = Vector2.Dot(velocity, currentNormal);
+                if (projection < 0) {
+                    velocity = velocity - projection * currentNormal;
+                }
+
+                float modifiedDistance = hitBufferList[i].distance - shellRadius;
+                dist = modifiedDistance < dist ? modifiedDistance : dist;
             }
         }
 
 
-        rb2d.position += movement;
+        rb2d.position = rb2d.position + movement.normalized * dist;
     }
 }
