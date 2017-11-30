@@ -3,7 +3,8 @@
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
-		_Intensity("WobbleIntensity", Range (0.001, 0.1)) = 0.001
+		_Intensity("WobbleIntensity", Range(0.001, 0.1)) = 0.001
+		_Tint("Tint", Color) = (0,0,0,0)
 	}
 	SubShader
 	{
@@ -40,6 +41,7 @@
 			sampler2D _MainTex;
 			sampler2D _GrabTexture;
 			float4 _MainTex_ST;
+			float4 _Tint;
 			float _Intensity;
 			
 			v2f vert (appdata v)
@@ -70,6 +72,7 @@
 				//col -= 0.02;
 				//col.rgb = (1,1,1) - col.rgb;
 				col.a = texCol.a;
+				col -= _Tint;
 				return col;
 			}
 			ENDCG

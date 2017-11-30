@@ -9,8 +9,14 @@ public class PlayerController : PhysicsObject {
 
     protected bool dashing = false;
     protected float dashTimer;
+    protected TrailRenderer tr;
+    protected float trailDelay;
 
-	void Start () {
+    protected override void Initialize()
+    {
+        tr = GetComponent<TrailRenderer>();
+        tr.enabled = false;
+        trailDelay = tr.time;
     }
 
     protected override void ComputeVelocity()
@@ -18,6 +24,7 @@ public class PlayerController : PhysicsObject {
         Vector2 move = Vector2.zero;
 
         move.x = Input.GetAxis("Horizontal");
+        trailDelay -= Time.deltaTime;
 
         if (Input.GetButtonDown("Jump") && grounded) {
             velocity.y = jumpTakeOffSpeed;
@@ -27,6 +34,7 @@ public class PlayerController : PhysicsObject {
         if (Input.GetButtonDown("Dash"))
         {
             dashing = true;
+            tr.enabled = true;
             dashTimer = dashDuration;            
         }
         if (dashing) {
@@ -38,12 +46,18 @@ public class PlayerController : PhysicsObject {
                 move.x += dashDirection.x * 5;
                 velocity.y = 0f;
                 //velocity.y = dashDirection.y * 5 * (-Physics2D.gravity.y / 3);
+                trailDelay = tr.time;
             }
             else {
                 dashing = false;
                 move.x = 0;
                 velocity.y = 0;
             }
+            
+        }
+        if (trailDelay < 0)
+        {
+            tr.enabled = false;
         }
 
         targetVelocity = move * maxSpeed;

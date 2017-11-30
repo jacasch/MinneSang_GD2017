@@ -29,6 +29,7 @@ public class PhysicsObject : MonoBehaviour {
         contactFilter.useTriggers = false;
         contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
         contactFilter.useLayerMask = true;
+        Initialize();
 	}
 	
 	// Update is called once per frame
@@ -36,6 +37,9 @@ public class PhysicsObject : MonoBehaviour {
         targetVelocity = Vector2.zero;
         ComputeVelocity();
 	}
+
+    protected virtual void Initialize(){
+    }
 
     protected virtual void ComputeVelocity() {
     }
@@ -57,6 +61,9 @@ public class PhysicsObject : MonoBehaviour {
         float dist = movement.magnitude;
         if (dist > minMoveDist) {
             int count = rb2d.Cast(movement, contactFilter,rayBuffer, dist + shellRadius);
+            if (count == 0) {
+                groundNormal = Vector2.up;
+            }
             hitBufferList.Clear();
             for (int i = 0; i < count; i++) {
                 hitBufferList.Add(rayBuffer[i]);
