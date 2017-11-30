@@ -20,6 +20,7 @@ public class EnemyOoze : MonoBehaviour
 
     //Eigenschaften des Gegners.
     int hp = 2;
+    float dmg = 0.5f;
     int speed = 5;
     int jumpHeight = 0;
     int jumpMax = 7;
@@ -85,7 +86,6 @@ public class EnemyOoze : MonoBehaviour
         if (other.tag == "Player")
         {
             jumpHeight = jumpMax;
-            print("test");
             if (other.transform.position.x + dist < transform.position.x)
             {
                 dir = -1;
@@ -117,7 +117,12 @@ public class EnemyOoze : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            //DMG
+            PlayerStats stats = collision.gameObject.GetComponent<PlayerStats>();
+            if (stats.dmgTimer >= stats.dmgCD)
+            {
+                stats.dmgTimer = 0;
+                stats.hp -= dmg;
+            }
         }
     }
 

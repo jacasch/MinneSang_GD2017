@@ -19,6 +19,7 @@ public class EnemyPaint : MonoBehaviour
 
     //Eigenschaften des Gegners.
     int hp = 2;
+    float dmg = 1f;
     int speed = 2;
     int dir = 0;
     float dist = 7;

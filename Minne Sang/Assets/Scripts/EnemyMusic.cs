@@ -20,6 +20,7 @@ public class EnemyMusic : MonoBehaviour
 
     //Eigenschaften des Gegners.
     int hp = 4;
+    float dmg = 2f;
     int speed = 1;
     int dir = 0;
     float dist = 1.5f;

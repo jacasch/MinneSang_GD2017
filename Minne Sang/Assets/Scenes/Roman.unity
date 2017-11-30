@@ -343,6 +343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stealth: 0
   fear: 0
+  explosion: {fileID: 1301026462000042, guid: 22c80e1415043f04fb0b4ef443cad7aa, type: 2}
 --- !u!61 &708143690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1552,6 +1553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxPlayerDistance: 1
+  lerpWeight: 0.9
   player: {fileID: 2052678641}
 --- !u!1 &2052678641
 GameObject:
@@ -1565,6 +1567,7 @@ GameObject:
   - component: {fileID: 2052678644}
   - component: {fileID: 2052678643}
   - component: {fileID: 2052678642}
+  - component: {fileID: 2052678647}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1691,3 +1694,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2052678647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2052678641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2874a466a9e8282489241dc637181720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 7
+  dmgTimer: 10
+  dmgCD: 1.5

@@ -19,6 +19,7 @@ public class EnemyPoetry : MonoBehaviour
 
     //Eigenschaften des Gegners.
     int hp = 3;
+    float dmg = 0.25f;
     float speed = 0.5f;
     int dir = 0;
     float dist = 0;

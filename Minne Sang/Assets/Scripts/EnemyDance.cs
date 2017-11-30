@@ -20,6 +20,7 @@ public class EnemyDance : MonoBehaviour
 
     //Eigenschaften des Gegners.
     int hp = 1;
+    float dmg = 1.5f;
     float speed = 0;
     float addSpeed = 0.05f;
     int maxSpeed = 8;
@@ -29,6 +30,9 @@ public class EnemyDance : MonoBehaviour
     float deadTimer = 0;
     float deadExpl = 0.5f;
     float deadEnd = 1f;
+
+    //GameObjekt Explusion
+    public GameObject explosion;
 
     // Use this for initialization
     void Start()
@@ -64,13 +68,16 @@ public class EnemyDance : MonoBehaviour
         if(deadTimer<deadExpl)
         {
             //PrepareExplusionAnimation
-            print("piep");
 
         } else
         {
             print("Boom");
-            //ExplusionsAnimation
-            //DMG
+
+            //Instanciate DanceExplusion -> DanceExplusion.dmg = dmg;
+            Instantiate(explosion, transform.position, Quaternion.identity);
+
+            Destroy(gameObject);
+
             if (deadTimer > deadEnd)
             {
                 Destroy(gameObject);
