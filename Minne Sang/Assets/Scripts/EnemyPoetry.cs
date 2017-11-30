@@ -7,9 +7,10 @@ public class EnemyPoetry : MonoBehaviour
     /*
     GegnerInfo:
 
-    Ability: Fear -> Der Spieler wird verängstigt wenn er zu nahe ist und wird dadurch immer mehr verlangsamt, er kann sich die Angst nehmen mit Poetry.
-    Movement: ...
-    Attack: ...
+    Enemy: Sirene
+    Ability: Fear -> Der Spieler wird verängstigt wenn er zu nahe ist und erleidet psychischen Schaden über Zeit, er kann sich die Angst nehmen mit Poetry.
+    Movement: Ganz langsame Bewegung von A nach B.
+    Attack: Fear
     */
 
     //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' oder 'Fear' beherscht.
@@ -17,8 +18,9 @@ public class EnemyPoetry : MonoBehaviour
     int fearRadius = 10;
 
     //Eigenschaften des Gegners.
-    int hp = 4;
-    int speed = 5;
+    int hp = 3;
+    float speed = 0.5f;
+    int dir = 0;
     bool dead = false;
 
     // Use this for initialization

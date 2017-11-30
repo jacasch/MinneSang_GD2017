@@ -7,8 +7,9 @@ public class EnemyDance : MonoBehaviour
     /*
     GegnerInfo:
 
-    Ability: None
-    Movement: ...Läuft Spieler nach ... sonst was...?
+    Enemy: Dancer
+    Ability: NONE
+    Movement: Läuft dem Spieler nach, wird immer schneller.
     Attack: Explodiert bei Kollision mit dem Player oder wenn er stirbt.
     */
 
@@ -19,14 +20,20 @@ public class EnemyDance : MonoBehaviour
 
     //Eigenschaften des Gegners.
     int hp = 1;
-    int speed = 5;
+    float speed = 0;
+    float addSpeed = 0.05f;
+    int maxSpeed = 8;
+    int dir = 0;
+    float dist = 0.5f;
     bool dead = false;
-
+    float deadTimer = 0;
+    float deadExpl = 0.5f;
+    float deadEnd = 1f;
 
     // Use this for initialization
     void Start()
     {
-        //IF STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
+        //StealthShader
         //IF FEAR, SHOW PARTICLE EFFECT ...
         //IF FEAR, ENABLE TIRGGER COLLIDER FOR FEAR ...
     }
@@ -34,43 +41,84 @@ public class EnemyDance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
-
-        //Wenn der Gegner keine hp mehr hat oder tot ist, stirbt er
-        if (dead)
+        if(dead)
         {
+            deadTimer += Time.deltaTime;
             Die();
+        }
+        else
+        {
+            Move();
         }
     }
 
     //Movement des Gegners
     void Move()
     {
-        //Move
+        transform.Translate(speed*dir*Time.deltaTime, 0, 0);
     }
 
     //Tod des Gegners
     void Die()
     {
-        //DieAnimation
-        //Explusion
-        //DMG PLayer
-        //Destroy Object
+        if(deadTimer<deadExpl)
+        {
+            //PrepareExplusionAnimation
+            print("piep");
+
+        } else
+        {
+            print("Boom");
+            //ExplusionsAnimation
+            //DMG
+            if (deadTimer > deadEnd)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
-    private void OnTriggerEnter(Collider other)
+    //Collision Stay im Circle-Collider (Trigger)
+    void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
+        {
+            if (speed < maxSpeed)
+            {
+                speed += addSpeed;
+            }
+            if (other.transform.position.x + dist < transform.position.x)
+            {
+                dir = -1;
+            }
+            else if (other.transform.position.x - dist > transform.position.x)
+            {
+                dir = 1;
+            }
+            else
+            {
+                dir = 0;
+            }
+        }
+    }
+
+    //Collision Exit im Circle-Collider (Trigger)
+    void OnTriggerExit2D(Collider2D other)
+    {
+
+        if (other.tag == "Player")
+        {
+            speed = 0;
+            dir = 0;
+        }
+    }
+
+    //Collision Enter im Cube-Collider
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
         {
             dead = true;
         }
     }
-
-
-
-
-
-
-
-
 }
