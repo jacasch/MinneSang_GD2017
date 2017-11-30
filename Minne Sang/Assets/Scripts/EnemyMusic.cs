@@ -77,7 +77,7 @@ public class EnemyMusic : MonoBehaviour
         //Destroy Object
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
@@ -96,7 +96,7 @@ public class EnemyMusic : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
 
         if (other.tag == "Player")
@@ -105,7 +105,7 @@ public class EnemyMusic : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
