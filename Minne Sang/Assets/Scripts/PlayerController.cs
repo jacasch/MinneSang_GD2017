@@ -21,6 +21,7 @@ public class PlayerController : PhysicsObject {
 
         if (Input.GetButtonDown("Jump") && grounded) {
             velocity.y = jumpTakeOffSpeed;
+            groundNormal = Vector2.up;
         }
 
         if (Input.GetButtonDown("Dash"))
