@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour {
 
     public float maxPlayerDistance = 10f;
+    [Range(0f,1f)]
+    public float lerpWeight = 0.9f;
     public GameObject player;
 
 	// Use this for initialization
@@ -22,7 +24,7 @@ public class CameraMovement : MonoBehaviour {
             //move camera towards player by amount bigger than max dist
             Vector2 movement = (pos - playerPos).normalized * (maxPlayerDistance - distance);
             Vector3 movement3D = new Vector3(movement.x, movement.y, 0f);
-            transform.position = Vector3.Lerp(transform.position + movement3D, transform.position, 0.7f);
+            transform.position = Vector3.Lerp(transform.position + movement3D, transform.position, lerpWeight);
 
         }
 	}
