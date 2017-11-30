@@ -7,9 +7,10 @@ public class EnemyMusic : MonoBehaviour
     /*
     GegnerInfo:
 
-    Ability: Block -> Blockt in Richtung des Spielers, kann von Hinten angegriffen werden wenn betäubt.
-    Movement: ...
-    Attack: ...
+    Enemy: Oger
+    Ability: Knockback -> Attacke erzeugt einen Knockback, kann angegriffen werden wenn betäubt.
+    Movement: Läuft langsam in die Richtung des Spielers.
+    Attack: Stampft beim gehen auf den Boden, Schaden und Knockback durch Druckwelle.
     */
 
     //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' oder 'Fear' beherscht.
@@ -18,8 +19,14 @@ public class EnemyMusic : MonoBehaviour
     int fearRadius = 10;
 
     //Eigenschaften des Gegners.
-    int hp = 3;
-    int speed = 5;
+    int hp = 4;
+    float dmg = 2f;
+    int speed = 1;
+    int dir = 0;
+    float dist = 1.5f;
+    float walkTimer = 0;
+    float walkDist = 0.5f;
+    float walkCD = 1;
     bool dead = false;
 
     // Use this for initialization
@@ -33,19 +40,34 @@ public class EnemyMusic : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        Move();
-
-        //Wenn der Gegner keine hp mehr hat oder tot ist, stirbt er
         if (dead)
         {
             Die();
+        }
+        else
+        {
+            Move();
         }
     }
 
     //Movement des Gegners
     void Move()
     {
-        //Move
+        walkTimer += Time.deltaTime;
+        if (walkTimer < walkDist)
+        {
+            transform.Translate(speed * dir * Time.deltaTime, 0, 0);
+        }
+        else if (walkTimer > walkDist + walkCD)
+        {
+            walkTimer = 0;
+        }
+    }
+
+    //Attacke des Gegners
+    void Attack()
+    {
+
     }
 
     //Tod des Gegners
@@ -54,6 +76,42 @@ public class EnemyMusic : MonoBehaviour
         //DieAnimation
         //...
         //Destroy Object
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            if (other.transform.position.x + dist < transform.position.x)
+            {
+                dir = -1;
+            }
+            else if (other.transform.position.x - dist > transform.position.x)
+            {
+                dir = 1;
+            }
+            else
+            {
+                dir = 0;
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+
+        if (other.tag == "Player")
+        {
+            dir = 0;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            //DMG
+        }
     }
 
 
