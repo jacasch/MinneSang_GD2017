@@ -8,10 +8,11 @@ TagManager:
   - Paint
   - Sound
   - NpcInteractionZone
-  - DMG
   - PlayerCollision
   - DmgToPlayer
   - DmgToEnemy
+  - Enemy
+  - Detection
   layers:
   - Default
   - TransparentFX
