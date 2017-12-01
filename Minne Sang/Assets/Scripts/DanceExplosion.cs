@@ -23,9 +23,9 @@ public class DanceExplosion : MonoBehaviour
         }
 	}
 
-    void OnTriggerStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             PlayerStats stats = collision.gameObject.GetComponent<PlayerStats>();
             if (stats.dmgTimer >= stats.dmgCD)
