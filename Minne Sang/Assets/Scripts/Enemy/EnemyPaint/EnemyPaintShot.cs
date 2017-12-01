@@ -20,7 +20,7 @@ public class EnemyPaintShot : MonoBehaviour
 
     void Move()
     {
-        transform.Translate(Vector3.forward(speed * Time.deltaTime));
+        transform.Translate(Vector3.forward*speed * Time.deltaTime);
         //transform.Translate(speed * Time.deltaTime, 0, 0);
     }
 

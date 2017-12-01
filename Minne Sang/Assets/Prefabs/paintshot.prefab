@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4314584293735842}
   - component: {fileID: 212554384557507910}
   - component: {fileID: 58088027506491584}
-  - component: {fileID: 114514678990053352}
+  - component: {fileID: 114667733306966188}
   - component: {fileID: 50079895489329708}
   m_Layer: 8
   m_Name: paintshot
@@ -78,7 +78,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &114514678990053352
+--- !u!114 &114667733306966188
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -86,11 +86,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1846580782768684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df448545e98c13c4a83a00ad89184552, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f82012c5fdb3ee41b71405475e55adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 1, y: 1, z: 0}
-  velocity: 12
+  direction: {x: 0, y: 0, z: 0}
+  velocity: 13
 --- !u!212 &212554384557507910
 SpriteRenderer:
   m_ObjectHideFlags: 1

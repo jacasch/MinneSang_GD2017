@@ -440,8 +440,8 @@ GameObject:
   - component: {fileID: 318200483}
   - component: {fileID: 318200482}
   - component: {fileID: 318200486}
-  - component: {fileID: 318200485}
   - component: {fileID: 318200481}
+  - component: {fileID: 318200485}
   - component: {fileID: 318200484}
   - component: {fileID: 318200487}
   - component: {fileID: 318200488}
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 318200480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2b819f08e19e314994aee143be48722, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d949e15f82691246b4c167bf8f55ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1846580782768684, guid: e2619e7a7af03c6469a889acd6127af5, type: 2}
@@ -916,6 +916,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d5f82cc908c2b34493da10dcf961756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  phrase:
+    spokenByNpc: 0
+    text: 
 --- !u!102 &388853889
 TextMesh:
   serializedVersion: 3
