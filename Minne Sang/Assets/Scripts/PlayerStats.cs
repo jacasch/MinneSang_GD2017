@@ -36,7 +36,7 @@ public class PlayerStats : MonoBehaviour
     //Wenn der Spieler im DMG des Gegners steht und er verwundbar ist, bekommt er Schaden und wird kurzzeitig unverwundbar
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (dmgTimer<=0 && collision.gameObject.tag == "DMG")
+        if (dmgTimer<=0 && collision.gameObject.tag == "DmgToPlayer")
         {
             hp -= collision.GetComponent<EnemyDMG>().dmg;
             print(hp);

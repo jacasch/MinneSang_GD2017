@@ -7,8 +7,12 @@ TagManager:
   - Undefined
   - Paint
   - Sound
+<<<<<<< HEAD
+  - NpcInteractionZone
+=======
   - DMG
   - PlayerCollision
+>>>>>>> 8a0640239f6748a621bc9100720438da5e90377c
   layers:
   - Default
   - TransparentFX

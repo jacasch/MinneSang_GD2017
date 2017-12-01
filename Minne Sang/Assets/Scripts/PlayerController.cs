@@ -11,12 +11,14 @@ public class PlayerController : PhysicsObject {
     protected float dashTimer;
     protected TrailRenderer tr;
     protected float trailDelay;
+    protected bool inNpcZone = false;
 
     protected override void Initialize()
     {
         tr = GetComponent<TrailRenderer>();
         tr.enabled = false;
         trailDelay = tr.time;
+        inNpcZone = false;
     }
 
     protected override void ComputeVelocity()
@@ -26,7 +28,7 @@ public class PlayerController : PhysicsObject {
         move.x = Input.GetAxis("Horizontal");
         trailDelay -= Time.deltaTime;
 
-        if (Input.GetButtonDown("Jump") && grounded) {
+        if (Input.GetButtonDown("Jump") && grounded && !inNpcZone) {
             velocity.y = jumpTakeOffSpeed;
             groundNormal = Vector2.up;
         }
@@ -61,5 +63,21 @@ public class PlayerController : PhysicsObject {
         }
 
         targetVelocity = move * maxSpeed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "NpcInteractionZone")
+        {
+            inNpcZone = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "NpcInteractionZone")
+        {
+            inNpcZone = false;
+        }
     }
 }
