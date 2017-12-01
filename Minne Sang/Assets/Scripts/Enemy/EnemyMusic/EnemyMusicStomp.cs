@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMusicStomp : MonoBehaviour
 {
-    float liveTime = 0.5f;
+    float liveTime = 1f;
 
 
     // Use this for initialization

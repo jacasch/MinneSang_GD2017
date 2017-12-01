@@ -23,7 +23,7 @@ public class EnemyMusic : MonoBehaviour
     int speed = 1;  //Speed des Gegners
     float dist = 1.5f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float walkDist = 0.5f;  //Zeit die der Gegner zwischen den Schritten sich vorwärtz bewegt
-    float walkCD = 1;  //Zeit bis zum nächsten Schritt
+    float walkCD = 2;  //Zeit bis zum nächsten Schritt
 
     //ScriptVariables
     bool active = false;

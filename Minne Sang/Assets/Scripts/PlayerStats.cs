@@ -11,22 +11,32 @@ public class PlayerStats : MonoBehaviour
     //Zeit bis erneut verwundbar nach eingegangenem Schaden
     public float dmgTimer = 0;
     public float dmgCD = 1.5f;
+    float knockbackTimer = 0;
+    Rigidbody2D rb;
 
 
-	void Start ()
+    void Start ()
     {
-        //....
-	}
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {
+        if(knockbackTimer<0)
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            knockbackTimer -= Time.deltaTime;
+        }
         if (dead)
         {
             //WHAT-EVER...
         }
         else
         {
-            if(dmgTimer>0)
+            if (dmgTimer>0)
             {
                 dmgTimer -= Time.deltaTime;
             }
@@ -38,10 +48,18 @@ public class PlayerStats : MonoBehaviour
     {
         if (dmgTimer<=0 && collision.gameObject.tag == "DmgToPlayer")
         {
-            hp -= collision.GetComponent<EnemyDMG>().dmg;
+            EnemyDMG enemyDMG = collision.GetComponent<EnemyDMG>();
+            int dir = 1;
+            if(collision.transform.position.x > transform.position.x)
+            {
+                dir = -1;
+            }
+            hp -= enemyDMG.dmg;
             print(hp);
             dmgTimer = dmgCD;
             print(dmgTimer);
+            knockbackTimer = enemyDMG.knockback;
+            rb.velocity = new Vector3(10*dir, 0, 0);
         }
     }
 }
