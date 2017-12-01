@@ -9,6 +9,8 @@ TagManager:
   - Sound
   - DMG
   - PlayerCollision
+  - DmgToPlayer
+  - DmgToEnemy
   layers:
   - Default
   - TransparentFX

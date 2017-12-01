@@ -18,6 +18,7 @@ public class EnemyPaint : MonoBehaviour
     int fearRadius = 10;
 
     //Eigenschaften des Gegners.
+    bool active = false;
     int hp = 2;
     int speed = 2;
     int dir = 0;
@@ -28,6 +29,7 @@ public class EnemyPaint : MonoBehaviour
 
     //Player GameObject
     GameObject objPlayer;
+    public GameObject objShot;
 
     void Start ()
     {
@@ -43,9 +45,10 @@ public class EnemyPaint : MonoBehaviour
         {
             Die();
         }
-        else
+        else if(active)
         {
             Move();
+            Attack();
         }
     }
 
@@ -58,6 +61,18 @@ public class EnemyPaint : MonoBehaviour
     //Attacke des Gegners
     void Attack()
     {
+        if(shootTimer>0)
+        {
+            shootTimer -= Time.deltaTime;
+        }
+        if (shootTimer <= 0)
+        {
+            Vector3 relativePos = objPlayer.transform.position - transform.position;
+            relativePos.x = 0;
+            relativePos.y = 0;
+            relativePos.z = 0;
+            Instantiate(objShot, transform.position, Quaternion.LookRotation(relativePos));
+        }
 
     }
 
@@ -82,6 +97,7 @@ public class EnemyPaint : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            active = true;
             if (other.transform.position.x + dist < transform.position.x)
             {
                 dir = -1;
@@ -102,6 +118,7 @@ public class EnemyPaint : MonoBehaviour
 
         if (other.tag == "Player")
         {
+            active = false;
             dir = 0;
         }
     }

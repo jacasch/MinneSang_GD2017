@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DanceExplosion : MonoBehaviour
+public class EnemyDanceExplosion : MonoBehaviour
 {
     float timer = 0.5f;
 
