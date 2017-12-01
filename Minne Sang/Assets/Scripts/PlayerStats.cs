@@ -12,13 +12,12 @@ public class PlayerStats : MonoBehaviour
     public float dmgTimer = 0;
     public float dmgCD = 1.5f;
 
-	// Use this for initialization
+
 	void Start ()
     {
         //....
 	}
 
-    // Update is called once per frame
     void Update()
     {
         if (dead)
@@ -34,6 +33,7 @@ public class PlayerStats : MonoBehaviour
         }
 	}
 
+    //Wenn der Spieler im DMG des Gegners steht und er verwundbar ist, bekommt er Schaden und wird kurzzeitig unverwundbar
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (dmgTimer<=0 && collision.gameObject.tag == "DMG")

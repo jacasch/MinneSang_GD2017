@@ -19,13 +19,16 @@ public class EnemyPaint : MonoBehaviour
 
     //Eigenschaften des Gegners.
     int hp = 2;
-    float dmg = 1f;
     int speed = 2;
     int dir = 0;
-    float dist = 7;
+    float dist = 8;
+    float shootTimer = 0;
+    float shootCD = 2;
     bool dead = false;
 
-    // Use this for initialization
+    //Player GameObject
+    GameObject objPlayer;
+
     void Start ()
     {
         //STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
@@ -34,7 +37,6 @@ public class EnemyPaint : MonoBehaviour
         //IF FEAR, ENABLE TIRGGER COLLIDER FOR FEAR ...
     }
 
-    // Update is called once per frame
     void Update ()
     {
         if (dead)
@@ -67,7 +69,16 @@ public class EnemyPaint : MonoBehaviour
         //Destroy Object
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    //Save player as variable
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            objPlayer = collision.gameObject;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
@@ -86,7 +97,7 @@ public class EnemyPaint : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
 
         if (other.tag == "Player")
@@ -94,16 +105,4 @@ public class EnemyPaint : MonoBehaviour
             dir = 0;
         }
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            //DMG
-        }
-    }
-
-
-
-
 }
