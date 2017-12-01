@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class DanceExplosion : MonoBehaviour
 {
-    float dmg;
     float timer = 0.5f;
 
 	// Use this for initialization
 	void Start ()
     {
-		
+        gameObject.layer = 0;
 	}
 	
 	// Update is called once per frame
@@ -22,6 +21,7 @@ public class DanceExplosion : MonoBehaviour
             Destroy(gameObject);
         }
 	}
+<<<<<<< HEAD:Minne Sang/Assets/Scripts/DanceExplosion.cs
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -35,4 +35,6 @@ public class DanceExplosion : MonoBehaviour
             }
         }
     }
+=======
+>>>>>>> 8a0640239f6748a621bc9100720438da5e90377c:Minne Sang/Assets/Scripts/Enemy/EnemyDance/DanceExplosion.cs
 }

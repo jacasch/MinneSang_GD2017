@@ -2,42 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMusic : MonoBehaviour
+public class EnemyPaint : MonoBehaviour
 {
     /*
     GegnerInfo:
 
-    Enemy: Oger
-    Ability: Knockback -> Attacke erzeugt einen Knockback, kann angegriffen werden wenn betäubt.
-    Movement: Läuft langsam in die Richtung des Spielers.
-    Attack: Stampft beim gehen auf den Boden, Schaden und Knockback durch Druckwelle.
+    Enemy: Oktopus
+    Ability: Stealth -> Unverwundbar solange nicht vom Spieler angemalt.
+    Movement: Bewegt sich in Richtung des Spielers, bleibt aber auf Abstand.
+    Attack: Schiesst auf den Spieler (Gerader, langsamer Schuss).
     */
 
-    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' oder 'Fear' beherscht.
-    public bool stealth = false;
+    //Bestimmt, ob der Gegner die Fähigkeit 'Fear' beherscht.
     public bool fear = false;
     int fearRadius = 10;
 
     //Eigenschaften des Gegners.
-    int hp = 4;
-    float dmg = 2f;
-    int speed = 1;
+    int hp = 2;
+    int speed = 2;
     int dir = 0;
-    float dist = 1.5f;
-    float walkTimer = 0;
-    float walkDist = 0.5f;
-    float walkCD = 1;
+    float dist = 8;
+    float shootTimer = 0;
+    float shootCD = 2;
     bool dead = false;
 
-    // Use this for initialization
+    //Player GameObject
+    GameObject objPlayer;
+
     void Start ()
     {
-        //IF STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
+        //STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
+
         //IF FEAR, SHOW PARTICLE EFFECT ...
         //IF FEAR, ENABLE TIRGGER COLLIDER FOR FEAR ...
     }
 
-    // Update is called once per frame
     void Update ()
     {
         if (dead)
@@ -53,15 +52,7 @@ public class EnemyMusic : MonoBehaviour
     //Movement des Gegners
     void Move()
     {
-        walkTimer += Time.deltaTime;
-        if (walkTimer < walkDist)
-        {
-            transform.Translate(speed * dir * Time.deltaTime, 0, 0);
-        }
-        else if (walkTimer > walkDist + walkCD)
-        {
-            walkTimer = 0;
-        }
+        transform.Translate(speed * dir * Time.deltaTime, 0, 0);
     }
 
     //Attacke des Gegners
@@ -78,7 +69,16 @@ public class EnemyMusic : MonoBehaviour
         //Destroy Object
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    //Save player as variable
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            objPlayer = collision.gameObject;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
@@ -97,7 +97,7 @@ public class EnemyMusic : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
 
         if (other.tag == "Player")
@@ -105,17 +105,4 @@ public class EnemyMusic : MonoBehaviour
             dir = 0;
         }
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            //DMG
-        }
-    }
-
-
-
-
-
 }

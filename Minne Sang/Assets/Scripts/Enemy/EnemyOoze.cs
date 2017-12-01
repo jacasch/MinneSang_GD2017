@@ -18,23 +18,22 @@ public class EnemyOoze : MonoBehaviour
     public bool fear = false;
     int fearRadius = 10;
 
-    //Eigenschaften des Gegners.
+    //Eigenschaften des Gegners. (DMG ist untergeordnet in OozeDMG festgelegt!)
+    bool active = false;
     int hp = 2;
-    float dmg = 0.5f;
     int speed = 5;
-    int jumpHeight = 0;
-    int jumpMax = 7;
+    int jumpHeight = 7;  //Sprunghöhe
     float jumpTimer = 0;
-    float jumpCD = 0.2f;
+    float jumpCD = 0.2f;  //Zeit bis der Sprung nach der Landung erneut ausgeführt wird.
     int dir = 0;
-    float dist = 0.5f;
+    float dist = 0.5f;  //Distanz ab welcher der Gegner stillsteht(X-Achse).
     bool dead = false;
 
     //ScriptVariables
     bool grounded = false;
     Rigidbody2D rb;
 
-    // Use this for initialization
+    //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -45,10 +44,8 @@ public class EnemyOoze : MonoBehaviour
         //FEAR, ENABLE TIRGGER COLLIDER FOR FEAR ...
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //Wenn der Gegner keine hp mehr hat oder tot ist, stirbt er
         if (dead)
         {
             Die();
@@ -59,33 +56,34 @@ public class EnemyOoze : MonoBehaviour
         }
     }
 
+    //FUNCTIONS------------------------------------------------------------------------------------------------------------
     //Movement des Gegners
     void Move()
     {
         if(grounded)
         {
-            jumpTimer += Time.deltaTime;
-            if(jumpTimer>jumpCD)
+            jumpTimer -= Time.deltaTime;
+            if(jumpTimer<=0)
             {
-                jumpTimer = 0;
+                jumpTimer = jumpCD;
                 rb.velocity = new Vector3(speed * dir, jumpHeight, 0);
             }
         }
     }
 
-    //Tod des Gegners
+    //Wenn der Gegner tot ist
     void Die()
     {
         //DieAnimation
         //Destroy Object
     }
 
-    //Collision Stay im Box-Collider (Trigger)
-    void OnTriggerStay2D(Collider2D other)
+    //Wenn der Player im Detection-Trigger ist, wird er aktiv und die Richtung festgelegt.
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            jumpHeight = jumpMax;
+            active = true;
             if (other.transform.position.x + dist < transform.position.x)
             {
                 dir = -1;
@@ -102,38 +100,24 @@ public class EnemyOoze : MonoBehaviour
     }
 
     //Collision Exit im Box-Collider (Trigger)
-    void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
 
         if (other.tag == "Player")
         {
-            jumpHeight = 0;
+            active = false;
             dir = 0;
         }
     }
 
-    //Collision Enter im Capsule-Collider
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            PlayerStats stats = collision.gameObject.GetComponent<PlayerStats>();
-            if (stats.dmgTimer >= stats.dmgCD)
-            {
-                stats.dmgTimer = 0;
-                stats.hp -= dmg;
-            }
-        }
-    }
-
-    //Collision Stay im Capsule-Collider
-    void OnCollisionStay2D(Collision2D collision)
+    //Check ob der Ooze am Boden ist oder nicht.
+    private void OnCollisionStay2D(Collision2D collision)
     {
         CheckIfGrounded();
     }
 
-    //Collision Exit im Capsule-Collider
-    void OnCollisionExit2D(Collision2D collision)
+    //Setzt grounded auf false bei Exit des Colliders
+    private void OnCollisionExit2D(Collision2D collision)
     {
         grounded = false;
     }

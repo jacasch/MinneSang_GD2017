@@ -19,17 +19,15 @@ public class EnemyDance : MonoBehaviour
     int fearRadius = 10;
 
     //Eigenschaften des Gegners.
-    int hp = 1;
-    float dmg = 1.5f;
+    bool active = false;
     float speed = 0;
-    float addSpeed = 0.05f;
+    float addSpeed = 0.05f;  //Beschleunigung des Speeds
     int maxSpeed = 8;
     int dir = 0;
-    float dist = 0.5f;
+    float dist = 0.5f;  //Distanz ab welcher der Gegner stillsteht (X-Achse)
     bool dead = false;
-    float deadTimer = 0;
-    float deadExpl = 0.5f;
-    float deadEnd = 1f;
+    float deadTimer = 1;  //Zeit Bis der Gegner verschwindet
+    float deadExpl = 0.5f;  //Zeit bis der Gegner explosion erzeugt (deadTimer - deadExpl = Effektive Zeit)
 
     //GameObjekt Explusion
     public GameObject explosion;
@@ -47,7 +45,7 @@ public class EnemyDance : MonoBehaviour
     {
         if(dead)
         {
-            deadTimer += Time.deltaTime;
+            deadTimer -= Time.deltaTime;
             Die();
         }
         else
@@ -65,28 +63,33 @@ public class EnemyDance : MonoBehaviour
     //Tod des Gegners
     void Die()
     {
-        if(deadTimer<deadExpl)
+        if(deadTimer>=deadExpl)
         {
             //PrepareExplusionAnimation
 
         } else
         {
-            print("Boom");
-
-            //Instanciate DanceExplusion -> DanceExplusion.dmg = dmg;
             Instantiate(explosion, transform.position, Quaternion.identity);
 
-            Destroy(gameObject);
-
-            if (deadTimer > deadEnd)
+            if (deadTimer > 0)
             {
                 Destroy(gameObject);
             }
         }
     }
 
+    //
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "DmgToEnemy" || collision.gameObject.tag == "PlayerCollision")
+        {
+            dead = true;
+        }
+
+    }
+
     //Collision Stay im Circle-Collider (Trigger)
-    void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
@@ -110,22 +113,13 @@ public class EnemyDance : MonoBehaviour
     }
 
     //Collision Exit im Circle-Collider (Trigger)
-    void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
 
         if (other.tag == "Player")
         {
             speed = 0;
             dir = 0;
-        }
-    }
-
-    //Collision Enter im Cube-Collider
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            dead = true;
         }
     }
 }

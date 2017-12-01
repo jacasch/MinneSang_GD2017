@@ -9,16 +9,15 @@ public class PlayerStats : MonoBehaviour
     bool dead = false;
 
     //Zeit bis erneut verwundbar nach eingegangenem Schaden
-    public float dmgTimer = 10;
+    public float dmgTimer = 0;
     public float dmgCD = 1.5f;
 
-	// Use this for initialization
+
 	void Start ()
     {
         //....
 	}
 
-    // Update is called once per frame
     void Update()
     {
         if (dead)
@@ -27,15 +26,22 @@ public class PlayerStats : MonoBehaviour
         }
         else
         {
-            if(dmgTimer<dmgCD)
+            if(dmgTimer>0)
             {
-                dmgTimer += Time.deltaTime;
-                print(dmgTimer);
-            }
-            else
-            {
-                print(hp);
+                dmgTimer -= Time.deltaTime;
             }
         }
 	}
+
+    //Wenn der Spieler im DMG des Gegners steht und er verwundbar ist, bekommt er Schaden und wird kurzzeitig unverwundbar
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (dmgTimer<=0 && collision.gameObject.tag == "DmgToPlayer")
+        {
+            hp -= collision.GetComponent<EnemyDMG>().dmg;
+            print(hp);
+            dmgTimer = dmgCD;
+            print(dmgTimer);
+        }
+    }
 }
