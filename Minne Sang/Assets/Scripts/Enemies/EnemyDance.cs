@@ -81,7 +81,7 @@ public class EnemyDance : MonoBehaviour
     //
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "DMG" || collision.gameObject.tag == "PlayerCollision")
+        if (collision.gameObject.tag == "DmgToEnemy" || collision.gameObject.tag == "PlayerCollision")
         {
             dead = true;
         }
