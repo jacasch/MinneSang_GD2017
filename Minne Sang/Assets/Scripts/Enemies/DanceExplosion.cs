@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class DanceExplosion : MonoBehaviour
 {
-    float dmg;
     float timer = 0.5f;
 
 	// Use this for initialization
 	void Start ()
     {
-		
+        gameObject.layer = 0;
 	}
 	
 	// Update is called once per frame
@@ -22,17 +21,4 @@ public class DanceExplosion : MonoBehaviour
             Destroy(gameObject);
         }
 	}
-
-    void OnTriggerStay2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            PlayerStats stats = collision.gameObject.GetComponent<PlayerStats>();
-            if (stats.dmgTimer >= stats.dmgCD)
-            {
-                stats.dmgTimer = 0;
-                stats.hp -= dmg;
-            }
-        }
-    }
 }

@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 212606800680300548}
   - component: {fileID: 58544116250679748}
   - component: {fileID: 114259079706433764}
-  m_Layer: 0
+  - component: {fileID: 114407600452361412}
+  m_Layer: 11
   m_Name: DanceExplosion
-  m_TagString: Untagged
+  m_TagString: DMG
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,6 +69,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91fcb1c88885406428cd055fcf70c35d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114407600452361412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1301026462000042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da64b27c52b15ac4eac17e7fedff1e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 2
 --- !u!212 &212606800680300548
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
     bool dead = false;
 
     //Zeit bis erneut verwundbar nach eingegangenem Schaden
-    public float dmgTimer = 10;
+    public float dmgTimer = 0;
     public float dmgCD = 1.5f;
 
 	// Use this for initialization
@@ -27,15 +27,21 @@ public class PlayerStats : MonoBehaviour
         }
         else
         {
-            if(dmgTimer<dmgCD)
+            if(dmgTimer>0)
             {
-                dmgTimer += Time.deltaTime;
-                print(dmgTimer);
-            }
-            else
-            {
-                print(hp);
+                dmgTimer -= Time.deltaTime;
             }
         }
 	}
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (dmgTimer<=0 && collision.gameObject.tag == "DMG")
+        {
+            hp -= collision.GetComponent<EnemyDMG>().dmg;
+            print(hp);
+            dmgTimer = dmgCD;
+            print(dmgTimer);
+        }
+    }
 }
