@@ -60,6 +60,7 @@ public class PlayerStats : MonoBehaviour
             print(dmgTimer);
             knockbackTimer = enemyDMG.knockback;
             rb.velocity = new Vector3(10*dir, 0, 0);
+            print(enemyDMG.knockback);
         }
     }
 }

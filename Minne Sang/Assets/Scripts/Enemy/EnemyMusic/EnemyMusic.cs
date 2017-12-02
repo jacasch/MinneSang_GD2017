@@ -21,7 +21,7 @@ public class EnemyMusic : MonoBehaviour
     //Eigenschaften des Gegners.
     int hp = 4;  //HP des Gegners
     int speed = 1;  //Speed des Gegners
-    float dist = 1.5f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
+    float dist = 1f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float walkDist = 0.5f;  //Zeit die der Gegner zwischen den Schritten sich vorwärtz bewegt
     float walkCD = 2;  //Zeit bis zum nächsten Schritt
 
