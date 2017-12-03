@@ -37,6 +37,7 @@ public class EnemyMusicStomp : MonoBehaviour
     }
 
     //FUNCTIONS------------------------------------------------------------------------------------------------------------
+    //Vergrössert den collider des Stomps
     void colSize()
     {
         if(length<lengthMax)

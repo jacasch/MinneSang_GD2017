@@ -11,7 +11,7 @@ public class EnemyPaintShot : MonoBehaviour
     public float velocity;
     Rigidbody2D rb2d;
 
-    // Use this for initialization
+    //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
         gameObject.layer = 0;
@@ -28,14 +28,10 @@ public class EnemyPaintShot : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        Move();
     }
 
-    void Move()
-    {
-        //transform.Translate(Vector3.right*speed * Time.deltaTime);
-    }
-
+    //FUNCTIONS------------------------------------------------------------------------------------------------------------
+    //Prüfung der Collision
     private void OnTriggerStay2D(Collider2D other)
     {
         if(other.tag != "Enemy" && other.tag != "DmgToPlayer" && other.tag != "Detection")

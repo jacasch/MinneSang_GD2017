@@ -25,7 +25,8 @@ public class EnemyPaint : MonoBehaviour
 
     //Player GameObject
     bool active = false;
-    int dir = 0;
+    bool move = false;
+    int dir = 1;
     float shootTimer = 0;
     bool dead = false;
     GameObject objPlayer;
@@ -48,7 +49,10 @@ public class EnemyPaint : MonoBehaviour
         }
         else if(active)
         {
-            Move();
+            if(move)
+            {
+                Move();
+            }
             Attack();
         }
         if (shootTimer >= 0)
@@ -105,14 +109,16 @@ public class EnemyPaint : MonoBehaviour
             if (other.transform.position.x + dist < transform.position.x)
             {
                 dir = -1;
+                move = true;
             }
             else if (other.transform.position.x - dist > transform.position.x)
             {
                 dir = 1;
+                move = true;
             }
             else
             {
-                dir = 0;
+                move = false;
             }
         }
     }

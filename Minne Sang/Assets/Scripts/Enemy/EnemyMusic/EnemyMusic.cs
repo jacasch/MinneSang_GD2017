@@ -27,7 +27,8 @@ public class EnemyMusic : MonoBehaviour
 
     //ScriptVariables
     bool active = false;
-    int dir = 0;
+    bool move = false;
+    int dir = 1;
     float walkTimer = 0;
     bool stomp = false;
     bool dead = false;
@@ -49,7 +50,10 @@ public class EnemyMusic : MonoBehaviour
         }
         else if(active)
         {
-            Move();
+            if(move)
+            {
+                Move();
+            }
             Attack();
         }
     }
@@ -105,14 +109,16 @@ public class EnemyMusic : MonoBehaviour
             if (other.transform.position.x + dist < transform.position.x)
             {
                 dir = -1;
+                move = true;
             }
             else if (other.transform.position.x - dist > transform.position.x)
             {
                 dir = 1;
+                move = true;
             }
             else
             {
-                dir = 0;
+                move = false;
             }
         }
     }

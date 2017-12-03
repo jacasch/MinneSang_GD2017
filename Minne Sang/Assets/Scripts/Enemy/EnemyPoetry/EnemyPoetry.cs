@@ -75,7 +75,7 @@ public class EnemyPoetry : MonoBehaviour
             }
             else
             {
-                dir = 0;
+                //dir = 0; move = false;
             }
         }
     }

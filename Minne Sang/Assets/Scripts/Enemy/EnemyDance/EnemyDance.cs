@@ -28,7 +28,8 @@ public class EnemyDance : MonoBehaviour
 
     //ScriptVariables
     bool active = false;
-    int dir = 0;
+    bool move = false;
+    int dir = 1;
     bool dead = false;
     public GameObject explosion;
 
@@ -50,7 +51,10 @@ public class EnemyDance : MonoBehaviour
         }
         else if(active)
         {
-            Move();
+            if (move)
+            {
+                Move();
+            }
         }
     }
 
@@ -102,14 +106,16 @@ public class EnemyDance : MonoBehaviour
             if (other.transform.position.x + dist < transform.position.x)
             {
                 dir = -1;
+                move = true;
             }
             else if (other.transform.position.x - dist > transform.position.x)
             {
                 dir = 1;
+                move = true;
             }
             else
             {
-                dir = 0;
+                move = false;
             }
         }
     }
