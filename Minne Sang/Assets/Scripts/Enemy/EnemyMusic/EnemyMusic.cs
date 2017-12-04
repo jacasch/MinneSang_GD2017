@@ -28,6 +28,7 @@ public class EnemyMusic : MonoBehaviour
     bool move = false;
     int dir = 1;
     float walkTimer = 0;
+    float stunTimer = 0;
     bool stomp = false;
     bool dead = false;
     public GameObject objStomp;
@@ -43,6 +44,11 @@ public class EnemyMusic : MonoBehaviour
         if (dead)
         {
             Die();
+        }
+        else if (stunTimer > 0)
+        {
+            //Stun Animation
+            stunTimer -= Time.deltaTime;
         }
         else if(active)
         {
@@ -94,6 +100,20 @@ public class EnemyMusic : MonoBehaviour
         //DieAnimation
         //...
         //Destroy Object
+    }
+
+    //Wenn der Player den Gegner angreift
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "DmgToEnemy")
+        {
+            hp -= 1;
+            print("ENEMY HP: " + hp);
+            if(hp<=0)
+            {
+                dead = true;
+            }
+        }
     }
 
     //Wenn der Player im Detection-Trigger ist, wird er aktiv und die Richtung festgelegt.

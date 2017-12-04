@@ -28,6 +28,7 @@ public class EnemyOoze : MonoBehaviour
     bool grounded = false;
     float jumpTimer = 0;
     int dir = 0;
+    float stunTimer = 0;
     bool dead = false;
     Rigidbody2D rb;
 
@@ -45,6 +46,11 @@ public class EnemyOoze : MonoBehaviour
         if (dead)
         {
             Die();
+        }
+        else if (stunTimer > 0)
+        {
+            //Stun Animation
+            stunTimer -= Time.deltaTime;
         }
         else if(active)
         {

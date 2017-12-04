@@ -22,6 +22,7 @@ public class EnemyPoetry : MonoBehaviour
     float speed = 0.5f;
     int dir = 0;
     float dist = 0;
+    float stunTimer = 0;
     bool dead = false;
 
     // Use this for initialization
@@ -39,6 +40,11 @@ public class EnemyPoetry : MonoBehaviour
         if (dead)
         {
             Die();
+        }
+        else if (stunTimer > 0)
+        {
+            //Stun Animation
+            stunTimer -= Time.deltaTime;
         }
         else
         {

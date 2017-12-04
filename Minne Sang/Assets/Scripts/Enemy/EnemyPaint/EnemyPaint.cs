@@ -24,6 +24,7 @@ public class EnemyPaint : MonoBehaviour
     bool move = false;
     int dir = 1;
     float shootTimer = 0;
+    float stunTimer = 0;
     bool dead = false;
     GameObject objPlayer;
     public GameObject objShot;
@@ -39,6 +40,11 @@ public class EnemyPaint : MonoBehaviour
         if (dead)
         {
             Die();
+        }
+        else if (stunTimer > 0)
+        {
+            //Stun Animation
+            stunTimer -= Time.deltaTime;
         }
         else if(active)
         {

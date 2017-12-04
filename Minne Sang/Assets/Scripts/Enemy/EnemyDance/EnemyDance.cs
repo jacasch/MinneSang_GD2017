@@ -28,6 +28,7 @@ public class EnemyDance : MonoBehaviour
     bool active = false;
     bool move = false;
     int dir = 1;
+    float stunTimer;
     bool dead = false;
     public GameObject explosion;
 
@@ -44,6 +45,11 @@ public class EnemyDance : MonoBehaviour
         {
             deadTimer -= Time.deltaTime;
             Die();
+        }
+        else if(stunTimer>0)
+        {
+            //Stun Animation
+            stunTimer -= Time.deltaTime;
         }
         else if(active)
         {
@@ -79,14 +85,13 @@ public class EnemyDance : MonoBehaviour
         }
     }
 
-    //Wenn der Player den Gegner berührt oder angreift
+    //Wenn der Player den Gegner angreift oder berührt
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "DmgToEnemy" || collision.gameObject.tag == "PlayerCollision")
         {
             dead = true;
         }
-
     }
 
     //Wenn der Player im Detection-Trigger ist, wird er aktiv und die Richtung festgelegt.
