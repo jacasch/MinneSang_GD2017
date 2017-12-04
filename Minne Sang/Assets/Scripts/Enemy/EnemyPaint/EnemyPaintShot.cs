@@ -7,25 +7,36 @@ public class EnemyPaintShot : MonoBehaviour
     float liveTime = 5;
     float speed = 5;
 
-	// Use this for initialization
-	void Start ()
+    public Vector3 direction;
+    public float velocity;
+    Rigidbody2D rb2d;
+
+    //MAIN-----------------------------------------------------------------------------------------------------------------
+    void Start ()
     {
-		
-	}
+        gameObject.layer = 0;
+        direction.z = 0;
+        direction = direction.normalized;
+        rb2d = GetComponent<Rigidbody2D>();
+        rb2d.velocity = direction * velocity;
+    }
 
     void Update()
     {
-        Move();
+        liveTime -= Time.deltaTime;
+        if(liveTime<=0)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    void Move()
-    {
-        transform.Translate(Vector3.forward*speed * Time.deltaTime);
-        //transform.Translate(speed * Time.deltaTime, 0, 0);
-    }
-
+    //FUNCTIONS------------------------------------------------------------------------------------------------------------
+    //Prüfung der Collision
     private void OnTriggerStay2D(Collider2D other)
     {
-        Destroy(gameObject);
+        if(other.tag != "Enemy" && other.tag != "DmgToPlayer" && other.tag != "Detection")
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -18,19 +18,21 @@ public class EnemyPaint : MonoBehaviour
     int fearRadius = 10;
 
     //Eigenschaften des Gegners.
-    bool active = false;
-    int hp = 2;
-    int speed = 2;
-    int dir = 0;
-    float dist = 8;
-    float shootTimer = 0;
-    float shootCD = 2;
-    bool dead = false;
+    int hp = 2;  //HP des Gegners
+    int speed = 2;  //Speed des Gegners
+    float dist = 8;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
+    float shootCD = 1.5f;  //Cooldown des Schusses
 
     //Player GameObject
+    bool active = false;
+    bool move = false;
+    int dir = 1;
+    float shootTimer = 0;
+    bool dead = false;
     GameObject objPlayer;
     public GameObject objShot;
 
+    //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
         //STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
@@ -47,11 +49,19 @@ public class EnemyPaint : MonoBehaviour
         }
         else if(active)
         {
-            Move();
+            if(move)
+            {
+                Move();
+            }
             Attack();
+        }
+        if (shootTimer >= 0)
+        {
+            shootTimer -= Time.deltaTime;
         }
     }
 
+    //FUNCTIONS------------------------------------------------------------------------------------------------------------
     //Movement des Gegners
     void Move()
     {
@@ -61,19 +71,16 @@ public class EnemyPaint : MonoBehaviour
     //Attacke des Gegners
     void Attack()
     {
-        if(shootTimer>0)
+        if(shootTimer < 0)
         {
-            shootTimer -= Time.deltaTime;
+            Vector3 objPos = transform.position;
+            float dirX = objPlayer.transform.position.x - transform.position.x;
+            float dirY = objPlayer.transform.position.y - transform.position.y;;
+            GameObject instance = Instantiate(objShot, objPos, transform.rotation) as GameObject;
+            instance.GetComponent<EnemyPaintShot>().direction = new Vector3(dirX, dirY, 0);
+            instance.layer = 0;
+            shootTimer = shootCD;
         }
-        if (shootTimer <= 0)
-        {
-            Vector3 relativePos = objPlayer.transform.position - transform.position;
-            relativePos.x = 0;
-            relativePos.y = 0;
-            relativePos.z = 0;
-            Instantiate(objShot, transform.position, Quaternion.LookRotation(relativePos));
-        }
-
     }
 
     //Tod des Gegners
@@ -93,6 +100,7 @@ public class EnemyPaint : MonoBehaviour
         }
     }
 
+    //Wenn der Player im Detection-Trigger ist, wird er aktiv und die Richtung festgelegt.
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
@@ -101,25 +109,27 @@ public class EnemyPaint : MonoBehaviour
             if (other.transform.position.x + dist < transform.position.x)
             {
                 dir = -1;
+                move = true;
             }
             else if (other.transform.position.x - dist > transform.position.x)
             {
                 dir = 1;
+                move = true;
             }
             else
             {
-                dir = 0;
+                move = false;
             }
         }
     }
 
+    //Wenn Spieler nicht mehr in Reichweite wird er deaktiviert
     private void OnTriggerExit2D(Collider2D other)
     {
 
         if (other.tag == "Player")
         {
             active = false;
-            dir = 0;
         }
     }
 }

@@ -19,20 +19,21 @@ public class EnemyDance : MonoBehaviour
     int fearRadius = 10;
 
     //Eigenschaften des Gegners.
-    bool active = false;
-    float speed = 0;
-    float addSpeed = 0.05f;  //Beschleunigung des Speeds
-    int maxSpeed = 8;
-    int dir = 0;
+    float speed = 0;  //Wirdd im Script laufend erhöht
+    float addSpeed = 0.05f;  //Erhöhung des Speeds
+    int maxSpeed = 8;  //Maximaler Speed
     float dist = 0.5f;  //Distanz ab welcher der Gegner stillsteht (X-Achse)
-    bool dead = false;
     float deadTimer = 1;  //Zeit Bis der Gegner verschwindet
     float deadExpl = 0.5f;  //Zeit bis der Gegner explosion erzeugt (deadTimer - deadExpl = Effektive Zeit)
 
-    //GameObjekt Explusion
+    //ScriptVariables
+    bool active = false;
+    bool move = false;
+    int dir = 1;
+    bool dead = false;
     public GameObject explosion;
 
-    // Use this for initialization
+    //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
     {
         //StealthShader
@@ -48,12 +49,16 @@ public class EnemyDance : MonoBehaviour
             deadTimer -= Time.deltaTime;
             Die();
         }
-        else
+        else if(active)
         {
-            Move();
+            if (move)
+            {
+                Move();
+            }
         }
     }
 
+    //FUNCTIONS------------------------------------------------------------------------------------------------------------
     //Movement des Gegners
     void Move()
     {
@@ -78,7 +83,7 @@ public class EnemyDance : MonoBehaviour
         }
     }
 
-    //
+    //Wenn der Player den Gegner berührt oder angreift
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "DmgToEnemy" || collision.gameObject.tag == "PlayerCollision")
@@ -88,11 +93,12 @@ public class EnemyDance : MonoBehaviour
 
     }
 
-    //Collision Stay im Circle-Collider (Trigger)
+    //Wenn der Player im Detection-Trigger ist, wird er aktiv und die Richtung festgelegt.
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
+            active = true;
             if (speed < maxSpeed)
             {
                 speed += addSpeed;
@@ -100,26 +106,28 @@ public class EnemyDance : MonoBehaviour
             if (other.transform.position.x + dist < transform.position.x)
             {
                 dir = -1;
+                move = true;
             }
             else if (other.transform.position.x - dist > transform.position.x)
             {
                 dir = 1;
+                move = true;
             }
             else
             {
-                dir = 0;
+                move = false;
             }
         }
     }
 
-    //Collision Exit im Circle-Collider (Trigger)
+    //Wenn Spieler nicht mehr in Reichweite wird er deaktiviert und Speed auf 0 gesetzt
     private void OnTriggerExit2D(Collider2D other)
     {
 
         if (other.tag == "Player")
         {
+            active = false;
             speed = 0;
-            dir = 0;
         }
     }
 }
