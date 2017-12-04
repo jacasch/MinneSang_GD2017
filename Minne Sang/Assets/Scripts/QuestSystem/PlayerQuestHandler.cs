@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerQuestHandler : MonoBehaviour {
     public string activeQuest;
+    public int activeAct;
     public List<string> missingItems = new List<string>();
     public List<string> collectedItems = new List<string>();
-
 	// Use this for initialization
 	void Start () {
 		

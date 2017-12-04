@@ -49,7 +49,7 @@ public class PlayerController : PhysicsObject {
             groundNormal = Vector2.up;
         }
 
-        if (Input.GetButtonDown("Dash"))
+        if (Input.GetButtonDown("Dash") && !inNpcZone)
         {
             dashing = true;
             tr.enabled = true;
