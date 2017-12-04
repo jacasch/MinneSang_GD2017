@@ -13,10 +13,8 @@ public class EnemyDance : MonoBehaviour
     Attack: Explodiert bei Kollision mit dem Player oder wenn er stirbt.
     */
 
-    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' oder 'Fear' beherscht.
+    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
     public bool stealth = false;
-    public bool fear = false;
-    int fearRadius = 10;
 
     //Eigenschaften des Gegners.
     float speed = 0;  //Wirdd im Script laufend erhöht
@@ -30,6 +28,7 @@ public class EnemyDance : MonoBehaviour
     bool active = false;
     bool move = false;
     int dir = 1;
+    float stunTimer;
     bool dead = false;
     public GameObject explosion;
 
@@ -37,8 +36,6 @@ public class EnemyDance : MonoBehaviour
     void Start()
     {
         //StealthShader
-        //IF FEAR, SHOW PARTICLE EFFECT ...
-        //IF FEAR, ENABLE TIRGGER COLLIDER FOR FEAR ...
     }
 
     // Update is called once per frame
@@ -48,6 +45,11 @@ public class EnemyDance : MonoBehaviour
         {
             deadTimer -= Time.deltaTime;
             Die();
+        }
+        else if(stunTimer>0)
+        {
+            //Stun Animation
+            stunTimer -= Time.deltaTime;
         }
         else if(active)
         {
@@ -83,14 +85,13 @@ public class EnemyDance : MonoBehaviour
         }
     }
 
-    //Wenn der Player den Gegner berührt oder angreift
+    //Wenn der Player den Gegner angreift oder berührt
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "DmgToEnemy" || collision.gameObject.tag == "PlayerCollision")
         {
             dead = true;
         }
-
     }
 
     //Wenn der Player im Detection-Trigger ist, wird er aktiv und die Richtung festgelegt.

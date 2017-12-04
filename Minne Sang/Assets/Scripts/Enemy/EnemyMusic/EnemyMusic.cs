@@ -13,10 +13,8 @@ public class EnemyMusic : MonoBehaviour
     Attack: Stampft beim gehen auf den Boden, Schaden und Knockback durch Druckwelle.
     */
 
-    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' oder 'Fear' beherscht.
+    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
     public bool stealth = false;
-    public bool fear = false;
-    int fearRadius = 10;
 
     //Eigenschaften des Gegners.
     int hp = 4;  //HP des Gegners
@@ -30,6 +28,7 @@ public class EnemyMusic : MonoBehaviour
     bool move = false;
     int dir = 1;
     float walkTimer = 0;
+    float stunTimer = 0;
     bool stomp = false;
     bool dead = false;
     public GameObject objStomp;
@@ -38,8 +37,6 @@ public class EnemyMusic : MonoBehaviour
     void Start ()
     {
         //IF STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
-        //IF FEAR, SHOW PARTICLE EFFECT ...
-        //IF FEAR, ENABLE TIRGGER COLLIDER FOR FEAR ...
     }
 
     void Update ()
@@ -47,6 +44,11 @@ public class EnemyMusic : MonoBehaviour
         if (dead)
         {
             Die();
+        }
+        else if (stunTimer > 0)
+        {
+            //Stun Animation
+            stunTimer -= Time.deltaTime;
         }
         else if(active)
         {
@@ -98,6 +100,20 @@ public class EnemyMusic : MonoBehaviour
         //DieAnimation
         //...
         //Destroy Object
+    }
+
+    //Wenn der Player den Gegner angreift
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "DmgToEnemy")
+        {
+            hp -= 1;
+            print("ENEMY HP: " + hp);
+            if(hp<=0)
+            {
+                dead = true;
+            }
+        }
     }
 
     //Wenn der Player im Detection-Trigger ist, wird er aktiv und die Richtung festgelegt.

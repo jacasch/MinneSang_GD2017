@@ -13,10 +13,6 @@ public class EnemyPaint : MonoBehaviour
     Attack: Schiesst auf den Spieler (Gerader, langsamer Schuss).
     */
 
-    //Bestimmt, ob der Gegner die Fähigkeit 'Fear' beherscht.
-    public bool fear = false;
-    int fearRadius = 10;
-
     //Eigenschaften des Gegners.
     int hp = 2;  //HP des Gegners
     int speed = 2;  //Speed des Gegners
@@ -28,6 +24,7 @@ public class EnemyPaint : MonoBehaviour
     bool move = false;
     int dir = 1;
     float shootTimer = 0;
+    float stunTimer = 0;
     bool dead = false;
     GameObject objPlayer;
     public GameObject objShot;
@@ -36,9 +33,6 @@ public class EnemyPaint : MonoBehaviour
     void Start ()
     {
         //STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
-
-        //IF FEAR, SHOW PARTICLE EFFECT ...
-        //IF FEAR, ENABLE TIRGGER COLLIDER FOR FEAR ...
     }
 
     void Update ()
@@ -46,6 +40,11 @@ public class EnemyPaint : MonoBehaviour
         if (dead)
         {
             Die();
+        }
+        else if (stunTimer > 0)
+        {
+            //Stun Animation
+            stunTimer -= Time.deltaTime;
         }
         else if(active)
         {
