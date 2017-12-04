@@ -11,7 +11,6 @@ public class PlayerStats : MonoBehaviour
     //Zeit bis erneut verwundbar nach eingegangenem Schaden
     public float dmgTimer = 0;
     public float dmgCD = 1.5f;
-    float knockbackTimer = 0;
     Rigidbody2D rb;
 
 
@@ -22,14 +21,6 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
-        if(knockbackTimer<0)
-        {
-            rb.velocity = new Vector3(0, 0, 0);
-        }
-        else
-        {
-            knockbackTimer -= Time.deltaTime;
-        }
         if (dead)
         {
             //WHAT-EVER...
@@ -58,9 +49,9 @@ public class PlayerStats : MonoBehaviour
             print(hp);
             dmgTimer = dmgCD;
             print(dmgTimer);
-            knockbackTimer = enemyDMG.knockback;
-            rb.velocity = new Vector3(10*dir, 0, 0);
+            rb.velocity = new Vector3(enemyDMG.knockback*dir, enemyDMG.knockback, 0);
             print(enemyDMG.knockback);
+            enemyDMG.timer = enemyDMG.dmgTime;
         }
     }
 }
