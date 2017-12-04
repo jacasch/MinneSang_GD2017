@@ -80,7 +80,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 1
-  knockback: 1
+  dmgTime: 0
+  knockback: 1.75
+  timer: 0
 --- !u!114 &114911077579988360
 MonoBehaviour:
   m_ObjectHideFlags: 1

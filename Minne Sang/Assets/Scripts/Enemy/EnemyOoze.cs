@@ -13,10 +13,8 @@ public class EnemyOoze : MonoBehaviour
     Attack: Bei Berührung gibt es Schaden.
     */
 
-    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' oder 'Fear' beherscht.
+    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
     public bool stealth = false;
-    public bool fear = false;
-    int fearRadius = 10;
 
     //Eigenschaften des Gegners. (DMG ist untergeordnet in OozeDMG festgelegt!)
     int hp = 2;  //HP des Gegners
@@ -40,9 +38,6 @@ public class EnemyOoze : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         //IF STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
-
-        //FEAR, SHOW PARTICLE EFFECT ...
-        //FEAR, ENABLE TIRGGER COLLIDER FOR FEAR ...
     }
 
     void Update()

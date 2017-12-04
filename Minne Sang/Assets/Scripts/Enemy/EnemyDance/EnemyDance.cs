@@ -13,10 +13,8 @@ public class EnemyDance : MonoBehaviour
     Attack: Explodiert bei Kollision mit dem Player oder wenn er stirbt.
     */
 
-    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' oder 'Fear' beherscht.
+    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
     public bool stealth = false;
-    public bool fear = false;
-    int fearRadius = 10;
 
     //Eigenschaften des Gegners.
     float speed = 0;  //Wirdd im Script laufend erhöht
@@ -37,8 +35,6 @@ public class EnemyDance : MonoBehaviour
     void Start()
     {
         //StealthShader
-        //IF FEAR, SHOW PARTICLE EFFECT ...
-        //IF FEAR, ENABLE TIRGGER COLLIDER FOR FEAR ...
     }
 
     // Update is called once per frame

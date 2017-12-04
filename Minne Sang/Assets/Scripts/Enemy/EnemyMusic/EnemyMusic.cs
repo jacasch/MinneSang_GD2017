@@ -13,10 +13,8 @@ public class EnemyMusic : MonoBehaviour
     Attack: Stampft beim gehen auf den Boden, Schaden und Knockback durch Druckwelle.
     */
 
-    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' oder 'Fear' beherscht.
+    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
     public bool stealth = false;
-    public bool fear = false;
-    int fearRadius = 10;
 
     //Eigenschaften des Gegners.
     int hp = 4;  //HP des Gegners
@@ -38,8 +36,6 @@ public class EnemyMusic : MonoBehaviour
     void Start ()
     {
         //IF STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
-        //IF FEAR, SHOW PARTICLE EFFECT ...
-        //IF FEAR, ENABLE TIRGGER COLLIDER FOR FEAR ...
     }
 
     void Update ()

@@ -14,7 +14,7 @@ public class EnemyDMG : MonoBehaviour
     {
         if(timer>=0)
         {
-            timer--;
+            timer-= Time.deltaTime;
         }
     }
 }
