@@ -47,11 +47,11 @@ public class PlayerStats : MonoBehaviour
             {
                 //DMG to player
                 hp -= enemyDMG.dmg;
-                print("HP: " + hp);
+                //print("HP: " + hp);
 
                 //UnverwundbarkeitsTimer
                 dmgTimer = dmgCD;
-                print("Timer: " + dmgTimer);
+                //print("Timer: " + dmgTimer);
 
                 //Knockback
                 if (collision.transform.position.x > transform.position.x)
@@ -59,7 +59,7 @@ public class PlayerStats : MonoBehaviour
                     dir = -1;
                 }
                 GetComponent<PlayerController>().KnockBack(enemyDMG.knockback * dir);
-                print("Knockback: " + enemyDMG.knockback);
+                //print("Knockback: " + enemyDMG.knockback);
 
                 //Timer bis Gegner erneut Schaden verursachen kann
                 enemyDMG.timer = enemyDMG.dmgTime;
