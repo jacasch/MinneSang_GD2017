@@ -47,7 +47,7 @@ public class PlayerStats : MonoBehaviour
             {
                 //DMG to player
                 hp -= enemyDMG.dmg;
-                //print("HP: " + hp);
+                print("HP: " + hp);
 
                 //UnverwundbarkeitsTimer
                 dmgTimer = dmgCD;

@@ -17,12 +17,12 @@ public class EnemyMusic : MonoBehaviour
     public bool stealth = false;
 
     //Eigenschaften des Gegners.
-    int hp = 4;  //HP des Gegners
+    int hp = 5;  //HP des Gegners
     int speed = 1;  //Speed des Gegners
     float dist = 1f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float walkDist = 0.5f;  //Zeit die der Gegner zwischen den Schritten sich vorwärtz bewegt
     float walkCD = 1f; //Zeit bis zum nächsten Schritt
-    float timeStunned = 5f;
+    float timeStunned = 3f;
 
     //ScriptVariables
     bool active = false;
