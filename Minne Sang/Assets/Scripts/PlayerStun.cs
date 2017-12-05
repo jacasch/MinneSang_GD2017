@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStun : MonoBehaviour
 {
     int dir = 1;
-    float distPlayer = 2.5f;  //Front
+    float distPlayer = 2.75f;  //Front
     float stunTimer;
     float stunDuration = 0.15f;
     float repeatCD = 2f;
