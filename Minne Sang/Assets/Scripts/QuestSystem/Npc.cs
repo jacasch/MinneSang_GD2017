@@ -1,42 +1,55 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Npc : MonoBehaviour {
-    public string relatedQuest;
-    public Phrase[] questDialogue;    
-    public Item questDrop;
+    public Phrase[] questDialogue;
     public Phrase[] randomLines;
-    public float talkDelay = 3f;
 
+
+    private float talkDelay = 1.5f;
+    private float lastTalk;
+    private GameObject textObject; //BUG: nullpointer error after player leaves interactionzone
+    private Text textBox;
+    private RectTransform textTransform;
     private bool inRange = false;
     private bool interacting = false;
-    private GameObject player;
+
+    [HideInInspector]
+    public GameObject player;
+    [HideInInspector]
+    public Phrase activePhrase;
+    [HideInInspector]
+    public int activePhraseIndex;
+
 
     // Use this for initialization
     void Start () {
-		
+        textObject = GetComponentInChildren<Text>().gameObject;
+        textBox = textObject.GetComponent<Text>();
+        textTransform = textObject.GetComponent<RectTransform>();
+        textObject.SetActive(false);
+        activePhrase = randomLines[0];
+        Initialize();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (inRange) {
+            Talk(activePhrase);
             //check for interaction input
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButton("Jump"))
             {
-                interacting = true;
-                if (player.GetComponent<PlayerQuestHandler>().activeQuest == relatedQuest)
+                if (!interacting)
                 {
-                    //start dialogue                    
-                    Debug.Log("QuestDialogue");
-                    //drop item
-                }
-                else
-                {
-                    //random line
-                    Debug.Log("RandomLine");
+                    StartInteraction();
                 }
             }
+        }
+
+        if (interacting) {
+            Interact();
         }
 	}
 
@@ -46,7 +59,6 @@ public class Npc : MonoBehaviour {
         {
             inRange = true;
             player = collision.gameObject;
-            Camera.main.GetComponent<CameraMovement>().ZoomIn(new Vector2(transform.position.x, transform.position.y));
         }
     }
 
@@ -54,12 +66,57 @@ public class Npc : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            inRange = false;
-            Camera.main.GetComponent<CameraMovement>().ZoomOut();
+            EndInteraction();
         }
     }
 
-    private void Talk(Phrase phrase,bool self) {
-        //
+    private void Talk(Phrase phrase) {
+        lastTalk += Time.deltaTime;
+        textBox.text = phrase.text;
+        GameObject worldObject = phrase.spokenByNpc ? gameObject : player;
+
+        Vector2 viewportPosition = Camera.main.WorldToViewportPoint(worldObject.transform.position);
+        Vector2 WorldObject_ScreenPosition = new Vector2(
+        (viewportPosition.x * Screen.width),
+        (viewportPosition.y * Screen.height));
+        /*Vector2 WorldObject_ScreenPosition = new Vector2(
+        ((viewportPosition.x * textTransform.sizeDelta.x) - (textTransform.sizeDelta.x * 0.5f)),
+        ((viewportPosition.y * textTransform.sizeDelta.y) - (textTransform.sizeDelta.y * 0.5f)));*/
+
+        textTransform.anchoredPosition = WorldObject_ScreenPosition + new Vector2(0, Screen.height/3);
+    }
+
+    private void StartInteraction() {
+        activePhraseIndex = 0;
+        NextPhrase();   
+        interacting = true;
+        Camera.main.GetComponent<CameraMovement>().ZoomIn(transform.position);
+        textObject.SetActive(true);
+        lastTalk = 0;
+    }
+
+    private void Interact() {
+        Talk(activePhrase);
+        //check if we are ready to check for the next phrase
+        if (lastTalk > talkDelay) {
+            //check for input
+            if (Input.GetButtonDown("Jump")) {
+                //change phrase depending on stuff ^^
+                NextPhrase();
+            }
+        }
+    }
+
+    public virtual void Initialize() {
+    }
+
+    public virtual void NextPhrase() {
+    }
+
+    public void EndInteraction() {
+        inRange = false;
+        interacting = false;
+        Camera.main.GetComponent<CameraMovement>().ZoomOut();
+        textObject.SetActive(false);
     }
 }

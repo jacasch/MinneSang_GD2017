@@ -13,25 +13,25 @@ public class EnemyOoze : MonoBehaviour
     Attack: Bei Berührung gibt es Schaden.
     */
 
-    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' oder 'Fear' beherscht.
+    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
     public bool stealth = false;
-    public bool fear = false;
-    int fearRadius = 10;
 
     //Eigenschaften des Gegners. (DMG ist untergeordnet in OozeDMG festgelegt!)
-    bool active = false;
-    int hp = 2;
-    int speed = 5;
+    int hp = 2;  //HP des Gegners
+    int speed = 5;  //Geschwindigkeit des Gegners
     int jumpHeight = 7;  //Sprunghöhe
-    float jumpTimer = 0;
-    float jumpCD = 0.2f;  //Zeit bis der Sprung nach der Landung erneut ausgeführt wird.
-    int dir = 0;
-    float dist = 0.5f;  //Distanz ab welcher der Gegner stillsteht(X-Achse).
-    bool dead = false;
+    float jumpCD = 0.2f;  //Zeit bis der Sprung nach der Landung erneut ausgeführt wird
+    float dist = 0.5f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
 
     //ScriptVariables
+    bool active = false;
     bool grounded = false;
+    float jumpTimer = 0;
+    int dir = 0;
+    float stunTimer = 0;
+    bool dead = false;
     Rigidbody2D rb;
+
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
@@ -39,9 +39,6 @@ public class EnemyOoze : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         //IF STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
-
-        //FEAR, SHOW PARTICLE EFFECT ...
-        //FEAR, ENABLE TIRGGER COLLIDER FOR FEAR ...
     }
 
     void Update()
@@ -50,7 +47,12 @@ public class EnemyOoze : MonoBehaviour
         {
             Die();
         }
-        else
+        else if (stunTimer > 0)
+        {
+            //Stun Animation
+            stunTimer -= Time.deltaTime;
+        }
+        else if(active)
         {
             Move();
         }
@@ -99,24 +101,23 @@ public class EnemyOoze : MonoBehaviour
         }
     }
 
-    //Collision Exit im Box-Collider (Trigger)
+    //Wenn Spieler nicht mehr in Reichweite wird er deaktiviert
     private void OnTriggerExit2D(Collider2D other)
     {
 
         if (other.tag == "Player")
         {
             active = false;
-            dir = 0;
         }
     }
 
-    //Check ob der Ooze am Boden ist oder nicht.
+    //Check ob der Gegner am Boden ist oder nicht.
     private void OnCollisionStay2D(Collision2D collision)
     {
         CheckIfGrounded();
     }
 
-    //Setzt grounded auf false bei Exit des Colliders
+    //Setzt grounded auf false beim verlassen des Colliders
     private void OnCollisionExit2D(Collision2D collision)
     {
         grounded = false;

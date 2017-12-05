@@ -6,7 +6,9 @@ public class PlayerController : PhysicsObject {
     public float jumpTakeOffSpeed = 7f;
     public float maxSpeed = 7;
     public float dashDuration = 0.5f;
+    public float knockbackintensity = 4f;
 
+    protected bool knockedBack = false;
     protected bool dashing = false;
     protected float dashTimer;
     protected TrailRenderer tr;
@@ -24,16 +26,30 @@ public class PlayerController : PhysicsObject {
     protected override void ComputeVelocity()
     {
         Vector2 move = Vector2.zero;
-
-        move.x = Input.GetAxis("Horizontal");
         trailDelay -= Time.deltaTime;
+
+        #region Input
+        if (!knockedBack)
+        {
+            move.x = Input.GetAxis("Horizontal");
+        }
+        else {
+            if (grounded)
+            {
+                knockedBack = false;
+            }
+            else
+            {
+                move.x = knockbackintensity;
+            }
+        }
 
         if (Input.GetButtonDown("Jump") && grounded && !inNpcZone) {
             velocity.y = jumpTakeOffSpeed;
             groundNormal = Vector2.up;
         }
 
-        if (Input.GetButtonDown("Dash"))
+        if (Input.GetButtonDown("Dash") && !inNpcZone)
         {
             dashing = true;
             tr.enabled = true;
@@ -61,6 +77,7 @@ public class PlayerController : PhysicsObject {
         {
             tr.enabled = false;
         }
+        #endregion
 
         targetVelocity = move * maxSpeed;
     }
@@ -79,5 +96,12 @@ public class PlayerController : PhysicsObject {
         {
             inNpcZone = false;
         }
+    }
+
+    public void KnockBack(float intensity) {
+        knockbackintensity = intensity;
+        knockedBack = true;
+        velocity.y = jumpTakeOffSpeed * Mathf.Abs(intensity)/2;
+        grounded = false;
     }
 }

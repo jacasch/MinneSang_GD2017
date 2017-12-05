@@ -10,13 +10,12 @@ public class PlayerStats : MonoBehaviour
 
     //Zeit bis erneut verwundbar nach eingegangenem Schaden
     public float dmgTimer = 0;
-    public float dmgCD = 1.5f;
+    public float dmgCD = 0.5f;
 
 
-	void Start ()
+    void Start ()
     {
-        //....
-	}
+    }
 
     void Update()
     {
@@ -26,7 +25,7 @@ public class PlayerStats : MonoBehaviour
         }
         else
         {
-            if(dmgTimer>0)
+            if (dmgTimer>0)
             {
                 dmgTimer -= Time.deltaTime;
             }
@@ -38,10 +37,33 @@ public class PlayerStats : MonoBehaviour
     {
         if (dmgTimer<=0 && collision.gameObject.tag == "DmgToPlayer")
         {
-            hp -= collision.GetComponent<EnemyDMG>().dmg;
-            print(hp);
-            dmgTimer = dmgCD;
-            print(dmgTimer);
+            //Variables
+
+            EnemyDMG enemyDMG = collision.GetComponent<EnemyDMG>();
+            int dir = 1;
+
+            //Prüft ob Gegner bereits erneut Schaden verursachen kann
+            if (enemyDMG.timer < 0)
+            {
+                //DMG to player
+                hp -= enemyDMG.dmg;
+                print("HP: " + hp);
+
+                //UnverwundbarkeitsTimer
+                dmgTimer = dmgCD;
+                print("Timer: " + dmgTimer);
+
+                //Knockback
+                if (collision.transform.position.x > transform.position.x)
+                {
+                    dir = -1;
+                }
+                GetComponent<PlayerController>().KnockBack(enemyDMG.knockback * dir);
+                print("Knockback: " + enemyDMG.knockback);
+
+                //Timer bis Gegner erneut Schaden verursachen kann
+                enemyDMG.timer = enemyDMG.dmgTime;
+            }
         }
     }
 }
