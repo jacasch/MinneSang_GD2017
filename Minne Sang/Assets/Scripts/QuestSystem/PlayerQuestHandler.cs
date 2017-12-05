@@ -18,11 +18,14 @@ public class PlayerQuestHandler : MonoBehaviour {
 	}
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.transform.parent.gameObject.tag == "Item")
+        if (collision.gameObject.transform.parent != null)
         {
-            AddItem(collision.gameObject.transform.parent.gameObject.GetComponent<ItemHandler>().GetName());
-            print("picked up");
-            Destroy(collision.gameObject.transform.parent.gameObject);
+            if (collision.gameObject.transform.parent.gameObject.tag == "Item")
+            {
+                AddItem(collision.gameObject.transform.parent.gameObject.GetComponent<ItemHandler>().GetName());
+                print("picked up");
+                Destroy(collision.gameObject.transform.parent.gameObject);
+            }
         }
     }
 
