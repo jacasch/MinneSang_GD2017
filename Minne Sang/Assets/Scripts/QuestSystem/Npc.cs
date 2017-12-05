@@ -4,23 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Npc : MonoBehaviour {
-    public string relatedQuest;
     public Phrase[] questDialogue;
-    public Phrase afterDropLine;
-    public Item questDrop;
     public Phrase[] randomLines;
-    public float talkDelay = 3f;
 
+
+    private float talkDelay = 1.5f;
     private float lastTalk;
-    private GameObject textObject;
+    private GameObject textObject; //BUG: nullpointer error after player leaves interactionzone
     private Text textBox;
     private RectTransform textTransform;
     private bool inRange = false;
     private bool interacting = false;
-    private GameObject player;
 
-    private Phrase activePhrase;
-    private int activePhraseIndex;
+    [HideInInspector]
+    public GameObject player;
+    [HideInInspector]
+    public Phrase activePhrase;
+    [HideInInspector]
+    public int activePhraseIndex;
 
 
     // Use this for initialization
@@ -29,13 +30,14 @@ public class Npc : MonoBehaviour {
         textBox = textObject.GetComponent<Text>();
         textTransform = textObject.GetComponent<RectTransform>();
         textObject.SetActive(false);
-        activePhrase = questDialogue[0];
+        activePhrase = randomLines[0];
+        Initialize();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (inRange) {
-            Talk(questDialogue[0]);
+            Talk(activePhrase);
             //check for interaction input
             if (Input.GetButton("Jump"))
             {
@@ -105,51 +107,16 @@ public class Npc : MonoBehaviour {
         }
     }
 
-    private void NextPhrase() {
-        Debug.Log("nexte phrase");
-        //if we are in the right quest
-        if (relatedQuest == player.GetComponent<PlayerQuestHandler>().activeQuest)
-        {
-            //check if player already has the item we would give him
-            if (!player.GetComponent<PlayerQuestHandler>().HasItem(questDrop.name)) {
-                activePhrase = afterDropLine;
-            }else
-            //check if quest dialogue hes ended
-            if (activePhraseIndex >= questDialogue.Length) {
-                Debug.Log("too long");
-                //drop the questdrop
-                DropItem();
-                //abort conversation
-                EndInteraction();
-            }// else we are still talking in the dialogue
-            else {
-                activePhrase = questDialogue[activePhraseIndex];
-                activePhraseIndex++;
-                Debug.Log(activePhraseIndex);
-            }
-        }
-        //if we are not in the right quest to dialoughe with this npc
-        else
-        {
-            int newIndex;
-            do {
-                newIndex = Random.Range(0, randomLines.Length);
-            } while (newIndex == activePhraseIndex);
-
-            activePhraseIndex = newIndex;
-            activePhrase = randomLines[activePhraseIndex];
-        }
+    public virtual void Initialize() {
     }
 
-    private void EndInteraction() {
+    public virtual void NextPhrase() {
+    }
+
+    public void EndInteraction() {
         inRange = false;
         interacting = false;
         Camera.main.GetComponent<CameraMovement>().ZoomOut();
         textObject.SetActive(false);
-    }
-
-    private void DropItem() {
-        GameObject drop = Instantiate(questDrop.drop, transform.position, transform.rotation);
-        drop.GetComponent<ItemHandler>().SetName(questDrop.name);
     }
 }
