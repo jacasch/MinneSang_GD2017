@@ -23,6 +23,7 @@ public class EnemyDance : MonoBehaviour
     float dist = 0.5f;  //Distanz ab welcher der Gegner stillsteht (X-Achse)
     float deadTimer = 1;  //Zeit Bis der Gegner verschwindet
     float deadExpl = 0.5f;  //Zeit bis der Gegner explosion erzeugt (deadTimer - deadExpl = Effektive Zeit)
+    float timeStunned = 0.5f;
 
     //ScriptVariables
     bool active = false;
@@ -91,6 +92,10 @@ public class EnemyDance : MonoBehaviour
         if (collision.gameObject.tag == "DmgToEnemy" || collision.gameObject.tag == "PlayerCollision")
         {
             dead = true;
+        }
+        if (collision.gameObject.tag == "StunToEnemy")
+        {
+            stunTimer = timeStunned;
         }
     }
 

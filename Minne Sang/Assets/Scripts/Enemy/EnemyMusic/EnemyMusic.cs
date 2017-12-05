@@ -21,7 +21,8 @@ public class EnemyMusic : MonoBehaviour
     int speed = 1;  //Speed des Gegners
     float dist = 1f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float walkDist = 0.5f;  //Zeit die der Gegner zwischen den Schritten sich vorwärtz bewegt
-    float walkCD = 2;  //Zeit bis zum nächsten Schritt
+    float walkCD = 1f; //Zeit bis zum nächsten Schritt
+    float timeStunned = 5f;
 
     //ScriptVariables
     bool active = false;
@@ -30,6 +31,7 @@ public class EnemyMusic : MonoBehaviour
     float walkTimer = 0;
     float stunTimer = 0;
     bool stomp = false;
+    float deadTimer = 1;
     bool dead = false;
     public GameObject objStomp;
 
@@ -87,7 +89,7 @@ public class EnemyMusic : MonoBehaviour
         if (stomp)
         {
             Vector3 objPos = transform.position;
-            objPos.y -= 0.8f;
+            objPos.y -= 0f;
             GameObject instance = Instantiate(objStomp, objPos, transform.rotation) as GameObject;
             instance.layer = 0;
             stomp = false;
@@ -97,8 +99,14 @@ public class EnemyMusic : MonoBehaviour
     //Tod des Gegners
     void Die()
     {
+        deadTimer -= Time.deltaTime;
         //DieAnimation
         //...
+
+        if(deadTimer<0)
+        {
+            Destroy(gameObject);
+        }
         //Destroy Object
     }
 
@@ -108,11 +116,15 @@ public class EnemyMusic : MonoBehaviour
         if (collision.gameObject.tag == "DmgToEnemy")
         {
             hp -= 1;
-            print("ENEMY HP: " + hp);
+            print("MUSIC HP: " + hp);
             if(hp<=0)
             {
                 dead = true;
             }
+        }
+        if (collision.gameObject.tag == "StunToEnemy")
+        {
+            stunTimer = timeStunned;
         }
     }
 

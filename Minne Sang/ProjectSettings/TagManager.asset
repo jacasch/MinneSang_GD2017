@@ -14,6 +14,8 @@ TagManager:
   - Item
   - Enemy
   - Detection
+  - DMG
+  - StunToEnemy
   layers:
   - Default
   - TransparentFX

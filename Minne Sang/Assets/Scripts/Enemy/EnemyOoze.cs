@@ -22,6 +22,7 @@ public class EnemyOoze : MonoBehaviour
     int jumpHeight = 7;  //Sprunghöhe
     float jumpCD = 0.2f;  //Zeit bis der Sprung nach der Landung erneut ausgeführt wird
     float dist = 0.5f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
+    float timeStunned = 1f;
 
     //ScriptVariables
     bool active = false;
@@ -29,6 +30,7 @@ public class EnemyOoze : MonoBehaviour
     float jumpTimer = 0;
     int dir = 0;
     float stunTimer = 0;
+    float deadTimer = 1;
     bool dead = false;
     Rigidbody2D rb;
 
@@ -76,8 +78,33 @@ public class EnemyOoze : MonoBehaviour
     //Wenn der Gegner tot ist
     void Die()
     {
+        deadTimer -= Time.deltaTime;
         //DieAnimation
+        //...
+
+        if (deadTimer < 0)
+        {
+            Destroy(gameObject);
+        }
         //Destroy Object
+    }
+
+    //Wenn der Player den Gegner angreift
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "DmgToEnemy")
+        {
+            hp -= 1;
+            print("ENEMY HP: " + hp);
+            if (hp<=0)
+            {
+                dead = true;
+            }
+        }
+        if (collision.gameObject.tag == "StunToEnemy")
+        {
+            stunTimer = timeStunned;
+        }
     }
 
     //Wenn der Player im Detection-Trigger ist, wird er aktiv und die Richtung festgelegt.

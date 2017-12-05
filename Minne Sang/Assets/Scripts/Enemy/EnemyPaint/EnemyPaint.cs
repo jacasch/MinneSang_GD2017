@@ -18,6 +18,7 @@ public class EnemyPaint : MonoBehaviour
     int speed = 2;  //Speed des Gegners
     float dist = 8;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float shootCD = 1.5f;  //Cooldown des Schusses
+    float timeStunned = 2f;
 
     //Player GameObject
     bool active = false;
@@ -25,6 +26,7 @@ public class EnemyPaint : MonoBehaviour
     int dir = 1;
     float shootTimer = 0;
     float stunTimer = 0;
+    float deadTimer = 1;
     bool dead = false;
     GameObject objPlayer;
     public GameObject objShot;
@@ -85,8 +87,14 @@ public class EnemyPaint : MonoBehaviour
     //Tod des Gegners
     void Die()
     {
+        deadTimer -= Time.deltaTime;
         //DieAnimation
         //...
+
+        if (deadTimer < 0)
+        {
+            Destroy(gameObject);
+        }
         //Destroy Object
     }
 
@@ -96,6 +104,20 @@ public class EnemyPaint : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             objPlayer = collision.gameObject;
+        }
+
+        if (collision.gameObject.tag == "DmgToEnemy")
+        {
+            hp -= 1;
+            print("ENEMY HP: " + hp);
+            if (hp <= 0)
+            {
+                dead = true;
+            }
+        }
+        if (collision.gameObject.tag == "StunToEnemy")
+        {
+            stunTimer = timeStunned;
         }
     }
 

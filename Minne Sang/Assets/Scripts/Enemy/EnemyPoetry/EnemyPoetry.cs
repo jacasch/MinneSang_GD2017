@@ -23,6 +23,9 @@ public class EnemyPoetry : MonoBehaviour
     int dir = 0;
     float dist = 0;
     float stunTimer = 0;
+    float timeStunned = 3f;
+    bool move = false;
+    float deadTimer = 1;
     bool dead = false;
 
     // Use this for initialization
@@ -48,7 +51,10 @@ public class EnemyPoetry : MonoBehaviour
         }
         else
         {
-            Move();
+            if (move)
+            {
+                Move();
+            }
         }
     }
 
@@ -61,12 +67,36 @@ public class EnemyPoetry : MonoBehaviour
     //Tod des Gegners
     void Die()
     {
+        deadTimer -= Time.deltaTime;
         //DieAnimation
         //...
+
+        if (deadTimer < 0)
+        {
+            Destroy(gameObject);
+        }
         //Destroy Object
     }
 
+    //Wenn der Player den Gegner angreift
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "DmgToEnemy")
+        {
+            hp -= 1;
+            print("POETRY HP: " + hp);
+            if (hp <= 0)
+            {
+                dead = true;
+            }
+        }
+        if (collision.gameObject.tag == "StunToEnemy")
+        {
+            stunTimer = timeStunned;
+        }
+    }
 
+    //Bewegungsrichtung wenn Player erkannt wird
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
@@ -74,34 +104,28 @@ public class EnemyPoetry : MonoBehaviour
             if (other.transform.position.x + dist < transform.position.x)
             {
                 dir = -1;
+                move = true;
             }
             else if (other.transform.position.x - dist > transform.position.x)
             {
                 dir = 1;
+                move = true;
             }
             else
             {
-                //dir = 0; move = false;
+                move = false;
             }
         }
     }
 
+
+    //Wechselt bewegung auf false wenn der Player aus der Sichtweite ist
     void OnTriggerExit2D(Collider2D other)
     {
 
         if (other.tag == "Player")
         {
-            dir = 0;
+            move = false;
         }
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            //DMG
-        }
-    }
-
-
 }
