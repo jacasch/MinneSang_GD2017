@@ -27,10 +27,13 @@ public class EnemyPoetry : MonoBehaviour
     bool move = false;
     float deadTimer = 1;
     bool dead = false;
+    SpriteRenderer mySprite;
 
     // Use this for initialization
     void Start ()
     {
+        mySprite = GetComponent<SpriteRenderer>();
+
         //IF STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
 
         //FEAR, SHOW PARTICLE EFFECT ...
@@ -62,6 +65,14 @@ public class EnemyPoetry : MonoBehaviour
     void Move()
     {
         transform.Translate(speed * dir * Time.deltaTime, 0, 0);
+        if (dir < 0)
+        {
+            mySprite.flipX = true;
+        }
+        else
+        {
+            mySprite.flipX = false;
+        }
     }
 
     //Tod des Gegners

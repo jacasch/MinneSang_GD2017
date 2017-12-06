@@ -22,7 +22,7 @@ public class EnemyOoze : MonoBehaviour
     int jumpHeight = 7;  //Sprunghöhe
     float jumpCD = 0.2f;  //Zeit bis der Sprung nach der Landung erneut ausgeführt wird
     float dist = 0.5f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
-    float timeStunned = 1f;
+    float timeStunned = 3;
 
     //ScriptVariables
     bool active = false;
@@ -33,12 +33,14 @@ public class EnemyOoze : MonoBehaviour
     float deadTimer = 1;
     bool dead = false;
     Rigidbody2D rb;
+    SpriteRenderer mySprite;
 
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        mySprite = GetComponent<SpriteRenderer>();
 
         //IF STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
     }
@@ -72,6 +74,14 @@ public class EnemyOoze : MonoBehaviour
                 jumpTimer = jumpCD;
                 rb.velocity = new Vector3(speed * dir, jumpHeight, 0);
             }
+        }
+        if (dir < 0)
+        {
+            mySprite.flipX = true;
+        }
+        else
+        {
+            mySprite.flipX = false;
         }
     }
 

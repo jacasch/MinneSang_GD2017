@@ -16,7 +16,7 @@ public class EnemyPaint : MonoBehaviour
     //Eigenschaften des Gegners.
     int hp = 2;  //HP des Gegners
     int speed = 2;  //Speed des Gegners
-    float dist = 8;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
+    float dist = 5;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float shootCD = 1.5f;  //Cooldown des Schusses
     float timeStunned = 2f;
 
@@ -30,10 +30,12 @@ public class EnemyPaint : MonoBehaviour
     bool dead = false;
     GameObject objPlayer;
     public GameObject objShot;
+    SpriteRenderer mySprite;
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
+        mySprite = GetComponent<SpriteRenderer>();
         //STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
     }
 
@@ -53,6 +55,14 @@ public class EnemyPaint : MonoBehaviour
             if(move)
             {
                 Move();
+            }
+            if (dir < 0)
+            {
+                mySprite.flipX = true;
+            }
+            else
+            {
+                mySprite.flipX = false;
             }
             Attack();
         }
@@ -127,14 +137,16 @@ public class EnemyPaint : MonoBehaviour
         if (other.tag == "Player")
         {
             active = true;
-            if (other.transform.position.x + dist < transform.position.x)
+            if (other.transform.position.x + 0.75f < transform.position.x)
             {
                 dir = -1;
-                move = true;
             }
-            else if (other.transform.position.x - dist > transform.position.x)
+            else if (other.transform.position.x - 0.75f > transform.position.x)
             {
                 dir = 1;
+            }
+            if(other.transform.position.x + dist < transform.position.x || other.transform.position.x - dist > transform.position.x)
+            {
                 move = true;
             }
             else
