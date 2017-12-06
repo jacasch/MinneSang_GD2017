@@ -1,7 +1,11 @@
 fileFormatVersion: 2
-guid: ed20d09c0d2593e4ea9c628f27ddcb76
+guid: 92c110d11e25f8e4283f1c272cf5cc03
 folderAsset: yes
+<<<<<<< HEAD:Minne Sang/Assets/Prefabs/Npcs.meta
 timeCreated: 1512561698
+=======
+timeCreated: 1512494589
+>>>>>>> parent of 98be33a... Merge branch 'master' of https://github.com/jacasch/MinneSang_GD2017:Minne Sang/Assets/Scenes/Final.meta
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
