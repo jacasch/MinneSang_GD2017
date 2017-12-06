@@ -3062,9 +3062,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18916bfd1505024f8ede2bdf868372c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: door 1
+  name: start
   destinationScene: Jan 1
-  destinationDoor: door 2
+  destinationDoor: start
 --- !u!61 &1333374612
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4039,13 +4039,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1931258817}
-  m_LocalRotation: {x: -0, y: -0, z: 0.065507896, w: 0.99785215}
+  m_LocalRotation: {x: -0, y: -0, z: 0.02908911, w: 0.99957687}
   m_LocalPosition: {x: -71.77, y: -13.51, z: 0}
   m_LocalScale: {x: 145.45726, y: 8.339448, z: 10.589769}
   m_Children: []
   m_Father: {fileID: 689002345}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 7.5120006}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.334}
 --- !u!61 &1931258819
 BoxCollider2D:
   m_ObjectHideFlags: 0

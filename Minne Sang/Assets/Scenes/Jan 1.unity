@@ -1885,9 +1885,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18916bfd1505024f8ede2bdf868372c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: door 2
+  name: start
   destinationScene: Jan
-  destinationDoor: door 2
+  destinationDoor: start
 --- !u!4 &1001660931
 Transform:
   m_ObjectHideFlags: 0
