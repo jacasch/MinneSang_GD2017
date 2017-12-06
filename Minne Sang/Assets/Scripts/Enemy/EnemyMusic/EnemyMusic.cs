@@ -34,10 +34,13 @@ public class EnemyMusic : MonoBehaviour
     float deadTimer = 1;
     bool dead = false;
     public GameObject objStomp;
+    SpriteRenderer mySprite;
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
+        mySprite = GetComponent<SpriteRenderer>();
+
         //IF STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
     }
 
@@ -80,6 +83,14 @@ public class EnemyMusic : MonoBehaviour
         if (walkTimer <= 0)
         {
             stomp = true;
+        }
+        if (dir < 0)
+        {
+            mySprite.flipX = true;
+        }
+        else
+        {
+            mySprite.flipX = false;
         }
     }
 

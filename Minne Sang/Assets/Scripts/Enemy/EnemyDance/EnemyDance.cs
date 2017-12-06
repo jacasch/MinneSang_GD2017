@@ -32,10 +32,13 @@ public class EnemyDance : MonoBehaviour
     float stunTimer;
     bool dead = false;
     public GameObject explosion;
+    SpriteRenderer mySprite;
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
     {
+        mySprite = GetComponent<SpriteRenderer>();
+
         //StealthShader
     }
 
@@ -66,6 +69,14 @@ public class EnemyDance : MonoBehaviour
     void Move()
     {
         transform.Translate(speed*dir*Time.deltaTime, 0, 0);
+        if (dir < 0)
+        {
+            mySprite.flipX = true;
+        }
+        else
+        {
+            mySprite.flipX = false;
+        }
     }
 
     //Tod des Gegners
