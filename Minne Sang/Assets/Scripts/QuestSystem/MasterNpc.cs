@@ -18,18 +18,18 @@ public class MasterNpc : Npc{
 
     public override void NextPhrase()
     {
-        //check if we are ready to talk to this master
-        if (relevantAct == player.GetComponent<PlayerQuestHandler>().activeAct)
+        //if the player hasnt talked to the headmaster yet, tell him do do so;
+        if (player.GetComponent<PlayerQuestHandler>().activeAct == -1)
         {
-            //if the player hasnt talked to the headmaster yet, tell him do do so;
-            if (player.GetComponent<PlayerQuestHandler>().activeQuest == "started")
-            {
-                if (activePhraseIndex >= 1)
-                    EndInteraction();
-                activePhrase = encounterBeforeHeadMaster;
-                activePhraseIndex++;
-            }
-            else
+            if (activePhraseIndex >= 1)
+                EndInteraction();
+            activePhrase = encounterBeforeHeadMaster;
+            activePhraseIndex++;
+        }
+        //check if we are ready to talk to this master
+        else if (relevantAct == player.GetComponent<PlayerQuestHandler>().activeAct)
+        {
+            
             { // weare ready to talk to this master.
                 //if we have not yet gotten the quest, get the quest.
                 if (player.GetComponent<PlayerQuestHandler>().activeQuest == "running")
