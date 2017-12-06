@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerStun : MonoBehaviour
 {
     int dir = 1;
-    float distPlayer = 2.75f;  //Front
+    float distPlayer = 3f;  //Front
     float stunTimer;
     float stunDuration = 0.15f;
-    float repeatCD = 2f;
+    float repeatCD = 0f;
     float repeatTimer;
 
     BoxCollider2D collider;

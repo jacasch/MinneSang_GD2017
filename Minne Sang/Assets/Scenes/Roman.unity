@@ -513,7 +513,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 532598072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.2, z: 0}
+  m_LocalPosition: {x: 1, y: 0.1, z: 0}
   m_LocalScale: {x: 0.070966765, y: 0.129185, z: 0}
   m_Children: []
   m_Father: {fileID: 153066673}
@@ -741,6 +741,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1577665517853280, guid: 98451a05c01faf945a00118e66e2b0da,
         type: 2}
+    - target: {fileID: 212672827710535188, guid: 966730ab76c13e74e89281b87e3e453a,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 966730ab76c13e74e89281b87e3e453a, type: 2}
   m_IsPrefabParent: 0
@@ -960,6 +965,7 @@ MonoBehaviour:
   maxSpeed: 7
   dashDuration: 0.13
   knockbackintensity: 4
+  sr: {fileID: 0}
 --- !u!212 &1113900320
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1185,7 +1191,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1704428662}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 2, z: 0}
   m_Children: []
   m_Father: {fileID: 153066673}

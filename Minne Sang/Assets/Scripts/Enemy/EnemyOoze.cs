@@ -68,20 +68,20 @@ public class EnemyOoze : MonoBehaviour
     {
         if(grounded)
         {
+            if (dir < 0)
+            {
+                mySprite.flipX = true;
+            }
+            else
+            {
+                mySprite.flipX = false;
+            }
             jumpTimer -= Time.deltaTime;
             if(jumpTimer<=0)
             {
                 jumpTimer = jumpCD;
                 rb.velocity = new Vector3(speed * dir, jumpHeight, 0);
             }
-        }
-        if (dir < 0)
-        {
-            mySprite.flipX = true;
-        }
-        else
-        {
-            mySprite.flipX = false;
         }
     }
 
