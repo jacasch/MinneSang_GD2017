@@ -773,6 +773,7 @@ MonoBehaviour:
   maxSpeed: 7
   dashDuration: 0.13
   knockbackintensity: 4
+  sr: {fileID: 0}
 --- !u!96 &318200487
 TrailRenderer:
   serializedVersion: 2
