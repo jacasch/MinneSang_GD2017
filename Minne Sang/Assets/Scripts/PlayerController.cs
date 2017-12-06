@@ -14,6 +14,7 @@ public class PlayerController : PhysicsObject {
     protected TrailRenderer tr;
     protected float trailDelay;
     protected bool inNpcZone = false;
+    public SpriteRenderer sr;
 
     protected override void Initialize()
     {
@@ -21,6 +22,7 @@ public class PlayerController : PhysicsObject {
         tr.enabled = false;
         trailDelay = tr.time;
         inNpcZone = false;
+        sr = GetComponent<SpriteRenderer>();
     }
 
     protected override void ComputeVelocity()
@@ -31,7 +33,12 @@ public class PlayerController : PhysicsObject {
         #region Input
         if (!knockedBack)
         {
-            move.x = Input.GetAxis("Horizontal");
+            float input = Input.GetAxis("Horizontal");
+            move.x = input;
+            if (input != 0)
+            {
+                sr.flipX = (Input.GetAxis("Horizontal") < 0);
+            }
         }
         else {
             if (grounded)
