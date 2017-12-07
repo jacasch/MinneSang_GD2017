@@ -32,7 +32,7 @@ public class PlayerController : PhysicsObject {
 
         #region Input
 
-        bool canMove = !Input.GetButton("Stun") /*&& GetComponent<PlayerStats>().poetryBuff < 0*/ && !Input.GetButton("Poetry");
+        bool canMove = !Input.GetButton("Stun") && !(GetComponent<PlayerStats>().poetryBuff < 0 && Input.GetButton("Poetry"));
 
         if (!knockedBack)
         {
