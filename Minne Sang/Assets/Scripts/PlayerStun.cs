@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStun : MonoBehaviour
 {
     int dir = 1;
-    float distPlayer = 2.5f;  //Front
+    float distPlayer = 2.25f;  //Front
     float stunTimer;
     float castDuration = 0.15f;
     public float castTime = 1f;
@@ -14,13 +14,11 @@ public class PlayerStun : MonoBehaviour
     float repeatTimer = 0;
 
     BoxCollider2D boxCollider;
-    CircleCollider2D circleCollider;
 
     // Use this for initialization
     void Start ()
     {
         boxCollider = GetComponent<BoxCollider2D>();
-        circleCollider = GetComponent<CircleCollider2D>();
     }
 	
 	// Update is called once per frame
@@ -35,7 +33,7 @@ public class PlayerStun : MonoBehaviour
             dir = 1;
         }
         transform.localPosition = new Vector3(distPlayer * dir, 0, 0);
-        boxCollider.offset = new Vector2(0.5f * dir,0);
+        boxCollider.offset = new Vector2(0f * dir,0);
 
         if (repeatTimer < 0)
         {
@@ -47,7 +45,6 @@ public class PlayerStun : MonoBehaviour
                     stunTimer = castDuration;
                     repeatTimer = repeatCD;
                     boxCollider.enabled = true;
-                    circleCollider.enabled = true;
                     castTimer = 0;
                 }
             }
@@ -67,7 +64,6 @@ public class PlayerStun : MonoBehaviour
             {
                 repeatTimer -= Time.deltaTime;
                 boxCollider.enabled = false;
-                circleCollider.enabled = false;
             }
         }
 
