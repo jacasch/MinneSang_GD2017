@@ -36,12 +36,22 @@ public class EnemyMusic : MonoBehaviour
     public GameObject objStomp;
     SpriteRenderer mySprite;
 
+    public Material defaultMat;
+    public Material chameleonMat;
+
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
         mySprite = GetComponent<SpriteRenderer>();
 
-        //IF STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
+        if (stealth)
+        {
+            mySprite.material = chameleonMat;
+        }
+        else
+        {
+            mySprite.material = defaultMat;
+        }
     }
 
     void Update ()
@@ -84,7 +94,7 @@ public class EnemyMusic : MonoBehaviour
         {
             stomp = true;
         }
-        if (dir < 0)
+        if (dir < 0 && !stealth)
         {
             mySprite.flipX = true;
         }
@@ -101,8 +111,7 @@ public class EnemyMusic : MonoBehaviour
         {
             Vector3 objPos = transform.position;
             objPos.y -= 0f;
-            GameObject instance = Instantiate(objStomp, objPos, transform.rotation) as GameObject;
-            instance.layer = 0;
+            Instantiate(objStomp, objPos, transform.rotation);
             stomp = false;
         }
     }
@@ -124,18 +133,29 @@ public class EnemyMusic : MonoBehaviour
     //Wenn der Player den Gegner angreift
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "DmgToEnemy")
+        if (stealth)
         {
-            hp -= 1;
-            print("MUSIC HP: " + hp);
-            if(hp<=0)
+            if (collision.gameObject.tag == "Paint")
             {
-                dead = true;
+                stealth = false;
+                mySprite.material = defaultMat;
             }
         }
-        if (collision.gameObject.tag == "StunToEnemy")
+        else
         {
-            stunTimer = timeStunned;
+            if (collision.gameObject.tag == "DmgToEnemy")
+            {
+                hp -= 1;
+                print("MUSIC HP: " + hp);
+                if (hp <= 0)
+                {
+                    dead = true;
+                }
+            }
+            if (collision.gameObject.tag == "StunToEnemy")
+            {
+                stunTimer = timeStunned;
+            }
         }
     }
 
