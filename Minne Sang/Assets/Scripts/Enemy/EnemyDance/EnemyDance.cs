@@ -34,12 +34,22 @@ public class EnemyDance : MonoBehaviour
     public GameObject explosion;
     SpriteRenderer mySprite;
 
+    public Material defaultMat;
+    public Material chameleonMat;
+
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
     {
         mySprite = GetComponent<SpriteRenderer>();
 
-        //StealthShader
+        if (stealth)
+        {
+            mySprite.material = chameleonMat;
+        }
+        else
+        {
+            mySprite.material = defaultMat;
+        }
     }
 
     // Update is called once per frame
@@ -69,7 +79,7 @@ public class EnemyDance : MonoBehaviour
     void Move()
     {
         transform.Translate(speed*dir*Time.deltaTime, 0, 0);
-        if (dir < 0)
+        if (dir < 0 && !stealth)
         {
             mySprite.flipX = true;
         }
@@ -100,13 +110,28 @@ public class EnemyDance : MonoBehaviour
     //Wenn der Player den Gegner angreift oder berührt
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "DmgToEnemy" || collision.gameObject.tag == "PlayerCollision")
+        if (stealth)
         {
-            dead = true;
+            if (collision.gameObject.tag == "Paint")
+            {
+                stealth = false;
+                mySprite.material = defaultMat;
+            }
+            if (collision.gameObject.tag == "PlayerCollision")
+            {
+                dead = true;
+            }
         }
-        if (collision.gameObject.tag == "StunToEnemy")
+        else
         {
-            stunTimer = timeStunned;
+            if (collision.gameObject.tag == "DmgToEnemy" || collision.gameObject.tag == "PlayerCollision")
+            {
+                dead = true;
+            }
+            if (collision.gameObject.tag == "StunToEnemy")
+            {
+                stunTimer = timeStunned;
+            }
         }
     }
 

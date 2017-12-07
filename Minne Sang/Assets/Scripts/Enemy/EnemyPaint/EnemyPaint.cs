@@ -27,16 +27,28 @@ public class EnemyPaint : MonoBehaviour
     float shootTimer = 0;
     float stunTimer = 0;
     float deadTimer = 1;
+    bool stealth = true;
     bool dead = false;
     GameObject objPlayer;
     public GameObject objShot;
     SpriteRenderer mySprite;
 
+    public Material defaultMat;
+    public Material chameleonMat;
+
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
         mySprite = GetComponent<SpriteRenderer>();
-        //STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
+
+        if (stealth)
+        {
+            mySprite.material = chameleonMat;
+        }
+        else
+        {
+            mySprite.material = defaultMat;
+        }
     }
 
     void Update ()
@@ -56,7 +68,7 @@ public class EnemyPaint : MonoBehaviour
             {
                 Move();
             }
-            if (dir < 0)
+            if (dir < 0 && !stealth)
             {
                 mySprite.flipX = true;
             }
@@ -115,19 +127,29 @@ public class EnemyPaint : MonoBehaviour
         {
             objPlayer = collision.gameObject;
         }
-
-        if (collision.gameObject.tag == "DmgToEnemy")
+        if (stealth)
         {
-            hp -= 1;
-            print("ENEMY HP: " + hp);
-            if (hp <= 0)
+            if (collision.gameObject.tag == "Paint")
             {
-                dead = true;
+                stealth = false;
+                mySprite.material = defaultMat;
             }
         }
-        if (collision.gameObject.tag == "StunToEnemy")
+        else
         {
-            stunTimer = timeStunned;
+            if (collision.gameObject.tag == "DmgToEnemy")
+            {
+                hp -= 1;
+                print("ENEMY HP: " + hp);
+                if (hp <= 0)
+                {
+                    dead = true;
+                }
+            }
+            if (collision.gameObject.tag == "StunToEnemy")
+            {
+                stunTimer = timeStunned;
+            }
         }
     }
 

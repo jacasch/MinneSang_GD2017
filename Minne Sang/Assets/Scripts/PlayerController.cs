@@ -16,6 +16,8 @@ public class PlayerController : PhysicsObject {
     protected float trailDelay;
     protected bool inNpcZone = false;
     protected bool canDash;
+    protected PlayerGui pg;
+    protected PlayerStats ps;
     [HideInInspector]
     public int dashCount = 0;
     public SpriteRenderer sr;
@@ -23,6 +25,8 @@ public class PlayerController : PhysicsObject {
     protected override void Initialize()
     {
         tr = GetComponent<TrailRenderer>();
+        pg = GetComponent<PlayerGui>();
+        ps = GetComponent<PlayerStats>();
         tr.enabled = false;
         trailDelay = tr.time;
         inNpcZone = false;
@@ -36,6 +40,8 @@ public class PlayerController : PhysicsObject {
 
         #region Input
 
+        /*bool stunCasting = 
+        bool dashCasting = */
         bool canMove = !Input.GetButton("Stun") && !(GetComponent<PlayerStats>().poetryBuff < 0 && Input.GetButton("Poetry"));
         dashCount = grounded ? 0 : dashCount;
         canDash = dashCount < maxDashesInAir;
@@ -68,7 +74,7 @@ public class PlayerController : PhysicsObject {
             groundNormal = Vector2.up;
         }
 
-        if (Input.GetButtonDown("Dash") && !inNpcZone && canMove && canDash && !dashing)
+        if (Input.GetButtonDown("Dash") && !inNpcZone && canMove && canDash && !dashing && pg.skillLevel >= 1)
         {
             dashCount++;
             dashing = true;
