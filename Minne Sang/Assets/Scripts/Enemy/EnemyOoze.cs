@@ -35,6 +35,9 @@ public class EnemyOoze : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer mySprite;
 
+    public Material defaultMat;
+    public Material chameleonMat;
+
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
@@ -42,7 +45,14 @@ public class EnemyOoze : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
 
-        //IF STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
+        if(stealth)
+        {
+            mySprite.material = chameleonMat;
+        }
+        else
+        {
+            mySprite.material = defaultMat;
+        }
     }
 
     void Update()
@@ -56,7 +66,7 @@ public class EnemyOoze : MonoBehaviour
             //Stun Animation
             stunTimer -= Time.deltaTime;
         }
-        else if(active)
+        else if (active)
         {
             Move();
         }
@@ -68,7 +78,7 @@ public class EnemyOoze : MonoBehaviour
     {
         if(grounded)
         {
-            if (dir < 0)
+            if (dir < 0 && !stealth)
             {
                 mySprite.flipX = true;
             }
@@ -102,18 +112,37 @@ public class EnemyOoze : MonoBehaviour
     //Wenn der Player den Gegner angreift
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "DmgToEnemy")
+        if (stealth)
         {
-            hp -= 1;
-            print("ENEMY HP: " + hp);
-            if (hp<=0)
+            if (collision.gameObject.tag == "Paint")
             {
-                dead = true;
+                stealth = false;
+                mySprite.material = defaultMat;
+                if (dir < 0)
+                {
+                    mySprite.flipX = true;
+                }
+                else
+                {
+                    mySprite.flipX = false;
+                }
             }
         }
-        if (collision.gameObject.tag == "StunToEnemy")
+        else
         {
-            stunTimer = timeStunned;
+            if (collision.gameObject.tag == "DmgToEnemy")
+            {
+                hp -= 1;
+                print("ENEMY HP: " + hp);
+                if (hp <= 0)
+                {
+                    dead = true;
+                }
+            }
+            if (collision.gameObject.tag == "StunToEnemy")
+            {
+                stunTimer = timeStunned;
+            }
         }
     }
 
