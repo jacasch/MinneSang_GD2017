@@ -57,7 +57,9 @@ public class NormalNpc : Npc {
 
     private void DropItem()
     {
-        GameObject drop = Instantiate(questDrop.drop, transform.position, transform.rotation);
-        drop.GetComponent<ItemHandler>().SetName(questDrop.name);
+        if (questDrop.drop != null) {
+            GameObject drop = Instantiate(questDrop.drop, transform.position, transform.rotation);
+            drop.GetComponent<ItemHandler>().SetName(questDrop.name);
+        }
     }
 }
