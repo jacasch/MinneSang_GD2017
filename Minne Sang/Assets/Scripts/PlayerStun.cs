@@ -8,7 +8,7 @@ public class PlayerStun : MonoBehaviour
     float distPlayer = 2.25f;  //Front
     float stunTimer;
     float castDuration = 0.15f;
-    public float castTime = 1f;
+    public float castTime = 0.75f;
     float castTimer = 0;
     public float repeatCD = 0f;
     float repeatTimer = 0;

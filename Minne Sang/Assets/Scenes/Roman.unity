@@ -1221,20 +1221,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114957011634637264, guid: c970f4c1401df65488fca4db623ed2cf,
-        type: 2}
-      propertyPath: targetSpawn
-      value: start
-      objectReference: {fileID: 0}
-    - target: {fileID: 114957011634637264, guid: c970f4c1401df65488fca4db623ed2cf,
-        type: 2}
-      propertyPath: targetScene
-      value: Roman
-      objectReference: {fileID: 0}
-    - target: {fileID: 1843853386646508, guid: c970f4c1401df65488fca4db623ed2cf, type: 2}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c970f4c1401df65488fca4db623ed2cf, type: 2}
   m_IsPrefabParent: 0
