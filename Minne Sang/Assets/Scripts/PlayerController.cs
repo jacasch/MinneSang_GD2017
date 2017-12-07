@@ -7,6 +7,7 @@ public class PlayerController : PhysicsObject {
     public float maxSpeed = 7;
     public float dashDuration = 0.5f;
     public float knockbackintensity = 4f;
+    public float maxDashesInAir = 2;
 
     protected bool knockedBack = false;
     protected bool dashing = false;
@@ -14,6 +15,8 @@ public class PlayerController : PhysicsObject {
     protected TrailRenderer tr;
     protected float trailDelay;
     protected bool inNpcZone = false;
+    protected bool canDash;
+    protected int dashCount = 0;
     public SpriteRenderer sr;
 
     protected override void Initialize()
@@ -33,6 +36,8 @@ public class PlayerController : PhysicsObject {
         #region Input
 
         bool canMove = !Input.GetButton("Stun") && !(GetComponent<PlayerStats>().poetryBuff < 0 && Input.GetButton("Poetry"));
+        dashCount = grounded ? 0 : dashCount;
+        canDash = dashCount < maxDashesInAir;
 
         if (!knockedBack)
         {
@@ -62,8 +67,9 @@ public class PlayerController : PhysicsObject {
             groundNormal = Vector2.up;
         }
 
-        if (Input.GetButtonDown("Dash") && !inNpcZone && canMove)
+        if (Input.GetButtonDown("Dash") && !inNpcZone && canMove && canDash)
         {
+            dashCount++;
             dashing = true;
             tr.enabled = true;
             dashTimer = dashDuration;            
