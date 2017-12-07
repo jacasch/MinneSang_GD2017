@@ -31,13 +31,19 @@ public class PlayerController : PhysicsObject {
         trailDelay -= Time.deltaTime;
 
         #region Input
+
+        bool canMove = !Input.GetButton("Stun") /*&& GetComponent<PlayerStats>().poetryBuff < 0*/ && !Input.GetButton("Poetry");
+
         if (!knockedBack)
         {
-            float input = Input.GetAxis("Horizontal");
-            move.x = input;
-            if (input != 0)
+            if (canMove)
             {
-                sr.flipX = (Input.GetAxis("Horizontal") < 0);
+                float input = Input.GetAxis("Horizontal");
+                move.x = input;
+                if (input != 0)
+                {
+                    sr.flipX = (Input.GetAxis("Horizontal") < 0);
+                }
             }
         }
         else {
@@ -51,12 +57,12 @@ public class PlayerController : PhysicsObject {
             }
         }
 
-        if (Input.GetButtonDown("Jump") && grounded && !inNpcZone) {
+        if (Input.GetButtonDown("Jump") && grounded && !inNpcZone && canMove) {
             velocity.y = jumpTakeOffSpeed;
             groundNormal = Vector2.up;
         }
 
-        if (Input.GetButtonDown("Dash") && !inNpcZone)
+        if (Input.GetButtonDown("Dash") && !inNpcZone && canMove)
         {
             dashing = true;
             tr.enabled = true;
