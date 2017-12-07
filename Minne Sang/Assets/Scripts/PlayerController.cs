@@ -67,7 +67,7 @@ public class PlayerController : PhysicsObject {
             groundNormal = Vector2.up;
         }
 
-        if (Input.GetButtonDown("Dash") && !inNpcZone && canMove && canDash)
+        if (Input.GetButtonDown("Dash") && !inNpcZone && canMove && canDash && !dashing)
         {
             dashCount++;
             dashing = true;
