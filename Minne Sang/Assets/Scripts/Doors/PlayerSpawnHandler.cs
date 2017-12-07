@@ -14,7 +14,7 @@ public class PlayerSpawnHandler : MonoBehaviour {
 
     private void Start()
     {
-        Respawn();
+        Reposition();
         //if there is another player in the scen destroy it
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject p in players)
