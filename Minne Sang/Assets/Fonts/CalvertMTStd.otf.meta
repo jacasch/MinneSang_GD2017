@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 734055148305ade4c8dafba428e2cd0c
+timeCreated: 1512639613
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 20
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Calvert MT Std
+  fontNames:
+  - Calvert MT Std
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

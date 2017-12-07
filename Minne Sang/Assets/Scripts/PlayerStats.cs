@@ -16,7 +16,7 @@ public class PlayerStats : MonoBehaviour
     public float poetryCD = 5;
     public float poetryCastTime = 3;
     float poetryCasting = 0;
-    float poetryBuff = -10;
+    public float poetryBuff = -10;
 
     void Start ()
     {
@@ -26,10 +26,17 @@ public class PlayerStats : MonoBehaviour
     {
         if (dead)
         {
-            //WHAT-EVER...
+            hp = maxHP;
+            dead = false;
+            GetComponent<PlayerController>().KnockBack(0);
+            GetComponent<PlayerSpawnHandler>().Respawn();
         }
         else
         {
+            if(hp<=0)
+            {
+                dead = true;
+            }
             poetry();
             if (dmgTimer>0)
             {

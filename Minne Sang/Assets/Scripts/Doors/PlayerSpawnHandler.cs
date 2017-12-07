@@ -1,17 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerSpawnHandler : MonoBehaviour {
     public string targetSpawn;
+    public string targetScene;
     public GameObject playerActions;
     [HideInInspector]
     public bool switched = false;
     private Door[] doors;
 
+
     private void Start()
     {
-        Respawn();
+        Reposition();
         //if there is another player in the scen destroy it
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject p in players)
@@ -28,18 +31,22 @@ public class PlayerSpawnHandler : MonoBehaviour {
     {
         //print(Camera.main.gameObject.name);
         //Camera.main.GetComponent<CameraMovement>().player = gameObject;
-        Respawn();
+        Reposition();
     }
 
-    public void Respawn() {
-
+    private void Reposition() {
         doors = FindObjectsOfType(typeof(Door)) as Door[];
         foreach (Door d in doors)
         {
-            if (d.name == targetSpawn) {
+            if (d.name == targetSpawn)
+            {
                 transform.position = d.transform.position;
                 Camera.main.transform.position = new Vector3(d.transform.position.x, d.transform.position.y, -10);
             }
         }
+    }
+
+    public void Respawn() {
+        SceneManager.LoadScene(targetScene,LoadSceneMode.Single);
     }
 }

@@ -4,14 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Npc : MonoBehaviour {
+    public string npcName;
     public Phrase[] questDialogue;
     public Phrase[] randomLines;
+    // public bool autoStart = false;
 
 
     private float talkDelay = 1.5f;
     private float lastTalk;
     private GameObject textObject; //BUG: nullpointer error after player leaves interactionzone
     private Text textBox;
+
+    private GameObject npcNameObject; //BUG: nullpointer error after player leaves interactionzone
+    private Text npcNameBox;
+
     private RectTransform textTransform;
     private bool inRange = false;
     private bool interacting = false;
@@ -26,11 +32,19 @@ public class Npc : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        if (npcName != null)
+        {
+            npcNameObject = GetComponentInChildren<Text>().gameObject;
+            npcNameBox = npcNameObject.GetComponent<Text>();
+            textTransform = npcNameObject.GetComponent<RectTransform>();
+            npcNameObject.SetActive(false);
+        }
+        //textObject = npcName.gameObject;
         textObject = GetComponentInChildren<Text>().gameObject;
         textBox = textObject.GetComponent<Text>();
         textTransform = textObject.GetComponent<RectTransform>();
         textObject.SetActive(false);
-        activePhrase = randomLines[0];
+        //activePhrase = randomLines[0];
         Initialize();
 	}
 	
@@ -71,6 +85,13 @@ public class Npc : MonoBehaviour {
     }
 
     private void Talk(Phrase phrase) {
+        if (npcName != null)
+        {
+            lastTalk += Time.deltaTime;
+            //npcNameBox.text = npcName.text;
+            print(npcName);
+        }
+
         lastTalk += Time.deltaTime;
         textBox.text = phrase.text;
         GameObject worldObject = phrase.spokenByNpc ? gameObject : player;
