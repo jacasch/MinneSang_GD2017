@@ -803,9 +803,10 @@ MonoBehaviour:
   - spokenByNpc: 1
     text: "Did you know there\u2019s a stable outside?"
   - spokenByNpc: 1
-    text: Popopopo
+    text: "Brass music is way better than a string orchestra. And that\u2019s a proven
+      fact! "
   - spokenByNpc: 1
-    text: I am an NPC
+    text: I'm really hungry.
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0
@@ -1653,6 +1654,7 @@ MonoBehaviour:
   maxSpeed: 7
   dashDuration: 0.13
   knockbackintensity: 4
+  maxDashesInAir: 2
   sr: {fileID: 0}
 --- !u!96 &318200487
 TrailRenderer:
@@ -4171,11 +4173,12 @@ MonoBehaviour:
     text: It would be an honor.
   randomLines:
   - spokenByNpc: 1
-    text: Hahahah
+    text: This castle was constructed by one giftet in all the arts. They called him
+      polymath.
   - spokenByNpc: 1
-    text: Popopopo
+    text: 'I just received a message from my beloved. Praise the post office! '
   - spokenByNpc: 1
-    text: I am an NPC
+    text: "It\u2019s like a labyrinth in here. "
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0
@@ -6174,11 +6177,12 @@ MonoBehaviour:
     text: Here then! Leave me alone!
   randomLines:
   - spokenByNpc: 1
-    text: Hahahah
+    text: 'I always adored the master of dance. Such grace, but such a silly taste
+      in fashion. '
   - spokenByNpc: 1
-    text: Popopopo
+    text: 'Did you heard the rumour about the high tower? '
   - spokenByNpc: 1
-    text: I am an NPC
+    text: 'Rumours have it, that the post office is quite a new addition to the castle. '
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0
@@ -8439,11 +8443,13 @@ MonoBehaviour:
     text: Here, take this. Give it to the master!
   randomLines:
   - spokenByNpc: 1
-    text: Hahahah
+    text: 'For some reason, those weird squid monsters really like jazz. Maybe they
+      want to perform? '
   - spokenByNpc: 1
-    text: Popopopo
+    text: A few days ago I broke a glass while singing. What a disaster!
   - spokenByNpc: 1
-    text: I am an NPC
+    text: I wrote a letter to my love, but I never got an answer..Did the birds ate
+      the letter?
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0
@@ -10105,11 +10111,11 @@ MonoBehaviour:
     text: 'Thank you myLady! '
   randomLines:
   - spokenByNpc: 1
-    text: Hahahah
+    text: 'Have you seen this fantastic bird? '
   - spokenByNpc: 1
-    text: Popopopo
+    text: 'The monsters are annoying for sure, but so are you. '
   - spokenByNpc: 1
-    text: I am an NPC
+    text: "Hmm... someone should think about cleaning the castle\u2026 "
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0
