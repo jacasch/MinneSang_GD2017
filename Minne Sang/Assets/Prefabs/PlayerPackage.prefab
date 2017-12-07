@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 96587161466374670}
   - component: {fileID: 114849861615310096}
   - component: {fileID: 114957011634637264}
+  - component: {fileID: 114921678017046434}
   m_Layer: 9
   m_Name: player
   m_TagString: Player
@@ -624,6 +625,8 @@ MonoBehaviour:
   maxSpeed: 7
   dashDuration: 0.13
   knockbackintensity: 4
+  maxDashesInAir: 2
+  dashCount: 0
   sr: {fileID: 0}
 --- !u!114 &114662583563672886
 MonoBehaviour:
@@ -687,6 +690,22 @@ MonoBehaviour:
   activeAct: -1
   missingItems: []
   collectedItems: []
+--- !u!114 &114921678017046434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1505405196986660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd1650848a457f40b208f795d1a96c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashesLeft: 0
+  health: 0
+  maxhealth: 0
+  skillLevel: 0
+  items: []
 --- !u!114 &114957011634637264
 MonoBehaviour:
   m_ObjectHideFlags: 1
