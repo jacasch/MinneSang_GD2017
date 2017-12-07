@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jan 1.unity
     guid: 1ead492f86c16e949a3b593579db88f8
+  - enabled: 1
+    path: Assets/Scenes/Roman.unity
+    guid: fed821c1866075949be1f81e2293ff78
