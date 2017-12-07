@@ -20,6 +20,8 @@ public class CameraMovement : MonoBehaviour {
     private Vector2 lookModifier;
     private float lookDistance = 0.4f;
 
+    private bool playerFocused = false;
+
     // Use this for initialization
     void Start() {
         cam = GetComponent<Camera>();
@@ -28,6 +30,12 @@ public class CameraMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (!playerFocused)
+        {
+            //player = player = GameObject.FindGameObjectWithTag("Player");
+            playerFocused = true;
+        }
+
         LerpZoom();
         lookModifier = new Vector2(Input.GetAxis("LookHorizontal") * 16f * lookDistance, -Input.GetAxis("LookVertical") * 16f * lookDistance);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
