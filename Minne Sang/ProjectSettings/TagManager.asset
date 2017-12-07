@@ -54,24 +54,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: ForeGround
-    uniqueID: 4242881827
-    locked: 0
-  - name: Item
-    uniqueID: 3712213511
-    locked: 0
-  - name: Player
-    uniqueID: 2553109697
-    locked: 0
-  - name: Enemy
-    uniqueID: 2524929259
-    locked: 0
-  - name: Npc
-    uniqueID: 1891356649
+  - name: BackGround
+    uniqueID: 3909712079
     locked: 0
   - name: MidGround
     uniqueID: 1010627953
     locked: 0
-  - name: BackGround
-    uniqueID: 3909712079
+  - name: Npc
+    uniqueID: 1891356649
+    locked: 0
+  - name: Enemy
+    uniqueID: 2524929259
+    locked: 0
+  - name: Player
+    uniqueID: 2553109697
+    locked: 0
+  - name: Item
+    uniqueID: 3712213511
+    locked: 0
+  - name: ForeGround
+    uniqueID: 4242881827
     locked: 0
