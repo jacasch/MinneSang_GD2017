@@ -9,7 +9,7 @@ public class Npc : MonoBehaviour {
 
     public Phrase[] questDialogue;
     public Phrase[] randomLines;
-    // public bool autoStart = false;
+    public bool autoStart = false;
 
 
     private float talkDelay = 1.5f;
@@ -64,6 +64,7 @@ public class Npc : MonoBehaviour {
         if (interacting) {
             Interact();
         }
+        autoStartConvo();
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -117,7 +118,19 @@ public class Npc : MonoBehaviour {
         lastTalk = 0;
     }
 
-    private void Interact() {
+    private void autoStartConvo() {
+        if (autoStart && inRange && player.GetComponent<PlayerQuestHandler>().activeQuest == "mastered")
+        {
+            if (!interacting)
+            {
+                StartInteraction();
+                Talk(activePhrase);
+                Interact();
+            }
+        }
+    }
+
+private void Interact() {
         Talk(activePhrase);
         //check if we are ready to check for the next phrase
         if (lastTalk > talkDelay) {
