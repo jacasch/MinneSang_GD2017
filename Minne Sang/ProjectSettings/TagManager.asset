@@ -17,6 +17,9 @@ TagManager:
   - DMG
   - StunToEnemy
   - Health
+  - PoetryDmgToPlayer
+  - PlayerActions
+  - PlayerPackage
   layers:
   - Default
   - TransparentFX

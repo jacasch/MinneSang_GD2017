@@ -4,31 +4,30 @@ using UnityEngine;
 
 public class PlayerSpawnHandler : MonoBehaviour {
     public string targetSpawn;
+    public GameObject playerActions;
     [HideInInspector]
     public bool switched = false;
     private Door[] doors;
 
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
         Respawn();
-
         //if there is another player in the scen destroy it
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject p in players)
         {
             if (p != gameObject)
             {
-                Destroy(gameObject);
-                Camera.main.GetComponent<CameraMovement>().player = p;
+                //Destroy(gameObject);
+                //Camera.main.GetComponent<CameraMovement>().player = p;
             }
         }
     }
 
     private void OnLevelWasLoaded(int level)
     {
-        print(Camera.main.gameObject.name);
-        Camera.main.GetComponent<CameraMovement>().player = gameObject;
+        //print(Camera.main.gameObject.name);
+        //Camera.main.GetComponent<CameraMovement>().player = gameObject;
         Respawn();
     }
 
