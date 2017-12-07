@@ -17,6 +17,7 @@ TagManager:
   - DMG
   - StunToEnemy
   - Health
+  - PoetryDmgToPlayer
   layers:
   - Default
   - TransparentFX
