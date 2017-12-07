@@ -38,7 +38,8 @@ public class Door : MonoBehaviour {
 
     private void ChangeScene() {
         player.GetComponent<PlayerSpawnHandler>().targetSpawn = destinationDoor;
-        SceneManager.LoadScene(destinationScene, LoadSceneMode.Single);
+        player.GetComponent<PlayerSpawnHandler>().targetScene = destinationScene;
+        player.GetComponent<PlayerSpawnHandler>().Respawn();
     }
 
     private void OnTriggerStay2D(Collider2D collision)

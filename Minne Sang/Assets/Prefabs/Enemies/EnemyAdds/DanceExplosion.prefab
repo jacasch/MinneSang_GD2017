@@ -82,7 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: 2
   dmgTime: 0
-  knockback: 1
+  knockback: 5
   timer: 0
 --- !u!212 &212606800680300548
 SpriteRenderer:
@@ -115,8 +115,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1770038037
-  m_SortingLayer: 4
+  m_SortingLayerID: -498371609
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c9a5aeeecd71ce646aac4a90a6c15ea9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
