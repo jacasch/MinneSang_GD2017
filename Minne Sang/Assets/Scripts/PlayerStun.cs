@@ -13,12 +13,14 @@ public class PlayerStun : MonoBehaviour
     public float repeatCD = 5f;
     float repeatTimer = 0;
 
-    BoxCollider2D collider;
+    BoxCollider2D boxCollider;
+    CircleCollider2D circleCollider;
 
     // Use this for initialization
     void Start ()
     {
-        collider = GetComponent<BoxCollider2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        circleCollider = GetComponent<CircleCollider2D>();
     }
 	
 	// Update is called once per frame
@@ -33,6 +35,7 @@ public class PlayerStun : MonoBehaviour
             dir = 1;
         }
         transform.localPosition = new Vector3(distPlayer * dir, 0, 0);
+        boxCollider.offset = new Vector2(0.5f * dir,0);
 
         if (repeatTimer < 0)
         {
@@ -43,7 +46,8 @@ public class PlayerStun : MonoBehaviour
                 {
                     stunTimer = castDuration;
                     repeatTimer = repeatCD;
-                    collider.enabled = true;
+                    boxCollider.enabled = true;
+                    circleCollider.enabled = true;
                     castTimer = 0;
                 }
             }
@@ -62,7 +66,8 @@ public class PlayerStun : MonoBehaviour
             else
             {
                 repeatTimer -= Time.deltaTime;
-                collider.enabled = false;
+                boxCollider.enabled = false;
+                circleCollider.enabled = false;
             }
         }
 

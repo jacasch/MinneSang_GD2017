@@ -8,7 +8,7 @@ public class PlayerAttack : MonoBehaviour
     float distPlayer = 1;  //Front
     float hitTimer;
     float hitDuration = 0.15f;
-    float repeatCD = 0.75f;
+    public float repeatCD = 0.75f;
     float repeatTimer;
 
     BoxCollider2D collider;
