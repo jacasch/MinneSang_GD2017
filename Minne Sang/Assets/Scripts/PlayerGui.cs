@@ -17,6 +17,7 @@ public class PlayerGui : MonoBehaviour {
     {
         pc = GetComponent<PlayerController>();
         ps = GetComponent<PlayerStats>();
+        pqh = GetComponent<PlayerQuestHandler>();
     }
 
     private void Update()
