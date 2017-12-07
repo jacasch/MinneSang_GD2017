@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 4117658238825088}
   - component: {fileID: 61475949278681100}
   - component: {fileID: 114260080127623058}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: PlayerStun
   m_TagString: StunToEnemy
   m_Icon: {fileID: 0}
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847a447edc3ba3c44893f66a97c5b659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castTime: 1
+  castTime: 0.75
   repeatCD: 0
 --- !u!114 &114335513911414452
 MonoBehaviour:
@@ -626,7 +626,10 @@ MonoBehaviour:
   dashDuration: 0.13
   knockbackintensity: 4
   maxDashesInAir: 2
+<<<<<<< HEAD
+=======
   dashCount: 0
+>>>>>>> 874497f2498989669c087cdc3714bc8f35da9c1c
   sr: {fileID: 0}
 --- !u!114 &114662583563672886
 MonoBehaviour:
@@ -717,8 +720,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0522f963127c9b4182381b3ed3b88db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSpawn: 
-  targetScene: 
+  targetSpawn: start
+  targetScene: Roman
   playerActions: {fileID: 1098605080138318}
   switched: 0
 --- !u!124 &124862623809546650
