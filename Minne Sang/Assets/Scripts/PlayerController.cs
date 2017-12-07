@@ -7,6 +7,7 @@ public class PlayerController : PhysicsObject {
     public float maxSpeed = 7;
     public float dashDuration = 0.5f;
     public float knockbackintensity = 4f;
+    public float maxDashesInAir = 2;
 
     protected bool knockedBack = false;
     protected bool dashing = false;
@@ -14,6 +15,8 @@ public class PlayerController : PhysicsObject {
     protected TrailRenderer tr;
     protected float trailDelay;
     protected bool inNpcZone = false;
+    protected bool canDash;
+    protected int dashCount = 0;
     public SpriteRenderer sr;
 
     protected override void Initialize()
@@ -31,13 +34,21 @@ public class PlayerController : PhysicsObject {
         trailDelay -= Time.deltaTime;
 
         #region Input
+
+        bool canMove = !Input.GetButton("Stun") && !(GetComponent<PlayerStats>().poetryBuff < 0 && Input.GetButton("Poetry"));
+        dashCount = grounded ? 0 : dashCount;
+        canDash = dashCount < maxDashesInAir;
+
         if (!knockedBack)
         {
-            float input = Input.GetAxis("Horizontal");
-            move.x = input;
-            if (input != 0)
+            if (canMove)
             {
-                sr.flipX = (Input.GetAxis("Horizontal") < 0);
+                float input = Input.GetAxis("Horizontal");
+                move.x = input;
+                if (input != 0)
+                {
+                    sr.flipX = (Input.GetAxis("Horizontal") < 0);
+                }
             }
         }
         else {
@@ -51,13 +62,14 @@ public class PlayerController : PhysicsObject {
             }
         }
 
-        if (Input.GetButtonDown("Jump") && grounded && !inNpcZone) {
+        if (Input.GetButtonDown("Jump") && grounded && !inNpcZone && canMove) {
             velocity.y = jumpTakeOffSpeed;
             groundNormal = Vector2.up;
         }
 
-        if (Input.GetButtonDown("Dash") && !inNpcZone)
+        if (Input.GetButtonDown("Dash") && !inNpcZone && canMove && canDash && !dashing)
         {
+            dashCount++;
             dashing = true;
             tr.enabled = true;
             dashTimer = dashDuration;            

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Npc : MonoBehaviour {
     public string npcName;
+    private string playerName = "Knight";
+
     public Phrase[] questDialogue;
     public Phrase[] randomLines;
     // public bool autoStart = false;
@@ -13,12 +15,13 @@ public class Npc : MonoBehaviour {
     private float talkDelay = 1.5f;
     private float lastTalk;
     private GameObject textObject; //BUG: nullpointer error after player leaves interactionzone
+    private GameObject npcNameObject;
     private Text textBox;
-
-    private GameObject npcNameObject; //BUG: nullpointer error after player leaves interactionzone
     private Text npcNameBox;
 
     private RectTransform textTransform;
+    private RectTransform npcNameTransform;
+
     private bool inRange = false;
     private bool interacting = false;
 
@@ -32,16 +35,12 @@ public class Npc : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        if (npcName != null)
-        {
-            npcNameObject = GetComponentInChildren<Text>().gameObject;
-            npcNameBox = npcNameObject.GetComponent<Text>();
-            textTransform = npcNameObject.GetComponent<RectTransform>();
-            npcNameObject.SetActive(false);
-        }
         //textObject = npcName.gameObject;
-        textObject = GetComponentInChildren<Text>().gameObject;
+        textObject = transform.Find("Canvas/Text").gameObject;
         textBox = textObject.GetComponent<Text>();
+        npcNameObject = transform.Find("Canvas/Text/npcNameObject").gameObject;
+        npcNameBox = npcNameObject.GetComponent<Text>();
+        npcNameBox.text = npcName;
         textTransform = textObject.GetComponent<RectTransform>();
         textObject.SetActive(false);
         //activePhrase = randomLines[0];
@@ -85,14 +84,9 @@ public class Npc : MonoBehaviour {
     }
 
     private void Talk(Phrase phrase) {
-        if (npcName != null)
-        {
-            lastTalk += Time.deltaTime;
-            //npcNameBox.text = npcName.text;
-            print(npcName);
-        }
-
+        
         lastTalk += Time.deltaTime;
+
         textBox.text = phrase.text;
         GameObject worldObject = phrase.spokenByNpc ? gameObject : player;
 
@@ -100,6 +94,13 @@ public class Npc : MonoBehaviour {
         Vector2 WorldObject_ScreenPosition = new Vector2(
         (viewportPosition.x * Screen.width),
         (viewportPosition.y * Screen.height));
+
+        if (!phrase.spokenByNpc) {
+            npcNameBox.text = playerName.ToUpper();
+        } else
+        {
+            npcNameBox.text = npcName.ToUpper();
+        }
         /*Vector2 WorldObject_ScreenPosition = new Vector2(
         ((viewportPosition.x * textTransform.sizeDelta.x) - (textTransform.sizeDelta.x * 0.5f)),
         ((viewportPosition.y * textTransform.sizeDelta.y) - (textTransform.sizeDelta.y * 0.5f)));*/
