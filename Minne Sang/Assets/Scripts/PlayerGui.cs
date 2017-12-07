@@ -22,7 +22,7 @@ public class PlayerGui : MonoBehaviour {
 
     private void Update()
     {
-        skillLevel = pqh.activeQuest == "mastered" ? pqh.activeAct : pqh.activeAct - 1;
+        skillLevel = pqh.activeQuest == "mastered" ? pqh.activeAct + 1  : pqh.activeAct;
 
         dashesLeft = pc.maxDashesInAir - pc.dashCount;
 
