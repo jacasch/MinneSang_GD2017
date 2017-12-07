@@ -10,7 +10,7 @@ public class PlayerStun : MonoBehaviour
     float castDuration = 0.15f;
     public float castTime = 1f;
     float castTimer = 0;
-    public float repeatCD = 5f;
+    public float repeatCD = 0f;
     float repeatTimer = 0;
 
     BoxCollider2D boxCollider;
@@ -24,17 +24,6 @@ public class PlayerStun : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetAxis("Horizontal") < 0)
-        {
-            dir = -1;
-        }
-        else if (Input.GetAxis("Horizontal") > 0)
-        {
-            dir = 1;
-        }
-        transform.localPosition = new Vector3(distPlayer * dir, 0, 0);
-        boxCollider.offset = new Vector2(0f * dir,0);
-
         if (repeatTimer < 0)
         {
             if (Input.GetAxis("Stun") != 0)
@@ -51,6 +40,17 @@ public class PlayerStun : MonoBehaviour
             else
             {
                 castTimer = 0;
+
+                if (Input.GetAxis("Horizontal") < 0)
+                {
+                    dir = -1;
+                }
+                else if (Input.GetAxis("Horizontal") > 0)
+                {
+                    dir = 1;
+                }
+                transform.localPosition = new Vector3(distPlayer * dir, 0, 0);
+                boxCollider.offset = new Vector2(0f * dir, 0);
             }
         }
         else
@@ -58,7 +58,6 @@ public class PlayerStun : MonoBehaviour
             if (stunTimer > 0)
             {
                 stunTimer -= Time.deltaTime;
-
             }
             else
             {
@@ -66,15 +65,5 @@ public class PlayerStun : MonoBehaviour
                 boxCollider.enabled = false;
             }
         }
-
-
-
-
-
-
-
-
-
-
     }
 }
