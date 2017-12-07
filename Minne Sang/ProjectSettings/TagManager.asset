@@ -72,6 +72,9 @@ TagManager:
   - name: Player
     uniqueID: 2553109697
     locked: 0
+  - name: InvisibleWalls
+    uniqueID: 3796595687
+    locked: 0
   - name: Item
     uniqueID: 3712213511
     locked: 0
