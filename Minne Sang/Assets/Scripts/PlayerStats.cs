@@ -15,11 +15,13 @@ public class PlayerStats : MonoBehaviour
     public float poetryTime = 10;
     public float poetryCD = 5;
     public float poetryCastTime = 3;
-    float poetryCasting = 0;
+    public float poetryCasting = 0;
     public float poetryBuff = -10;
+    PlayerGui playerGui;
 
     void Start ()
     {
+        playerGui = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGui>();
     }
 
     void Update()
@@ -49,7 +51,7 @@ public class PlayerStats : MonoBehaviour
     {
         if(poetryBuff < -poetryCD)
         {
-            if (Input.GetAxis("Poetry") != 0)
+            if (Input.GetAxis("Poetry") != 0 && playerGui.skillLevel >= 4)
             {
                 poetryCasting += Time.deltaTime;
                 print(poetryCasting);
