@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerStun : MonoBehaviour
 {
     int dir = 1;
-    float distPlayer = 3f;  //Front
+    float distPlayer = 2.5f;  //Front
     float stunTimer;
-    float stunDuration = 0.15f;
-    float repeatCD = 0f;
-    float repeatTimer;
+    float castDuration = 0.15f;
+    public float castTime = 1f;
+    float castTimer = 0;
+    public float repeatCD = 5f;
+    float repeatTimer = 0;
 
     BoxCollider2D collider;
 
@@ -32,21 +34,46 @@ public class PlayerStun : MonoBehaviour
         }
         transform.localPosition = new Vector3(distPlayer * dir, 0, 0);
 
-        if (stunTimer >= 0)
+        if (repeatTimer < 0)
         {
-            collider.enabled = true;
-            stunTimer -= Time.deltaTime;
+            if (Input.GetAxis("Stun") != 0)
+            {
+                castTimer += Time.deltaTime;
+                if(castTimer >= castTime)
+                {
+                    stunTimer = castDuration;
+                    repeatTimer = repeatCD;
+                    collider.enabled = true;
+                    castTimer = 0;
+                }
+            }
+            else
+            {
+                castTimer = 0;
+            }
         }
         else
         {
-            collider.enabled = false;
+            if (stunTimer > 0)
+            {
+                stunTimer -= Time.deltaTime;
+
+            }
+            else
+            {
+                repeatTimer -= Time.deltaTime;
+                collider.enabled = false;
+            }
         }
 
-        if (Input.GetAxis("Stun") > 0 && repeatTimer <= 0)  //INPUT!!
-        {
-            stunTimer = stunDuration;
-            repeatTimer = repeatCD;
-        }
-        repeatTimer -= Time.deltaTime;
+
+
+
+
+
+
+
+
+
     }
 }

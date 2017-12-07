@@ -6,11 +6,11 @@ public class EnemyMusicStomp : MonoBehaviour
 {
     float liveTime = 1f;  //Wie lange die Druckwelle bestehen bleibt
     float stayTime = 0.75f;  //Dauer wie lange die Maximale Länge der Druckwelle bestehen bleibt
-    float lengthMax = 0.095f;  //Maximale Reichweite
+    float lengthMax = 8.5f;  //Maximale Reichweite
 
     //ScriptVariables
-    float length = 0.04f;
-    float heigth = 0.1f;
+    float length = 4f;
+    float heigth = 7f;
     float lengthDif;
     float lengthAdd;
     BoxCollider2D boxCol;
