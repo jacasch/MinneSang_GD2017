@@ -82,7 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: 2
   dmgTime: 0
-  knockback: 5
+  knockback: 3
   timer: 0
 --- !u!212 &212606800680300548
 SpriteRenderer:
