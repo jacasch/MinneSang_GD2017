@@ -16,6 +16,7 @@ TagManager:
   - Detection
   - DMG
   - StunToEnemy
+  - Health
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     //Eigenschaften des Players
+    public float maxHP = 7;
     public float hp = 7;
     bool dead = false;
 
