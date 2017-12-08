@@ -13,33 +13,51 @@ public class EnemyDance : MonoBehaviour
     Attack: Explodiert bei Kollision mit dem Player oder wenn er stirbt.
     */
 
-    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
-    public bool stealth = false;
-
-    //Eigenschaften des Gegners.
+    //Eigenschaften des Gegners. (DMG ist im Prefab Explosion festgelegt!)
     float speed = 0;  //Wirdd im Script laufend erhöht
     float addSpeed = 0.05f;  //Erhöhung des Speeds
     int maxSpeed = 8;  //Maximaler Speed
     float dist = 0.5f;  //Distanz ab welcher der Gegner stillsteht (X-Achse)
-    float deadTimer = 1;  //Zeit Bis der Gegner verschwindet
-    float deadExpl = 0.5f;  //Zeit bis der Gegner explosion erzeugt (deadTimer - deadExpl = Effektive Zeit)
-    float timeStunned = 0.5f;
+    float timeStunned = 0.5f;  //Zeit die der Gegner gestunnt ist wenn er gestunnt wird
+    float deadTime = 0.5f;  //Zeit bis der Gegner nach dem Tot verschwindet
+    float respawnTime = 3;  //Zeit bis der Gegner respawnt
+
+    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
+    public bool isStealth = false;
+
+    //Questereignisse
+    string activeQuest;
+    public bool dropItem = false;
+    public string questName = "";
 
     //ScriptVariables
     bool active = false;
     bool move = false;
-    int dir = 1;
-    float stunTimer;
+    bool stealth = false;
     bool dead = false;
-    public GameObject explosion;
-    SpriteRenderer mySprite;
+    bool exploded = false;
 
+    int dir = 1;
+
+    float stunTimer = 0;
+    float deadTimer = 0;
+    float respawnTimer = 0;
+
+
+    Vector3 orgPos;
+    Vector3 deadPos = new Vector3(1000, 0, 0);
+    public GameObject explosion;
+
+    SpriteRenderer mySprite;
     public Material defaultMat;
     public Material chameleonMat;
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
     {
+        stealth = isStealth;
+        orgPos = transform.position;
+        activeQuest = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>().activeQuest;
         mySprite = GetComponent<SpriteRenderer>();
 
         if (stealth)
@@ -57,7 +75,6 @@ public class EnemyDance : MonoBehaviour
     {
         if(dead)
         {
-            deadTimer -= Time.deltaTime;
             Die();
         }
         else if(stunTimer>0)
@@ -92,18 +109,38 @@ public class EnemyDance : MonoBehaviour
     //Tod des Gegners
     void Die()
     {
-        if(deadTimer>=deadExpl)
+        if (deadTimer>0)
         {
+            deadTimer -= Time.deltaTime;
             //PrepareExplusionAnimation
-
-        } else
+        }
+        else
         {
-            Instantiate(explosion, transform.position, Quaternion.identity);
-
-            if (deadTimer > 0)
+            if(!exploded)
             {
-                Destroy(gameObject);
+                Instantiate(explosion, transform.position, Quaternion.identity);
+                exploded = true;
+                if(dropItem && activeQuest == questName)
+                {
+                    //DROP ITEM!!
+                }
             }
+            if (respawnTimer == respawnTime)
+            {
+                transform.position = deadPos;
+            }
+            if (respawnTimer < 0)
+            {
+                exploded = false;
+                stealth = isStealth;
+                if (stealth)
+                {
+                    mySprite.material = chameleonMat;
+                }
+                dead = false;
+                transform.position = orgPos;
+            }
+            respawnTimer -= Time.deltaTime;
         }
     }
 
@@ -120,6 +157,8 @@ public class EnemyDance : MonoBehaviour
             if (collision.gameObject.tag == "PlayerCollision")
             {
                 dead = true;
+                deadTimer = deadTime;
+                respawnTimer = respawnTime;
             }
         }
         else
@@ -127,6 +166,8 @@ public class EnemyDance : MonoBehaviour
             if (collision.gameObject.tag == "DmgToEnemy" || collision.gameObject.tag == "PlayerCollision")
             {
                 dead = true;
+                deadTimer = deadTime;
+                respawnTimer = respawnTime;
             }
             if (collision.gameObject.tag == "StunToEnemy")
             {

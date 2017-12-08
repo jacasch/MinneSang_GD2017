@@ -13,28 +13,43 @@ public class EnemyPoetry : MonoBehaviour
     Attack: Fear
     */
 
+    //Eigenschaften des Gegners. (DMG ist untergeordnet im DMG Objekt und im Prefab EnemyPoetryAura festgelegt!)
+    int hpMax = 3;  //MAX HP des Gegners
+    float speed = 0.5f;  //Geschwindigkeit des Gegners
+    float dist = 0;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
+    float timeStunned = 3f;  //Zeit die der Gegner gestunnt ist
+    float deadTime = 1;  //Zeit bis der Gegner nach dem Tot verschwindet
+    float respawnTime = 3;  //Zeit bis der Gegner respawnt
+
     //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' oder 'Fear' beherscht.
-    public bool stealth = false;
-    int fearRadius = 10;
+    public bool isStealth = false;
 
-    //Eigenschaften des Gegners.
-    int hp = 3;
-    float speed = 0.5f;
-    int dir = 0;
-    float dist = 0;
-    float stunTimer = 0;
-    float timeStunned = 3f;
+    //ScriptVariables
+    int hp;  //HP des Gegners
+
     bool move = false;
-    float deadTimer = 1;
+    bool stealth = false;
     bool dead = false;
-    SpriteRenderer mySprite;
 
+    int dir = 0;
+
+    float stunTimer = 0;
+    float deadTimer = 0;
+    float respawnTimer = 0;
+
+    Vector3 orgPos;
+    Vector3 deadPos = new Vector3(1000, 0, 0);
+
+    SpriteRenderer mySprite;
     public Material defaultMat;
     public Material chameleonMat;
 
     // Use this for initialization
     void Start ()
     {
+        hp = hpMax;
+        stealth = isStealth;
+        orgPos = transform.position;
         mySprite = GetComponent<SpriteRenderer>();
 
         if (stealth)
@@ -85,13 +100,30 @@ public class EnemyPoetry : MonoBehaviour
     //Tod des Gegners
     void Die()
     {
-        deadTimer -= Time.deltaTime;
-        //DieAnimation
-        //...
-
-        if (deadTimer < 0)
+        if (deadTimer > 0)
         {
-            Destroy(gameObject);
+            deadTimer -= Time.deltaTime;
+            //DieAnimation
+            //...
+        }
+        else
+        {
+            if (respawnTimer == respawnTime)
+            {
+                transform.position = deadPos;
+            }
+            if (respawnTimer < 0)
+            {
+                hp = hpMax;
+                stealth = isStealth;
+                if (stealth)
+                {
+                    mySprite.material = chameleonMat;
+                }
+                dead = false;
+                transform.position = orgPos;
+            }
+            respawnTimer -= Time.deltaTime;
         }
         //Destroy Object
     }
@@ -116,6 +148,8 @@ public class EnemyPoetry : MonoBehaviour
                 if (hp <= 0)
                 {
                     dead = true;
+                    deadTimer = deadTime;
+                    respawnTimer = respawnTime;
                 }
             }
             if (collision.gameObject.tag == "StunToEnemy")
