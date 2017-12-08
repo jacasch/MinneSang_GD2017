@@ -121,7 +121,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1917243371667030}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.95, y: -6.72, z: 0}
+  m_LocalPosition: {x: 64.564674, y: 36.759617, z: 0}
   m_LocalScale: {x: 7.0966797, y: 12.9185, z: 10.589769}
   m_Children:
   - {fileID: 4038766410616326}
@@ -382,7 +382,7 @@ MonoBehaviour:
       messageByPrincess: 0
       text: 'Enough! Enough! Your words are breaking my heart! But I cannot dance
         without my clothes! '
-    - spokenByNpc: 0
+    - spokenByNpc: 1
       messageByPrincess: 0
       text: 'Bring me my Tutu, my Tiara and my shoes - and I will teach you the high
         art of dance! '
@@ -431,6 +431,7 @@ MonoBehaviour:
     messageByPrincess: 0
     text: Heigh-ho there! I perceive your presence but I cannot show myself, because
       I can't find my clothes! Come see me later!
+  targetScene: 
 --- !u!114 &114683572207904850
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -34,6 +34,7 @@ public class EnemyOoze : MonoBehaviour
     bool stealth = false;
 
     int dir = 0;
+    float halfSize = 0;  //Für CheckIfGrounded
 
     float jumpTimer = 0;
     float stunTimer = 0;
@@ -49,8 +50,6 @@ public class EnemyOoze : MonoBehaviour
     SpriteRenderer mySprite;
     public Material defaultMat;
     public Material chameleonMat;
-
-    float halfSize = 0;
 
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
@@ -230,24 +229,33 @@ public class EnemyOoze : MonoBehaviour
     {
         RaycastHit2D[] hits;
 
-        Vector2 positionToCheck = transform.position;
-        hits = Physics2D.RaycastAll (positionToCheck, new Vector2(0, -1), halfSize+  0.01f);
-
-
-        /*
-        foreach(RaycastHit2D hit in hits)
-        {
-            GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            marker.transform.position = hit.point;
-            marker.transform.localScale = Vector3.one*0.1f;
-            Destroy(marker,0.1f);
-        }
-        */
-
+        //Überprüft, ob Grounded an der rechten Ecke des Gegners
+        hits = Physics2D.RaycastAll(new Vector2(transform.position.x + halfSize - 0.125f, transform.position.y), new Vector2(0, -1), halfSize + 0.01f);
 
         if (hits.Length > 1)
         {
             grounded = true;
         }
+        else
+        {
+            //Falls die rechte Ecke nicht Gegrounded ist, wird die linke geprüft
+            hits = Physics2D.RaycastAll(new Vector2(transform.position.x - halfSize + 0.125f, transform.position.y), new Vector2(0, -1), halfSize + 0.01f);
+
+            if (hits.Length > 1)
+            {
+                grounded = true;
+            }
+        }
+
+        /*
+        //DEBUGGING DER RAYCASTS FÜR GROUNDED!
+        foreach (RaycastHit2D hit in hits)
+        {
+            GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            marker.transform.position = hit.point;
+            marker.transform.localScale = Vector3.one * 0.1f;
+            Destroy(marker, 0.1f);
+        }
+        */
     }
 }
