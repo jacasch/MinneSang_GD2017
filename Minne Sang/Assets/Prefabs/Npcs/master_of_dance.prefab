@@ -9,75 +9,19 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1303559982535268}
+  m_RootGameObject: {fileID: 1917243371667030}
   m_IsPrefabParent: 1
---- !u!1 &1076718825151878
+--- !u!1 &1281161229247226
 GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 224140307789280526}
-  - component: {fileID: 222619460176174562}
-  - component: {fileID: 114967204024795770}
-  - component: {fileID: 114096712254341834}
-  m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1114701203450172
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 224548345488204882}
-  - component: {fileID: 223954538106850862}
-  - component: {fileID: 114369649688673926}
-  - component: {fileID: 114990205634651622}
-  m_Layer: 5
-  m_Name: Canvas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1303559982535268
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4088330343835216}
-  - component: {fileID: 212553890572901154}
-  - component: {fileID: 114020220618165306}
-  - component: {fileID: 114832449013302056}
-  - component: {fileID: 61172338324833804}
-  - component: {fileID: 50786881838986032}
-  m_Layer: 10
-  m_Name: Guard
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1441040856963314
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 224795476016540440}
-  - component: {fileID: 222663398088649400}
-  - component: {fileID: 114159056086585600}
-  - component: {fileID: 114700094047674074}
+  - component: {fileID: 224934415185445168}
+  - component: {fileID: 222493087630827368}
+  - component: {fileID: 114224237479019580}
+  - component: {fileID: 114392465280191464}
   m_Layer: 5
   m_Name: npcNameObject
   m_TagString: Untagged
@@ -85,15 +29,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1958805136632236
+--- !u!1 &1325780894536824
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4430487824218224}
-  - component: {fileID: 61922259730892534}
+  - component: {fileID: 4038766410616326}
+  - component: {fileID: 61028973317771136}
   m_Layer: 0
   m_Name: InteractionArea
   m_TagString: NpcInteractionZone
@@ -101,41 +45,97 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4088330343835216
+--- !u!1 &1442441237693374
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224054008807708374}
+  - component: {fileID: 222196521253219710}
+  - component: {fileID: 114683572207904850}
+  - component: {fileID: 114359183039972492}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1753307142916350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224629546937587756}
+  - component: {fileID: 223048349143390228}
+  - component: {fileID: 114503492374831166}
+  - component: {fileID: 114097039715060892}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1917243371667030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4174610893030166}
+  - component: {fileID: 212162955495270206}
+  - component: {fileID: 114280562790377268}
+  - component: {fileID: 114565291521017624}
+  - component: {fileID: 61755223574984976}
+  - component: {fileID: 50227208870127626}
+  m_Layer: 10
+  m_Name: master_of_dance
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4038766410616326
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1303559982535268}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.44, y: -3.35, z: 0}
-  m_LocalScale: {x: 7.0966797, y: 12.9185, z: 10.589769}
-  m_Children:
-  - {fileID: 4430487824218224}
-  - {fileID: 224548345488204882}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4430487824218224
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1958805136632236}
+  m_GameObject: {fileID: 1325780894536824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4088330343835216}
+  m_Father: {fileID: 4174610893030166}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50786881838986032
+--- !u!4 &4174610893030166
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1917243371667030}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.95, y: -6.72, z: 0}
+  m_LocalScale: {x: 7.0966797, y: 12.9185, z: 10.589769}
+  m_Children:
+  - {fileID: 4038766410616326}
+  - {fileID: 224629546937587756}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50227208870127626
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1303559982535268}
+  m_GameObject: {fileID: 1917243371667030}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -149,37 +149,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61172338324833804
+--- !u!61 &61028973317771136
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1303559982535268}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.1, y: 0.1}
-    newSize: {x: 0.1, y: 0.1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1}
-  m_EdgeRadius: 0
---- !u!61 &61922259730892534
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1958805136632236}
+  m_GameObject: {fileID: 1325780894536824}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -199,40 +174,53 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5926673, y: 0.0993911}
   m_EdgeRadius: 0
---- !u!114 &114020220618165306
+--- !u!61 &61755223574984976
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1917243371667030}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.1, y: 0.1}
+    newSize: {x: 0.1, y: 0.1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1}
+  m_EdgeRadius: 0
+--- !u!114 &114097039715060892
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1303559982535268}
+  m_GameObject: {fileID: 1753307142916350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87b60a5325194c34eb10352ddbe2f317, type: 3}
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minGroundNormalY: 0.65
-  gravityModifier: 2
-  grounded: 0
---- !u!114 &114096712254341834
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &114224237479019580
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1076718825151878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 2, y: -2}
-  m_UseGraphicAlpha: 1
---- !u!114 &114159056086585600
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1441040856963314}
+  m_GameObject: {fileID: 1281161229247226}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -260,12 +248,54 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: placeholder
---- !u!114 &114369649688673926
+--- !u!114 &114280562790377268
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1114701203450172}
+  m_GameObject: {fileID: 1917243371667030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b60a5325194c34eb10352ddbe2f317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minGroundNormalY: 0.65
+  gravityModifier: 2
+  grounded: 0
+--- !u!114 &114359183039972492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1442441237693374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
+--- !u!114 &114392465280191464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1281161229247226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
+--- !u!114 &114503492374831166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753307142916350}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -281,95 +311,132 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114700094047674074
+--- !u!114 &114565291521017624
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1441040856963314}
+  m_GameObject: {fileID: 1917243371667030}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7350c610d5a3a5542a04b028b7532567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 2, y: -2}
-  m_UseGraphicAlpha: 1
---- !u!114 &114832449013302056
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1303559982535268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecc8cb8efe6cd0f43b9e7dfc39690656, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcName: the Guard
-  questDialogue:
-  - spokenByNpc: 1
-    messageByPrincess: 0
-    text: Stand ho! What is it you desire?
-  - spokenByNpc: 0
-    messageByPrincess: 0
-    text: I desire to master the high arts to impress my one and only love.
-  - spokenByNpc: 1
-    messageByPrincess: 0
-    text: "Who\u2019s the lucky one?"
-  - spokenByNpc: 0
-    messageByPrincess: 0
-    text: "Ohhh\u2026 She\u2019s the fairest of all maiden. Her lips so well formed,
-      you could never let your eyes glaze further."
-  - spokenByNpc: 0
-    messageByPrincess: 0
-    text: "Her eyes sparkling like waterfalls after a stormy rain and so tender you
-      will lose yourself in the most vivid color you\u2026"
-  - spokenByNpc: 1
-    messageByPrincess: 0
-    text: Good God, stop your blabbering!
-  - spokenByNpc: 0
-    messageByPrincess: 0
-    text: "\u2026Beyond all manner of so much I love her."
-  - spokenByNpc: 1
-    messageByPrincess: 0
-    text: Although I never felt true love I feel touched by your emotions.
-  - spokenByNpc: 1
-    messageByPrincess: 0
-    text: "Let the headmaster judge if you\u2019re worthy enough to learn the high
-      arts here in Tonilot!"
+  npcName: high master of dance
+  questDialogue: []
   randomLines:
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: 'Did you head to the headmaster already? '
-  - spokenByNpc: 0
-    messageByPrincess: 0
-    text: "Beware the horse in the stable. It\u2019s fast. Only the dancers are faster."
+    text: Can you smell it? That's the taste of fresh sweat of a passionate dancer!
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: Tonilot was built by the one who mastered all the high arts. He had the
-      title of a polymath.
-  autoStart: 1
+    text: Does this Tutu make me look fat? Somebody told me once but I do not remember
+      who...
+  - spokenByNpc: 1
+    messageByPrincess: 0
+    text: 'I''m very proud of you, young dancer! But there is still a long way to
+      become a real master like me! '
+  autoStart: 0
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0
     messageByPrincess: 0
     text: 
   activePhraseIndex: 0
-  relatedQuest: mastered
-  afterDropLine:
+  relevantAct: 0
+  quest:
+    name: q1
+    itemsToCollect:
+    - Tiara
+    - Tutu
+    - Shoes
+    dialogue:
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: Heigh-ho there! I perceive your presence but I cannot show myself, because
+        I can't find my clothes!
+    - spokenByNpc: 0
+      messageByPrincess: 0
+      text: But I need to talk to you!
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: What is it?
+    - spokenByNpc: 0
+      messageByPrincess: 0
+      text: I want to gain mastery over the art of dance.
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: 'The high art of dancing is not meant just for anyone. '
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: Why should I waste my precious time with a young lad like you?
+    - spokenByNpc: 0
+      messageByPrincess: 0
+      text: I have found the love of my life. Now I have to become a dignified dance
+        partner.
+    - spokenByNpc: 0
+      messageByPrincess: 0
+      text: Oh Lord, you have never seen a dancer like her! When she moves her body,
+        her golden, florid smelling hair whirls through the air and ...
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: 'Enough! Enough! Your words are breaking my heart! But I cannot dance
+        without my clothes! '
+    - spokenByNpc: 0
+      messageByPrincess: 0
+      text: 'Bring me my Tutu, my Tiara and my shoes - and I will teach you the high
+        art of dance! '
+    randomLines:
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: I've already told you I need my clothes to teach you! Tutu, Tiara and
+        Shoes! Hie up!
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: Maybe you should ask people in the main hall, there is always something
+        happening.
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: 'I ordered new shoes weeks ago, why aren''t they here yet? '
+    endDialogue:
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: Do you have my clothes?
+    - spokenByNpc: 0
+      messageByPrincess: 0
+      text: I have. And they are washed too. Here you go!
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: Well done, young knight! Just give me a second and we can start the lessons!
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: "Well, as you can see, I\u2019m finally in shape and ready to dance."
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: "I\u2019m going to teach you the most important move of the high art of
+        dance - the swan dash!"
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: A legendary dance move to gain enough momentum to overcome big gaps and
+        evade dangerous enemies.
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: 'Just calm yourself, focus, take a deep breath and push the (A) button! '
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: "Now go and dance with your love, young knight! Don\u2019t you dare disappoint
+        me!"
+  encounterBeforeHeadMaster:
     spokenByNpc: 1
     messageByPrincess: 0
-    text: Did you head to the headmaster already?
-  questDrop:
-    drop: {fileID: 0}
-    name: nodrop
---- !u!114 &114967204024795770
+    text: Heigh-ho there! I perceive your presence but I cannot show myself, because
+      I can't find my clothes! Come see me later!
+--- !u!114 &114683572207904850
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1076718825151878}
+  m_GameObject: {fileID: 1442441237693374}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -397,28 +464,12 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1.2
   m_Text: Hallo Ich bin Alias und habe etwas zu sagen!
---- !u!114 &114990205634651622
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1114701203450172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!212 &212553890572901154
+--- !u!212 &212162955495270206
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1303559982535268}
+  m_GameObject: {fileID: 1917243371667030}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -448,7 +499,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 82ceb57a7df600d47ad74e5265fe5b07, type: 3}
-  m_Color: {r: 0.5474157, g: 0.8422137, b: 0.9191176, a: 1}
+  m_Color: {r: 0.3752476, g: 0.45588237, b: 0.09050606, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -457,24 +508,24 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!222 &222619460176174562
+--- !u!222 &222196521253219710
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1076718825151878}
---- !u!222 &222663398088649400
+  m_GameObject: {fileID: 1442441237693374}
+--- !u!222 &222493087630827368
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1441040856963314}
---- !u!223 &223954538106850862
+  m_GameObject: {fileID: 1281161229247226}
+--- !u!223 &223048349143390228
 Canvas:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1114701203450172}
+  m_GameObject: {fileID: 1753307142916350}
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
@@ -489,18 +540,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!224 &224140307789280526
+--- !u!224 &224054008807708374
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1076718825151878}
+  m_GameObject: {fileID: 1442441237693374}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 100, y: 56.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 224795476016540440}
-  m_Father: {fileID: 224548345488204882}
+  - {fileID: 224934415185445168}
+  m_Father: {fileID: 224629546937587756}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -508,18 +559,18 @@ RectTransform:
   m_AnchoredPosition: {x: 150, y: 106.4}
   m_SizeDelta: {x: 450, y: 167.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!224 &224548345488204882
+--- !u!224 &224629546937587756
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1114701203450172}
+  m_GameObject: {fileID: 1753307142916350}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.14091095, y: 0.077408366, z: 0.09443076}
   m_Children:
-  - {fileID: 224140307789280526}
-  m_Father: {fileID: 4088330343835216}
+  - {fileID: 224054008807708374}
+  m_Father: {fileID: 4174610893030166}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -527,17 +578,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!224 &224795476016540440
+--- !u!224 &224934415185445168
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1441040856963314}
+  m_GameObject: {fileID: 1281161229247226}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 101.59998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 224140307789280526}
+  m_Father: {fileID: 224054008807708374}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Npc : MonoBehaviour {
     public string npcName;
     private string playerName = "Knight";
+    private string princess = "Princess Freya";
 
     public Phrase[] questDialogue;
     public Phrase[] randomLines;
@@ -84,23 +85,28 @@ public class Npc : MonoBehaviour {
         }
     }
 
-    private void Talk(Phrase phrase) {
+    protected virtual void Talk(Phrase phrase) {
         
         lastTalk += Time.deltaTime;
 
         textBox.text = phrase.text;
-        GameObject worldObject = phrase.spokenByNpc ? gameObject : player;
+        GameObject worldObject = phrase.spokenByNpc || phrase.messageByPrincess ? gameObject : player;
 
         Vector2 viewportPosition = Camera.main.WorldToViewportPoint(worldObject.transform.position);
         Vector2 WorldObject_ScreenPosition = new Vector2(
         (viewportPosition.x * Screen.width),
         (viewportPosition.y * Screen.height));
-
-        if (!phrase.spokenByNpc) {
-            npcNameBox.text = playerName.ToUpper();
-        } else
+        if (phrase.spokenByNpc)
         {
             npcNameBox.text = npcName.ToUpper();
+        }
+        else if (phrase.messageByPrincess)
+        {
+            npcNameBox.text = princess.ToUpper();
+        }
+        else
+        {
+            npcNameBox.text = playerName.ToUpper();
         }
         /*Vector2 WorldObject_ScreenPosition = new Vector2(
         ((viewportPosition.x * textTransform.sizeDelta.x) - (textTransform.sizeDelta.x * 0.5f)),
