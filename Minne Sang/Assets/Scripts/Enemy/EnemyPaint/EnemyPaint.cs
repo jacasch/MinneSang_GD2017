@@ -19,8 +19,15 @@ public class EnemyPaint : MonoBehaviour
     float dist = 5;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float shootCD = 1.5f;  //Cooldown des Schusses
     float timeStunned = 2f;  //Zeit die der Gegner gestunnt ist
-    float deadTime = 1;  //Zeit bis der Gegner nach dem Tot verschwindet
-    float respawnTime = 3;  //Zeit bis der Gegner respawnt
+    float deadTime = 0.75f;  //Zeit bis der Gegner nach dem Tot verschwindet
+    float respawnTime = 30;  //Zeit bis der Gegner respawnt
+
+    //Questereignisse
+    string activeQuest;
+    public bool dropItem = false;
+    public string questName = "";
+    public Item questDrop;
+    bool dropped = false;
 
     //ScriptVariables
     int hp;  //HP des Gegners
@@ -52,6 +59,7 @@ public class EnemyPaint : MonoBehaviour
         hp = hpMax;
         orgPos = transform.position;
         objPlayer = GameObject.FindGameObjectWithTag("Player");
+        activeQuest = objPlayer.GetComponent<PlayerQuestHandler>().activeQuest;
         mySprite = GetComponent<SpriteRenderer>();
 
         if (stealth)
@@ -130,6 +138,16 @@ public class EnemyPaint : MonoBehaviour
         }
         else
         {
+            if (dropItem && !dropped)
+            {
+                if (activeQuest == questName)
+                {
+                    print("test");
+                    GameObject drop = Instantiate(questDrop.drop, transform.position, transform.rotation);
+                    drop.GetComponent<ItemHandler>().SetName(questDrop.name);
+                    dropped = true;
+                }
+            }
             if (respawnTimer == respawnTime)
             {
                 transform.position = deadPos;
@@ -137,6 +155,7 @@ public class EnemyPaint : MonoBehaviour
             if (respawnTimer < 0)
             {
                 hp = hpMax;
+                dropped = false;
                 stealth = true;
                 if (stealth)
                 {

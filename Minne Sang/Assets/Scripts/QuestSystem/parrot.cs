@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class parrot : Npc
+public class Parrot : Npc
 {
-
-    public Act[] sendingLetters;
-    private int numberLetters = 4;
-    private int letters = 0;
-    private bool letterSend = false;
+    // private string princess = "Princess Freya";
+    public Act[] sendingLetters; 
+    
 
     //public Phrase afterDropLine;
     //public Item questDrop;
@@ -21,26 +19,24 @@ public class parrot : Npc
     public override void NextPhrase()
     {
 
-         //if we mastered the previous act, we will enter the new act
-        if (player.GetComponent<PlayerQuestHandler>().activeQuest == "mastered")
-        {
-            // player.GetComponent<PlayerQuestHandler>().activeAct++;
-            //letterSend = false;
-        } 
+        //if we mastered the previous act, we will enter the new act
 
-        Act whichLetter = sendingLetters[letters];
+
+        Act whichLetter = sendingLetters[player.GetComponent<PlayerQuestHandler>().letters];
 
         //if we are just starting an act, the headmaster will initialize this act with a dialogue
         //if dialogue is over we start can spek with the master of that act
-        if (letterSend == false)
+        if (player.GetComponent<PlayerQuestHandler>().letterSend == false && player.GetComponent<PlayerQuestHandler>().activeAct >= 1)
         {
             // Zhe fucking Problem >>>
             if (activePhraseIndex >= whichLetter.dialogue.Length)
             {
                 // player.GetComponent<PlayerQuestHandler>().activeQuest = "running";
                 // Order of letters in different acts
-                letters++;
-                letterSend = true;
+                player.GetComponent<PlayerQuestHandler>().letters++;
+                player.GetComponent<PlayerQuestHandler>().letterSend = true;
+                //player.GetComponent<PlayerQuestHandler>().optionToSendLetters = false;
+
                 EndInteraction();
             }
             else
@@ -49,7 +45,7 @@ public class parrot : Npc
                 activePhraseIndex++;
             }
         }
-        if (letterSend == true)
+        if (player.GetComponent<PlayerQuestHandler>().letterSend == true || player.GetComponent<PlayerQuestHandler>().activeAct <= 0)
         { //else we just drop a random line and then end the interaction
             int newIndex;
             do

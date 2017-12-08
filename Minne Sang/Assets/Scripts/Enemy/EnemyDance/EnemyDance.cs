@@ -20,7 +20,7 @@ public class EnemyDance : MonoBehaviour
     float dist = 0.5f;  //Distanz ab welcher der Gegner stillsteht (X-Achse)
     float timeStunned = 0.5f;  //Zeit die der Gegner gestunnt ist wenn er gestunnt wird
     float deadTime = 0.5f;  //Zeit bis der Gegner nach dem Tot verschwindet
-    float respawnTime = 3;  //Zeit bis der Gegner respawnt
+    float respawnTime = 30;  //Zeit bis der Gegner respawnt
 
     //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
     public bool isStealth = false;
@@ -29,6 +29,8 @@ public class EnemyDance : MonoBehaviour
     string activeQuest;
     public bool dropItem = false;
     public string questName = "";
+    public Item questDrop;
+    bool dropped = false;
 
     //ScriptVariables
     bool active = false;
@@ -120,9 +122,14 @@ public class EnemyDance : MonoBehaviour
             {
                 Instantiate(explosion, transform.position, Quaternion.identity);
                 exploded = true;
-                if(dropItem && activeQuest == questName)
+            }
+            if(dropItem && !dropped)
+            {
+                if (activeQuest == questName)
                 {
-                    //DROP ITEM!!
+                    GameObject drop = Instantiate(questDrop.drop, transform.position, transform.rotation);
+                    drop.GetComponent<ItemHandler>().SetName(questDrop.name);
+                    dropped = true;
                 }
             }
             if (respawnTimer == respawnTime)
@@ -132,6 +139,7 @@ public class EnemyDance : MonoBehaviour
             if (respawnTimer < 0)
             {
                 exploded = false;
+                dropped = false;
                 stealth = isStealth;
                 if (stealth)
                 {

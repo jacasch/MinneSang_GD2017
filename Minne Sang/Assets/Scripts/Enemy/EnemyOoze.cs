@@ -20,8 +20,8 @@ public class EnemyOoze : MonoBehaviour
     float dist = 0.5f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float jumpCD = 0.2f;  //Zeit bis der Sprung nach der Landung erneut ausgeführt wird
     float timeStunned = 3;  //Zeit die der Gegner gestunnt ist wenn er gestunnt wird
-    float deadTime = 1;  //Zeit bis der Gegner nach dem Tot verschwindet
-    float respawnTime = 3;  //Zeit bis der Gegner respawnt
+    float deadTime = 0.75f;  //Zeit bis der Gegner nach dem Tot verschwindet
+    float respawnTime = 30;  //Zeit bis der Gegner respawnt
 
     //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
     public bool isStealth = false;
@@ -32,15 +32,17 @@ public class EnemyOoze : MonoBehaviour
     bool active = false;
     bool grounded = false;
     bool stealth = false;
+    bool rightUp = false;
+    int jumpUp = 1;
+    bool dead = false;
 
-    int dir = 0;
+    int dir = 1;
+    float halfSize = 0;  //Für CheckIfGrounded
 
     float jumpTimer = 0;
     float stunTimer = 0;
     float deadTimer = 0;
     float respawnTimer = 0;
-
-    bool dead = false;
 
     Vector3 orgPos;
     Vector3 deadPos = new Vector3(1000, 0, 0);
@@ -54,6 +56,9 @@ public class EnemyOoze : MonoBehaviour
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
     {
+        halfSize = GetComponent<BoxCollider2D>().size.y / 2;
+
+
         hp = hpMax;
         stealth = isStealth;
         orgPos = transform.position;
@@ -82,6 +87,16 @@ public class EnemyOoze : MonoBehaviour
         else if (active)
         {
             Move();
+            if (rightUp && rb.velocity.x == 0)
+            {
+                rb.velocity = new Vector3(1.25f * dir, rb.velocity.y, 0);
+                rightUp = false;
+            }
+
+            if (rb.velocity.x == 0 && rb.velocity.y == 0 && !grounded && !rightUp && jumpUp == 1)
+            {
+                rb.velocity = new Vector3(speed * dir, jumpHeight, 0);
+            }
         }
     }
 
@@ -103,7 +118,7 @@ public class EnemyOoze : MonoBehaviour
             if(jumpTimer<=0)
             {
                 jumpTimer = jumpCD;
-                rb.velocity = new Vector3(speed * dir, jumpHeight, 0);
+                rb.velocity = new Vector3(speed * dir * jumpUp, jumpHeight, 0);
             }
         }
     }
@@ -162,6 +177,7 @@ public class EnemyOoze : MonoBehaviour
             if (collision.gameObject.tag == "DmgToEnemy")
             {
                 hp -= 1;
+                rb.velocity = new Vector3(2 * -dir, 2, 0);
                 print("ENEMY HP: " + hp);
                 if (hp <= 0)
                 {
@@ -186,6 +202,7 @@ public class EnemyOoze : MonoBehaviour
             if (other.transform.position.x + dist < transform.position.x)
             {
                 dir = -1;
+
             }
             else if (other.transform.position.x - dist > transform.position.x)
             {
@@ -222,14 +239,57 @@ public class EnemyOoze : MonoBehaviour
     //GroundedCheck
     void CheckIfGrounded()
     {
+        grounded = false;
         RaycastHit2D[] hits;
 
-        Vector2 positionToCheck = transform.position;
-        hits = Physics2D.RaycastAll (positionToCheck, new Vector2(0, -1), 0.01f);
+        //Überprüft, ob Grounded an der rechten Ecke des Gegners
+        hits = Physics2D.RaycastAll(new Vector2(transform.position.x + halfSize - 0.15f, transform.position.y), new Vector2(0, -1), halfSize + 0.01f);
 
         if (hits.Length > 0)
         {
             grounded = true;
         }
+        else
+        {
+            //Falls die rechte Ecke nicht Gegrounded ist, wird die linke geprüft
+            hits = Physics2D.RaycastAll(new Vector2(transform.position.x - halfSize + 0.15f, transform.position.y), new Vector2(0, -1), halfSize + 0.01f);
+
+            if (hits.Length > 0)
+            {
+                grounded = true;
+            }
+        }
+
+        RaycastHit2D[] hitsRight;
+
+        //Überprüft, ob rechts an der rechten Ecke des Gegners ein Block ist
+        hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y - halfSize + 0.15f), new Vector2(1*dir, 0), halfSize + 0.01f);
+
+        jumpUp = 1;
+
+        if (hitsRight.Length == 0)
+        {
+            rightUp = true;
+        }
+        else
+        {
+            if (grounded)
+            {
+                jumpUp = 0;
+            }
+        }
+
+
+
+        /*
+        //DEBUGGING DER RAYCASTS FÜR GROUNDED!
+        foreach (RaycastHit2D hit in hitsRight)
+        {
+            GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            marker.transform.position = hit.point;
+            marker.transform.localScale = Vector3.one * 0.1f;
+            Destroy(marker, 0.1f);
+        }
+        */
     }
 }

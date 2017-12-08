@@ -19,7 +19,7 @@ public class EnemyPoetry : MonoBehaviour
     float dist = 0;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float timeStunned = 3f;  //Zeit die der Gegner gestunnt ist
     float deadTime = 1;  //Zeit bis der Gegner nach dem Tot verschwindet
-    float respawnTime = 3;  //Zeit bis der Gegner respawnt
+    float respawnTime = 30;  //Zeit bis der Gegner respawnt
 
     //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' oder 'Fear' beherscht.
     public bool isStealth = false;
