@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4931443362042014}
   - component: {fileID: 61958702859076882}
   - component: {fileID: 114893923853128142}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spawnpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,3 +78,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
+  isMasteryStart: 0
