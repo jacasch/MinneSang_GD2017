@@ -29,6 +29,7 @@ public class EnemyDance : MonoBehaviour
     string activeQuest;
     public bool dropItem = false;
     public string questName = "";
+    public Item questDrop;
 
     //ScriptVariables
     bool active = false;
@@ -122,7 +123,8 @@ public class EnemyDance : MonoBehaviour
                 exploded = true;
                 if(dropItem && activeQuest == questName)
                 {
-                    //DROP ITEM!!
+                    GameObject drop = Instantiate(questDrop.drop, transform.position, transform.rotation);
+                    drop.GetComponent<ItemHandler>().SetName(questDrop.name);
                 }
             }
             if (respawnTimer == respawnTime)

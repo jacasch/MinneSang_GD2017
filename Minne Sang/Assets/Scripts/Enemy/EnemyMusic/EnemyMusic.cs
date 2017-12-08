@@ -78,13 +78,10 @@ public class EnemyMusic : MonoBehaviour
         {
             //Stun Animation
             stunTimer -= Time.deltaTime;
-        }
-        else if(active)
+            walkTimer = 0;
+        } else if(move)
         {
-            if(move)
-            {
-                Move();
-            }
+            Move();
             Attack();
         }
     }
@@ -96,7 +93,7 @@ public class EnemyMusic : MonoBehaviour
         if (walkTimer <= 0)
         {
             walkTimer = walkCD;
-            transform.Translate(speed * dir * Time.deltaTime, 0, 0);
+            //transform.Translate(speed * dir * Time.deltaTime, 0, 0);
         }
         else if (walkTimer < walkDist)
         {
@@ -107,6 +104,7 @@ public class EnemyMusic : MonoBehaviour
         if (walkTimer <= 0)
         {
             stomp = true;
+            move = false;
         }
         if (dir < 0 && !stealth)
         {
@@ -183,6 +181,7 @@ public class EnemyMusic : MonoBehaviour
                     dead = true;
                     deadTimer = deadTime;
                     respawnTimer = respawnTime;
+                    walkTimer = 0;
                 }
             }
             if (collision.gameObject.tag == "StunToEnemy")
@@ -207,10 +206,6 @@ public class EnemyMusic : MonoBehaviour
             {
                 dir = 1;
                 move = true;
-            }
-            else
-            {
-                move = false;
             }
         }
     }
