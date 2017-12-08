@@ -8,6 +8,8 @@ public class ChameleonPlatform : MonoBehaviour {
     public Material defaultmat;
     public Material chameleonmat;
 
+    private bool playerIsInsidePlatform = false;
+
 
 	// Use this for initialization
 	void Start () {
@@ -25,11 +27,22 @@ public class ChameleonPlatform : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Paint") {
+        if (collision.gameObject.tag == "Player") {
+            playerIsInsidePlatform = true;
+        }
+        if (collision.gameObject.tag == "Paint" && !playerIsInsidePlatform) {
             bc2d.isTrigger = false;
             Destroy(collision.gameObject);
             sr.material = defaultmat;
             gameObject.layer = 0;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            playerIsInsidePlatform = false;
         }
     }
 }
