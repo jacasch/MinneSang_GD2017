@@ -8,6 +8,8 @@ public class MasterNpc : Npc{
     public Quest quest;
     public Phrase encounterBeforeHeadMaster;
 
+    public string targetScene;
+
     //public Phrase afterDropLine;
     //public Item questDrop;
 
@@ -56,6 +58,10 @@ public class MasterNpc : Npc{
                         {
                             //TODO GO TO NEXT LEVEL
                             player.GetComponent<PlayerQuestHandler>().activeQuest = "mastered";
+                            PlayerSpawnHandler psh = player.GetComponent<PlayerSpawnHandler>();
+                            psh.targetScene = targetScene;
+                            psh.targetSpawn = "masterystart";
+                            psh.Respawn();
                             EndInteraction();
                         }
                         else
