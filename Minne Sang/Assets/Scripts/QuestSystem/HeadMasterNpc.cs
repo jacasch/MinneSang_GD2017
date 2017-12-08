@@ -20,6 +20,7 @@ public class HeadMasterNpc : Npc
         //if we mastered the previous act, we will enter the new act
         if (player.GetComponent<PlayerQuestHandler>().activeQuest == "mastered") {
             player.GetComponent<PlayerQuestHandler>().activeAct++;
+            player.GetComponent<PlayerQuestHandler>().letterSend = false;
             player.GetComponent<PlayerQuestHandler>().activeQuest = "start";
         }
 
