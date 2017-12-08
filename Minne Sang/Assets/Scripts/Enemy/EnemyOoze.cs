@@ -20,8 +20,8 @@ public class EnemyOoze : MonoBehaviour
     float dist = 0.5f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float jumpCD = 0.2f;  //Zeit bis der Sprung nach der Landung erneut ausgeführt wird
     float timeStunned = 3;  //Zeit die der Gegner gestunnt ist wenn er gestunnt wird
-    float deadTime = 1;  //Zeit bis der Gegner nach dem Tot verschwindet
-    float respawnTime = 3;  //Zeit bis der Gegner respawnt
+    float deadTime = 0.75f;  //Zeit bis der Gegner nach dem Tot verschwindet
+    float respawnTime = 30;  //Zeit bis der Gegner respawnt
 
     //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
     public bool isStealth = false;
@@ -50,10 +50,15 @@ public class EnemyOoze : MonoBehaviour
     public Material defaultMat;
     public Material chameleonMat;
 
+    float halfSize = 0;
+
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
     {
+        halfSize = GetComponent<BoxCollider2D>().size.y / 2;
+
+
         hp = hpMax;
         stealth = isStealth;
         orgPos = transform.position;
@@ -162,6 +167,7 @@ public class EnemyOoze : MonoBehaviour
             if (collision.gameObject.tag == "DmgToEnemy")
             {
                 hp -= 1;
+                rb.velocity = new Vector3(2 * -dir, 2, 0);
                 print("ENEMY HP: " + hp);
                 if (hp <= 0)
                 {
@@ -225,9 +231,21 @@ public class EnemyOoze : MonoBehaviour
         RaycastHit2D[] hits;
 
         Vector2 positionToCheck = transform.position;
-        hits = Physics2D.RaycastAll (positionToCheck, new Vector2(0, -1), 0.01f);
+        hits = Physics2D.RaycastAll (positionToCheck, new Vector2(0, -1), halfSize+  0.01f);
 
-        if (hits.Length > 0)
+
+        /*
+        foreach(RaycastHit2D hit in hits)
+        {
+            GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            marker.transform.position = hit.point;
+            marker.transform.localScale = Vector3.one*0.1f;
+            Destroy(marker,0.1f);
+        }
+        */
+
+
+        if (hits.Length > 1)
         {
             grounded = true;
         }

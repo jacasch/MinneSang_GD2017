@@ -21,7 +21,7 @@ public class EnemyMusic : MonoBehaviour
     float walkCD = 1f; //Zeit bis zum nächsten Schritt
     float timeStunned = 3f;  //Zeit die der Gegner gestunnt ist
     float deadTime = 1;  //Zeit bis der Gegner nach dem Tot verschwindet
-    float respawnTime = 3;  //Zeit bis der Gegner respawnt
+    float respawnTime = 30;  //Zeit bis der Gegner respawnt
 
     //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
     public bool isStealth = false;
