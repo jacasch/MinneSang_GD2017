@@ -67,6 +67,7 @@ public class PlayerStats : MonoBehaviour
         }
         else
         {
+            poetryCasting = 0;
             poetryBuff -= Time.deltaTime;
             print("poetryBuff:" + poetryBuff);
         }
