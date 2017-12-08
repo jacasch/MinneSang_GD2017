@@ -9,7 +9,8 @@ public class PlayerStun : MonoBehaviour
     float stunTimer;
     float castDuration = 0.15f;
     public float castTime = 0.75f;
-    float castTimer = 0;
+    [HideInInspector]
+    public float castTimer = 0;
     public float repeatCD = 0f;
     float repeatTimer = 0;
 

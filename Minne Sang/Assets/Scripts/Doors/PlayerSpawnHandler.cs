@@ -10,6 +10,7 @@ public class PlayerSpawnHandler : MonoBehaviour {
     [HideInInspector]
     public bool switched = false;
     private Door[] doors;
+    private SpawnPoint[] spawnPoints;
 
 
     private void Start()
@@ -36,12 +37,19 @@ public class PlayerSpawnHandler : MonoBehaviour {
 
     private void Reposition() {
         doors = FindObjectsOfType(typeof(Door)) as Door[];
+        spawnPoints = FindObjectsOfType(typeof(SpawnPoint)) as SpawnPoint[];
         foreach (Door d in doors)
         {
             if (d.name == targetSpawn)
             {
                 transform.position = d.transform.position;
-                Camera.main.transform.position = new Vector3(d.transform.position.x, d.transform.position.y, -10);
+                Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+            }
+        }
+        foreach (SpawnPoint p in spawnPoints) {
+            if (p.name == targetSpawn) {
+                transform.position = p.transform.position;
+                Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
             }
         }
     }

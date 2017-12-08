@@ -206,6 +206,60 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &68861880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 68861881}
+  - component: {fileID: 68861882}
+  m_Layer: 0
+  m_Name: InteractionArea
+  m_TagString: NpcInteractionZone
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &68861881
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 68861880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 383104758}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &68861882
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 68861880}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.007374972, y: 0.00011153519}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5926673, y: 0.0993911}
+  m_EdgeRadius: 0
 --- !u!224 &87392961 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
@@ -565,8 +619,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 149259244}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.634, y: -4.742, z: 0}
-  m_LocalScale: {x: 346.76025, y: 7.1018634, z: 10.589773}
+  m_LocalPosition: {x: -16.409, y: -4.742, z: 0}
+  m_LocalScale: {x: 422.26935, y: 7.1018634, z: 10.589773}
   m_Children: []
   m_Father: {fileID: 689002345}
   m_RootOrder: 0
@@ -870,7 +924,7 @@ MonoBehaviour:
     text: "Did you know there\u2019s a stable outside?"
   questDrop:
     drop: {fileID: 1860303378271198, guid: 88816944a13339841b305ec57423564a, type: 2}
-    name: q2i1
+    name: Spoon
 --- !u!114 &187205700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1072,8 +1126,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 208583877}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31, y: -4.742, z: 0}
-  m_LocalScale: {x: 443.97852, y: 7.10186, z: 10.589769}
+  m_LocalPosition: {x: 30.334, y: -4.742, z: 0}
+  m_LocalScale: {x: 457.29596, y: 7.10186, z: 10.589769}
   m_Children: []
   m_Father: {fileID: 689002345}
   m_RootOrder: 6
@@ -1761,6 +1815,48 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1001 &309769879
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4801281072511404, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -28.435717
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801281072511404, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.4188802
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801281072511404, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.006383083
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801281072511404, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801281072511404, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801281072511404, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801281072511404, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801281072511404, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &325163403
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,6 +2381,185 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &383104752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 383104758}
+  - component: {fileID: 383104757}
+  - component: {fileID: 383104756}
+  - component: {fileID: 383104754}
+  - component: {fileID: 383104755}
+  - component: {fileID: 383104753}
+  m_Layer: 10
+  m_Name: parrot
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!50 &383104753
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 383104752}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &383104754
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 383104752}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.1, y: 0.1}
+    newSize: {x: 0.1, y: 0.1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1}
+  m_EdgeRadius: 0
+--- !u!114 &383104755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 383104752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f0e2287c2906849b1a5bcaa9db250b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: the parrot of voicemails
+  questDialogue: []
+  randomLines:
+  - spokenByNpc: 1
+    text: Random line.
+  - spokenByNpc: 1
+    text: Random line.
+  autoStart: 0
+  player: {fileID: 0}
+  activePhrase:
+    spokenByNpc: 0
+    text: 
+  activePhraseIndex: 0
+  sendingLetters:
+  - dialogue:
+    - spokenByNpc: 1
+      text: Send letter 1?
+    - spokenByNpc: 0
+      text: yup!
+    randomLines:
+    - spokenByNpc: 1
+      text: random Line
+  - dialogue:
+    - spokenByNpc: 1
+      text: send letter 2?
+    - spokenByNpc: 0
+      text: yes!
+    randomLines:
+    - spokenByNpc: 1
+      text: random Line
+--- !u!114 &383104756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 383104752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b60a5325194c34eb10352ddbe2f317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minGroundNormalY: 0.65
+  gravityModifier: 2
+  grounded: 0
+--- !u!212 &383104757
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 383104752}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 82ceb57a7df600d47ad74e5265fe5b07, type: 3}
+  m_Color: {r: 0.07586217, g: 1, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.1, y: 0.1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!4 &383104758
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 383104752}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -34.79, y: -3.33, z: 0}
+  m_LocalScale: {x: 7.0966797, y: 12.9185, z: 10.589769}
+  m_Children:
+  - {fileID: 68861881}
+  - {fileID: 1682605367}
+  m_Father: {fileID: 0}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &403771094
 GameObject:
   m_ObjectHideFlags: 0
@@ -2788,9 +3063,9 @@ MonoBehaviour:
   quest:
     name: q1
     itemsToCollect:
-    - q1i1
-    - q1i2
-    - q1i3
+    - Tiara
+    - Tutu
+    - Shoes
     dialogue:
     - spokenByNpc: 1
       text: Heigh-ho there! I perceive your presence but i cannot show myself, because
@@ -2923,6 +3198,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &460143887
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4312346610912046, guid: 88816944a13339841b305ec57423564a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -8.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312346610912046, guid: 88816944a13339841b305ec57423564a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -15.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312346610912046, guid: 88816944a13339841b305ec57423564a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312346610912046, guid: 88816944a13339841b305ec57423564a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312346610912046, guid: 88816944a13339841b305ec57423564a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312346610912046, guid: 88816944a13339841b305ec57423564a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312346610912046, guid: 88816944a13339841b305ec57423564a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312346610912046, guid: 88816944a13339841b305ec57423564a, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1860303378271198, guid: 88816944a13339841b305ec57423564a, type: 2}
+      propertyPath: m_Name
+      value: Ink1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114155193527263690, guid: 88816944a13339841b305ec57423564a,
+        type: 2}
+      propertyPath: name
+      value: Ink1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 88816944a13339841b305ec57423564a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &462999913
 GameObject:
   m_ObjectHideFlags: 0
@@ -3924,52 +4250,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   depth: 0
   camera: {fileID: 0}
---- !u!1001 &725859941
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4312346610912046, guid: 88816944a13339841b305ec57423564a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 3.0080307
-      objectReference: {fileID: 0}
-    - target: {fileID: 4312346610912046, guid: 88816944a13339841b305ec57423564a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -16.070711
-      objectReference: {fileID: 0}
-    - target: {fileID: 4312346610912046, guid: 88816944a13339841b305ec57423564a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4312346610912046, guid: 88816944a13339841b305ec57423564a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4312346610912046, guid: 88816944a13339841b305ec57423564a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4312346610912046, guid: 88816944a13339841b305ec57423564a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4312346610912046, guid: 88816944a13339841b305ec57423564a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4312346610912046, guid: 88816944a13339841b305ec57423564a, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1860303378271198, guid: 88816944a13339841b305ec57423564a, type: 2}
-      propertyPath: m_Name
-      value: g4i1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 88816944a13339841b305ec57423564a, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &810996427
 GameObject:
   m_ObjectHideFlags: 0
@@ -4775,7 +5055,7 @@ MonoBehaviour:
     text: I hope the master is not mad at me...
   questDrop:
     drop: {fileID: 1860303378271198, guid: 88816944a13339841b305ec57423564a, type: 2}
-    name: q1i2
+    name: Tutu
 --- !u!114 &913727142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6307,7 +6587,7 @@ MonoBehaviour:
   quest:
     name: q4
     itemsToCollect:
-    - q4i1
+    - Ink1
     dialogue:
     - spokenByNpc: 1
       text: Who dares to interrupt my process of thought!?!
@@ -6332,8 +6612,6 @@ MonoBehaviour:
         words long forgotten\u2026 bla bla bla\u2026 "
     endDialogue:
     - spokenByNpc: 0
-      text: SHIT TEXT HERE!
-    - spokenByNpc: 1
       text: "Soooo\u2026 it seems like you don't need to be afraid of the blank paper
         anymore."
     - spokenByNpc: 1
@@ -6411,7 +6689,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1121387109}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.67, y: -15.94, z: 0}
+  m_LocalPosition: {x: 0.93, y: -15.84, z: 0}
   m_LocalScale: {x: 7.0966797, y: 12.9185, z: 10.589769}
   m_Children:
   - {fileID: 344541180}
@@ -6808,7 +7086,7 @@ MonoBehaviour:
     text: Please don't tell anyone. It just laid there and I got greedy
   questDrop:
     drop: {fileID: 1860303378271198, guid: 88816944a13339841b305ec57423564a, type: 2}
-    name: q1i1
+    name: Tiara
 --- !u!1 &1202056372
 GameObject:
   m_ObjectHideFlags: 0
@@ -8480,8 +8758,8 @@ MonoBehaviour:
   quest:
     name: q2
     itemsToCollect:
-    - q2i1
-    - q2i2
+    - Hair
+    - Spoon
     dialogue:
     - spokenByNpc: 1
       text: Approach, stranger! You look like you stand a noble knight.
@@ -8598,48 +8876,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1569169928
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4801281072511404, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -27.250559
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801281072511404, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -2.7391157
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801281072511404, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.006383083
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801281072511404, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801281072511404, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801281072511404, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801281072511404, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801281072511404, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1575587214
 GameObject:
   m_ObjectHideFlags: 0
@@ -8735,7 +8971,7 @@ MonoBehaviour:
   quest:
     name: q3
     itemsToCollect:
-    - q3i1
+    - MusicSheet1
     dialogue:
     - spokenByNpc: 1
       text: Ah yes! The brave Knight. The Knight everyone seems to be talking about.
@@ -8774,7 +9010,26 @@ MonoBehaviour:
       text: "Leave me to my work. Return when you\u2019re done."
     endDialogue:
     - spokenByNpc: 0
-      text: SHIT TEXT HERE!
+      text: You have succeeded. An easy task, it was. Now, you must show me if you
+        even know how to play anything.
+    - spokenByNpc: 1
+      text: You have succeeded. An easy task, it was. Now, you must show me if you
+        even know how to play anything.
+    - spokenByNpc: 0
+      text: So tell me my task!
+    - spokenByNpc: 1
+      text: "What you must do is follow me. Sometimes, true innovation leads one to
+        really tickle those ivories\u2019. Other times, imitation is the way to learn."
+    - spokenByNpc: 0
+      text: "Uh\u2026 but what about piracy?"
+    - spokenByNpc: 1
+      text: "I\u2019m not telling you to steal! Credit where credit is due."
+    - spokenByNpc: 1
+      text: The art of music is one of power. It can repell certain enemies or shatter
+        certain obstacles.
+    - spokenByNpc: 1
+      text: To use it, press (XX) and play your Instrument! So show me the melodies
+        of your determination!
   encounterBeforeHeadMaster:
     spokenByNpc: 1
     text: go to the headmaster first.
@@ -9528,8 +9783,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1605791359}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.9, y: 0.81, z: 0}
-  m_LocalScale: {x: 269.9776, y: 7.10186, z: 10.589769}
+  m_LocalPosition: {x: 24.45, y: -1.15, z: 0}
+  m_LocalScale: {x: 299.51282, y: 7.10186, z: 10.589769}
   m_Children: []
   m_Father: {fileID: 689002345}
   m_RootOrder: 15
@@ -10213,6 +10468,100 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1682605366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1682605367}
+  - component: {fileID: 1682605370}
+  - component: {fileID: 1682605369}
+  - component: {fileID: 1682605368}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1682605367
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1682605366}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 68.0304, y: 19.068003, z: 0}
+  m_LocalScale: {x: 0.14091095, y: 0.077408366, z: 0.09443076}
+  m_Children:
+  - {fileID: 1869793554}
+  m_Father: {fileID: 383104758}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1682605368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1682605366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1682605369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1682605366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &1682605370
+Canvas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1682605366}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1001 &1713071711
 Prefab:
   m_ObjectHideFlags: 0
@@ -10425,7 +10774,7 @@ MonoBehaviour:
     text: Hurry, bring the music sheet to the master!
   questDrop:
     drop: {fileID: 1860303378271198, guid: 88816944a13339841b305ec57423564a, type: 2}
-    name: q3i1
+    name: MusicSheet1
 --- !u!114 &1730093962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11012,6 +11361,111 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1001 &1869793553
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1682605367}
+    m_Modifications:
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 56.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 106.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 167.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8dfce8129df06aa4588b4a4a3476b655, type: 2}
+  m_IsPrefabParent: 0
+--- !u!224 &1869793554 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224396829913463320, guid: 8dfce8129df06aa4588b4a4a3476b655,
+    type: 2}
+  m_PrefabInternal: {fileID: 1869793553}
 --- !u!1 &1877781004
 GameObject:
   m_ObjectHideFlags: 0
@@ -11211,7 +11665,7 @@ MonoBehaviour:
     text: hmpf!
   questDrop:
     drop: {fileID: 1860303378271198, guid: 88816944a13339841b305ec57423564a, type: 2}
-    name: q2i2
+    name: Hair
 --- !u!114 &1904508305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12723,7 +13177,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2090148829}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 64.20889, y: 20.044123, z: 0}
+  m_LocalPosition: {x: 62.997063, y: 20.03638, z: 0}
   m_LocalScale: {x: 0.14091095, y: 0.077408366, z: 0.09443076}
   m_Children:
   - {fileID: 1966797668}
@@ -12899,7 +13353,7 @@ MonoBehaviour:
     text: Those pretty shoes don't match your style...
   questDrop:
     drop: {fileID: 1860303378271198, guid: 88816944a13339841b305ec57423564a, type: 2}
-    name: q1i3
+    name: Shoes
 --- !u!114 &2103362923
 MonoBehaviour:
   m_ObjectHideFlags: 0
