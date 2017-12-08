@@ -29,15 +29,22 @@ public class EnemyPoetry : MonoBehaviour
     bool dead = false;
     SpriteRenderer mySprite;
 
+    public Material defaultMat;
+    public Material chameleonMat;
+
     // Use this for initialization
     void Start ()
     {
         mySprite = GetComponent<SpriteRenderer>();
 
-        //IF STEALTH, LOWER ALPHA / CHOOSE OTHER SPRITE ...
-
-        //FEAR, SHOW PARTICLE EFFECT ...
-        //FEAR, ENABLE TIRGGER COLLIDER FOR FEAR ...
+        if (stealth)
+        {
+            mySprite.material = chameleonMat;
+        }
+        else
+        {
+            mySprite.material = defaultMat;
+        }
     }
 
     // Update is called once per frame
@@ -65,7 +72,7 @@ public class EnemyPoetry : MonoBehaviour
     void Move()
     {
         transform.Translate(speed * dir * Time.deltaTime, 0, 0);
-        if (dir < 0)
+        if (dir < 0 && !stealth)
         {
             mySprite.flipX = true;
         }
@@ -92,18 +99,29 @@ public class EnemyPoetry : MonoBehaviour
     //Wenn der Player den Gegner angreift
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "DmgToEnemy")
+        if (stealth)
         {
-            hp -= 1;
-            print("POETRY HP: " + hp);
-            if (hp <= 0)
+            if (collision.gameObject.tag == "Paint")
             {
-                dead = true;
+                stealth = false;
+                mySprite.material = defaultMat;
             }
         }
-        if (collision.gameObject.tag == "StunToEnemy")
+        else
         {
-            stunTimer = timeStunned;
+            if (collision.gameObject.tag == "DmgToEnemy")
+            {
+                hp -= 1;
+                print("POETRY HP: " + hp);
+                if (hp <= 0)
+                {
+                    dead = true;
+                }
+            }
+            if (collision.gameObject.tag == "StunToEnemy")
+            {
+                stunTimer = timeStunned;
+            }
         }
     }
 

@@ -9,16 +9,20 @@ public class PlayerStun : MonoBehaviour
     float stunTimer;
     float castDuration = 0.15f;
     public float castTime = 0.75f;
-    float castTimer = 0;
+    [HideInInspector]
+    public float castTimer = 0;
     public float repeatCD = 0f;
     float repeatTimer = 0;
 
     BoxCollider2D boxCollider;
 
+    PlayerGui playerGui;
+
     // Use this for initialization
     void Start ()
     {
         boxCollider = GetComponent<BoxCollider2D>();
+        playerGui = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGui>();
     }
 	
 	// Update is called once per frame
@@ -26,7 +30,7 @@ public class PlayerStun : MonoBehaviour
     {
         if (repeatTimer < 0)
         {
-            if (Input.GetAxis("Stun") != 0)
+            if (Input.GetAxis("Stun") != 0 && playerGui.skillLevel >= 3)
             {
                 castTimer += Time.deltaTime;
                 if(castTimer >= castTime)
