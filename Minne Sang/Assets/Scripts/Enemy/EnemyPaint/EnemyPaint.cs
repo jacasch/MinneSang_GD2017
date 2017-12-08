@@ -13,32 +13,45 @@ public class EnemyPaint : MonoBehaviour
     Attack: Schiesst auf den Spieler (Gerader, langsamer Schuss).
     */
 
-    //Eigenschaften des Gegners.
-    int hp = 2;  //HP des Gegners
+    //Eigenschaften des Gegners. (DMG ist untergeordnet im DMG Objekt und im EnemyPaintShot festgelegt!)
+    int hpMax = 3;  //MAX HP des Gegners
     int speed = 2;  //Speed des Gegners
     float dist = 5;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float shootCD = 1.5f;  //Cooldown des Schusses
-    float timeStunned = 2f;
+    float timeStunned = 2f;  //Zeit die der Gegner gestunnt ist
+    float deadTime = 1;  //Zeit bis der Gegner nach dem Tot verschwindet
+    float respawnTime = 3;  //Zeit bis der Gegner respawnt
 
-    //Player GameObject
+    //ScriptVariables
+    int hp;  //HP des Gegners
+
     bool active = false;
     bool move = false;
-    int dir = 1;
-    float shootTimer = 0;
-    float stunTimer = 0;
-    float deadTimer = 1;
     bool stealth = true;
     bool dead = false;
-    GameObject objPlayer;
-    public GameObject objShot;
-    SpriteRenderer mySprite;
 
+    int dir = 1;
+
+    float shootTimer = 0;
+    float stunTimer = 0;
+    float deadTimer = 0;
+    float respawnTimer = 0;
+
+    Vector3 orgPos;
+    Vector3 deadPos = new Vector3(1000, 0, 0);
+    public GameObject objShot;
+    GameObject objPlayer;
+
+    SpriteRenderer mySprite;
     public Material defaultMat;
     public Material chameleonMat;
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
+        hp = hpMax;
+        orgPos = transform.position;
+        objPlayer = GameObject.FindGameObjectWithTag("Player");
         mySprite = GetComponent<SpriteRenderer>();
 
         if (stealth)
@@ -109,13 +122,30 @@ public class EnemyPaint : MonoBehaviour
     //Tod des Gegners
     void Die()
     {
-        deadTimer -= Time.deltaTime;
-        //DieAnimation
-        //...
-
-        if (deadTimer < 0)
+        if (deadTimer > 0)
         {
-            Destroy(gameObject);
+            deadTimer -= Time.deltaTime;
+            //DieAnimation
+            //...
+        }
+        else
+        {
+            if (respawnTimer == respawnTime)
+            {
+                transform.position = deadPos;
+            }
+            if (respawnTimer < 0)
+            {
+                hp = hpMax;
+                stealth = true;
+                if (stealth)
+                {
+                    mySprite.material = chameleonMat;
+                }
+                dead = false;
+                transform.position = orgPos;
+            }
+            respawnTimer -= Time.deltaTime;
         }
         //Destroy Object
     }
@@ -123,10 +153,11 @@ public class EnemyPaint : MonoBehaviour
     //Save player as variable
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            objPlayer = collision.gameObject;
-        }
+        //LÖSCHEN -> wird im Start ausgeführt.
+        //if (collision.gameObject.tag == "Player")
+        //{
+        //    objPlayer = collision.gameObject;
+        //}
         if (stealth)
         {
             if (collision.gameObject.tag == "Paint")
@@ -144,6 +175,8 @@ public class EnemyPaint : MonoBehaviour
                 if (hp <= 0)
                 {
                     dead = true;
+                    deadTimer = deadTime;
+                    respawnTimer = respawnTime;
                 }
             }
             if (collision.gameObject.tag == "StunToEnemy")

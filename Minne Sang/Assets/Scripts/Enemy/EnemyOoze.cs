@@ -13,28 +13,40 @@ public class EnemyOoze : MonoBehaviour
     Attack: Bei Berührung gibt es Schaden.
     */
 
-    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
-    public bool stealth = false;
-
-    //Eigenschaften des Gegners. (DMG ist untergeordnet in OozeDMG festgelegt!)
-    int hp = 2;  //HP des Gegners
+    //Eigenschaften des Gegners. (DMG ist untergeordnet im DMG Objekt festgelegt!)
+    int hpMax = 2;  //MAX HP des Gegners
     int speed = 5;  //Geschwindigkeit des Gegners
     int jumpHeight = 7;  //Sprunghöhe
-    float jumpCD = 0.2f;  //Zeit bis der Sprung nach der Landung erneut ausgeführt wird
     float dist = 0.5f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
-    float timeStunned = 3;
+    float jumpCD = 0.2f;  //Zeit bis der Sprung nach der Landung erneut ausgeführt wird
+    float timeStunned = 3;  //Zeit die der Gegner gestunnt ist wenn er gestunnt wird
+    float deadTime = 1;  //Zeit bis der Gegner nach dem Tot verschwindet
+    float respawnTime = 3;  //Zeit bis der Gegner respawnt
+
+    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
+    public bool isStealth = false;
 
     //ScriptVariables
+    int hp;  //HP des Gegners
+
     bool active = false;
     bool grounded = false;
-    float jumpTimer = 0;
-    int dir = 0;
-    float stunTimer = 0;
-    float deadTimer = 1;
-    bool dead = false;
-    Rigidbody2D rb;
-    SpriteRenderer mySprite;
+    bool stealth = false;
 
+    int dir = 0;
+
+    float jumpTimer = 0;
+    float stunTimer = 0;
+    float deadTimer = 0;
+    float respawnTimer = 0;
+
+    bool dead = false;
+
+    Vector3 orgPos;
+    Vector3 deadPos = new Vector3(1000, 0, 0);
+    Rigidbody2D rb;
+
+    SpriteRenderer mySprite;
     public Material defaultMat;
     public Material chameleonMat;
 
@@ -42,9 +54,11 @@ public class EnemyOoze : MonoBehaviour
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
     {
+        hp = hpMax;
+        stealth = isStealth;
+        orgPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
-
         if(stealth)
         {
             mySprite.material = chameleonMat;
@@ -63,7 +77,6 @@ public class EnemyOoze : MonoBehaviour
         }
         else if (stunTimer > 0)
         {
-            //Stun Animation
             stunTimer -= Time.deltaTime;
         }
         else if (active)
@@ -78,6 +91,7 @@ public class EnemyOoze : MonoBehaviour
     {
         if(grounded)
         {
+            jumpTimer -= Time.deltaTime;
             if (dir < 0 && !stealth)
             {
                 mySprite.flipX = true;
@@ -86,7 +100,6 @@ public class EnemyOoze : MonoBehaviour
             {
                 mySprite.flipX = false;
             }
-            jumpTimer -= Time.deltaTime;
             if(jumpTimer<=0)
             {
                 jumpTimer = jumpCD;
@@ -98,15 +111,31 @@ public class EnemyOoze : MonoBehaviour
     //Wenn der Gegner tot ist
     void Die()
     {
-        deadTimer -= Time.deltaTime;
-        //DieAnimation
-        //...
-
-        if (deadTimer < 0)
+        if (deadTimer > 0)
         {
-            Destroy(gameObject);
+            deadTimer -= Time.deltaTime;
+            //DieAnimation
+            //...
         }
-        //Destroy Object
+        else
+        {
+            if (respawnTimer == respawnTime)
+            {
+                transform.position = deadPos;
+            }
+            if(respawnTimer < 0)
+            {
+                hp = hpMax;
+                stealth = isStealth;
+                if (stealth)
+                {
+                    mySprite.material = chameleonMat;
+                }
+                dead = false;
+                transform.position = orgPos;
+            }
+            respawnTimer -= Time.deltaTime;
+        }
     }
 
     //Wenn der Player den Gegner angreift
@@ -137,6 +166,8 @@ public class EnemyOoze : MonoBehaviour
                 if (hp <= 0)
                 {
                     dead = true;
+                    deadTimer = deadTime;
+                    respawnTimer = respawnTime;
                 }
             }
             if (collision.gameObject.tag == "StunToEnemy")
@@ -170,7 +201,6 @@ public class EnemyOoze : MonoBehaviour
     //Wenn Spieler nicht mehr in Reichweite wird er deaktiviert
     private void OnTriggerExit2D(Collider2D other)
     {
-
         if (other.tag == "Player")
         {
             active = false;
@@ -197,7 +227,7 @@ public class EnemyOoze : MonoBehaviour
         Vector2 positionToCheck = transform.position;
         hits = Physics2D.RaycastAll (positionToCheck, new Vector2(0, -1), 0.01f);
 
-        if(hits.Length > 0)
+        if (hits.Length > 0)
         {
             grounded = true;
         }
