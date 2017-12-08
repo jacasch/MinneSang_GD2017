@@ -13,35 +13,49 @@ public class EnemyMusic : MonoBehaviour
     Attack: Stampft beim gehen auf den Boden, Schaden und Knockback durch Druckwelle.
     */
 
-    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
-    public bool stealth = false;
-
-    //Eigenschaften des Gegners.
-    int hp = 5;  //HP des Gegners
+    //Eigenschaften des Gegners. (DMG ist im Prefab Stomp festgelegt!)
+    int hpMax = 5;  //MAX HP des Gegners
     int speed = 1;  //Speed des Gegners
     float dist = 1f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float walkDist = 0.5f;  //Zeit die der Gegner zwischen den Schritten sich vorwärtz bewegt
     float walkCD = 1f; //Zeit bis zum nächsten Schritt
-    float timeStunned = 3f;
+    float timeStunned = 3f;  //Zeit die der Gegner gestunnt ist
+    float deadTime = 1;  //Zeit bis der Gegner nach dem Tot verschwindet
+    float respawnTime = 3;  //Zeit bis der Gegner respawnt
+
+    //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
+    public bool isStealth = false;
 
     //ScriptVariables
+    int hp;  //HP des Gegners
+
     bool active = false;
     bool move = false;
+    bool stealth = false;
+    bool stomp = false;
+    bool dead = false;
+
     int dir = 1;
+
     float walkTimer = 0;
     float stunTimer = 0;
-    bool stomp = false;
-    float deadTimer = 1;
-    bool dead = false;
-    public GameObject objStomp;
-    SpriteRenderer mySprite;
+    float deadTimer = 0;
+    float respawnTimer = 0;
 
+    Vector3 orgPos;
+    Vector3 deadPos = new Vector3(1000, 0, 0);
+    public GameObject objStomp;
+
+    SpriteRenderer mySprite;
     public Material defaultMat;
     public Material chameleonMat;
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
+        hp = hpMax;
+        stealth = isStealth;
+        orgPos = transform.position;
         mySprite = GetComponent<SpriteRenderer>();
 
         if (stealth)
@@ -119,13 +133,30 @@ public class EnemyMusic : MonoBehaviour
     //Tod des Gegners
     void Die()
     {
-        deadTimer -= Time.deltaTime;
-        //DieAnimation
-        //...
-
-        if(deadTimer<0)
+        if (deadTimer > 0)
         {
-            Destroy(gameObject);
+            deadTimer -= Time.deltaTime;
+            //DieAnimation
+            //...
+        }
+        else
+        {
+            if (respawnTimer == respawnTime)
+            {
+                transform.position = deadPos;
+            }
+            if (respawnTimer < 0)
+            {
+                hp = hpMax;
+                stealth = isStealth;
+                if (stealth)
+                {
+                    mySprite.material = chameleonMat;
+                }
+                dead = false;
+                transform.position = orgPos;
+            }
+            respawnTimer -= Time.deltaTime;
         }
         //Destroy Object
     }
@@ -150,6 +181,8 @@ public class EnemyMusic : MonoBehaviour
                 if (hp <= 0)
                 {
                     dead = true;
+                    deadTimer = deadTime;
+                    respawnTimer = respawnTime;
                 }
             }
             if (collision.gameObject.tag == "StunToEnemy")
