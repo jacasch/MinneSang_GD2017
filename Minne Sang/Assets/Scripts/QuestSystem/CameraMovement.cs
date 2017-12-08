@@ -42,7 +42,7 @@ public class CameraMovement : MonoBehaviour {
         Vector2 playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
         if (interactionMode == true)
         {
-            targetPos = playerPos + (npcPos - playerPos) / 2 + new Vector2(0, 1.7f);
+            targetPos = playerPos + (npcPos - playerPos) / 2 + new Vector2(0, 1.15f);
         }
         else {
             targetPos = playerPos + lookModifier;
@@ -66,12 +66,13 @@ public class CameraMovement : MonoBehaviour {
     public void ZoomIn(Vector2 npcPos) {
         interactionMode = true;
         targetDistance = 0.1f;
-        targetZoom = 30;
+        targetZoom = 25;
         this.npcPos = npcPos;
     }
 
     public void ZoomOut() {
         targetDistance = maxPlayerDistance;
+        targetDistance = 1f;
         targetZoom = 65;
         interactionMode = false;
     }

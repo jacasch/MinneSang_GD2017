@@ -14,6 +14,7 @@ public class PlayerController : PhysicsObject {
     protected float dashTimer;
     protected TrailRenderer tr;
     protected float trailDelay;
+    protected float dashAnimationDelay;
     [HideInInspector]
     public bool inNpcZone = false;
     protected bool canDash;
@@ -23,15 +24,18 @@ public class PlayerController : PhysicsObject {
     [HideInInspector]
     public int dashCount = 0;
     public SpriteRenderer sr;
+    private Animator animator;
 
     protected override void Initialize()
     {
         tr = GetComponent<TrailRenderer>();
         pg = GetComponent<PlayerGui>();
         ps = GetComponent<PlayerStats>();
+        animator = GetComponent<Animator>();
         playerStun = GameObject.FindGameObjectWithTag("StunToEnemy").GetComponent<PlayerStun>();
         tr.enabled = false;
         trailDelay = tr.time;
+        dashAnimationDelay = 0.5f;
         inNpcZone = false;
         sr = GetComponent<SpriteRenderer>();
     }
@@ -40,6 +44,7 @@ public class PlayerController : PhysicsObject {
     {
         Vector2 move = Vector2.zero;
         trailDelay -= Time.deltaTime;
+        dashAnimationDelay -= Time.deltaTime;
 
         #region Input
 
@@ -49,14 +54,20 @@ public class PlayerController : PhysicsObject {
         dashCount = grounded ? 0 : dashCount;
         canDash = dashCount < maxDashesInAir;
 
+        animator.SetBool("Grounded", grounded);
+        animator.SetFloat("VelocityY", velocity.y);
+        animator.SetBool("Attacking", Input.GetButtonDown("Attack"));
+
         if (!knockedBack)
         {
+            animator.SetBool("Walking", false);
             if (canMove)
-            {
+            {                
                 float input = Input.GetAxis("Horizontal");
                 move.x = input;
                 if (input != 0)
                 {
+                    animator.SetBool("Walking", true);
                     sr.flipX = (Input.GetAxis("Horizontal") < 0);
                 }
             }
@@ -85,6 +96,7 @@ public class PlayerController : PhysicsObject {
             dashTimer = dashDuration;            
         }
         if (dashing) {
+            animator.SetBool("Dashing", true);
             dashTimer -= Time.deltaTime;
             if (dashTimer > 0)
             {
@@ -94,8 +106,9 @@ public class PlayerController : PhysicsObject {
                 velocity.y = 0f;
                 //velocity.y = dashDirection.y * 5 * (-Physics2D.gravity.y / 3);
                 trailDelay = tr.time;
+                dashAnimationDelay = 0.4f;
             }
-            else {
+            else {                
                 dashing = false;
                 move.x = 0;
                 velocity.y = 0;
@@ -105,6 +118,11 @@ public class PlayerController : PhysicsObject {
         if (trailDelay < 0)
         {
             tr.enabled = false;
+            //animator.SetBool("Dashing", false);
+        }
+        if (dashAnimationDelay < 0)
+        {
+            animator.SetBool("Dashing", false);
         }
         #endregion
 
