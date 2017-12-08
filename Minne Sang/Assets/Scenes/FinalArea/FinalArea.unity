@@ -31699,6 +31699,7 @@ Prefab:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 4041441808170672, guid: 12db9a93837c0304198da223b4e3e834, type: 2}
       propertyPath: m_LocalPosition.x
       value: -58.04
@@ -31775,6 +31776,8 @@ Prefab:
 >>>>>>> e5b01b7b1f410a85f7bb1b0ede9ca879b3845794
 =======
 >>>>>>> e5b01b7b1f410a85f7bb1b0ede9ca879b3845794
+=======
+>>>>>>> e5b01b7b1f410a85f7bb1b0ede9ca879b3845794
     - target: {fileID: 4409299011125814, guid: ad1845b7861c4ce48aa55453800e226b, type: 2}
       propertyPath: m_LocalPosition.x
       value: -60.41551
@@ -31811,6 +31814,9 @@ Prefab:
   m_ParentPrefab: {fileID: 100100000, guid: ad1845b7861c4ce48aa55453800e226b, type: 2}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> e5b01b7b1f410a85f7bb1b0ede9ca879b3845794
+=======
 >>>>>>> e5b01b7b1f410a85f7bb1b0ede9ca879b3845794
 =======
 >>>>>>> e5b01b7b1f410a85f7bb1b0ede9ca879b3845794
