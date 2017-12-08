@@ -14,7 +14,8 @@ public class PlayerController : PhysicsObject {
     protected float dashTimer;
     protected TrailRenderer tr;
     protected float trailDelay;
-    protected bool inNpcZone = false;
+    [HideInInspector]
+    public bool inNpcZone = false;
     protected bool canDash;
     protected PlayerGui pg;
     protected PlayerStats ps;
