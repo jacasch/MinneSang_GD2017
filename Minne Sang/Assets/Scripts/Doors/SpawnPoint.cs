@@ -6,17 +6,21 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(BoxCollider2D))]
 public class SpawnPoint : MonoBehaviour {
     public string name;
+    public bool isMasteryStart = false;
 
     private SpawnPoint[] otherSpawnPoints;
     private BoxCollider2D collider;
     // Use this for initialization
     void Awake()
     {
-        otherSpawnPoints = FindObjectsOfType(typeof(SpawnPoint)) as SpawnPoint[];
-        for (int i = 0; i < otherSpawnPoints.Length; i++) {
-            int xPos = Mathf.RoundToInt(otherSpawnPoints[i].transform.position.x);
-            int yPos = Mathf.RoundToInt(otherSpawnPoints[i].transform.position.y);
-            otherSpawnPoints[i].name = "SpawnPoint" + xPos.ToString() + ";" + yPos.ToString();
+        if (!isMasteryStart)
+        {
+            int xPos = Mathf.RoundToInt(transform.position.x);
+            int yPos = Mathf.RoundToInt(transform.position.y);
+            name = "SpawnPoint" + xPos.ToString() + ";" + yPos.ToString();
+        }
+        else {
+            name = "masterystart";
         }
 
         collider = GetComponent<BoxCollider2D>();

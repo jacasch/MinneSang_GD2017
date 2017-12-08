@@ -56,5 +56,7 @@ public class PlayerSpawnHandler : MonoBehaviour {
 
     public void Respawn() {
         SceneManager.LoadScene(targetScene,LoadSceneMode.Single);
+        PlayerController pc = GetComponent<PlayerController>();
+        pc.inNpcZone = false;
     }
 }
