@@ -36,7 +36,10 @@ public class PhysicsObject : MonoBehaviour {
 	void Update () {
         targetVelocity = Vector2.zero;
         ComputeVelocity();
-	}
+
+
+        
+    }
 
     protected virtual void Initialize(){
     }
@@ -45,6 +48,7 @@ public class PhysicsObject : MonoBehaviour {
     }
 
     void FixedUpdate(){
+        //previous fixed update
         grounded = false;
         velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
         velocity.x = targetVelocity.x;

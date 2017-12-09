@@ -25,7 +25,12 @@ public class PaintShot : MonoBehaviour {
     {
         if (collision.gameObject.tag != "Player" && collision.gameObject.layer != 1)
         {
+            Explode();
             Destroy(gameObject);
         }
+    }
+
+    public void Explode() {
+        GameObject.FindGameObjectWithTag("PaintSplatter").GetComponent<PaintSplatter>().Paint(new Vector2(transform.position.x, transform.position.y));
     }
 }
