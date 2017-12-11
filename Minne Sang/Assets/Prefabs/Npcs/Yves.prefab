@@ -248,7 +248,7 @@ MonoBehaviour:
   randomLines:
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: This castle was constructed by one giftet in all the arts. They called him
+    text: This castle was constructed by one gifted in all the arts. They called him
       polymath.
   - spokenByNpc: 1
     messageByPrincess: 0
