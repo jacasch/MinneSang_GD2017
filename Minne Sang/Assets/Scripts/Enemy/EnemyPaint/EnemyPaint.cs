@@ -56,6 +56,8 @@ public class EnemyPaint : MonoBehaviour
     public Material chameleonMat;
 
     public EnemyDMG enemyDmg;
+    public GameObject aura;
+    EnemyDMG auraDmg;
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
@@ -66,6 +68,7 @@ public class EnemyPaint : MonoBehaviour
         objPlayer = GameObject.FindGameObjectWithTag("Player");
         activeQuest = objPlayer.GetComponent<PlayerQuestHandler>().activeQuest;
         mySprite = GetComponent<SpriteRenderer>();
+        auraDmg = aura.GetComponent<EnemyDMG>();
 
         if (stealth)
         {
@@ -144,6 +147,7 @@ public class EnemyPaint : MonoBehaviour
     void Die()
     {
         enemyDmg.noDmg = true;
+        auraDmg.noDmg = true;
 
         if (deadTimer > 0)
         {
@@ -178,6 +182,7 @@ public class EnemyPaint : MonoBehaviour
                 }
                 dead = false;
                 enemyDmg.noDmg = false;
+                auraDmg.noDmg = false;
                 transform.position = orgPos;
             }
             respawnTimer -= Time.deltaTime;

@@ -46,9 +46,15 @@ public class EnemyMusic : MonoBehaviour
     Vector3 deadPos = new Vector3(1000, 0, 0);
     public GameObject objStomp;
 
+    Rigidbody2D rb;
+
     SpriteRenderer mySprite;
     public Material defaultMat;
     public Material chameleonMat;
+
+    public EnemyDMG enemyDmg;
+    public GameObject aura;
+    EnemyDMG auraDmg;
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
@@ -56,7 +62,9 @@ public class EnemyMusic : MonoBehaviour
         hp = hpMax;
         stealth = isStealth;
         orgPos = transform.position;
+        rb = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
+        auraDmg = aura.GetComponent<EnemyDMG>();
 
         if (stealth)
         {
@@ -131,6 +139,9 @@ public class EnemyMusic : MonoBehaviour
     //Tod des Gegners
     void Die()
     {
+        enemyDmg.noDmg = true;
+        auraDmg.noDmg = true;
+
         if (deadTimer > 0)
         {
             deadTimer -= Time.deltaTime;
@@ -152,6 +163,8 @@ public class EnemyMusic : MonoBehaviour
                     mySprite.material = chameleonMat;
                 }
                 dead = false;
+                enemyDmg.noDmg = false;
+                auraDmg.noDmg = false;
                 transform.position = orgPos;
             }
             respawnTimer -= Time.deltaTime;
@@ -223,6 +236,14 @@ public class EnemyMusic : MonoBehaviour
         if (other.tag == "Player")
         {
             active = false;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            rb.AddForce(new Vector2(collision.rigidbody.velocity.y * -1,0));
         }
     }
 }

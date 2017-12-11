@@ -55,6 +55,9 @@ public class EnemyDance : MonoBehaviour
     public Material defaultMat;
     public Material chameleonMat;
 
+    public GameObject aura;
+    EnemyDMG auraDmg;
+
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
     {
@@ -62,6 +65,7 @@ public class EnemyDance : MonoBehaviour
         orgPos = transform.position;
         activeQuest = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>().activeQuest;
         mySprite = GetComponent<SpriteRenderer>();
+        auraDmg = aura.GetComponent<EnemyDMG>();
 
         if (stealth)
         {
@@ -112,6 +116,8 @@ public class EnemyDance : MonoBehaviour
     //Tod des Gegners
     void Die()
     {
+        auraDmg.noDmg = true;
+
         if (deadTimer>0)
         {
             deadTimer -= Time.deltaTime;
@@ -147,6 +153,7 @@ public class EnemyDance : MonoBehaviour
                     mySprite.material = chameleonMat;
                 }
                 dead = false;
+                auraDmg.noDmg = false;
                 transform.position = orgPos;
             }
             respawnTimer -= Time.deltaTime;
