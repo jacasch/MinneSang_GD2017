@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114352560041500258}
   - component: {fileID: 61796429802198450}
   - component: {fileID: 50820090467682300}
+  - component: {fileID: 114125788927484386}
   m_Layer: 10
   m_Name: chest
   m_TagString: Player
@@ -108,7 +109,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1424225899411600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.78, y: -20.29, z: 0}
+  m_LocalPosition: {x: -21.37, y: -3.37, z: 0}
   m_LocalScale: {x: 7.0966797, y: 12.9185, z: 10.589769}
   m_Children:
   - {fileID: 4785795613464344}
@@ -246,6 +247,58 @@ MonoBehaviour:
   minGroundNormalY: 0.65
   gravityModifier: 2
   grounded: 0
+--- !u!114 &114125788927484386
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1424225899411600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d3c41461504db148877811b11c1b1a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: the Chest
+  questDialogue: []
+  randomLines:
+  - spokenByNpc: 0
+    messageByPrincess: 0
+    text: Finally!
+  autoStart: 1
+  player: {fileID: 0}
+  activePhrase:
+    spokenByNpc: 0
+    messageByPrincess: 0
+    text: 
+  activePhraseIndex: 0
+  relevantAct: 4
+  quest:
+    name: 
+    itemsToCollect: []
+    dialogue:
+    - spokenByNpc: 0
+      messageByPrincess: 0
+      text: Finally. An end to my adventure. I have beaten the high tower.
+    - spokenByNpc: 0
+      messageByPrincess: 0
+      text: "So let\u2019s see, what this fabled artefact is all about."
+    - spokenByNpc: 0
+      messageByPrincess: 0
+      text: What do I gaze upon?
+    - spokenByNpc: 0
+      messageByPrincess: 0
+      text: It really is a perfect gift for my princess. It truly is the finishing
+        touch to my minnesang.
+    - spokenByNpc: 0
+      messageByPrincess: 0
+      text: "Freya! Wait no longer! I\u2019m coming for you and your love!"
+    randomLines: []
+    endDialogue: []
+  encounterBeforeHeadMaster:
+    spokenByNpc: 0
+    messageByPrincess: 0
+    text: 
+  targetScene: 
 --- !u!114 &114272597497554472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,7 +342,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1424225899411600}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7350c610d5a3a5542a04b028b7532567, type: 3}
   m_Name: 
@@ -331,6 +384,7 @@ MonoBehaviour:
     spokenByNpc: 1
     messageByPrincess: 0
     text: go to the headmaster first.
+  targetScene: 
 --- !u!114 &114509760784815432
 MonoBehaviour:
   m_ObjectHideFlags: 1
