@@ -14,7 +14,7 @@ public class EnemyPaint : MonoBehaviour
     */
 
     //Eigenschaften des Gegners. (DMG ist untergeordnet im DMG Objekt und im EnemyPaintShot festgelegt!)
-    int hpMax = 2;  //MAX HP des Gegners
+    int hpMax = 3;  //MAX HP des Gegners
     int speed = 2;  //Speed des Gegners
     float dist = 5;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float shootCD = 1.5f;  //Cooldown des Schusses
@@ -41,13 +41,11 @@ public class EnemyPaint : MonoBehaviour
 
     float shootTimer = 0;
     float stunTimer = 0;
-    float gotDmgTimer = 0;
     float deadTimer = 0;
     float respawnTimer = 0;
 
     Vector3 orgPos;
     Vector3 deadPos = new Vector3(1000, 0, 0);
-    Rigidbody2D rb;
     public GameObject objShot;
     GameObject objPlayer;
 
@@ -55,20 +53,14 @@ public class EnemyPaint : MonoBehaviour
     public Material defaultMat;
     public Material chameleonMat;
 
-    public EnemyDMG enemyDmg;
-    public GameObject aura;
-    EnemyDMG auraDmg;
-
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
         hp = hpMax;
         orgPos = transform.position;
-        rb = GetComponent<Rigidbody2D>();
         objPlayer = GameObject.FindGameObjectWithTag("Player");
         activeQuest = objPlayer.GetComponent<PlayerQuestHandler>().activeQuest;
         mySprite = GetComponent<SpriteRenderer>();
-        auraDmg = aura.GetComponent<EnemyDMG>();
 
         if (stealth)
         {
@@ -111,14 +103,6 @@ public class EnemyPaint : MonoBehaviour
         {
             shootTimer -= Time.deltaTime;
         }
-        if(gotDmgTimer>0)
-        {
-            gotDmgTimer -= Time.deltaTime;
-            if (gotDmgTimer <= 0)
-            {
-                rb.velocity = new Vector3(0, 0, 0);
-            }
-        }
     }
 
     //FUNCTIONS------------------------------------------------------------------------------------------------------------
@@ -146,9 +130,6 @@ public class EnemyPaint : MonoBehaviour
     //Tod des Gegners
     void Die()
     {
-        enemyDmg.noDmg = true;
-        auraDmg.noDmg = true;
-
         if (deadTimer > 0)
         {
             deadTimer -= Time.deltaTime;
@@ -181,8 +162,6 @@ public class EnemyPaint : MonoBehaviour
                     mySprite.material = chameleonMat;
                 }
                 dead = false;
-                enemyDmg.noDmg = false;
-                auraDmg.noDmg = false;
                 transform.position = orgPos;
             }
             respawnTimer -= Time.deltaTime;
@@ -211,8 +190,6 @@ public class EnemyPaint : MonoBehaviour
             if (collision.gameObject.tag == "DmgToEnemy")
             {
                 hp -= 1;
-                rb.velocity = new Vector3(4f * -dir, -1, 0);
-                gotDmgTimer = 0.2f;
                 print("ENEMY HP: " + hp);
                 if (hp <= 0)
                 {

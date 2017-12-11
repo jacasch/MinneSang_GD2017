@@ -14,10 +14,9 @@ public class EnemyDance : MonoBehaviour
     */
 
     //Eigenschaften des Gegners. (DMG ist im Prefab Explosion festgelegt!)
-    float startSpeed = 4.5f;  //Startgeschwindigkeit des Dancers
-    float speed = 4.5f;  //Wirdd im Script laufend erhöht
+    float speed = 0;  //Wirdd im Script laufend erhöht
     float addSpeed = 0.05f;  //Erhöhung des Speeds
-    int maxSpeed = 9;  //Maximaler Speed
+    int maxSpeed = 8;  //Maximaler Speed
     float dist = 0.5f;  //Distanz ab welcher der Gegner stillsteht (X-Achse)
     float timeStunned = 0.5f;  //Zeit die der Gegner gestunnt ist wenn er gestunnt wird
     float deadTime = 0.5f;  //Zeit bis der Gegner nach dem Tot verschwindet
@@ -55,9 +54,6 @@ public class EnemyDance : MonoBehaviour
     public Material defaultMat;
     public Material chameleonMat;
 
-    public GameObject aura;
-    EnemyDMG auraDmg;
-
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
     {
@@ -65,7 +61,6 @@ public class EnemyDance : MonoBehaviour
         orgPos = transform.position;
         activeQuest = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>().activeQuest;
         mySprite = GetComponent<SpriteRenderer>();
-        auraDmg = aura.GetComponent<EnemyDMG>();
 
         if (stealth)
         {
@@ -116,8 +111,6 @@ public class EnemyDance : MonoBehaviour
     //Tod des Gegners
     void Die()
     {
-        auraDmg.noDmg = true;
-
         if (deadTimer>0)
         {
             deadTimer -= Time.deltaTime;
@@ -153,7 +146,6 @@ public class EnemyDance : MonoBehaviour
                     mySprite.material = chameleonMat;
                 }
                 dead = false;
-                auraDmg.noDmg = false;
                 transform.position = orgPos;
             }
             respawnTimer -= Time.deltaTime;
@@ -226,7 +218,7 @@ public class EnemyDance : MonoBehaviour
         if (other.tag == "Player")
         {
             active = false;
-            speed = startSpeed;
+            speed = 0;
         }
     }
 }

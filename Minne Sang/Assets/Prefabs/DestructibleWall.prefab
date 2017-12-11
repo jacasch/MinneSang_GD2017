@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50414544921685224}
   - component: {fileID: 61587257314384544}
   - component: {fileID: 114541179804649286}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: DestructibleWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1966227227176608}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.8598173, y: 17.262611, z: 0}
+  m_LocalPosition: {x: -14.55, y: -1.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -113,7 +113,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 34e2fe766848a34418fafc982e741e8d, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

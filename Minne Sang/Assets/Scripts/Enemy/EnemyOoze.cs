@@ -52,24 +52,19 @@ public class EnemyOoze : MonoBehaviour
     public Material defaultMat;
     public Material chameleonMat;
 
-    public EnemyDMG enemyDmg;
-    public GameObject aura;
-    EnemyDMG auraDmg;
-
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
     {
         halfSize = GetComponent<BoxCollider2D>().size.y / 2;
 
+
         hp = hpMax;
         stealth = isStealth;
         orgPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
-        auraDmg = aura.GetComponent<EnemyDMG>();
-
-        if (stealth)
+        if(stealth)
         {
             mySprite.material = chameleonMat;
         }
@@ -131,9 +126,6 @@ public class EnemyOoze : MonoBehaviour
     //Wenn der Gegner tot ist
     void Die()
     {
-        enemyDmg.noDmg = true;
-        auraDmg.noDmg = true;
-
         if (deadTimer > 0)
         {
             deadTimer -= Time.deltaTime;
@@ -155,8 +147,6 @@ public class EnemyOoze : MonoBehaviour
                     mySprite.material = chameleonMat;
                 }
                 dead = false;
-                enemyDmg.noDmg = false;
-                auraDmg.noDmg = false;
                 transform.position = orgPos;
             }
             respawnTimer -= Time.deltaTime;
@@ -187,7 +177,7 @@ public class EnemyOoze : MonoBehaviour
             if (collision.gameObject.tag == "DmgToEnemy")
             {
                 hp -= 1;
-                rb.velocity = new Vector3(5 * -dir, 5, 0);
+                rb.velocity = new Vector3(2 * -dir, 2, 0);
                 print("ENEMY HP: " + hp);
                 if (hp <= 0)
                 {
@@ -288,6 +278,7 @@ public class EnemyOoze : MonoBehaviour
                 jumpUp = 0;
             }
         }
+
 
 
         /*

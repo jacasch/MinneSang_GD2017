@@ -25,7 +25,6 @@ public class PlayerController : PhysicsObject {
     public int dashCount = 0;
     public SpriteRenderer sr;
     private Animator animator;
-    public bool aiming;
 
     protected override void Initialize()
     {
@@ -49,16 +48,15 @@ public class PlayerController : PhysicsObject {
 
         #region Input
 
-        bool attacking = animator.GetBool("Attacking");
         bool poetryCasting = ps.poetryCasting > 0;
         bool stunCasting = playerStun.castTimer > 0;
-        bool canMove = !poetryCasting && !stunCasting && (!aiming || !grounded);
+        bool canMove = !poetryCasting && !stunCasting;
         dashCount = grounded ? 0 : dashCount;
         canDash = dashCount < maxDashesInAir;
 
         animator.SetBool("Grounded", grounded);
         animator.SetFloat("VelocityY", velocity.y);
-        //animator.SetBool("Attacking", Input.GetButtonDown("Attack"));
+        animator.SetBool("Attacking", Input.GetButtonDown("Attack"));
 
         if (!knockedBack)
         {
@@ -70,8 +68,7 @@ public class PlayerController : PhysicsObject {
                 if (input != 0)
                 {
                     animator.SetBool("Walking", true);
-                    if (!attacking)
-                        sr.flipX = (Input.GetAxis("Horizontal") < 0);
+                    sr.flipX = (Input.GetAxis("Horizontal") < 0);
                 }
             }
         }
