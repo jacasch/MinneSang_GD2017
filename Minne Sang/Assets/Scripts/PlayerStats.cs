@@ -14,7 +14,7 @@ public class PlayerStats : MonoBehaviour
     public float dmgCD = 0.5f;
     public float poetryTime = 10;
     public float poetryCD = 5;
-    public float poetryCastTime = 3;
+    public float poetryCastTime = 2;
     public float poetryCasting = 0;
     public float poetryBuff = -10;
     PlayerGui playerGui;
