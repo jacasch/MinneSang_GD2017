@@ -215,7 +215,7 @@ MonoBehaviour:
   randomLines:
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: Here kitty, here kitty!
+    text: Here kitty, kitty!
   - spokenByNpc: 1
     messageByPrincess: 0
     text: "Let\u2019s twitter together!"
