@@ -16,7 +16,7 @@ public class EnemyMusic : MonoBehaviour
     //Eigenschaften des Gegners. (DMG ist im Prefab Stomp festgelegt!)
     int hpMax = 5;  //MAX HP des Gegners
     int speed = 1;  //Speed des Gegners
-    float dist = 0.3f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
+    float dist = 1f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float walkDist = 0.5f;  //Zeit die der Gegner zwischen den Schritten sich vorwärtz bewegt
     float walkCD = 1f; //Zeit bis zum nächsten Schritt
     float timeStunned = 3f;  //Zeit die der Gegner gestunnt ist
@@ -46,15 +46,9 @@ public class EnemyMusic : MonoBehaviour
     Vector3 deadPos = new Vector3(1000, 0, 0);
     public GameObject objStomp;
 
-    Rigidbody2D rb;
-
     SpriteRenderer mySprite;
     public Material defaultMat;
     public Material chameleonMat;
-
-    public EnemyDMG enemyDmg;
-    public GameObject aura;
-    EnemyDMG auraDmg;
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
@@ -62,9 +56,7 @@ public class EnemyMusic : MonoBehaviour
         hp = hpMax;
         stealth = isStealth;
         orgPos = transform.position;
-        rb = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
-        auraDmg = aura.GetComponent<EnemyDMG>();
 
         if (stealth)
         {
@@ -139,9 +131,6 @@ public class EnemyMusic : MonoBehaviour
     //Tod des Gegners
     void Die()
     {
-        enemyDmg.noDmg = true;
-        auraDmg.noDmg = true;
-
         if (deadTimer > 0)
         {
             deadTimer -= Time.deltaTime;
@@ -163,8 +152,6 @@ public class EnemyMusic : MonoBehaviour
                     mySprite.material = chameleonMat;
                 }
                 dead = false;
-                enemyDmg.noDmg = false;
-                auraDmg.noDmg = false;
                 transform.position = orgPos;
             }
             respawnTimer -= Time.deltaTime;
@@ -212,18 +199,12 @@ public class EnemyMusic : MonoBehaviour
             active = true;
             if (other.transform.position.x + dist < transform.position.x)
             {
-                if(walkTimer > walkDist)
-                {
-                    dir = -1;
-                }
+                dir = -1;
                 move = true;
             }
             else if (other.transform.position.x - dist > transform.position.x)
             {
-                if (walkTimer > walkDist)
-                {
-                    dir = 1;
-                }
+                dir = 1;
                 move = true;
             }
         }
@@ -236,14 +217,6 @@ public class EnemyMusic : MonoBehaviour
         if (other.tag == "Player")
         {
             active = false;
-        }
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            rb.AddForce(new Vector2(collision.rigidbody.velocity.y * -1,0));
         }
     }
 }
