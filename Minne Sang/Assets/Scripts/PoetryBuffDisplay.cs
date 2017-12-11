@@ -9,6 +9,7 @@ public class PoetryBuffDisplay : MonoBehaviour
     ParticleSystem.EmissionModule em;
 
     PlayerStats playerStats;
+    float buff;
 
 	// Use this for initialization
 	void Start ()
@@ -22,10 +23,18 @@ public class PoetryBuffDisplay : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		if(playerStats.poetryBuff>0)
+        buff = playerStats.poetryBuff;
+		if(buff > 0)
         {
             ps.Play();
-            em.rateOverTime = playerStats.poetryBuff*10+20;
+            if(buff<5)
+            {
+                em.rateOverTime = buff * 20;
+            }
+            else
+            {
+                em.rateOverTime = 100;
+            }
         }
         else
         {
