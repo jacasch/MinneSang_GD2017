@@ -14,9 +14,10 @@ public class EnemyDance : MonoBehaviour
     */
 
     //Eigenschaften des Gegners. (DMG ist im Prefab Explosion festgelegt!)
-    float speed = 0;  //Wirdd im Script laufend erhöht
+    float startSpeed = 4.5f;  //Startgeschwindigkeit des Dancers
+    float speed = 4.5f;  //Wirdd im Script laufend erhöht
     float addSpeed = 0.05f;  //Erhöhung des Speeds
-    int maxSpeed = 8;  //Maximaler Speed
+    int maxSpeed = 9;  //Maximaler Speed
     float dist = 0.5f;  //Distanz ab welcher der Gegner stillsteht (X-Achse)
     float timeStunned = 0.5f;  //Zeit die der Gegner gestunnt ist wenn er gestunnt wird
     float deadTime = 0.5f;  //Zeit bis der Gegner nach dem Tot verschwindet
@@ -218,7 +219,7 @@ public class EnemyDance : MonoBehaviour
         if (other.tag == "Player")
         {
             active = false;
-            speed = 0;
+            speed = startSpeed;
         }
     }
 }

@@ -21,6 +21,7 @@ public class PoetryBuffDisplay : MonoBehaviour
 		if(playerStats.poetryBuff>0)
         {
             particleSystem.Play();
+
         }
         else
         {

@@ -177,7 +177,7 @@ public class EnemyOoze : MonoBehaviour
             if (collision.gameObject.tag == "DmgToEnemy")
             {
                 hp -= 1;
-                rb.velocity = new Vector3(2 * -dir, 2, 0);
+                rb.velocity = new Vector3(5 * -dir, 5, 0);
                 print("ENEMY HP: " + hp);
                 if (hp <= 0)
                 {
@@ -278,7 +278,6 @@ public class EnemyOoze : MonoBehaviour
                 jumpUp = 0;
             }
         }
-
 
 
         /*
