@@ -44,6 +44,8 @@ public class EnemyPoetry : MonoBehaviour
     public Material defaultMat;
     public Material chameleonMat;
 
+    public EnemyDMG enemyDmg;
+
     // Use this for initialization
     void Start ()
     {
@@ -100,6 +102,8 @@ public class EnemyPoetry : MonoBehaviour
     //Tod des Gegners
     void Die()
     {
+        enemyDmg.noDmg = true;
+
         if (deadTimer > 0)
         {
             deadTimer -= Time.deltaTime;
@@ -121,6 +125,7 @@ public class EnemyPoetry : MonoBehaviour
                     mySprite.material = chameleonMat;
                 }
                 dead = false;
+                enemyDmg.noDmg = false;
                 transform.position = orgPos;
             }
             respawnTimer -= Time.deltaTime;

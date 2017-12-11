@@ -55,6 +55,8 @@ public class EnemyPaint : MonoBehaviour
     public Material defaultMat;
     public Material chameleonMat;
 
+    public EnemyDMG enemyDmg;
+
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
@@ -141,6 +143,8 @@ public class EnemyPaint : MonoBehaviour
     //Tod des Gegners
     void Die()
     {
+        enemyDmg.noDmg = true;
+
         if (deadTimer > 0)
         {
             deadTimer -= Time.deltaTime;
@@ -173,6 +177,7 @@ public class EnemyPaint : MonoBehaviour
                     mySprite.material = chameleonMat;
                 }
                 dead = false;
+                enemyDmg.noDmg = false;
                 transform.position = orgPos;
             }
             respawnTimer -= Time.deltaTime;

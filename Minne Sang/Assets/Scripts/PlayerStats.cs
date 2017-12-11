@@ -10,11 +10,11 @@ public class PlayerStats : MonoBehaviour
     bool dead = false;
 
     //Zeit bis erneut verwundbar nach eingegangenem Schaden
-    public float dmgTimer = 0;
+    //public float dmgTimer = 0;
     public float dmgCD = 0.5f;
     public float poetryTime = 10;
     public float poetryCD = 5;
-    public float poetryCastTime = 3;
+    public float poetryCastTime = 2;
     public float poetryCasting = 0;
     public float poetryBuff = -10;
     PlayerGui playerGui;
@@ -40,10 +40,10 @@ public class PlayerStats : MonoBehaviour
                 dead = true;
             }
             poetry();
-            if (dmgTimer>0)
-            {
-                dmgTimer -= Time.deltaTime;
-            }
+            //if (dmgTimer>0)
+            //{
+            //    dmgTimer -= Time.deltaTime;
+            //}
         }
 	}
 
@@ -76,7 +76,7 @@ public class PlayerStats : MonoBehaviour
     //Wenn der Spieler im DMG des Gegners steht und er verwundbar ist, bekommt er Schaden und wird kurzzeitig unverwundbar
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (dmgTimer<=0 && collision.gameObject.tag == "DmgToPlayer")
+        if (/*dmgTimer<=0 && */collision.gameObject.tag == "DmgToPlayer")
         {
             //Variables
 
@@ -91,7 +91,7 @@ public class PlayerStats : MonoBehaviour
                 print("HP: " + hp);
 
                 //UnverwundbarkeitsTimer
-                dmgTimer = dmgCD;
+                //dmgTimer = dmgCD;
                 //print("Timer: " + dmgTimer);
 
                 //Knockback
@@ -106,30 +106,28 @@ public class PlayerStats : MonoBehaviour
                 enemyDMG.timer = enemyDMG.dmgTime;
             }
         }
-        if (dmgTimer <= 0 && poetryBuff <= 0 && collision.gameObject.tag == "PoetryDmgToPlayer")
+        if (/*dmgTimer <= 0 && */poetryBuff <= 0 && collision.gameObject.tag == "PoetryDmgToPlayer")
         {
+
+
+
             //Variables
             EnemyDMG enemyDMG = collision.GetComponent<EnemyDMG>();
-            int dir = 1;
+
+            //Die Sirene verursacht Schaden pro Sekunde!
+            hp -= Time.deltaTime * enemyDMG.dmg;
+            print("HP: " + hp);
 
             //Prüft ob Gegner bereits erneut Schaden verursachen kann
             if (enemyDMG.timer < 0)
             {
-                //DMG to player
-                hp -= enemyDMG.dmg;
+                //Die Sirene verursacht Schaden pro Sekunde!
+                hp -= Time.deltaTime * enemyDMG.dmg;
                 print("HP: " + hp);
 
                 //UnverwundbarkeitsTimer
-                dmgTimer = dmgCD;
+                //dmgTimer = dmgCD;
                 //print("Timer: " + dmgTimer);
-
-                //Knockback
-                if (collision.transform.position.x > transform.position.x)
-                {
-                    dir = -1;
-                }
-                GetComponent<PlayerController>().KnockBack(enemyDMG.knockback * dir);
-                //print("Knockback: " + enemyDMG.knockback);
 
                 //Timer bis Gegner erneut Schaden verursachen kann
                 enemyDMG.timer = enemyDMG.dmgTime;

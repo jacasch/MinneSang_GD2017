@@ -52,6 +52,8 @@ public class EnemyOoze : MonoBehaviour
     public Material defaultMat;
     public Material chameleonMat;
 
+    public EnemyDMG enemyDmg;
+
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
@@ -126,6 +128,8 @@ public class EnemyOoze : MonoBehaviour
     //Wenn der Gegner tot ist
     void Die()
     {
+        enemyDmg.noDmg = true;
+
         if (deadTimer > 0)
         {
             deadTimer -= Time.deltaTime;
@@ -147,6 +151,7 @@ public class EnemyOoze : MonoBehaviour
                     mySprite.material = chameleonMat;
                 }
                 dead = false;
+                enemyDmg.noDmg = false;
                 transform.position = orgPos;
             }
             respawnTimer -= Time.deltaTime;
