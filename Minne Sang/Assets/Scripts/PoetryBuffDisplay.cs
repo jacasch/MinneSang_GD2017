@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class PoetryBuffDisplay : MonoBehaviour
 {
-    ParticleSystem particleSystem;
+    ParticleSystem ps;
+    ParticleSystem.EmissionModule em;
 
     PlayerStats playerStats;
 
 	// Use this for initialization
 	void Start ()
     {
-        particleSystem = GetComponent<ParticleSystem>();
+        ps = GetComponent<ParticleSystem>();
+        em = ps.emission;
+
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
 	}
 	
@@ -20,12 +24,12 @@ public class PoetryBuffDisplay : MonoBehaviour
     {
 		if(playerStats.poetryBuff>0)
         {
-            particleSystem.Play();
-
+            ps.Play();
+            em.rateOverTime = playerStats.poetryBuff*10+20;
         }
         else
         {
-            particleSystem.Stop();
+            ps.Stop();
         }
 	}
 }
