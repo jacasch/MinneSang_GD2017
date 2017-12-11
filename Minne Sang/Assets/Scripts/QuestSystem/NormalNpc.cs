@@ -53,13 +53,11 @@ public class NormalNpc : Npc {
                 do
                 {
                     newIndex = Random.Range(0, randomLines.Length);
-                EndInteraction();
-
-            } while (newIndex == activePhraseIndex);
+                } while (newIndex == activePhraseIndex);
 
                 activePhraseIndex = newIndex;
                 activePhrase = randomLines[activePhraseIndex];
-        }
+            }
         
     }
 
