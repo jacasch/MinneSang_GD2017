@@ -7,6 +7,7 @@ public class EnemyDMG : MonoBehaviour
     public float dmg;  //Schaden der verursacht wird
     public float dmgTime;  //Dauer bis erneut Schaden verursacht wird.
     public float knockback;  //Stärke des Knockbacks
+    public bool noDmg = false;
 
     public float timer;
 
@@ -15,6 +16,10 @@ public class EnemyDMG : MonoBehaviour
         if(timer>=0)
         {
             timer-= Time.deltaTime;
+        }
+        if (noDmg)
+        {
+            timer = 1;
         }
     }
 }

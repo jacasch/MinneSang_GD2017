@@ -591,11 +591,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 7
   hp: 7
-  dmgTimer: 0
   dmgCD: 1.5
   poetryTime: 10
   poetryCD: 0
-  poetryCastTime: 3
+  poetryCastTime: 2
   poetryCasting: 0
   poetryBuff: -10
 --- !u!114 &114061582200207790

@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1029041836450580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.934057, y: -17.2, z: -0.0703125}
+  m_LocalPosition: {x: 19.96, y: 12, z: -0.0703125}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 4516871428448414}
@@ -111,14 +111,14 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1029041836450580}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -200,9 +200,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48386998a2d1f084dbdf3333efe22be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropItem: 0
+  questName: 
+  questDrop:
+    drop: {fileID: 0}
+    name: 
   objShot: {fileID: 1577665517853280, guid: 98451a05c01faf945a00118e66e2b0da, type: 2}
   defaultMat: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   chameleonMat: {fileID: 2100000, guid: 32143037c032fe040860170bba74d8d8, type: 2}
+  enemyDmg: {fileID: 114354100590663358}
 --- !u!114 &114354100590663358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -214,9 +220,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da64b27c52b15ac4eac17e7fedff1e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 0.5
-  dmgTime: 0
-  knockback: 0
+  dmg: 2
+  dmgTime: 1
+  knockback: 1
+  noDmg: 0
   timer: 0
 --- !u!212 &212672827710535188
 SpriteRenderer:
@@ -250,7 +257,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1770038037
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 9446f9ace49e45e4c9a1e656a0b78f99, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
