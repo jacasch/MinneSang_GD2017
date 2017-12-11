@@ -44,6 +44,10 @@ public class EnemyPoetry : MonoBehaviour
     public Material defaultMat;
     public Material chameleonMat;
 
+    public EnemyDMG enemyDmg;
+    public GameObject aura;
+    EnemyDMG auraDmg;
+
     // Use this for initialization
     void Start ()
     {
@@ -51,6 +55,7 @@ public class EnemyPoetry : MonoBehaviour
         stealth = isStealth;
         orgPos = transform.position;
         mySprite = GetComponent<SpriteRenderer>();
+        auraDmg = aura.GetComponent<EnemyDMG>();
 
         if (stealth)
         {
@@ -100,6 +105,9 @@ public class EnemyPoetry : MonoBehaviour
     //Tod des Gegners
     void Die()
     {
+        enemyDmg.noDmg = true;
+        auraDmg.noDmg = true;
+
         if (deadTimer > 0)
         {
             deadTimer -= Time.deltaTime;
@@ -121,6 +129,8 @@ public class EnemyPoetry : MonoBehaviour
                     mySprite.material = chameleonMat;
                 }
                 dead = false;
+                enemyDmg.noDmg = false;
+                auraDmg.noDmg = false;
                 transform.position = orgPos;
             }
             respawnTimer -= Time.deltaTime;

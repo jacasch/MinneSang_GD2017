@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
-  velocity: 5
+  velocity: 7
 --- !u!114 &114589921498776612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -104,8 +104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 2
-  dmgTime: 0
-  knockback: 0.5
+  dmgTime: 1
+  knockback: 1
   timer: 0
 --- !u!212 &212003740239636944
 SpriteRenderer:
@@ -139,7 +139,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -498371609
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: a71173051232c9c49bc6c9414c052541, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

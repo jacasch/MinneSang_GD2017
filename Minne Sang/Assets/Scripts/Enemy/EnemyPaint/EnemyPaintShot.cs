@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyPaintShot : MonoBehaviour
 {
     float liveTime = 5;
-    float speed = 5;
+    float speed = 7;
 
     public Vector3 direction;
     public float velocity;

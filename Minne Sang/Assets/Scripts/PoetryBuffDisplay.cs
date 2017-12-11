@@ -1,30 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class PoetryBuffDisplay : MonoBehaviour
 {
-    ParticleSystem particleSystem;
+    ParticleSystem ps;
+    ParticleSystem.EmissionModule em;
 
     PlayerStats playerStats;
+    float buff;
 
 	// Use this for initialization
 	void Start ()
     {
-        particleSystem = GetComponent<ParticleSystem>();
+        ps = GetComponent<ParticleSystem>();
+        em = ps.emission;
+
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-		if(playerStats.poetryBuff>0)
+        buff = playerStats.poetryBuff;
+		if(buff > 0)
         {
-            particleSystem.Play();
+            ps.Play();
+            if(buff<5)
+            {
+                em.rateOverTime = buff * 20;
+            }
+            else
+            {
+                em.rateOverTime = 100;
+            }
         }
         else
         {
-            particleSystem.Stop();
+            ps.Stop();
         }
 	}
 }

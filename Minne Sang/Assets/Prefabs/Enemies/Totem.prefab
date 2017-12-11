@@ -100,7 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: 3
   dmgTime: 0
-  knockback: 0.5
+  knockback: 0
+  noDmg: 0
   timer: 0
 --- !u!212 &212170273473044398
 SpriteRenderer:
@@ -116,7 +117,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 32143037c032fe040860170bba74d8d8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -134,7 +135,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1770038037
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 82ceb57a7df600d47ad74e5265fe5b07, type: 3}
   m_Color: {r: 0.75838506, g: 0.8602941, b: 0.39851862, a: 1}
@@ -160,7 +161,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 11e3f08ced7709e49bfdf3c10ce92dff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -178,9 +179,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -498371609
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: be3672712c4cd6b429fcadd4bb969799, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cfb7d3b97b60c1c49a492813559c4011, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
