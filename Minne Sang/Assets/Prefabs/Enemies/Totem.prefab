@@ -101,6 +101,7 @@ MonoBehaviour:
   dmg: 2
   dmgTime: 0
   knockback: 0
+  noDmg: 0
   timer: 0
 --- !u!212 &212170273473044398
 SpriteRenderer:
