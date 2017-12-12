@@ -1,15 +1,29 @@
 fileFormatVersion: 2
-guid: 8dd11dc2b5b5fbd4d800af27541b1c30
-timeCreated: 1512833916
+guid: e35a2360e29c0d642bfb7f50627625ed
+timeCreated: 1513073450
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Poetry_Cast_Spritesheet_0
+    21300002: Poetry_Cast_Spritesheet_1
+    21300004: Poetry_Cast_Spritesheet_2
+    21300006: Poetry_Cast_Spritesheet_3
+    21300008: Poetry_Cast_Spritesheet_4
+    21300010: Poetry_Cast_Spritesheet_5
+    21300012: Poetry_Cast_Spritesheet_6
+    21300014: Poetry_Cast_Spritesheet_7
+    21300016: Poetry_Cast_Spritesheet_8
+    21300018: Poetry_Cast_Spritesheet_9
+    21300020: Poetry_Cast_Spritesheet_10
+    21300022: Poetry_Cast_Spritesheet_11
+    21300024: Poetry_Cast_Spritesheet_12
+    21300026: Poetry_Cast_Spritesheet_13
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    sRGBTexture: 0
+    sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -46,7 +60,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 500
+  spritePixelsToUnits: 1000
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -76,7 +90,203 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Poetry_Cast_Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6230
+        width: 3189
+        height: 3115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Poetry_Cast_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 3189
+        y: 6230
+        width: 3189
+        height: 3115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Poetry_Cast_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 6378
+        y: 6230
+        width: 3189
+        height: 3115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Poetry_Cast_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 9567
+        y: 6230
+        width: 3189
+        height: 3115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Poetry_Cast_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 12756
+        y: 6230
+        width: 3189
+        height: 3115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Poetry_Cast_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3115
+        width: 3189
+        height: 3115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Poetry_Cast_Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 3189
+        y: 3115
+        width: 3189
+        height: 3115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Poetry_Cast_Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 6378
+        y: 3115
+        width: 3189
+        height: 3115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Poetry_Cast_Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 9567
+        y: 3095
+        width: 3189
+        height: 3115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Poetry_Cast_Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 12716
+        y: 3135
+        width: 3189
+        height: 3115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Poetry_Cast_Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 3189
+        height: 3115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Poetry_Cast_Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 3189
+        y: 0
+        width: 3189
+        height: 3115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Poetry_Cast_Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 6378
+        y: 0
+        width: 3189
+        height: 3115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Poetry_Cast_Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 9567
+        y: 0
+        width: 3189
+        height: 3115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 

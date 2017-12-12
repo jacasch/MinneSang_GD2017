@@ -33,7 +33,6 @@ public class ChameleonPlatform : MonoBehaviour {
         if (collision.gameObject.tag == "Paint" && !playerIsInsidePlatform) {
             bc2d.isTrigger = false;
             collision.gameObject.GetComponent<PaintShot>().Explode();
-            Destroy(collision.gameObject);
             sr.material = defaultmat;
             bc2d.isTrigger = false;
             sr.sortingLayerName = "MidGround";

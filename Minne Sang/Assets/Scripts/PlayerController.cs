@@ -26,6 +26,7 @@ public class PlayerController : PhysicsObject {
     public SpriteRenderer sr;
     private Animator animator;
     public bool aiming;
+    private PlayerSoundHandler psh;
 
     protected override void Initialize()
     {
@@ -39,6 +40,7 @@ public class PlayerController : PhysicsObject {
         dashAnimationDelay = 0.5f;
         inNpcZone = false;
         sr = GetComponent<SpriteRenderer>();
+        psh = GetComponent<PlayerSoundHandler>();
     }
 
     protected override void ComputeVelocity()
@@ -93,6 +95,7 @@ public class PlayerController : PhysicsObject {
 
         if (Input.GetButtonDown("Dash") && !inNpcZone && canMove && canDash && !dashing && pg.skillLevel >= 1)
         {
+            psh.Dash();
             dashCount++;
             dashing = true;
             tr.enabled = true;
