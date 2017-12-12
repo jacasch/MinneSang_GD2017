@@ -27,6 +27,11 @@ public class PlayerController : PhysicsObject {
     private Animator animator;
     public bool aiming;
     private PlayerSoundHandler psh;
+    private float lastStepTime;
+    private float stepInterval = 0.35f;
+
+    private bool canMove;
+    private bool attacking;
 
     protected override void Initialize()
     {
@@ -51,10 +56,11 @@ public class PlayerController : PhysicsObject {
 
         #region Input
 
-        bool attacking = animator.GetBool("Attacking");
+        attacking = animator.GetBool("Attacking");
+        bool dead = animator.GetBool("Dead");
         bool poetryCasting = ps.poetryCasting > 0;
         bool stunCasting = playerStun.castTimer > 0;
-        bool canMove = !poetryCasting && !stunCasting && (!aiming || !grounded);
+        canMove = !poetryCasting && !stunCasting && (!aiming || !grounded);
         dashCount = grounded ? 0 : dashCount;
         canDash = dashCount < maxDashesInAir;
 
@@ -71,6 +77,7 @@ public class PlayerController : PhysicsObject {
                 move.x = input;
                 if (input != 0)
                 {
+                    PlayStep();
                     animator.SetBool("Walking", true);
                     if (!attacking)
                         sr.flipX = (Input.GetAxis("Horizontal") < 0);
@@ -82,8 +89,7 @@ public class PlayerController : PhysicsObject {
             {
                 knockedBack = false;
             }
-            else
-            {
+            else if (!dead) {
                 move.x = knockbackintensity;
             }
         }
@@ -156,5 +162,17 @@ public class PlayerController : PhysicsObject {
         knockedBack = true;
         velocity.y = jumpTakeOffSpeed * Mathf.Abs(intensity)/2;
         grounded = false;
+    }
+
+    private void PlayStep() {
+        if (lastStepTime <= Time.time - stepInterval / Mathf.Abs(Input.GetAxis("Horizontal"))
+            && grounded
+            && !dashing
+            && canMove
+            && !attacking) {
+            //step
+            lastStepTime = Time.time;
+            psh.Step();
+        }
     }
 }

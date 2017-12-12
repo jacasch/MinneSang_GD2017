@@ -10,6 +10,7 @@ public class PlayerSoundHandler : MonoBehaviour {
     public AudioClip[] dashSound;
     public AudioClip[] poetryCastSound;
     public AudioClip[] stunSound;
+    public AudioClip[] stepSound;
 
     private int lastAttackSound = 0;
     private int lastHitSound = 0;
@@ -17,6 +18,7 @@ public class PlayerSoundHandler : MonoBehaviour {
     private int lastDashSound = 0;
     private int lastPoetryCastSound = 0;
     private int lastStunSound = 0;
+    private int lastStepSound = 0;
 
     private AudioSource audioSource;
 
@@ -55,6 +57,10 @@ public class PlayerSoundHandler : MonoBehaviour {
 
     public void Stun() {
         PlaySound(stunSound, lastStunSound);
+    }
+
+    public void Step() {
+        PlaySound(stepSound, lastStepSound);
     }
     #endregion
 

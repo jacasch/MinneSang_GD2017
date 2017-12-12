@@ -20,6 +20,10 @@ public class PlayerStats : MonoBehaviour
     PlayerGui playerGui;
     Animator animator;
 
+    private float deathtime;
+    private bool deathAnimationStarted = false;
+    private float respawnDelay = 2f;
+
     private bool playedPoetrySound = false;
 
     void Start ()
@@ -32,10 +36,23 @@ public class PlayerStats : MonoBehaviour
     {
         if (dead)
         {
-            hp = maxHP;
-            dead = false;
-            GetComponent<PlayerController>().KnockBack(0);
-            GetComponent<PlayerSpawnHandler>().Respawn();
+            if (!deathAnimationStarted)
+            {
+                animator.SetBool("Dead", true);
+                gameObject.layer = 13;
+                GetComponent<PlayerSoundHandler>().Die();
+                deathAnimationStarted = true;
+                deathtime = Time.time;
+            }
+            else if (deathtime + respawnDelay <= Time.time){                hp = maxHP;
+                dead = false;
+                gameObject.layer = 9;
+                GetComponent<PlayerController>().KnockBack(0);
+                animator.SetBool("Dead", false);
+                deathAnimationStarted = false;
+
+                GetComponent<PlayerSpawnHandler>().Respawn();
+            }
         }
         else
         {
