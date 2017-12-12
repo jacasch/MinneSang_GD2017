@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 50195562569168070}
   m_Layer: 10
   m_Name: Joel
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,7 +383,7 @@ MonoBehaviour:
       in fashion. '
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: 'Did you heard the rumour about the high tower? '
+    text: 'Did you hear the rumour about the high tower? '
   - spokenByNpc: 1
     messageByPrincess: 0
     text: 'Rumours have it, that the post office is quite a new addition to the castle. '

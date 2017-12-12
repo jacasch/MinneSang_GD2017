@@ -8,6 +8,8 @@ public class NormalNpc : Npc {
     public Phrase afterDropLine;
     public Item questDrop;
     private bool itemExists = false;
+    private int newIndex = 0;
+
     //public Phrase[] questDialogue;
 
     public override void NextPhrase()
@@ -49,15 +51,17 @@ public class NormalNpc : Npc {
             //if we are not in the right quest to dialoughe with this npc
             else
             {
-                int newIndex;
-                do
-                {
-                    newIndex = Random.Range(0, randomLines.Length);
-                } while (newIndex == activePhraseIndex);
+            newIndex += 1;
 
-                activePhraseIndex = newIndex;
-                activePhrase = randomLines[activePhraseIndex];
+            if (newIndex >= randomLines.Length)
+            {
+                newIndex = 0;
             }
+
+            activePhraseIndex = newIndex;
+            activePhrase = randomLines[activePhraseIndex];
+            EndInteraction();
+        }
         
     }
 

@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 50116049972145448}
   m_Layer: 10
   m_Name: Luciano
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -332,7 +332,7 @@ MonoBehaviour:
   randomLines:
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: "I heard that you\u2019re after the title of polymath. Give it up already!"
+    text: "I heard you\u2019re after the title of polymath. Give it up already!"
   - spokenByNpc: 1
     messageByPrincess: 0
     text: Do you think our curriculum also covers more modern music styles? Like dubstep?

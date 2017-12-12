@@ -40,6 +40,11 @@ public class MasterNpc : Npc{
                     if (activePhraseIndex >= quest.dialogue.Length)
                     {
                         player.GetComponent<PlayerQuestHandler>().activeQuest = quest.name;
+                        player.GetComponent<PlayerQuestHandler>().questItems = new List<string>();
+                        foreach (string name in quest.itemsToCollect)
+                        {
+                            player.GetComponent<PlayerQuestHandler>().questItems.Add(name);
+                        }
                         EndInteraction();
                     }
                     else

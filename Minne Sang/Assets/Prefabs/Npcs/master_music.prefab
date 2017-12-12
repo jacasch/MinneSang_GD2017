@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 50643731472011948}
   m_Layer: 10
   m_Name: master_music
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
     text: I do not have time. I must practice my award winning piece once again!
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: I need silence, or the rhythm shall leave my being.
+    text: I need silence or the rhythm shall leave my being.
   autoStart: 0
   player: {fileID: 0}
   activePhrase:
@@ -405,7 +405,7 @@ MonoBehaviour:
       text: Retrieve 7 of them.
     - spokenByNpc: 1
       messageByPrincess: 0
-      text: Also a student of mine got one. Maybe she will give it to you!
+      text: Also a student of mine should have one. Maybe she will give it to you!
     randomLines:
     - spokenByNpc: 1
       messageByPrincess: 0
@@ -419,7 +419,7 @@ MonoBehaviour:
     endDialogue:
     - spokenByNpc: 0
       messageByPrincess: 0
-      text: You have succeeded. An easy task, it was. Now, you must show me if you
+      text: You have succeeded. An easy task it was. Now, you must show me if you
         even know how to play anything.
     - spokenByNpc: 1
       messageByPrincess: 0
@@ -450,6 +450,7 @@ MonoBehaviour:
     spokenByNpc: 1
     messageByPrincess: 0
     text: go to the headmaster first.
+  targetScene: 
 --- !u!114 &114848318685400242
 MonoBehaviour:
   m_ObjectHideFlags: 1
