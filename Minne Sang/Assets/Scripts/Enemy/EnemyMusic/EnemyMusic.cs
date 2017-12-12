@@ -120,13 +120,13 @@ public class EnemyMusic : MonoBehaviour
             move = false;
             animator.SetBool("stomp", false);
         }
-        if (dir < 0 && !stealth)
+        if (dir > 0 && !stealth)
         {
-            mySprite.flipX = false;
+            mySprite.flipX = true;
         }
         else
         {
-            mySprite.flipX = true;
+            mySprite.flipX = false;
         }
     }
 
