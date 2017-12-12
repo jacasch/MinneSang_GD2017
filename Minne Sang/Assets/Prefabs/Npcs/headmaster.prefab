@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 50816228826012984}
   m_Layer: 10
   m_Name: headmaster
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -287,7 +287,7 @@ MonoBehaviour:
     randomLines:
     - spokenByNpc: 1
       messageByPrincess: 0
-      text: "Didn\u2019t master anything yet, have we? A fool\u2019s errand truly! "
+      text: "Haven\u2019t mastered anything yet, have we? A fool\u2019s errand truly! "
     - spokenByNpc: 1
       messageByPrincess: 0
       text: Sometimes I ride my Pony in the meadows
@@ -323,7 +323,7 @@ MonoBehaviour:
     - spokenByNpc: 1
       messageByPrincess: 0
       text: I used to write letters to my sweetheart back in the day. Until I found
-        out, that I was only one of many.
+        out that I was only one of many.
     - spokenByNpc: 1
       messageByPrincess: 0
       text: Your dance moves are the stuff of legends. Did you ever think about marrying

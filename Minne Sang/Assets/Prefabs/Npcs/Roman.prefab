@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 50047131427489752}
   m_Layer: 10
   m_Name: Roman
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
   randomLines:
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: "I\u2019m not a big fan of poetry, but it melts a lady\u2019s heart. What
+    text: "I\u2019m not a big fan of poetry but it melts a lady\u2019s heart. What
       more could you wish for? "
   - spokenByNpc: 1
     messageByPrincess: 0

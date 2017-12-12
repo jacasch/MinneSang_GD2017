@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 50780830804649448}
   m_Layer: 10
   m_Name: Enya
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -261,7 +261,7 @@ MonoBehaviour:
     text: 'Have you seen this fantastic bird? '
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: 'The monsters are annoying for sure, but so are you. '
+    text: The monsters are annoying for sure but so are you.
   - spokenByNpc: 1
     messageByPrincess: 0
     text: "Hmm... someone should think about cleaning the castle\u2026 "
