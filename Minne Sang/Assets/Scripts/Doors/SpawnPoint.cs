@@ -37,7 +37,6 @@ public class SpawnPoint : MonoBehaviour {
     {
         if (collision.tag == "Player") {
             collision.gameObject.GetComponent<PlayerSpawnHandler>().targetSpawn = name;
-            print(name);
             collision.gameObject.GetComponent<PlayerSpawnHandler>().targetScene = SceneManager.GetActiveScene().name;
         }
     }

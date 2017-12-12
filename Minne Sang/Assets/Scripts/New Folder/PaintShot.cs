@@ -6,6 +6,8 @@ public class PaintShot : MonoBehaviour {
 
     public Vector3 direction;
     public float velocity;
+
+    public AudioClip[] explodeSound;
     Rigidbody2D rb2d;
 
     // Use this for initialization
@@ -26,11 +28,15 @@ public class PaintShot : MonoBehaviour {
         if (collision.gameObject.tag != "Player" && collision.gameObject.layer != 1)
         {
             Explode();
-            Destroy(gameObject);
         }
     }
 
     public void Explode() {
         GameObject.FindGameObjectWithTag("PaintSplatter").GetComponent<PaintSplatter>().Paint(new Vector2(transform.position.x, transform.position.y));
+        GetComponent<AudioSource>().clip = explodeSound[0];
+        GetComponent<AudioSource>().Play();
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        Destroy(gameObject, explodeSound.Length);
     }
 }

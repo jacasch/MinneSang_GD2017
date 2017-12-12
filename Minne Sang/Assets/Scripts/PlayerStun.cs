@@ -6,7 +6,7 @@ public class PlayerStun : MonoBehaviour
 {
     int dir = 1;
     float distPlayer = 2.25f;  //Front
-    float stunTimer;
+    public float stunTimer;
     float castDuration = 0.15f;
     public float castTime = 0.75f;
     [HideInInspector]
@@ -14,7 +14,11 @@ public class PlayerStun : MonoBehaviour
     public float repeatCD = 0f;
     float repeatTimer = 0;
 
+    private bool soundPlayed = false;
+    private float soundTimer = 0.5f;
+
     BoxCollider2D boxCollider;
+    Animator animator;
 
     PlayerGui playerGui;
 
@@ -23,6 +27,7 @@ public class PlayerStun : MonoBehaviour
     {
         boxCollider = GetComponent<BoxCollider2D>();
         playerGui = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGui>();
+        animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -32,9 +37,17 @@ public class PlayerStun : MonoBehaviour
         {
             if (Input.GetAxis("Stun") != 0 && playerGui.skillLevel >= 3)
             {
+                animator.SetBool("CastingMusic", true);
                 castTimer += Time.deltaTime;
-                if(castTimer >= castTime)
+                if (castTimer >= soundTimer && !soundPlayed){
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSoundHandler>().Stun();
+                    soundPlayed = true;
+                }
+
+                    if (castTimer >= castTime)
                 {
+                    animator.SetBool("CastingMusic", false);
+                    soundPlayed = false;
                     stunTimer = castDuration;
                     repeatTimer = repeatCD;
                     boxCollider.enabled = true;
@@ -44,6 +57,8 @@ public class PlayerStun : MonoBehaviour
             else
             {
                 castTimer = 0;
+                animator.SetBool("CastingMusic", false);
+                soundPlayed = false;
 
                 if (Input.GetAxis("Horizontal") < 0)
                 {
