@@ -56,6 +56,8 @@ public class EnemyMusic : MonoBehaviour
     public GameObject aura;
     EnemyDMG auraDmg;
 
+    Animator animator;
+
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
@@ -65,6 +67,8 @@ public class EnemyMusic : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
+
+        animator = GetComponent<Animator>();
 
         if (stealth)
         {
@@ -105,6 +109,7 @@ public class EnemyMusic : MonoBehaviour
         }
         else if (walkTimer < walkDist)
         {
+            animator.SetBool("stomp", true);
             transform.Translate(speed * dir * Time.deltaTime, 0, 0);
         }
 
@@ -113,8 +118,9 @@ public class EnemyMusic : MonoBehaviour
         {
             stomp = true;
             move = false;
+            animator.SetBool("stomp", false);
         }
-        if (dir < 0 && !stealth)
+        if (dir > 0 && !stealth)
         {
             mySprite.flipX = true;
         }

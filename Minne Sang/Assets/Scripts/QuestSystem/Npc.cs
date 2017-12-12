@@ -26,6 +26,8 @@ public class Npc : MonoBehaviour {
     private bool inRange = false;
     private bool interacting = false;
 
+    private float ratio;
+
     [HideInInspector]
     public GameObject player;
     [HideInInspector]
@@ -50,6 +52,8 @@ public class Npc : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+
         if (inRange) {
             Talk(activePhrase);
             //check for interaction input
@@ -108,6 +112,12 @@ public class Npc : MonoBehaviour {
         {
             npcNameBox.text = playerName.ToUpper();
         }
+        /* float ratioWidth = Screen.width;
+         float ratioHeight = Screen.height;
+         float ratio = ratioHeight / ratioWidth;
+         Debug.Log(ratio);
+         textBox.fontSize = Mathf.RoundToInt(ratio*30); */
+
         /*Vector2 WorldObject_ScreenPosition = new Vector2(
         ((viewportPosition.x * textTransform.sizeDelta.x) - (textTransform.sizeDelta.x * 0.5f)),
         ((viewportPosition.y * textTransform.sizeDelta.y) - (textTransform.sizeDelta.y * 0.5f)));*/
