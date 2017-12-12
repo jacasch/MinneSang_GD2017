@@ -34,7 +34,7 @@ public class EnemyPaint : MonoBehaviour
 
     bool active = false;
     bool move = false;
-    bool stealth = true;
+    public bool stealth = true;
     bool dead = false;
 
     public int dir = 1;
@@ -140,7 +140,7 @@ public class EnemyPaint : MonoBehaviour
             Vector3 objPos = transform.position;
             float dirX = objPlayer.transform.position.x - transform.position.x;
             float dirY = objPlayer.transform.position.y - transform.position.y;;
-            GameObject instance = Instantiate(objShot, objPos, transform.rotation) as GameObject;
+            GameObject instance = Instantiate(objShot, new Vector2(objPos.x + (0.65f * dir),objPos.y-0.65f), transform.rotation) as GameObject;
             instance.GetComponent<EnemyPaintShot>().direction = new Vector3(dirX, dirY, 0);
             instance.layer = 0;
             shootTimer = shootCD;
