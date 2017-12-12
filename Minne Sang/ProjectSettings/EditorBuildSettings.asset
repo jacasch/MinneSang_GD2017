@@ -14,42 +14,42 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Roman.unity
     guid: fed821c1866075949be1f81e2293ff78
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/FinalArea/FinalArea.unity
     guid: 26a6adf53afb6e04bad222464e47fa02
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/FinalArea/FinalRoom.unity
     guid: d5c1b09c8914e434b9f4e0539f21bacd
-  - enabled: 0
-    path: Assets/Scenes/Dance Area/DanceMastery.unity
-    guid: 3a163e05a43aede4a8108bf1b909f2f5
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Dance Area/DanceArea.unity
+    guid: 3a163e05a43aede4a8108bf1b909f2f5
+  - enabled: 1
+    path: Assets/Scenes/Dance Area/DanceMastery.unity
     guid: 506d60f6ba0a1654ab4f9a33c5fafcae
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Other/MainHall.unity
     guid: 84a8f2a936d7915469ddd30b8ade7eff
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Other/Intro.unity
     guid: 89dde14a5562cb24194781bfc2da449b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Music Area/MusicArea.unity
     guid: 6884863b0f8e27346b2640941bdc4d23
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Music Area/MusicMastery.unity
     guid: d07bc2cf9ba1a924fad3ba3c588c6f44
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Painting Area/PaintingArea.unity
     guid: 6a4bf5015fa5de1418f2b665cf2d227d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Painting Area/PaintingMastery.unity
     guid: 451610f93a1e12a47a4182aa025c6011
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PoetryArea/PoetryArea.unity
     guid: fc4dea21205877645832fa50ba025941
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PoetryArea/PoetryMastery.unity
     guid: f259652eeea691843b46ede1c437492a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/pierre.unity
     guid: 8bfd2ab6f3ca52b4fa6baa7428a57ae1
