@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 50227208870127626}
   m_Layer: 10
   m_Name: master_of_dance
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -334,8 +334,8 @@ MonoBehaviour:
       who...
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: 'I''m very proud of you, young dancer! But there is still a long way to
-      become a real master like me! '
+    text: I'm very proud of you, young dancer! But there is still a long way to becoming
+      a real master like me!
   autoStart: 0
   player: {fileID: 0}
   activePhrase:
@@ -353,7 +353,7 @@ MonoBehaviour:
     dialogue:
     - spokenByNpc: 1
       messageByPrincess: 0
-      text: Heigh-ho there! I perceive your presence but I cannot show myself, because
+      text: Heigh-ho there! I perceive your presence but I cannot show myself because
         I cannot find my clothes! Come see me later!
     - spokenByNpc: 0
       messageByPrincess: 0
@@ -404,7 +404,7 @@ MonoBehaviour:
       text: Do you have my clothes?
     - spokenByNpc: 0
       messageByPrincess: 0
-      text: I have. And they are washed too. Here you go!
+      text: I do. And they are washed too. Here you go!
     - spokenByNpc: 1
       messageByPrincess: 0
       text: Well done, young knight! Just give me a second and we can start the lessons!
@@ -429,7 +429,7 @@ MonoBehaviour:
   encounterBeforeHeadMaster:
     spokenByNpc: 1
     messageByPrincess: 0
-    text: Heigh-ho there! I perceive your presence but I cannot show myself, because
+    text: Heigh-ho there! I perceive your presence but I cannot show myself because
       I cannot find my clothes! Come see me later!
   targetScene: 
 --- !u!114 &114683572207904850

@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: b8c13d8510b204b40b7b8fd2496a64b2
-timeCreated: 1513067418
+guid: 723d87d351ade6142b8a8c3b577488ed
+timeCreated: 1513076912
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Sirene_spritesheez_0
-    21300002: Sirene_spritesheez_1
-    21300004: Sirene_spritesheez_2
+    21300000: Sirene_spritesheez 1_0
+    21300002: Sirene_spritesheez 1_1
+    21300004: Sirene_spritesheez 1_2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -81,7 +81,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sirene_spritesheez_0
+      name: Sirene_spritesheez 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -95,7 +95,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Sirene_spritesheez_1
+      name: Sirene_spritesheez 1_1
       rect:
         serializedVersion: 2
         x: 374
@@ -109,7 +109,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Sirene_spritesheez_2
+      name: Sirene_spritesheez 1_2
       rect:
         serializedVersion: 2
         x: 748

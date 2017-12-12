@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 58674862720876436}
   - component: {fileID: 114589921498776612}
   - component: {fileID: 114303930257017868}
+  - component: {fileID: 95256885374521910}
   m_Layer: 11
   m_Name: EnemyPaintShot
   m_TagString: DmgToPlayer
@@ -79,6 +80,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!95 &95256885374521910
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1577665517853280}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b24e9c3c1476d214a99c5e040be37fa1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114303930257017868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,6 +124,7 @@ MonoBehaviour:
   dmg: 2
   dmgTime: 1
   knockback: 1
+  noDmg: 0
   timer: 0
 --- !u!212 &212003740239636944
 SpriteRenderer:
@@ -141,7 +160,7 @@ SpriteRenderer:
   m_SortingLayerID: -498371609
   m_SortingLayer: 7
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: a71173051232c9c49bc6c9414c052541, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2716081c0b0cf3c45b6855d3b2eccedf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

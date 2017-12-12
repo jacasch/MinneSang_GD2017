@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 50535139807576054}
   m_Layer: 10
   m_Name: Shamika
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,14 +241,14 @@ MonoBehaviour:
   randomLines:
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: 'For some reason, those weird squid monsters really like jazz. Maybe they
+    text: 'For some reason those weird squid monsters really like jazz. Maybe they
       want to perform? '
   - spokenByNpc: 1
     messageByPrincess: 0
     text: A few days ago I broke a glass while singing. What a disaster!
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: I wrote a letter to my love, but I never got an answer..Did the birds ate
+    text: I wrote a letter to my love, but I never got an answer..Did the birds eat
       the letter?
   autoStart: 0
   player: {fileID: 0}

@@ -37,9 +37,9 @@ public class EnemyPaint : MonoBehaviour
     bool stealth = true;
     bool dead = false;
 
-    int dir = 1;
+    public int dir = 1;
 
-    float shootTimer = 0;
+    public float shootTimer = 0;
     float stunTimer = 0;
     float gotDmgTimer = 0;
     float deadTimer = 0;
@@ -59,6 +59,8 @@ public class EnemyPaint : MonoBehaviour
     public GameObject aura;
     EnemyDMG auraDmg;
 
+    Animator animator;
+
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
@@ -69,6 +71,8 @@ public class EnemyPaint : MonoBehaviour
         activeQuest = objPlayer.GetComponent<PlayerQuestHandler>().activeQuest;
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
+
+        animator = GetComponent<Animator>();
 
         if (stealth)
         {
@@ -97,7 +101,7 @@ public class EnemyPaint : MonoBehaviour
             {
                 Move();
             }
-            if (dir < 0 && !stealth)
+            if (dir > 0 && !stealth)
             {
                 mySprite.flipX = true;
             }
@@ -140,6 +144,11 @@ public class EnemyPaint : MonoBehaviour
             instance.GetComponent<EnemyPaintShot>().direction = new Vector3(dirX, dirY, 0);
             instance.layer = 0;
             shootTimer = shootCD;
+            animator.SetBool("Shooting", false);
+        }
+        else if(shootTimer < 0.1)
+        {
+            animator.SetBool("Shooting", true);
         }
     }
 

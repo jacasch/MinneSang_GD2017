@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 50092698478019428}
   m_Layer: 10
   m_Name: parrot
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,12 +300,12 @@ MonoBehaviour:
       text: '"Dearest Princess of the Sihl Kingdom '
     - spokenByNpc: 0
       messageByPrincess: 0
-      text: "I cannot exist without you. I feel as though I was dissolving \u2014
-        I am miserable without seeing you. "
+      text: "I cannot exist without you. I feel as though I am dissolving \u2014 I
+        am miserable without seeing you. "
     - spokenByNpc: 0
       messageByPrincess: 0
       text: You shall know me soon as the one, mastering all the highest arts of the
-        high arts, for the undying love to a princess worth the effort.
+        high arts, for the undying love of a princess worth the effort.
     - spokenByNpc: 0
       messageByPrincess: 0
       text: So sincere and loving, your knight in shining armor."
@@ -344,8 +344,8 @@ MonoBehaviour:
         are to keep playing with my feelings."
     - spokenByNpc: 0
       messageByPrincess: 1
-      text: "Show me that you\u2019re worthy the wait and are able to master those
-        arts you spoke of and proof me you are a man of culture not just brute force,
+      text: "Show me that you\u2019re worth the wait and are able to master those
+        arts you spoke of and prove me you are a man of culture not just brute force,
         like normal knights would be."
     - spokenByNpc: 0
       messageByPrincess: 1
@@ -390,7 +390,7 @@ MonoBehaviour:
         believe it."
     - spokenByNpc: 0
       messageByPrincess: 1
-      text: So hurry up, prove yourself, worthy of my time, my attention and finally
+      text: So hurry up, prove yourself worthy of my time, my attention and finally
         my love.
     - spokenByNpc: 0
       messageByPrincess: 1
@@ -403,7 +403,7 @@ MonoBehaviour:
       text: '"My Darling Freya,'
     - spokenByNpc: 0
       messageByPrincess: 0
-      text: "How did I define love before I knew you \u2014 before the wish of your
+      text: "How did I define love before I knew you \u2014 before the wish for your
         affection possessed me? But I feel myself unworthy of your love, even now
         when I have mastered all the high arts."
     - spokenByNpc: 0
