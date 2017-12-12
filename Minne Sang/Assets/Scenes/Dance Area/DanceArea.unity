@@ -32043,11 +32043,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4089899039410856, guid: 623ba6bbded7db041ad64ab1a122dbf7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 31.025108
+      value: 38.47
       objectReference: {fileID: 0}
     - target: {fileID: 4089899039410856, guid: 623ba6bbded7db041ad64ab1a122dbf7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.197862
+      value: 11.51
       objectReference: {fileID: 0}
     - target: {fileID: 4089899039410856, guid: 623ba6bbded7db041ad64ab1a122dbf7, type: 2}
       propertyPath: m_LocalPosition.z
