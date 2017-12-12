@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 50971867845837272}
   m_Layer: 10
   m_Name: Pascal
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,14 +358,16 @@ MonoBehaviour:
   randomLines:
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: This castle was constructed by one giftet in all the arts. They called him
-      polymath.
+    text: I used to hunt monster.
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: 'I just received a message from my beloved. Praise the post office! '
+    text: 'According to legends, the last polymath constructed this castle and hid
+      an insanely powerful artefact up in the high tower. But that was hundreds of
+      years ago. '
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: "It\u2019s like a labyrinth in here. "
+    text: My grandmother used to tell me, that I should press START or M if I was
+      lost. She was crazy through and through.
   autoStart: 0
   player: {fileID: 0}
   activePhrase:

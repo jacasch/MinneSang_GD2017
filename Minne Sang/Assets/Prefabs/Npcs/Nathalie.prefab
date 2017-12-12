@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 50057320275038572}
   m_Layer: 10
   m_Name: Nathalie
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,11 +234,11 @@ MonoBehaviour:
   randomLines:
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: 'It is said, that music can calm down ferocious beasts and literally shatter
+    text: 'It is said that music can calm down ferocious beasts and literally shatter
       its surroundings. '
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: '*humms a melody* '
+    text: '*hums a melody* '
   - spokenByNpc: 1
     messageByPrincess: 0
     text: According to legends, the last polymath constructed this castle and hidden
