@@ -108,6 +108,14 @@ public class EnemyOoze : MonoBehaviour
                 rb.velocity = new Vector3(speed * dir, jumpHeight, 0);
             }
         }
+        if(rb.velocity.y < 0)
+        {
+            animator.SetFloat("VelocityY", -1);
+        }
+        else
+        {
+            animator.SetFloat("VelocityY", 1);
+        }
     }
 
     //FUNCTIONS------------------------------------------------------------------------------------------------------------
@@ -160,6 +168,7 @@ public class EnemyOoze : MonoBehaviour
                     mySprite.material = chameleonMat;
                 }
                 dead = false;
+                animator.SetBool("dead", false);
                 enemyDmg.noDmg = false;
                 auraDmg.noDmg = false;
                 transform.position = orgPos;
@@ -197,6 +206,7 @@ public class EnemyOoze : MonoBehaviour
                 if (hp <= 0)
                 {
                     dead = true;
+                    animator.SetBool("dead", true);
                     deadTimer = deadTime;
                     respawnTimer = respawnTime;
                 }
