@@ -1,12 +1,9 @@
 fileFormatVersion: 2
-guid: 723d87d351ade6142b8a8c3b577488ed
-timeCreated: 1513076912
+guid: b17b6b03ce749464da9e5005199aab0d
+timeCreated: 1513074630
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Sirene_spritesheez 1_0
-    21300002: Sirene_spritesheez 1_1
-    21300004: Sirene_spritesheez 1_2
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -43,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -79,49 +76,7 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Sirene_spritesheez 1_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 374
-        height: 710
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Sirene_spritesheez 1_1
-      rect:
-        serializedVersion: 2
-        x: 374
-        y: 0
-        width: 374
-        height: 710
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Sirene_spritesheez 1_2
-      rect:
-        serializedVersion: 2
-        x: 748
-        y: 0
-        width: 374
-        height: 710
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
     physicsShape: []
   spritePackingTag: 
