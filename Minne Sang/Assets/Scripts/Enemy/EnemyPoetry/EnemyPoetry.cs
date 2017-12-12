@@ -48,6 +48,8 @@ public class EnemyPoetry : MonoBehaviour
     public GameObject aura;
     EnemyDMG auraDmg;
 
+    Animator animator;
+
     // Use this for initialization
     void Start ()
     {
@@ -56,6 +58,8 @@ public class EnemyPoetry : MonoBehaviour
         orgPos = transform.position;
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
+
+        animator = GetComponent<Animator>();
 
         if (stealth)
         {
@@ -129,6 +133,7 @@ public class EnemyPoetry : MonoBehaviour
                     mySprite.material = chameleonMat;
                 }
                 dead = false;
+                animator.SetBool("dead", false);
                 enemyDmg.noDmg = false;
                 auraDmg.noDmg = false;
                 transform.position = orgPos;
@@ -158,6 +163,7 @@ public class EnemyPoetry : MonoBehaviour
                 if (hp <= 0)
                 {
                     dead = true;
+                    animator.SetBool("dead", true);
                     deadTimer = deadTime;
                     respawnTimer = respawnTime;
                 }
@@ -178,15 +184,18 @@ public class EnemyPoetry : MonoBehaviour
             {
                 dir = -1;
                 move = true;
+                animator.SetBool("move", true);
             }
             else if (other.transform.position.x - dist > transform.position.x)
             {
                 dir = 1;
                 move = true;
+                animator.SetBool("move", true);
             }
             else
             {
                 move = false;
+                animator.SetBool("move", false);
             }
         }
     }
@@ -199,6 +208,7 @@ public class EnemyPoetry : MonoBehaviour
         if (other.tag == "Player")
         {
             move = false;
+            animator.SetBool("move", false);
         }
     }
 }
