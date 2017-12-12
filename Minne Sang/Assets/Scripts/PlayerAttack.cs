@@ -49,8 +49,11 @@ public class PlayerAttack : MonoBehaviour
             animator.SetBool("Attacking", false);
         }
 
-        if(Input.GetAxis("Attack") > 0 && repeatTimer<=0)  //INPUT!!
+        if(Input.GetAxis("Attack") > 0 && repeatTimer<= 0 
+            && GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>().poetryCasting == 0
+            && GameObject.FindGameObjectWithTag("StunToEnemy").GetComponent<PlayerStun>().castTimer == 0)  //INPUT!!
         {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSoundHandler>().Attack();
             hitTimer = hitDuration;
             repeatTimer = repeatCD;
         }

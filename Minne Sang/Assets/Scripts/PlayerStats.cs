@@ -18,10 +18,14 @@ public class PlayerStats : MonoBehaviour
     public float poetryCasting = 0;
     public float poetryBuff = -10;
     PlayerGui playerGui;
+    Animator animator;
+
+    private bool playedPoetrySound = false;
 
     void Start ()
     {
         playerGui = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGui>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -53,23 +57,37 @@ public class PlayerStats : MonoBehaviour
         {
             if (Input.GetAxis("Poetry") != 0 && playerGui.skillLevel >= 4)
             {
+                animator.SetBool("CastingPoetry", true);
+                if (!playedPoetrySound)
+                {
+                    playedPoetrySound = true;
+                    Debug.Log("casting poetry");
+                    GetComponent<PlayerSoundHandler>().CastPoetry();
+                }
+                
                 poetryCasting += Time.deltaTime;
-                print(poetryCasting);
+                //print(poetryCasting);
                 if (poetryCasting >= poetryCastTime)
                 {
                     poetryBuff = poetryTime;
+                    animator.SetBool("CastingPoetry", false);
+                    playedPoetrySound = false;
                 }
             }
             else
             {
                 poetryCasting = 0;
+                animator.SetBool("CastingPoetry", false);
+                if (playedPoetrySound)
+                    GetComponent<AudioSource>().Stop();
+                playedPoetrySound = false;
             }
         }
         else
         {
             poetryCasting = 0;
             poetryBuff -= Time.deltaTime;
-            print("poetryBuff:" + poetryBuff);
+            //print("poetryBuff:" + poetryBuff);
         }
     }
 
@@ -88,7 +106,7 @@ public class PlayerStats : MonoBehaviour
             {
                 //DMG to player
                 hp -= enemyDMG.dmg;
-                print("HP: " + hp);
+                //print("HP: " + hp);
 
                 //UnverwundbarkeitsTimer
                 //dmgTimer = dmgCD;
@@ -103,7 +121,7 @@ public class PlayerStats : MonoBehaviour
                 //print("Knockback: " + enemyDMG.knockback);
 
                 //Timer bis Gegner erneut Schaden verursachen kann
-                enemyDMG.timer = enemyDMG.dmgTime;
+                //enemyDMG.timer = enemyDMG.dmgTime;
             }
         }
         if (/*dmgTimer <= 0 && */poetryBuff <= 0 && collision.gameObject.tag == "PoetryDmgToPlayer")
@@ -116,14 +134,14 @@ public class PlayerStats : MonoBehaviour
 
             //Die Sirene verursacht Schaden pro Sekunde!
             hp -= Time.deltaTime * enemyDMG.dmg;
-            print("HP: " + hp);
+            //print("HP: " + hp);
 
             //Prüft ob Gegner bereits erneut Schaden verursachen kann
             if (enemyDMG.timer < 0)
             {
                 //Die Sirene verursacht Schaden pro Sekunde!
                 hp -= Time.deltaTime * enemyDMG.dmg;
-                print("HP: " + hp);
+                //print("HP: " + hp);
 
                 //UnverwundbarkeitsTimer
                 //dmgTimer = dmgCD;
