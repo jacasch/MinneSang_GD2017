@@ -58,6 +58,8 @@ public class EnemyDance : MonoBehaviour
     public GameObject aura;
     EnemyDMG auraDmg;
 
+    Animator animator;
+
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
     {
@@ -66,6 +68,8 @@ public class EnemyDance : MonoBehaviour
         activeQuest = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>().activeQuest;
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
+
+        animator = GetComponent<Animator>();
 
         if (stealth)
         {
@@ -80,8 +84,10 @@ public class EnemyDance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(dead)
+        animator.speed = speed - 3.5f;
+        if (dead)
         {
+            animator.speed = 1;
             Die();
         }
         else if(stunTimer>0)
@@ -95,6 +101,15 @@ public class EnemyDance : MonoBehaviour
             {
                 Move();
             }
+        }
+        else if(speed > startSpeed)
+        {
+            speed -= addSpeed;
+        }
+        else
+        {
+            speed = startSpeed;
+            animator.SetBool("dance", false);
         }
     }
 
@@ -117,6 +132,8 @@ public class EnemyDance : MonoBehaviour
     void Die()
     {
         auraDmg.noDmg = true;
+        animator.SetBool("explosion", true);
+        animator.SetBool("dance", false);
 
         if (deadTimer>0)
         {
@@ -146,6 +163,7 @@ public class EnemyDance : MonoBehaviour
             if (respawnTimer < 0)
             {
                 exploded = false;
+                animator.SetBool("explosion", false);
                 dropped = false;
                 stealth = isStealth;
                 if (stealth)
@@ -198,9 +216,11 @@ public class EnemyDance : MonoBehaviour
         if (other.tag == "Player")
         {
             active = true;
+            animator.SetBool("dance", true);
             if (speed < maxSpeed)
             {
                 speed += addSpeed;
+                animator.SetBool("dance", true);
             }
             if (other.transform.position.x + dist < transform.position.x)
             {
@@ -226,7 +246,7 @@ public class EnemyDance : MonoBehaviour
         if (other.tag == "Player")
         {
             active = false;
-            speed = startSpeed;
+            //speed = startSpeed;
         }
     }
 }
