@@ -56,6 +56,8 @@ public class EnemyOoze : MonoBehaviour
     public GameObject aura;
     EnemyDMG auraDmg;
 
+    Animator animator;
+
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
@@ -68,6 +70,8 @@ public class EnemyOoze : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
+
+        animator = GetComponent<Animator>();
 
         if (stealth)
         {
@@ -100,8 +104,17 @@ public class EnemyOoze : MonoBehaviour
 
             if (rb.velocity.x == 0 && rb.velocity.y == 0 && !grounded && !rightUp && jumpUp == 1)
             {
+                animator.SetBool("Grounded", true);
                 rb.velocity = new Vector3(speed * dir, jumpHeight, 0);
             }
+        }
+        if(rb.velocity.y < 0)
+        {
+            animator.SetFloat("VelocityY", -1);
+        }
+        else
+        {
+            animator.SetFloat("VelocityY", 1);
         }
     }
 
@@ -114,11 +127,11 @@ public class EnemyOoze : MonoBehaviour
             jumpTimer -= Time.deltaTime;
             if (dir < 0 && !stealth)
             {
-                mySprite.flipX = true;
+                mySprite.flipX = false;
             }
             else
             {
-                mySprite.flipX = false;
+                mySprite.flipX = true;
             }
             if(jumpTimer<=0)
             {
@@ -155,6 +168,7 @@ public class EnemyOoze : MonoBehaviour
                     mySprite.material = chameleonMat;
                 }
                 dead = false;
+                animator.SetBool("dead", false);
                 enemyDmg.noDmg = false;
                 auraDmg.noDmg = false;
                 transform.position = orgPos;
@@ -192,6 +206,7 @@ public class EnemyOoze : MonoBehaviour
                 if (hp <= 0)
                 {
                     dead = true;
+                    animator.SetBool("dead", true);
                     deadTimer = deadTime;
                     respawnTimer = respawnTime;
                 }
@@ -244,12 +259,14 @@ public class EnemyOoze : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         grounded = false;
+        animator.SetBool("Grounded", false);
     }
 
     //GroundedCheck
     void CheckIfGrounded()
     {
         grounded = false;
+        animator.SetBool("Grounded", false);
         RaycastHit2D[] hits;
 
         //Überprüft, ob Grounded an der rechten Ecke des Gegners
@@ -258,6 +275,7 @@ public class EnemyOoze : MonoBehaviour
         if (hits.Length > 0)
         {
             grounded = true;
+            animator.SetBool("Grounded", true);
         }
         else
         {
@@ -267,6 +285,7 @@ public class EnemyOoze : MonoBehaviour
             if (hits.Length > 0)
             {
                 grounded = true;
+                animator.SetBool("Grounded", true);
             }
         }
 
