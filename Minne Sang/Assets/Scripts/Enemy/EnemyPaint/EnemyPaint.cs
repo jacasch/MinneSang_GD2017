@@ -20,7 +20,7 @@ public class EnemyPaint : MonoBehaviour
     float shootCD = 1.5f;  //Cooldown des Schusses
     float timeStunned = 2f;  //Zeit die der Gegner gestunnt ist
     float deadTime = 0.75f;  //Zeit bis der Gegner nach dem Tot verschwindet
-    float respawnTime = 30;  //Zeit bis der Gegner respawnt
+    float respawnTime = 90;  //Zeit bis der Gegner respawnt
 
     //Questereignisse
     string activeQuest;
@@ -37,6 +37,7 @@ public class EnemyPaint : MonoBehaviour
     public bool stealth = true;
     bool dead = false;
     bool died = false;
+    bool respawning = false;
 
     public int dir = 1;
 
@@ -64,6 +65,8 @@ public class EnemyPaint : MonoBehaviour
 
     DeathExplosion deathExplosion;
 
+    SpriteRenderer mouthSprite;
+
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
@@ -79,13 +82,17 @@ public class EnemyPaint : MonoBehaviour
 
         animator = GetComponent<Animator>();
 
+        mouthSprite = transform.Find("Mouth").GetComponent<SpriteRenderer>();
+
         if (stealth)
         {
             mySprite.material = chameleonMat;
+            mouthSprite.material = chameleonMat;
         }
         else
         {
             mySprite.material = defaultMat;
+            mouthSprite.material = defaultMat;
         }
     }
 
@@ -109,10 +116,12 @@ public class EnemyPaint : MonoBehaviour
             if (dir > 0 && !stealth)
             {
                 mySprite.flipX = true;
+                mouthSprite.flipX = true;
             }
             else
             {
                 mySprite.flipX = false;
+                mouthSprite.flipX = false;
             }
             Attack();
         }
@@ -190,25 +199,41 @@ public class EnemyPaint : MonoBehaviour
             if (respawnTimer == respawnTime)
             {
                 transform.position = deadPos;
+                mySprite.enabled = false;
+                mouthSprite.enabled = false;
             }
             if (respawnTimer < 0)
             {
-                hp = hpMax;
-                dropped = false;
-                stealth = true;
-                if (stealth)
-                {
-                    mySprite.material = chameleonMat;
-                }
-                dead = false;
-                enemyDmg.noDmg = false;
-                auraDmg.noDmg = false;
-                rb.velocity = new Vector3(0, 0, 0);
-                transform.position = orgPos;
+                respawning = true;
+                respawn();
             }
             respawnTimer -= Time.deltaTime;
         }
         //Destroy Object
+    }
+
+    void respawn()
+    {
+        rb.velocity = new Vector3(0, 0, 0);
+        transform.position = orgPos;
+        if (respawnTimer < -0.25f)
+        {
+            hp = hpMax;
+            dropped = false;
+            stealth = true;
+            if (stealth)
+            {
+                mySprite.material = chameleonMat;
+                mouthSprite.material = chameleonMat;
+            }
+            dead = false;
+            animator.SetBool("dead", false);
+            enemyDmg.noDmg = false;
+            auraDmg.noDmg = false;
+            respawning = false;
+            mySprite.enabled = true;
+            mouthSprite.enabled = true;
+        }
     }
 
     //Save player as variable
@@ -222,6 +247,7 @@ public class EnemyPaint : MonoBehaviour
                 {
                     stealth = false;
                     mySprite.material = defaultMat;
+                    mouthSprite.material = defaultMat;
                 }
             }
             else
@@ -257,22 +283,30 @@ public class EnemyPaint : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            active = true;
-            if (other.transform.position.x + 0.75f < transform.position.x)
+            if (respawning)
             {
-                dir = -1;
-            }
-            else if (other.transform.position.x - 0.75f > transform.position.x)
-            {
-                dir = 1;
-            }
-            if(other.transform.position.x + dist < transform.position.x || other.transform.position.x - dist > transform.position.x)
-            {
-                move = true;
+                transform.position = deadPos;
+                respawnTimer = 10;
             }
             else
             {
-                move = false;
+                active = true;
+                if (other.transform.position.x + 0.75f < transform.position.x)
+                {
+                    dir = -1;
+                }
+                else if (other.transform.position.x - 0.75f > transform.position.x)
+                {
+                    dir = 1;
+                }
+                if (other.transform.position.x + dist < transform.position.x || other.transform.position.x - dist > transform.position.x)
+                {
+                    move = true;
+                }
+                else
+                {
+                    move = false;
+                }
             }
         }
     }

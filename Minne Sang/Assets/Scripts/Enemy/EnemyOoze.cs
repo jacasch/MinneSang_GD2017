@@ -21,7 +21,7 @@ public class EnemyOoze : MonoBehaviour
     float jumpCD = 0.2f;  //Zeit bis der Sprung nach der Landung erneut ausgeführt wird
     float timeStunned = 3;  //Zeit die der Gegner gestunnt ist wenn er gestunnt wird
     float deadTime = 0.75f;  //Zeit bis der Gegner nach dem Tot verschwindet
-    float respawnTime = 30;  //Zeit bis der Gegner respawnt
+    float respawnTime = 90;  //Zeit bis der Gegner respawnt
 
     //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
     public bool isStealth = false;
@@ -36,6 +36,7 @@ public class EnemyOoze : MonoBehaviour
     int jumpUp = 1;
     bool dead = false;
     bool died = false;
+    bool respawning = false;
 
     int dir = 1;
     float halfSize = 0;  //Für CheckIfGrounded
@@ -169,23 +170,35 @@ public class EnemyOoze : MonoBehaviour
             if (respawnTimer == respawnTime)
             {
                 transform.position = deadPos;
+                mySprite.enabled = false;
             }
             if(respawnTimer < 0)
             {
-                hp = hpMax;
-                stealth = isStealth;
-                if (stealth)
-                {
-                    mySprite.material = chameleonMat;
-                }
-                dead = false;
-                animator.SetBool("dead", false);
-                enemyDmg.noDmg = false;
-                auraDmg.noDmg = false;
-                rb.velocity = new Vector3(0, 0, 0);
-                transform.position = orgPos;
+                respawning = true;
+                respawn();
             }
             respawnTimer -= Time.deltaTime;
+        }
+    }
+
+    void respawn()
+    {
+        rb.velocity = new Vector3(0, 0, 0);
+        transform.position = orgPos;
+        if (respawnTimer<-0.25f)
+        {
+            hp = hpMax;
+            stealth = isStealth;
+            if (stealth)
+            {
+                mySprite.material = chameleonMat;
+            }
+            dead = false;
+            animator.SetBool("dead", false);
+            enemyDmg.noDmg = false;
+            auraDmg.noDmg = false;
+            respawning = false;
+            mySprite.enabled = true;
         }
     }
 
@@ -244,19 +257,27 @@ public class EnemyOoze : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            active = true;
-            if (other.transform.position.x + dist < transform.position.x)
+            if (respawning)
             {
-                dir = -1;
-
-            }
-            else if (other.transform.position.x - dist > transform.position.x)
-            {
-                dir = 1;
+                transform.position = deadPos;
+                respawnTimer = 10;
             }
             else
             {
-                dir = 0;
+                active = true;
+                if (other.transform.position.x + dist < transform.position.x)
+                {
+                    dir = -1;
+
+                }
+                else if (other.transform.position.x - dist > transform.position.x)
+                {
+                    dir = 1;
+                }
+                else
+                {
+                    dir = 0;
+                }
             }
         }
     }
