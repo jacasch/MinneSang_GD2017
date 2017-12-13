@@ -36,6 +36,7 @@ public class EnemyPaint : MonoBehaviour
     bool move = false;
     public bool stealth = true;
     bool dead = false;
+    bool died = false;
 
     public int dir = 1;
 
@@ -61,6 +62,8 @@ public class EnemyPaint : MonoBehaviour
 
     Animator animator;
 
+    DeathExplosion deathExplosion;
+
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
@@ -71,6 +74,8 @@ public class EnemyPaint : MonoBehaviour
         activeQuest = objPlayer.GetComponent<PlayerQuestHandler>().activeQuest;
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
+
+        deathExplosion = transform.Find("DeathExplosion").GetComponent<DeathExplosion>();
 
         animator = GetComponent<Animator>();
 
@@ -158,6 +163,12 @@ public class EnemyPaint : MonoBehaviour
         enemyDmg.noDmg = true;
         auraDmg.noDmg = true;
 
+        if (died)
+        {
+            deathExplosion.died = true;
+            died = false;
+        }
+
         if (deadTimer > 0)
         {
             deadTimer -= Time.deltaTime;
@@ -192,6 +203,7 @@ public class EnemyPaint : MonoBehaviour
                 dead = false;
                 enemyDmg.noDmg = false;
                 auraDmg.noDmg = false;
+                rb.velocity = new Vector3(0, 0, 0);
                 transform.position = orgPos;
             }
             respawnTimer -= Time.deltaTime;
@@ -220,14 +232,19 @@ public class EnemyPaint : MonoBehaviour
             if (collision.gameObject.tag == "DmgToEnemy")
             {
                 hp -= 1;
-                rb.velocity = new Vector3(4f * -dir, -1, 0);
+                //rb.velocity = new Vector3(4f * -dir, -1, 0);
                 gotDmgTimer = 0.2f;
                 print("ENEMY HP: " + hp);
                 if (hp <= 0)
                 {
                     dead = true;
+                    died = true;
                     deadTimer = deadTime;
                     respawnTimer = respawnTime;
+                }
+                else
+                {
+                    rb.velocity = new Vector3(4f * -dir, -1, 0);
                 }
             }
             if (collision.gameObject.tag == "StunToEnemy")

@@ -59,7 +59,7 @@ public class EnemyOoze : MonoBehaviour
 
     Animator animator;
 
-    public DeathExplosion deathExplosion;
+    DeathExplosion deathExplosion;
 
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
@@ -182,6 +182,7 @@ public class EnemyOoze : MonoBehaviour
                 animator.SetBool("dead", false);
                 enemyDmg.noDmg = false;
                 auraDmg.noDmg = false;
+                rb.velocity = new Vector3(0, 0, 0);
                 transform.position = orgPos;
             }
             respawnTimer -= Time.deltaTime;
@@ -212,7 +213,7 @@ public class EnemyOoze : MonoBehaviour
             if (collision.gameObject.tag == "DmgToEnemy")
             {
                 hp -= 1;
-                rb.velocity = new Vector3(5 * -dir, 5, 0);
+                //rb.velocity = new Vector3(5 * -dir, 5, 0);
                 print("ENEMY HP: " + hp);
                 if (hp <= 0)
                 {
@@ -221,6 +222,11 @@ public class EnemyOoze : MonoBehaviour
                     animator.SetBool("dead", true);
                     deadTimer = deadTime;
                     respawnTimer = respawnTime;
+                    rb.velocity = new Vector3(0, 4, 0);
+                }
+                else
+                {
+                    rb.velocity = new Vector3(5 * -dir, 5, 0);
                 }
             }
             if (collision.gameObject.tag == "StunToEnemy")
