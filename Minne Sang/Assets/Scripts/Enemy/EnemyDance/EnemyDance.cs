@@ -51,6 +51,8 @@ public class EnemyDance : MonoBehaviour
     Vector3 deadPos = new Vector3(1000, 0, 0);
     public GameObject explosion;
 
+    Rigidbody2D rb;
+
     SpriteRenderer mySprite;
     public Material defaultMat;
     public Material chameleonMat;
@@ -65,6 +67,7 @@ public class EnemyDance : MonoBehaviour
     {
         stealth = isStealth;
         orgPos = transform.position;
+        rb = GetComponent<Rigidbody2D>();
         activeQuest = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>().activeQuest;
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
@@ -172,6 +175,7 @@ public class EnemyDance : MonoBehaviour
                 }
                 dead = false;
                 auraDmg.noDmg = false;
+                rb.velocity = new Vector3(0, 0, 0);
                 transform.position = orgPos;
             }
             respawnTimer -= Time.deltaTime;

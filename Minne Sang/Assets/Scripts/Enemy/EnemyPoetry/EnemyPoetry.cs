@@ -30,6 +30,7 @@ public class EnemyPoetry : MonoBehaviour
     bool move = false;
     bool stealth = false;
     bool dead = false;
+    bool died = false;
 
     int dir = 0;
 
@@ -39,6 +40,8 @@ public class EnemyPoetry : MonoBehaviour
 
     Vector3 orgPos;
     Vector3 deadPos = new Vector3(1000, 0, 0);
+
+    Rigidbody2D rb;
 
     SpriteRenderer mySprite;
     public Material defaultMat;
@@ -50,14 +53,19 @@ public class EnemyPoetry : MonoBehaviour
 
     Animator animator;
 
+    DeathExplosion deathExplosion;
+
     // Use this for initialization
     void Start ()
     {
         hp = hpMax;
         stealth = isStealth;
         orgPos = transform.position;
+        rb = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
+
+        deathExplosion = transform.Find("DeathExplosion").GetComponent<DeathExplosion>();
 
         animator = GetComponent<Animator>();
 
@@ -112,6 +120,12 @@ public class EnemyPoetry : MonoBehaviour
         enemyDmg.noDmg = true;
         auraDmg.noDmg = true;
 
+        if (died)
+        {
+            deathExplosion.died = true;
+            died = false;
+        }
+
         if (deadTimer > 0)
         {
             deadTimer -= Time.deltaTime;
@@ -163,8 +177,10 @@ public class EnemyPoetry : MonoBehaviour
                 if (hp <= 0)
                 {
                     dead = true;
+                    died = true;
                     animator.SetBool("dead", true);
                     deadTimer = deadTime;
+                    rb.velocity = new Vector3(0, 0, 0);
                     respawnTimer = respawnTime;
                 }
             }
