@@ -1062,6 +1062,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 62eb2cc3bfb7b9949b980c686a98cff7, type: 3}
   stunSound:
   - {fileID: 8300000, guid: b64483aa8e799ff4395cb57d7d33908d, type: 3}
+  stepSound:
+  - {fileID: 8300000, guid: 24ae1999e6992564598a4adba663772a, type: 3}
+  - {fileID: 8300000, guid: 9f7e70377ab507c4cb46214cb2fad009, type: 3}
+  - {fileID: 8300000, guid: 4f0394556787392429bad3a44d77c0df, type: 3}
+  - {fileID: 8300000, guid: 91f1d25c33338814b9aae2ccee8ae2b3, type: 3}
 --- !u!114 &114822919219238970
 MonoBehaviour:
   m_ObjectHideFlags: 1
