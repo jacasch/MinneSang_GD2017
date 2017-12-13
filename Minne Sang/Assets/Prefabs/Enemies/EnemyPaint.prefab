@@ -183,7 +183,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1029041836450580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9619169, y: 7.9206357, z: -0.0703125}
+  m_LocalPosition: {x: 20.35, y: 12.98, z: -0.0703125}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 4516871428448414}
@@ -475,8 +475,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objEnemy: {fileID: 1029041836450580}
-  defaultMat: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  chameleonMat: {fileID: 2100000, guid: 32143037c032fe040860170bba74d8d8, type: 2}
 --- !u!198 &198267549464248998
 ParticleSystem:
   m_ObjectHideFlags: 1

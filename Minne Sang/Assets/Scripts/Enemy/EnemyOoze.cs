@@ -135,7 +135,7 @@ public class EnemyOoze : MonoBehaviour
         if(grounded)
         {
             jumpTimer -= Time.deltaTime;
-            if (dir < 0 && !stealth)
+            if (dir < 0)
             {
                 mySprite.flipX = false;
             }
@@ -149,8 +149,7 @@ public class EnemyOoze : MonoBehaviour
                 if(wallInFront)
                 {
                     rb.velocity = new Vector3(speed * dir * jumpUp, jumpHeight+2, 0);
-                    //wallInFront = false;
-                    print("jumpedHigh");
+                    wallInFront = false;
                 }
                 else
                 {
@@ -226,14 +225,6 @@ public class EnemyOoze : MonoBehaviour
                 {
                     stealth = false;
                     mySprite.material = defaultMat;
-                    if (dir < 0)
-                    {
-                        mySprite.flipX = true;
-                    }
-                    else
-                    {
-                        mySprite.flipX = false;
-                    }
                 }
             }
             else
@@ -242,7 +233,6 @@ public class EnemyOoze : MonoBehaviour
                 {
                     hp -= 1;
                     //rb.velocity = new Vector3(5 * -dir, 5, 0);
-                    print("ENEMY HP: " + hp);
                     if (hp <= 0)
                     {
                         dead = true;
@@ -377,8 +367,6 @@ public class EnemyOoze : MonoBehaviour
                 wallInFront = true;
             }
         }
-
-        print(rightUp);
 
         /*
         //DEBUGGING DER RAYCASTS FÜR GROUNDED!

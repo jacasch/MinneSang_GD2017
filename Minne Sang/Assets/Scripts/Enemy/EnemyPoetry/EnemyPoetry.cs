@@ -105,7 +105,7 @@ public class EnemyPoetry : MonoBehaviour
     void Move()
     {
         transform.Translate(speed * dir * Time.deltaTime, 0, 0);
-        if (dir < 0 && !stealth)
+        if (dir < 0)
         {
             mySprite.flipX = true;
         }
@@ -189,7 +189,6 @@ public class EnemyPoetry : MonoBehaviour
                 if (collision.gameObject.tag == "DmgToEnemy")
                 {
                     hp -= 1;
-                    print("POETRY HP: " + hp);
                     if (hp <= 0)
                     {
                         dead = true;

@@ -34,7 +34,7 @@ public class EnemyPaint : MonoBehaviour
 
     bool active = false;
     bool move = false;
-    public bool stealth = true;
+    [HideInInspector] public bool stealth = true;
     bool dead = false;
     bool died = false;
     bool respawning = false;
@@ -78,6 +78,8 @@ public class EnemyPaint : MonoBehaviour
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
 
+        stealth = true;
+
         deathExplosion = transform.Find("DeathExplosion").GetComponent<DeathExplosion>();
 
         animator = GetComponent<Animator>();
@@ -113,7 +115,7 @@ public class EnemyPaint : MonoBehaviour
             {
                 Move();
             }
-            if (dir > 0 && !stealth)
+            if (dir > 0)
             {
                 mySprite.flipX = true;
                 mouthSprite.flipX = true;
@@ -190,7 +192,6 @@ public class EnemyPaint : MonoBehaviour
             {
                 if (activeQuest == questName)
                 {
-                    print("test");
                     GameObject drop = Instantiate(questDrop.drop, transform.position, transform.rotation);
                     drop.GetComponent<ItemHandler>().SetName(questDrop.name);
                     dropped = true;
@@ -257,7 +258,6 @@ public class EnemyPaint : MonoBehaviour
                     hp -= 1;
                     //rb.velocity = new Vector3(4f * -dir, -1, 0);
                     gotDmgTimer = 0.2f;
-                    print("ENEMY HP: " + hp);
                     if (hp <= 0)
                     {
                         dead = true;

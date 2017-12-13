@@ -130,7 +130,7 @@ public class EnemyMusic : MonoBehaviour
             move = false;
             animator.SetBool("stomp", false);
         }
-        if (dir > 0 && !stealth)
+        if (dir > 0)
         {
             mySprite.flipX = true;
         }
@@ -226,7 +226,6 @@ public class EnemyMusic : MonoBehaviour
                 if (collision.gameObject.tag == "DmgToEnemy")
                 {
                     hp -= 1;
-                    print("MUSIC HP: " + hp);
                     if (hp <= 0)
                     {
                         dead = true;
