@@ -38,6 +38,7 @@ public class EnemyPaint : MonoBehaviour
     bool dead = false;
     bool died = false;
     bool respawning = false;
+    bool isSound = false;
 
     public int dir = 1;
 
@@ -67,6 +68,10 @@ public class EnemyPaint : MonoBehaviour
 
     SpriteRenderer mouthSprite;
 
+    PaintSoundHandler soundHandler;
+
+    AudioSource audioSource;
+
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
@@ -83,6 +88,9 @@ public class EnemyPaint : MonoBehaviour
         deathExplosion = transform.Find("DeathExplosion").GetComponent<DeathExplosion>();
 
         animator = GetComponent<Animator>();
+
+        soundHandler = GetComponent<PaintSoundHandler>();
+        audioSource = GetComponent<AudioSource>();
 
         mouthSprite = transform.Find("Mouth").GetComponent<SpriteRenderer>();
 
@@ -155,7 +163,10 @@ public class EnemyPaint : MonoBehaviour
         {
             Vector3 objPos = transform.position;
             float dirX = objPlayer.transform.position.x - transform.position.x;
-            float dirY = objPlayer.transform.position.y - transform.position.y;;
+            float dirY = objPlayer.transform.position.y - transform.position.y;
+            audioSource.loop = false;
+            isSound = false;
+            soundHandler.Shoot();
             GameObject instance = Instantiate(objShot, new Vector2(objPos.x + (0.65f * dir),objPos.y-0.65f), transform.rotation) as GameObject;
             instance.GetComponent<EnemyPaintShot>().direction = new Vector3(dirX, dirY, 0);
             instance.layer = 0;
@@ -177,6 +188,9 @@ public class EnemyPaint : MonoBehaviour
         if (died)
         {
             deathExplosion.died = true;
+            audioSource.loop = false;
+            isSound = false;
+            soundHandler.Dying();
             died = false;
         }
 
@@ -308,6 +322,13 @@ public class EnemyPaint : MonoBehaviour
                     move = false;
                 }
             }
+
+            if(!isSound)
+            {
+                isSound = true;
+                soundHandler.Idle();
+                audioSource.loop = true;
+            }
         }
     }
 
@@ -318,6 +339,8 @@ public class EnemyPaint : MonoBehaviour
         if (other.tag == "Player")
         {
             active = false;
+            audioSource.loop = false;
+            isSound = false;
         }
     }
 }
