@@ -57,7 +57,7 @@ public class Npc : MonoBehaviour {
         if (inRange) {
             Talk(activePhrase);
             //check for interaction input
-            if (Input.GetButton("Jump"))
+            if (Input.GetButton("Jump") && !player.GetComponent<PlayerController>().dead)
             {
                 if (!interacting)
                 {

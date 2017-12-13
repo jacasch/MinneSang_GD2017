@@ -23,6 +23,9 @@ public class PlayerController : PhysicsObject {
     protected PlayerStun playerStun;
     [HideInInspector]
     public int dashCount = 0;
+    private float dashCooldown = 1f;
+    public int dashesLeft = 2;
+    private float dashCooldownTime;
     public SpriteRenderer sr;
     private Animator animator;
     public bool aiming;
@@ -32,6 +35,7 @@ public class PlayerController : PhysicsObject {
 
     private bool canMove;
     private bool attacking;
+    public bool dead = false;
 
     protected override void Initialize()
     {
@@ -57,12 +61,27 @@ public class PlayerController : PhysicsObject {
         #region Input
 
         attacking = animator.GetBool("Attacking");
-        bool dead = animator.GetBool("Dead");
+        dead = animator.GetBool("Dead");
         bool poetryCasting = ps.poetryCasting > 0;
         bool stunCasting = playerStun.castTimer > 0;
-        canMove = !poetryCasting && !stunCasting && (!aiming || !grounded);
-        dashCount = grounded ? 0 : dashCount;
-        canDash = dashCount < maxDashesInAir;
+        canMove = !poetryCasting && !stunCasting && (!aiming || !grounded) && !dead;
+        //dashCount = grounded ? 0 : dashCount;
+        if (dashesLeft >= 2)
+        {
+            dashCooldownTime = Time.time;
+            dashesLeft = 2;
+        }
+        else if (dashesLeft < 0) {
+            dashesLeft = 0;
+        }
+
+        //dash cooldown
+        if (dashCooldownTime + dashCooldown  < Time.time) {
+            dashesLeft++;
+            dashCooldownTime = Time.time;
+        }
+
+        canDash = dashesLeft > 0;
 
         animator.SetBool("Grounded", grounded);
         animator.SetFloat("VelocityY", velocity.y);
@@ -102,7 +121,7 @@ public class PlayerController : PhysicsObject {
         if (Input.GetButtonDown("Dash") && !inNpcZone && canMove && canDash && !dashing && pg.skillLevel >= 1)
         {
             psh.Dash();
-            dashCount++;
+            dashesLeft--;
             dashing = true;
             tr.enabled = true;
             dashTimer = dashDuration;            
