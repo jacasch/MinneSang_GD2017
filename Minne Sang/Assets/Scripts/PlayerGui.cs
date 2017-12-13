@@ -24,7 +24,7 @@ public class PlayerGui : MonoBehaviour {
     {
         skillLevel = pqh.activeQuest == "mastered" ? pqh.activeAct + 1  : pqh.activeAct;
 
-        dashesLeft = pc.maxDashesInAir - pc.dashCount;
+        dashesLeft = pc.dashesLeft;
 
         health = ps.hp;
         maxhealth = ps.maxHP;
