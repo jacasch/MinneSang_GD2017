@@ -4656,7 +4656,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4553413052205258, guid: 22c80e1415043f04fb0b4ef443cad7aa, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4553413052205258, guid: 22c80e1415043f04fb0b4ef443cad7aa, type: 2}
       propertyPath: m_LocalRotation.x
@@ -4677,103 +4677,6 @@ Prefab:
     - target: {fileID: 4553413052205258, guid: 22c80e1415043f04fb0b4ef443cad7aa, type: 2}
       propertyPath: m_RootOrder
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 198773623324017656, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-        type: 2}
-      propertyPath: InitialModule.size3D
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198773623324017656, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-        type: 2}
-      propertyPath: randomSeed
-      value: 1057029107
-      objectReference: {fileID: 0}
-    - target: {fileID: 198773623324017656, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-        type: 2}
-      propertyPath: lengthInSec
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 198773623324017656, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-        type: 2}
-      propertyPath: SizeModule.separateAxes
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198773623324017656, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-        type: 2}
-      propertyPath: SubModule.subEmitters.Array.data[0].emitter
-      value: 
-      objectReference: {fileID: 1159804653}
-    - target: {fileID: 1221519061271744, guid: 22c80e1415043f04fb0b4ef443cad7aa, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1825889061257270, guid: 22c80e1415043f04fb0b4ef443cad7aa, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198773623324017656, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-        type: 2}
-      propertyPath: SubModule.subEmitters.Array.data[0].type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4743167920293984, guid: 22c80e1415043f04fb0b4ef443cad7aa, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198570353689795954, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-        type: 2}
-      propertyPath: randomSeed
-      value: -499692370
-      objectReference: {fileID: 0}
-    - target: {fileID: 198906897992200378, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-        type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 198906897992200378, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-        type: 2}
-      propertyPath: VelocityModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198906897992200378, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-        type: 2}
-      propertyPath: VelocityModule.y.scalar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 198570353689795954, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-        type: 2}
-      propertyPath: RotationBySpeedModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198570353689795954, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-        type: 2}
-      propertyPath: RotationModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198570353689795954, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-        type: 2}
-      propertyPath: SizeModule.curve.scalar
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 198906897992200378, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-        type: 2}
-      propertyPath: RotationModule.curve.scalar
-      value: 1.5707963
-      objectReference: {fileID: 0}
-    - target: {fileID: 198906897992200378, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-        type: 2}
-      propertyPath: RotationModule.separateAxes
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198906897992200378, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-        type: 2}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198906897992200378, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-        type: 2}
-      propertyPath: InitialModule.gravityModifier.scalar
-      value: -0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 22c80e1415043f04fb0b4ef443cad7aa, type: 2}
@@ -7254,11 +7157,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!198 &1159804653 stripped
-ParticleSystem:
-  m_PrefabParentObject: {fileID: 198906897992200378, guid: 22c80e1415043f04fb0b4ef443cad7aa,
-    type: 2}
-  m_PrefabInternal: {fileID: 759644552}
 --- !u!1 &1202056372
 GameObject:
   m_ObjectHideFlags: 0
