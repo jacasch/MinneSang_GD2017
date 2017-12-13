@@ -21,7 +21,7 @@ public class EnemyDance : MonoBehaviour
     float dist = 0.5f;  //Distanz ab welcher der Gegner stillsteht (X-Achse)
     float timeStunned = 0.5f;  //Zeit die der Gegner gestunnt ist wenn er gestunnt wird
     float deadTime = 0.5f;  //Zeit bis der Gegner nach dem Tot verschwindet
-    float respawnTime = 30;  //Zeit bis der Gegner respawnt
+    float respawnTime = 90;  //Zeit bis der Gegner respawnt
 
     //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
     public bool isStealth = false;
@@ -39,6 +39,7 @@ public class EnemyDance : MonoBehaviour
     bool stealth = false;
     bool dead = false;
     bool exploded = false;
+    bool respawning = false;
 
     int dir = 1;
 
@@ -121,7 +122,7 @@ public class EnemyDance : MonoBehaviour
     void Move()
     {
         transform.Translate(speed*dir*Time.deltaTime, 0, 0);
-        if (dir > 0 && !stealth)
+        if (dir > 0)
         {
             mySprite.flipX = true;
         }
@@ -162,23 +163,36 @@ public class EnemyDance : MonoBehaviour
             if (respawnTimer == respawnTime)
             {
                 transform.position = deadPos;
+                mySprite.enabled = false;
             }
             if (respawnTimer < 0)
             {
-                exploded = false;
-                animator.SetBool("explosion", false);
-                dropped = false;
-                stealth = isStealth;
-                if (stealth)
-                {
-                    mySprite.material = chameleonMat;
-                }
-                dead = false;
-                auraDmg.noDmg = false;
-                rb.velocity = new Vector3(0, 0, 0);
-                transform.position = orgPos;
+                respawning = true;
+                respawn();
             }
             respawnTimer -= Time.deltaTime;
+        }
+    }
+
+    void respawn()
+    {
+        rb.velocity = new Vector3(0, 0, 0);
+        transform.position = orgPos;
+        if (respawnTimer < -0.25f)
+        {
+            exploded = false;
+            animator.SetBool("explosion", false);
+            dropped = false;
+            stealth = isStealth;
+            if (stealth)
+            {
+                mySprite.material = chameleonMat;
+            }
+            dead = false;
+            animator.SetBool("dead", false);
+            auraDmg.noDmg = false;
+            respawning = false;
+            mySprite.enabled = true;
         }
     }
 
@@ -219,26 +233,34 @@ public class EnemyDance : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            active = true;
-            animator.SetBool("dance", true);
-            if (speed < maxSpeed)
+            if (respawning)
             {
-                speed += addSpeed;
-                animator.SetBool("dance", true);
-            }
-            if (other.transform.position.x + dist < transform.position.x)
-            {
-                dir = -1;
-                move = true;
-            }
-            else if (other.transform.position.x - dist > transform.position.x)
-            {
-                dir = 1;
-                move = true;
+                transform.position = deadPos;
+                respawnTimer = 10;
             }
             else
             {
-                move = false;
+                active = true;
+                animator.SetBool("dance", true);
+                if (speed < maxSpeed)
+                {
+                    speed += addSpeed;
+                    animator.SetBool("dance", true);
+                }
+                if (other.transform.position.x + dist < transform.position.x)
+                {
+                    dir = -1;
+                    move = true;
+                }
+                else if (other.transform.position.x - dist > transform.position.x)
+                {
+                    dir = 1;
+                    move = true;
+                }
+                else
+                {
+                    move = false;
+                }
             }
         }
     }

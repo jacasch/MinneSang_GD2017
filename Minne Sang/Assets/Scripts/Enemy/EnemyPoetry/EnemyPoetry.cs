@@ -19,7 +19,7 @@ public class EnemyPoetry : MonoBehaviour
     float dist = 0;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float timeStunned = 3f;  //Zeit die der Gegner gestunnt ist
     float deadTime = 1;  //Zeit bis der Gegner nach dem Tot verschwindet
-    float respawnTime = 30;  //Zeit bis der Gegner respawnt
+    float respawnTime = 90;  //Zeit bis der Gegner respawnt
 
     //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' oder 'Fear' beherscht.
     public bool isStealth = false;
@@ -31,6 +31,7 @@ public class EnemyPoetry : MonoBehaviour
     bool stealth = false;
     bool dead = false;
     bool died = false;
+    bool respawning = false;
 
     int dir = 0;
 
@@ -104,7 +105,7 @@ public class EnemyPoetry : MonoBehaviour
     void Move()
     {
         transform.Translate(speed * dir * Time.deltaTime, 0, 0);
-        if (dir < 0 && !stealth)
+        if (dir < 0)
         {
             mySprite.flipX = true;
         }
@@ -137,24 +138,37 @@ public class EnemyPoetry : MonoBehaviour
             if (respawnTimer == respawnTime)
             {
                 transform.position = deadPos;
+                mySprite.enabled = false;
             }
             if (respawnTimer < 0)
             {
-                hp = hpMax;
-                stealth = isStealth;
-                if (stealth)
-                {
-                    mySprite.material = chameleonMat;
-                }
-                dead = false;
-                animator.SetBool("dead", false);
-                enemyDmg.noDmg = false;
-                auraDmg.noDmg = false;
-                transform.position = orgPos;
+                respawning = true;
+                respawn();
             }
             respawnTimer -= Time.deltaTime;
         }
         //Destroy Object
+    }
+
+    void respawn()
+    {
+        rb.velocity = new Vector3(0, 0, 0);
+        transform.position = orgPos;
+        if (respawnTimer < -0.25f)
+        {
+            hp = hpMax;
+            stealth = isStealth;
+            if (stealth)
+            {
+                mySprite.material = chameleonMat;
+            }
+            dead = false;
+            animator.SetBool("dead", false);
+            enemyDmg.noDmg = false;
+            auraDmg.noDmg = false;
+            respawning = false;
+            mySprite.enabled = true;
+        }
     }
 
     //Wenn der Player den Gegner angreift
@@ -175,7 +189,6 @@ public class EnemyPoetry : MonoBehaviour
                 if (collision.gameObject.tag == "DmgToEnemy")
                 {
                     hp -= 1;
-                    print("POETRY HP: " + hp);
                     if (hp <= 0)
                     {
                         dead = true;
@@ -199,22 +212,30 @@ public class EnemyPoetry : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (other.transform.position.x + dist < transform.position.x)
+            if (respawning)
             {
-                dir = -1;
-                move = true;
-                animator.SetBool("move", true);
-            }
-            else if (other.transform.position.x - dist > transform.position.x)
-            {
-                dir = 1;
-                move = true;
-                animator.SetBool("move", true);
+                transform.position = deadPos;
+                respawnTimer = 10;
             }
             else
             {
-                move = false;
-                animator.SetBool("move", false);
+                if (other.transform.position.x + dist < transform.position.x)
+                {
+                    dir = -1;
+                    move = true;
+                    animator.SetBool("move", true);
+                }
+                else if (other.transform.position.x - dist > transform.position.x)
+                {
+                    dir = 1;
+                    move = true;
+                    animator.SetBool("move", true);
+                }
+                else
+                {
+                    move = false;
+                    animator.SetBool("move", false);
+                }
             }
         }
     }

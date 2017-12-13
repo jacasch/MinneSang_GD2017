@@ -54,12 +54,10 @@ public class PlayerSpawnHandler : MonoBehaviour {
                 Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
             }
         }
+        Camera.main.GetComponent<CameraMovement>().ZoomOut();
     }
 
     public void Respawn() {
-
-
-        print("respawn0");
         SceneManager.LoadScene(targetScene,LoadSceneMode.Single);
         PlayerController pc = GetComponent<PlayerController>();
         pc.inNpcZone = false;
