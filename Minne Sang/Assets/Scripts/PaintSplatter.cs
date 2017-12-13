@@ -23,7 +23,7 @@ public class PaintSplatter : MonoBehaviour {
     public void Paint(Vector2 position)
     {
         //pick color and calculate gradient
-        Color paintCol = colors[(int)Random.RandomRange(0, colors.Length)];
+        //Color paintCol = colors[(int)Random.RandomRange(0, colors.Length)];
         //ps.startColor = paintCol;
 
         transform.position = new Vector3(position.x, position.y, 0f);
