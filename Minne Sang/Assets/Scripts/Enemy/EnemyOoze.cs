@@ -30,11 +30,11 @@ public class EnemyOoze : MonoBehaviour
     int hp;  //HP des Gegners
 
     bool active = false;
-    public bool grounded = false;
+    bool grounded = false;
     bool stealth = false;
-    public bool rightUp = false;
-    public bool wallInFront = false;
-    public int jumpUp = 1;
+    bool rightUp = false;
+    bool wallInFront = false;
+    int jumpUp = 1;
     bool dead = false;
     bool died = false;
     bool respawning = false;
@@ -380,7 +380,7 @@ public class EnemyOoze : MonoBehaviour
 
         print(rightUp);
 
-        
+        /*
         //DEBUGGING DER RAYCASTS FÜR GROUNDED!
         foreach (RaycastHit2D hit in hitsRight)
         {
@@ -389,6 +389,6 @@ public class EnemyOoze : MonoBehaviour
             marker.transform.localScale = Vector3.one * 0.1f;
             Destroy(marker, 0.1f);
         }
-        
+        */
     }
 }
