@@ -122,7 +122,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1084903763913660}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -34.79, y: -2.789, z: 0}
+  m_LocalPosition: {x: 32.74, y: 10.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4055338679657034}
@@ -162,7 +162,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.054149628, y: -0.018568158}
+  m_Offset: {x: -0.054149628, y: -0.06276953}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -173,7 +173,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1649017, y: 2.266937}
+  m_Size: {x: 1.1649017, y: 2.3553398}
   m_EdgeRadius: 0
 --- !u!61 &61736335302743284
 BoxCollider2D:
@@ -187,7 +187,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.013622284, y: -0.018897295}
+  m_Offset: {x: 0.013622284, y: -0.06335235}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -198,7 +198,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.876999, y: 2.2671008}
+  m_Size: {x: 3.876999, y: 2.356011}
   m_EdgeRadius: 0
 --- !u!95 &95943488030198238
 Animator:
@@ -210,7 +210,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 68376e3d85052ad4c870415d4d4f21bd, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -453,6 +453,7 @@ MonoBehaviour:
     - spokenByNpc: 1
       messageByPrincess: 0
       text: hohohp
+  parrot: {fileID: 0}
 --- !u!114 &114109962041412808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -590,7 +591,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1084903763913660}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87b60a5325194c34eb10352ddbe2f317, type: 3}
   m_Name: 
@@ -629,8 +630,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1010627953
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 517286021c6aedd4a8c949837e1418b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

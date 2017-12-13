@@ -410,7 +410,7 @@ MonoBehaviour:
     messageByPrincess: 0
     text: hmpf!
   questDrop:
-    drop: {fileID: 1860303378271198, guid: 88816944a13339841b305ec57423564a, type: 2}
+    drop: {fileID: 1776366781571938, guid: e84c5e6b4d244074ea894731efc5631e, type: 2}
     name: Hair
 --- !u!212 &212412036817982454
 SpriteRenderer:

@@ -288,7 +288,7 @@ MonoBehaviour:
     messageByPrincess: 0
     text: "Did you know there\u2019s a stable outside?"
   questDrop:
-    drop: {fileID: 1860303378271198, guid: 88816944a13339841b305ec57423564a, type: 2}
+    drop: {fileID: 1579532319167928, guid: 5f958170b53f08949b0aa624d0c346b4, type: 2}
     name: Spoon
 --- !u!114 &114502398729750462
 MonoBehaviour:
