@@ -192,46 +192,49 @@ public class EnemyOoze : MonoBehaviour
     //Wenn der Player den Gegner angreift
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (stealth)
+        if (!dead)
         {
-            if (collision.gameObject.tag == "Paint")
+            if (stealth)
             {
-                stealth = false;
-                mySprite.material = defaultMat;
-                if (dir < 0)
+                if (collision.gameObject.tag == "Paint")
                 {
-                    mySprite.flipX = true;
-                }
-                else
-                {
-                    mySprite.flipX = false;
+                    stealth = false;
+                    mySprite.material = defaultMat;
+                    if (dir < 0)
+                    {
+                        mySprite.flipX = true;
+                    }
+                    else
+                    {
+                        mySprite.flipX = false;
+                    }
                 }
             }
-        }
-        else
-        {
-            if (collision.gameObject.tag == "DmgToEnemy")
+            else
             {
-                hp -= 1;
-                //rb.velocity = new Vector3(5 * -dir, 5, 0);
-                print("ENEMY HP: " + hp);
-                if (hp <= 0)
+                if (collision.gameObject.tag == "DmgToEnemy")
                 {
-                    dead = true;
-                    died = true;
-                    animator.SetBool("dead", true);
-                    deadTimer = deadTime;
-                    respawnTimer = respawnTime;
-                    rb.velocity = new Vector3(0, 4, 0);
+                    hp -= 1;
+                    //rb.velocity = new Vector3(5 * -dir, 5, 0);
+                    print("ENEMY HP: " + hp);
+                    if (hp <= 0)
+                    {
+                        dead = true;
+                        died = true;
+                        animator.SetBool("dead", true);
+                        deadTimer = deadTime;
+                        respawnTimer = respawnTime;
+                        rb.velocity = new Vector3(0, 4, 0);
+                    }
+                    else
+                    {
+                        rb.velocity = new Vector3(5 * -dir, 5, 0);
+                    }
                 }
-                else
+                if (collision.gameObject.tag == "StunToEnemy")
                 {
-                    rb.velocity = new Vector3(5 * -dir, 5, 0);
+                    stunTimer = timeStunned;
                 }
-            }
-            if (collision.gameObject.tag == "StunToEnemy")
-            {
-                stunTimer = timeStunned;
             }
         }
     }

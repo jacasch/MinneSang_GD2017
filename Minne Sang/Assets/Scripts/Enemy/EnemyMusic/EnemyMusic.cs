@@ -193,32 +193,35 @@ public class EnemyMusic : MonoBehaviour
     //Wenn der Player den Gegner angreift
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (stealth)
+        if (!dead)
         {
-            if (collision.gameObject.tag == "Paint")
+            if (stealth)
             {
-                stealth = false;
-                mySprite.material = defaultMat;
-            }
-        }
-        else
-        {
-            if (collision.gameObject.tag == "DmgToEnemy")
-            {
-                hp -= 1;
-                print("MUSIC HP: " + hp);
-                if (hp <= 0)
+                if (collision.gameObject.tag == "Paint")
                 {
-                    dead = true;
-                    died = true;
-                    deadTimer = deadTime;
-                    respawnTimer = respawnTime;
-                    walkTimer = 0;
+                    stealth = false;
+                    mySprite.material = defaultMat;
                 }
             }
-            if (collision.gameObject.tag == "StunToEnemy")
+            else
             {
-                stunTimer = timeStunned;
+                if (collision.gameObject.tag == "DmgToEnemy")
+                {
+                    hp -= 1;
+                    print("MUSIC HP: " + hp);
+                    if (hp <= 0)
+                    {
+                        dead = true;
+                        died = true;
+                        deadTimer = deadTime;
+                        respawnTimer = respawnTime;
+                        walkTimer = 0;
+                    }
+                }
+                if (collision.gameObject.tag == "StunToEnemy")
+                {
+                    stunTimer = timeStunned;
+                }
             }
         }
     }
