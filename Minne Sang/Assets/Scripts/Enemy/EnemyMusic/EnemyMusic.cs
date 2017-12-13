@@ -94,11 +94,15 @@ public class EnemyMusic : MonoBehaviour
         }
         else if (stunTimer > 0)
         {
-            //Stun Animation
+            animator.SetBool("sleep", true);
             stunTimer -= Time.deltaTime;
             walkTimer = 0;
         } else if(move)
         {
+            if(animator.GetBool("sleep"))
+            {
+                animator.SetBool("sleep", false);
+            }
             Move();
             Attack();
         }

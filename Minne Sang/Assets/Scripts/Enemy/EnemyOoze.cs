@@ -30,10 +30,11 @@ public class EnemyOoze : MonoBehaviour
     int hp;  //HP des Gegners
 
     bool active = false;
-    bool grounded = false;
+    public bool grounded = false;
     bool stealth = false;
-    bool rightUp = false;
-    int jumpUp = 1;
+    public bool rightUp = false;
+    public bool wallInFront = false;
+    public int jumpUp = 1;
     bool dead = false;
     bool died = false;
     bool respawning = false;
@@ -108,9 +109,8 @@ public class EnemyOoze : MonoBehaviour
                 rightUp = false;
             }
 
-            if (rb.velocity.x == 0 && rb.velocity.y == 0 && !grounded && !rightUp && jumpUp == 1)
+            if (rb.velocity.x == 0 && rb.velocity.y == 0 && !grounded && rightUp && jumpUp == 1)
             {
-                animator.SetBool("Grounded", true);
                 rb.velocity = new Vector3(speed * dir, jumpHeight, 0);
             }
         }
@@ -121,6 +121,10 @@ public class EnemyOoze : MonoBehaviour
         else
         {
             animator.SetFloat("VelocityY", 1);
+        }
+        if (rb.velocity.x == 0 && rb.velocity.y == 0 && !grounded && rightUp && jumpUp == 1)
+        {
+            animator.SetBool("Grounded", true);
         }
     }
 
@@ -142,7 +146,16 @@ public class EnemyOoze : MonoBehaviour
             if(jumpTimer<=0)
             {
                 jumpTimer = jumpCD;
-                rb.velocity = new Vector3(speed * dir * jumpUp, jumpHeight, 0);
+                if(wallInFront)
+                {
+                    rb.velocity = new Vector3(speed * dir * jumpUp, jumpHeight+2, 0);
+                    //wallInFront = false;
+                    print("jumpedHigh");
+                }
+                else
+                {
+                    rb.velocity = new Vector3(speed * dir * jumpUp, jumpHeight, 0);
+                }
             }
         }
     }
@@ -331,27 +344,43 @@ public class EnemyOoze : MonoBehaviour
             }
         }
 
+        jumpUp = 1;
+
         RaycastHit2D[] hitsRight;
 
         //Überprüft, ob rechts an der rechten Ecke des Gegners ein Block ist
-        hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y - halfSize + 0.15f), new Vector2(1*dir, 0), halfSize + 0.01f);
-
-        jumpUp = 1;
+        hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y - halfSize + 0.15f), new Vector2(1 * dir, 0), halfSize + 0.01f);
 
         if (hitsRight.Length == 0)
         {
-            rightUp = true;
+            hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y + halfSize - 0.15f), new Vector2(1 * dir, 0), halfSize + 0.01f);
+
+            if (hitsRight.Length == 0)
+            {
+                rightUp = true;
+            }
+            else
+            {
+                if(grounded)
+                {
+                    jumpUp = 0;
+                    wallInFront = true;
+                }
+            }
         }
         else
         {
+            rightUp = false;
             if (grounded)
             {
                 jumpUp = 0;
+                wallInFront = true;
             }
         }
 
+        print(rightUp);
 
-        /*
+        
         //DEBUGGING DER RAYCASTS FÜR GROUNDED!
         foreach (RaycastHit2D hit in hitsRight)
         {
@@ -360,6 +389,6 @@ public class EnemyOoze : MonoBehaviour
             marker.transform.localScale = Vector3.one * 0.1f;
             Destroy(marker, 0.1f);
         }
-        */
+        
     }
 }
