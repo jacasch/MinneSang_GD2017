@@ -21,7 +21,7 @@ public class EnemyMusic : MonoBehaviour
     float walkCD = 1f; //Zeit bis zum nächsten Schritt
     float timeStunned = 3f;  //Zeit die der Gegner gestunnt ist
     float deadTime = 1;  //Zeit bis der Gegner nach dem Tot verschwindet
-    float respawnTime = 30;  //Zeit bis der Gegner respawnt
+    float respawnTime = 90;  //Zeit bis der Gegner respawnt
 
     //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
     public bool isStealth = false;
@@ -35,6 +35,7 @@ public class EnemyMusic : MonoBehaviour
     bool stomp = false;
     bool dead = false;
     bool died = false;
+    bool respawning = false;
 
     int dir = 1;
 
@@ -93,11 +94,15 @@ public class EnemyMusic : MonoBehaviour
         }
         else if (stunTimer > 0)
         {
-            //Stun Animation
+            animator.SetBool("sleep", true);
             stunTimer -= Time.deltaTime;
             walkTimer = 0;
         } else if(move)
         {
+            if(animator.GetBool("sleep"))
+            {
+                animator.SetBool("sleep", false);
+            }
             Move();
             Attack();
         }
@@ -125,7 +130,7 @@ public class EnemyMusic : MonoBehaviour
             move = false;
             animator.SetBool("stomp", false);
         }
-        if (dir > 0 && !stealth)
+        if (dir > 0)
         {
             mySprite.flipX = true;
         }
@@ -170,24 +175,37 @@ public class EnemyMusic : MonoBehaviour
             if (respawnTimer == respawnTime)
             {
                 transform.position = deadPos;
+                mySprite.enabled = false;
             }
             if (respawnTimer < 0)
             {
-                hp = hpMax;
-                stealth = isStealth;
-                if (stealth)
-                {
-                    mySprite.material = chameleonMat;
-                }
-                dead = false;
-                enemyDmg.noDmg = false;
-                auraDmg.noDmg = false;
-                rb.velocity = new Vector3(0, 0, 0);
-                transform.position = orgPos;
+                respawning = true;
+                respawn();
             }
             respawnTimer -= Time.deltaTime;
         }
         //Destroy Object
+    }
+
+    void respawn()
+    {
+        rb.velocity = new Vector3(0, 0, 0);
+        transform.position = orgPos;
+        if (respawnTimer < -0.25f)
+        {
+            hp = hpMax;
+            stealth = isStealth;
+            if (stealth)
+            {
+                mySprite.material = chameleonMat;
+            }
+            dead = false;
+            animator.SetBool("dead", false);
+            enemyDmg.noDmg = false;
+            auraDmg.noDmg = false;
+            respawning = false;
+            mySprite.enabled = true;
+        }
     }
 
     //Wenn der Player den Gegner angreift
@@ -208,7 +226,6 @@ public class EnemyMusic : MonoBehaviour
                 if (collision.gameObject.tag == "DmgToEnemy")
                 {
                     hp -= 1;
-                    print("MUSIC HP: " + hp);
                     if (hp <= 0)
                     {
                         dead = true;
@@ -231,22 +248,30 @@ public class EnemyMusic : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            active = true;
-            if (other.transform.position.x + dist < transform.position.x)
+            if (respawning)
             {
-                if(walkTimer > walkDist)
-                {
-                    dir = -1;
-                }
-                move = true;
+                transform.position = deadPos;
+                respawnTimer = 10;
             }
-            else if (other.transform.position.x - dist > transform.position.x)
+            else
             {
-                if (walkTimer > walkDist)
+                active = true;
+                if (other.transform.position.x + dist < transform.position.x)
                 {
-                    dir = 1;
+                    if (walkTimer > walkDist)
+                    {
+                        dir = -1;
+                    }
+                    move = true;
                 }
-                move = true;
+                else if (other.transform.position.x - dist > transform.position.x)
+                {
+                    if (walkTimer > walkDist)
+                    {
+                        dir = 1;
+                    }
+                    move = true;
+                }
             }
         }
     }

@@ -21,7 +21,7 @@ public class EnemyOoze : MonoBehaviour
     float jumpCD = 0.2f;  //Zeit bis der Sprung nach der Landung erneut ausgeführt wird
     float timeStunned = 3;  //Zeit die der Gegner gestunnt ist wenn er gestunnt wird
     float deadTime = 0.75f;  //Zeit bis der Gegner nach dem Tot verschwindet
-    float respawnTime = 30;  //Zeit bis der Gegner respawnt
+    float respawnTime = 90;  //Zeit bis der Gegner respawnt
 
     //Bestimmt, ob der Gegner die Fähigkeit 'Stealth' beherscht.
     public bool isStealth = false;
@@ -33,9 +33,11 @@ public class EnemyOoze : MonoBehaviour
     bool grounded = false;
     bool stealth = false;
     bool rightUp = false;
+    bool wallInFront = false;
     int jumpUp = 1;
     bool dead = false;
     bool died = false;
+    bool respawning = false;
 
     int dir = 1;
     float halfSize = 0;  //Für CheckIfGrounded
@@ -107,9 +109,8 @@ public class EnemyOoze : MonoBehaviour
                 rightUp = false;
             }
 
-            if (rb.velocity.x == 0 && rb.velocity.y == 0 && !grounded && !rightUp && jumpUp == 1)
+            if (rb.velocity.x == 0 && rb.velocity.y == 0 && !grounded && rightUp && jumpUp == 1)
             {
-                animator.SetBool("Grounded", true);
                 rb.velocity = new Vector3(speed * dir, jumpHeight, 0);
             }
         }
@@ -121,6 +122,10 @@ public class EnemyOoze : MonoBehaviour
         {
             animator.SetFloat("VelocityY", 1);
         }
+        if (rb.velocity.x == 0 && rb.velocity.y == 0 && !grounded && rightUp && jumpUp == 1)
+        {
+            animator.SetBool("Grounded", true);
+        }
     }
 
     //FUNCTIONS------------------------------------------------------------------------------------------------------------
@@ -130,7 +135,7 @@ public class EnemyOoze : MonoBehaviour
         if(grounded)
         {
             jumpTimer -= Time.deltaTime;
-            if (dir < 0 && !stealth)
+            if (dir < 0)
             {
                 mySprite.flipX = false;
             }
@@ -141,7 +146,15 @@ public class EnemyOoze : MonoBehaviour
             if(jumpTimer<=0)
             {
                 jumpTimer = jumpCD;
-                rb.velocity = new Vector3(speed * dir * jumpUp, jumpHeight, 0);
+                if(wallInFront)
+                {
+                    rb.velocity = new Vector3(speed * dir * jumpUp, jumpHeight+2, 0);
+                    wallInFront = false;
+                }
+                else
+                {
+                    rb.velocity = new Vector3(speed * dir * jumpUp, jumpHeight, 0);
+                }
             }
         }
     }
@@ -169,23 +182,35 @@ public class EnemyOoze : MonoBehaviour
             if (respawnTimer == respawnTime)
             {
                 transform.position = deadPos;
+                mySprite.enabled = false;
             }
             if(respawnTimer < 0)
             {
-                hp = hpMax;
-                stealth = isStealth;
-                if (stealth)
-                {
-                    mySprite.material = chameleonMat;
-                }
-                dead = false;
-                animator.SetBool("dead", false);
-                enemyDmg.noDmg = false;
-                auraDmg.noDmg = false;
-                rb.velocity = new Vector3(0, 0, 0);
-                transform.position = orgPos;
+                respawning = true;
+                respawn();
             }
             respawnTimer -= Time.deltaTime;
+        }
+    }
+
+    void respawn()
+    {
+        rb.velocity = new Vector3(0, 0, 0);
+        transform.position = orgPos;
+        if (respawnTimer<-0.25f)
+        {
+            hp = hpMax;
+            stealth = isStealth;
+            if (stealth)
+            {
+                mySprite.material = chameleonMat;
+            }
+            dead = false;
+            animator.SetBool("dead", false);
+            enemyDmg.noDmg = false;
+            auraDmg.noDmg = false;
+            respawning = false;
+            mySprite.enabled = true;
         }
     }
 
@@ -200,14 +225,6 @@ public class EnemyOoze : MonoBehaviour
                 {
                     stealth = false;
                     mySprite.material = defaultMat;
-                    if (dir < 0)
-                    {
-                        mySprite.flipX = true;
-                    }
-                    else
-                    {
-                        mySprite.flipX = false;
-                    }
                 }
             }
             else
@@ -216,7 +233,6 @@ public class EnemyOoze : MonoBehaviour
                 {
                     hp -= 1;
                     //rb.velocity = new Vector3(5 * -dir, 5, 0);
-                    print("ENEMY HP: " + hp);
                     if (hp <= 0)
                     {
                         dead = true;
@@ -244,19 +260,27 @@ public class EnemyOoze : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            active = true;
-            if (other.transform.position.x + dist < transform.position.x)
+            if (respawning)
             {
-                dir = -1;
-
-            }
-            else if (other.transform.position.x - dist > transform.position.x)
-            {
-                dir = 1;
+                transform.position = deadPos;
+                respawnTimer = 10;
             }
             else
             {
-                dir = 0;
+                active = true;
+                if (other.transform.position.x + dist < transform.position.x)
+                {
+                    dir = -1;
+
+                }
+                else if (other.transform.position.x - dist > transform.position.x)
+                {
+                    dir = 1;
+                }
+                else
+                {
+                    dir = 0;
+                }
             }
         }
     }
@@ -310,25 +334,39 @@ public class EnemyOoze : MonoBehaviour
             }
         }
 
+        jumpUp = 1;
+
         RaycastHit2D[] hitsRight;
 
         //Überprüft, ob rechts an der rechten Ecke des Gegners ein Block ist
-        hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y - halfSize + 0.15f), new Vector2(1*dir, 0), halfSize + 0.01f);
-
-        jumpUp = 1;
+        hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y - halfSize + 0.15f), new Vector2(1 * dir, 0), halfSize + 0.01f);
 
         if (hitsRight.Length == 0)
         {
-            rightUp = true;
+            hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y + halfSize - 0.15f), new Vector2(1 * dir, 0), halfSize + 0.01f);
+
+            if (hitsRight.Length == 0)
+            {
+                rightUp = true;
+            }
+            else
+            {
+                if(grounded)
+                {
+                    jumpUp = 0;
+                    wallInFront = true;
+                }
+            }
         }
         else
         {
+            rightUp = false;
             if (grounded)
             {
                 jumpUp = 0;
+                wallInFront = true;
             }
         }
-
 
         /*
         //DEBUGGING DER RAYCASTS FÜR GROUNDED!

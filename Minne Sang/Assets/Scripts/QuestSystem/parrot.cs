@@ -5,8 +5,9 @@ using UnityEngine;
 public class Parrot : Npc
 {
     // private string princess = "Princess Freya";
-    public Act[] sendingLetters; 
-    
+    public Act[] sendingLetters;
+
+    public GameObject parrot;
 
     //public Phrase afterDropLine;
     //public Item questDrop;
@@ -37,6 +38,16 @@ public class Parrot : Npc
                 player.GetComponent<PlayerQuestHandler>().letterSend = true;
                 //player.GetComponent<PlayerQuestHandler>().optionToSendLetters = false;
 
+                parrot = GameObject.Find("parrot");
+                Animator animator = parrot.GetComponent<Animator>();
+
+                if (player.GetComponent<PlayerQuestHandler>().letterSend == true)
+                {
+                    animator.SetBool("flying", true);
+                } else
+                {
+                    animator.SetBool("flying", false);
+                }
                 EndInteraction();
             }
             else
