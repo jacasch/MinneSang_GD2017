@@ -42,7 +42,8 @@ public class CameraMovement : MonoBehaviour {
         Vector2 playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
         if (interactionMode == true)
         {
-            targetPos = playerPos + (npcPos - playerPos) / 2 + new Vector2(0, 1.15f);
+            targetPos = playerPos + ((new Vector2(npcPos.x, playerPos.y) - playerPos) / 2) + new Vector2(0, 1.15f) + (new Vector2(0, Mathf.Abs(npcPos.y - playerPos.y) / 3f));
+            targetZoom = 25 + (npcPos.y - playerPos.y) * 3;
         }
         else {
             targetPos = playerPos + lookModifier;

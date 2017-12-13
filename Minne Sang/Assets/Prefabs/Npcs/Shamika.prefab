@@ -281,7 +281,7 @@ MonoBehaviour:
     messageByPrincess: 0
     text: Hurry, bring the music sheet to the master!
   questDrop:
-    drop: {fileID: 1860303378271198, guid: 88816944a13339841b305ec57423564a, type: 2}
+    drop: {fileID: 1426578588911374, guid: 621cea58aa74f96438f4655dad05301a, type: 2}
     name: MusicSheet1
 --- !u!114 &114555333421803176
 MonoBehaviour:
