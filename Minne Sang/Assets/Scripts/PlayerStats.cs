@@ -141,7 +141,7 @@ public class PlayerStats : MonoBehaviour
                 //print("Knockback: " + enemyDMG.knockback);
 
                 //Timer bis Gegner erneut Schaden verursachen kann
-                //enemyDMG.timer = enemyDMG.dmgTime;
+                enemyDMG.timer = enemyDMG.dmgTime;
             }
         }
         if (/*dmgTimer <= 0 && */poetryBuff <= 0 && collision.gameObject.tag == "PoetryDmgToPlayer")
