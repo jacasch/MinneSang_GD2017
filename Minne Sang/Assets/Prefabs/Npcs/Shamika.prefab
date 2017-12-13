@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114346273886338778}
   - component: {fileID: 61684409250302242}
   - component: {fileID: 50535139807576054}
+  - component: {fileID: 95220990291756586}
   m_Layer: 10
   m_Name: Shamika
   m_TagString: Untagged
@@ -108,8 +109,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1057443595807506}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.86, y: -12.98, z: 0}
-  m_LocalScale: {x: 7.0966797, y: 12.9185, z: 10.589769}
+  m_LocalPosition: {x: -2.9, y: -12.86, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4965922997293464}
   - {fileID: 224408057872381382}
@@ -161,7 +162,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007374972, y: 0.00011153519}
+  m_Offset: {x: 0.11107576, y: -0.19149923}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -172,7 +173,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5926673, y: 0.0993911}
+  m_Size: {x: 3.2821844, y: 1.5695677}
   m_EdgeRadius: 0
 --- !u!61 &61684409250302242
 BoxCollider2D:
@@ -186,19 +187,36 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.14114434, y: -0.19494343}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.1, y: 0.1}
+    oldSize: {x: 2.6666667, y: 2}
     newSize: {x: 0.1, y: 0.1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1}
+  m_Size: {x: 1.766816, y: 1.5907784}
   m_EdgeRadius: 0
+--- !u!95 &95220990291756586
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1057443595807506}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 75dcfe1dfdba2b948a5a8e7f8d34444c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114136727906518894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -430,8 +448,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 82ceb57a7df600d47ad74e5265fe5b07, type: 3}
-  m_Color: {r: 0.26427338, g: 0.65584654, b: 0.6911765, a: 1}
+  m_Sprite: {fileID: 21300000, guid: fa1f0f009f87baf4ea9100abfa6e6103, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
