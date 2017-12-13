@@ -35,7 +35,6 @@ public class SquidMouth : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        print(enemyPaint.dir);
         if (enemyPaint.dir > 0 && !enemyPaint.stealth)
         {
             mySprite.flipX = true;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDanceExplosion : MonoBehaviour
 {
     float timer = 0.5f;
-    int timeUntilDestroyed = 1;
+    public float timeUntilDestroyed = 5f;
 
     CircleCollider2D bombColl;
 

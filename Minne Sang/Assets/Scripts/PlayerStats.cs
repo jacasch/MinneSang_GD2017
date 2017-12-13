@@ -36,15 +36,18 @@ public class PlayerStats : MonoBehaviour
     {
         if (dead)
         {
+            print("dead");
             if (!deathAnimationStarted)
             {
+                print("dead anim started");
                 animator.SetBool("Dead", true);
                 gameObject.layer = 13;
                 GetComponent<PlayerSoundHandler>().Die();
                 deathAnimationStarted = true;
                 deathtime = Time.time;
             }
-            else if (deathtime + respawnDelay <= Time.time){                hp = maxHP;
+            else if (deathtime + respawnDelay <= Time.time){
+                print("respawning"); hp = maxHP;
                 dead = false;
                 gameObject.layer = 9;
                 GetComponent<PlayerController>().KnockBack(0);
