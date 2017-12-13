@@ -58,7 +58,8 @@
 			fixed4 frag (v2f i) : SV_Target
 			{
 				// sample the texture
-				fixed4 texCol = tex2D(_MainTex, i.uv);				
+				fixed4 texCol = tex2D(_MainTex, i.uv);
+				//texCol = floor(texCol * 4) / 2;
 
 				//calculate offset
 				float4 offset = _Intensity * texCol.r;

@@ -44,7 +44,7 @@ public class PlayerQuestHandler : MonoBehaviour
 
     public void menuHandler()
     {
-        GameObject tempObject = GameObject.Find("menu");
+        GameObject tempObject = transform.Find("menu").gameObject;
         Canvas canvasMenu = tempObject.GetComponent<Canvas>();
 
         if (menuEnabled == false)

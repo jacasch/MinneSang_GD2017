@@ -36,6 +36,8 @@ public class PlayerSpawnHandler : MonoBehaviour {
     }
 
     private void Reposition() {
+
+
         doors = FindObjectsOfType(typeof(Door)) as Door[];
         spawnPoints = FindObjectsOfType(typeof(SpawnPoint)) as SpawnPoint[];
         foreach (Door d in doors)
@@ -55,6 +57,9 @@ public class PlayerSpawnHandler : MonoBehaviour {
     }
 
     public void Respawn() {
+
+
+        print("respawn0");
         SceneManager.LoadScene(targetScene,LoadSceneMode.Single);
         PlayerController pc = GetComponent<PlayerController>();
         pc.inNpcZone = false;

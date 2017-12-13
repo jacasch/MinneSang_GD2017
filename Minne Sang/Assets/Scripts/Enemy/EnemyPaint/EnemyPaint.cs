@@ -34,8 +34,9 @@ public class EnemyPaint : MonoBehaviour
 
     bool active = false;
     bool move = false;
-    bool stealth = true;
+    public bool stealth = true;
     bool dead = false;
+    bool died = false;
 
     public int dir = 1;
 
@@ -61,6 +62,8 @@ public class EnemyPaint : MonoBehaviour
 
     Animator animator;
 
+    DeathExplosion deathExplosion;
+
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
@@ -71,6 +74,8 @@ public class EnemyPaint : MonoBehaviour
         activeQuest = objPlayer.GetComponent<PlayerQuestHandler>().activeQuest;
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
+
+        deathExplosion = transform.Find("DeathExplosion").GetComponent<DeathExplosion>();
 
         animator = GetComponent<Animator>();
 
@@ -140,7 +145,7 @@ public class EnemyPaint : MonoBehaviour
             Vector3 objPos = transform.position;
             float dirX = objPlayer.transform.position.x - transform.position.x;
             float dirY = objPlayer.transform.position.y - transform.position.y;;
-            GameObject instance = Instantiate(objShot, objPos, transform.rotation) as GameObject;
+            GameObject instance = Instantiate(objShot, new Vector2(objPos.x + (0.65f * dir),objPos.y-0.65f), transform.rotation) as GameObject;
             instance.GetComponent<EnemyPaintShot>().direction = new Vector3(dirX, dirY, 0);
             instance.layer = 0;
             shootTimer = shootCD;
@@ -157,6 +162,12 @@ public class EnemyPaint : MonoBehaviour
     {
         enemyDmg.noDmg = true;
         auraDmg.noDmg = true;
+
+        if (died)
+        {
+            deathExplosion.died = true;
+            died = false;
+        }
 
         if (deadTimer > 0)
         {
@@ -192,6 +203,7 @@ public class EnemyPaint : MonoBehaviour
                 dead = false;
                 enemyDmg.noDmg = false;
                 auraDmg.noDmg = false;
+                rb.velocity = new Vector3(0, 0, 0);
                 transform.position = orgPos;
             }
             respawnTimer -= Time.deltaTime;
@@ -202,37 +214,40 @@ public class EnemyPaint : MonoBehaviour
     //Save player as variable
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //LÖSCHEN -> wird im Start ausgeführt.
-        //if (collision.gameObject.tag == "Player")
-        //{
-        //    objPlayer = collision.gameObject;
-        //}
-        if (stealth)
+        if (!dead)
         {
-            if (collision.gameObject.tag == "Paint")
+            if (stealth)
             {
-                stealth = false;
-                mySprite.material = defaultMat;
-            }
-        }
-        else
-        {
-            if (collision.gameObject.tag == "DmgToEnemy")
-            {
-                hp -= 1;
-                rb.velocity = new Vector3(4f * -dir, -1, 0);
-                gotDmgTimer = 0.2f;
-                print("ENEMY HP: " + hp);
-                if (hp <= 0)
+                if (collision.gameObject.tag == "Paint")
                 {
-                    dead = true;
-                    deadTimer = deadTime;
-                    respawnTimer = respawnTime;
+                    stealth = false;
+                    mySprite.material = defaultMat;
                 }
             }
-            if (collision.gameObject.tag == "StunToEnemy")
+            else
             {
-                stunTimer = timeStunned;
+                if (collision.gameObject.tag == "DmgToEnemy")
+                {
+                    hp -= 1;
+                    //rb.velocity = new Vector3(4f * -dir, -1, 0);
+                    gotDmgTimer = 0.2f;
+                    print("ENEMY HP: " + hp);
+                    if (hp <= 0)
+                    {
+                        dead = true;
+                        died = true;
+                        deadTimer = deadTime;
+                        respawnTimer = respawnTime;
+                    }
+                    else
+                    {
+                        rb.velocity = new Vector3(4f * -dir, -1, 0);
+                    }
+                }
+                if (collision.gameObject.tag == "StunToEnemy")
+                {
+                    stunTimer = timeStunned;
+                }
             }
         }
     }
