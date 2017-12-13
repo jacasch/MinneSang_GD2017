@@ -40,6 +40,7 @@ public class EnemyDance : MonoBehaviour
     bool dead = false;
     bool exploded = false;
     bool respawning = false;
+    bool isSound = false;
 
     int dir = 1;
 
@@ -63,6 +64,9 @@ public class EnemyDance : MonoBehaviour
 
     Animator animator;
 
+    DanceSoundHandler soundHandler;
+    AudioSource audioSorce;
+
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
     {
@@ -74,6 +78,9 @@ public class EnemyDance : MonoBehaviour
         auraDmg = aura.GetComponent<EnemyDMG>();
 
         animator = GetComponent<Animator>();
+
+        soundHandler = GetComponent<DanceSoundHandler>();
+        audioSorce = GetComponent<AudioSource>();
 
         if (stealth)
         {
@@ -122,7 +129,7 @@ public class EnemyDance : MonoBehaviour
     void Move()
     {
         transform.Translate(speed*dir*Time.deltaTime, 0, 0);
-        if (dir > 0 && !stealth)
+        if (dir > 0)
         {
             mySprite.flipX = true;
         }
@@ -149,6 +156,8 @@ public class EnemyDance : MonoBehaviour
             if(!exploded)
             {
                 Instantiate(explosion, transform.position, Quaternion.identity);
+                audioSorce.loop = false;
+                soundHandler.Exploding();
                 exploded = true;
             }
             if(dropItem && !dropped)
@@ -192,6 +201,7 @@ public class EnemyDance : MonoBehaviour
             animator.SetBool("dead", false);
             auraDmg.noDmg = false;
             respawning = false;
+            isSound = false;
             mySprite.enabled = true;
         }
     }
@@ -261,6 +271,12 @@ public class EnemyDance : MonoBehaviour
                 {
                     move = false;
                 }
+                if (!isSound)
+                {
+                    audioSorce.loop = true;
+                    soundHandler.Burning();
+                    isSound = true;
+                }
             }
         }
     }
@@ -272,7 +288,12 @@ public class EnemyDance : MonoBehaviour
         if (other.tag == "Player")
         {
             active = false;
-            //speed = startSpeed;
+            if (isSound)
+            {
+                audioSorce.loop = false;
+                audioSorce.Stop();
+                isSound = false;
+            }
         }
     }
 }

@@ -34,10 +34,11 @@ public class EnemyPaint : MonoBehaviour
 
     bool active = false;
     bool move = false;
-    public bool stealth = true;
+    [HideInInspector] public bool stealth = true;
     bool dead = false;
     bool died = false;
     bool respawning = false;
+    bool isSound = false;
 
     public int dir = 1;
 
@@ -67,6 +68,10 @@ public class EnemyPaint : MonoBehaviour
 
     SpriteRenderer mouthSprite;
 
+    PaintSoundHandler soundHandler;
+
+    AudioSource audioSource;
+
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
@@ -78,9 +83,14 @@ public class EnemyPaint : MonoBehaviour
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
 
+        stealth = true;
+
         deathExplosion = transform.Find("DeathExplosion").GetComponent<DeathExplosion>();
 
         animator = GetComponent<Animator>();
+
+        soundHandler = GetComponent<PaintSoundHandler>();
+        audioSource = GetComponent<AudioSource>();
 
         mouthSprite = transform.Find("Mouth").GetComponent<SpriteRenderer>();
 
@@ -113,7 +123,7 @@ public class EnemyPaint : MonoBehaviour
             {
                 Move();
             }
-            if (dir > 0 && !stealth)
+            if (dir > 0)
             {
                 mySprite.flipX = true;
                 mouthSprite.flipX = true;
@@ -153,7 +163,10 @@ public class EnemyPaint : MonoBehaviour
         {
             Vector3 objPos = transform.position;
             float dirX = objPlayer.transform.position.x - transform.position.x;
-            float dirY = objPlayer.transform.position.y - transform.position.y;;
+            float dirY = objPlayer.transform.position.y - transform.position.y;
+            audioSource.loop = false;
+            isSound = false;
+            soundHandler.Shoot();
             GameObject instance = Instantiate(objShot, new Vector2(objPos.x + (0.65f * dir),objPos.y-0.65f), transform.rotation) as GameObject;
             instance.GetComponent<EnemyPaintShot>().direction = new Vector3(dirX, dirY, 0);
             instance.layer = 0;
@@ -175,6 +188,9 @@ public class EnemyPaint : MonoBehaviour
         if (died)
         {
             deathExplosion.died = true;
+            audioSource.loop = false;
+            isSound = false;
+            soundHandler.Dying();
             died = false;
         }
 
@@ -190,7 +206,6 @@ public class EnemyPaint : MonoBehaviour
             {
                 if (activeQuest == questName)
                 {
-                    print("test");
                     GameObject drop = Instantiate(questDrop.drop, transform.position, transform.rotation);
                     drop.GetComponent<ItemHandler>().SetName(questDrop.name);
                     dropped = true;
@@ -257,7 +272,6 @@ public class EnemyPaint : MonoBehaviour
                     hp -= 1;
                     //rb.velocity = new Vector3(4f * -dir, -1, 0);
                     gotDmgTimer = 0.2f;
-                    print("ENEMY HP: " + hp);
                     if (hp <= 0)
                     {
                         dead = true;
@@ -308,6 +322,13 @@ public class EnemyPaint : MonoBehaviour
                     move = false;
                 }
             }
+
+            if(!isSound)
+            {
+                isSound = true;
+                soundHandler.Idle();
+                audioSource.loop = true;
+            }
         }
     }
 
@@ -318,6 +339,8 @@ public class EnemyPaint : MonoBehaviour
         if (other.tag == "Player")
         {
             active = false;
+            audioSource.loop = false;
+            isSound = false;
         }
     }
 }

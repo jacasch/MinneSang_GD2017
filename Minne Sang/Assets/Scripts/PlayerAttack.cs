@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     int dir = 1;
-    float distPlayer = 1;  //Front
+    float distPlayer = 0.5f;  //Front
     float hitTimer;
     float hitDuration = 0.2f;
     public float repeatCD = 0.75f;

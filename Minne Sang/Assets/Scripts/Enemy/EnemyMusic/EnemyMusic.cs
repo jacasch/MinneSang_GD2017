@@ -94,11 +94,15 @@ public class EnemyMusic : MonoBehaviour
         }
         else if (stunTimer > 0)
         {
-            //Stun Animation
+            animator.SetBool("sleep", true);
             stunTimer -= Time.deltaTime;
             walkTimer = 0;
         } else if(move)
         {
+            if(animator.GetBool("sleep"))
+            {
+                animator.SetBool("sleep", false);
+            }
             Move();
             Attack();
         }
@@ -126,7 +130,7 @@ public class EnemyMusic : MonoBehaviour
             move = false;
             animator.SetBool("stomp", false);
         }
-        if (dir > 0 && !stealth)
+        if (dir > 0)
         {
             mySprite.flipX = true;
         }
@@ -222,7 +226,6 @@ public class EnemyMusic : MonoBehaviour
                 if (collision.gameObject.tag == "DmgToEnemy")
                 {
                     hp -= 1;
-                    print("MUSIC HP: " + hp);
                     if (hp <= 0)
                     {
                         dead = true;

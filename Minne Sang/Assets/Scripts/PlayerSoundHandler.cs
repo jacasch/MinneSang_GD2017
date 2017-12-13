@@ -35,40 +35,40 @@ public class PlayerSoundHandler : MonoBehaviour {
 
     #region public funcions
     public void Attack() {
-        PlaySound(attackSound, lastAttackSound);
+        lastAttackSound = PlaySound(attackSound, lastAttackSound);
     }
 
     public void Hit() {
-        PlaySound(hitSound, lastHitSound);
+        lastHitSound = PlaySound(hitSound, lastHitSound);
     }
 
     public void Die()
     {
-        PlaySound(dieSound, lastDieSound);
+        lastDieSound = PlaySound(dieSound, lastDieSound);
     }
 
     public void Dash() {
-        PlaySound(dashSound, lastDashSound);
+        lastDashSound = PlaySound(dashSound, lastDashSound);
     }
 
     public void CastPoetry() {
-        PlaySound(poetryCastSound, lastPoetryCastSound);
+        lastPoetryCastSound = PlaySound(poetryCastSound, lastPoetryCastSound);
     }
 
     public void Stun() {
-        PlaySound(stunSound, lastStunSound);
+        lastStunSound = PlaySound(stunSound, lastStunSound);
     }
 
     public void Step() {
-        PlaySound(stepSound, lastStepSound);
+        lastStepSound = PlaySound(stepSound, lastStepSound);
     }
     #endregion
 
-    private void PlaySound(AudioClip[] sound, int lastPlayedIndex) {
+    private int PlaySound(AudioClip[] sound, int lastPlayedIndex) {
         print(sound[0].name);
         if (sound[0] == null) {
             Debug.Log("exit");
-            return;
+            return 0;
         }
 
         int newSound = lastPlayedIndex;
@@ -80,11 +80,12 @@ public class PlayerSoundHandler : MonoBehaviour {
         else {
             while (newSound == lastPlayedIndex)
             {
-                newSound = (int)Random.Range(0, attackSound.Length - 1);
+                newSound = (int)Random.Range(0, sound.Length - 1);
             }
             lastPlayedIndex = newSound;
         }
         audioSource.clip = sound[lastPlayedIndex];
         audioSource.Play();
+        return lastPlayedIndex;
     }
 }

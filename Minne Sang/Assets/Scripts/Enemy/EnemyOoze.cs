@@ -33,10 +33,12 @@ public class EnemyOoze : MonoBehaviour
     bool grounded = false;
     bool stealth = false;
     bool rightUp = false;
+    bool wallInFront = false;
     int jumpUp = 1;
     bool dead = false;
     bool died = false;
     bool respawning = false;
+    bool isSound = false;
 
     int dir = 1;
     float halfSize = 0;  //Für CheckIfGrounded
@@ -62,6 +64,9 @@ public class EnemyOoze : MonoBehaviour
 
     DeathExplosion deathExplosion;
 
+    OozeSoundHandler soundHandler;
+
+    AudioSource audioSource;
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
@@ -78,6 +83,9 @@ public class EnemyOoze : MonoBehaviour
         deathExplosion = transform.Find("DeathExplosion").GetComponent<DeathExplosion>();
 
         animator = GetComponent<Animator>();
+
+        soundHandler = GetComponent<OozeSoundHandler>();
+        audioSource = GetComponent<AudioSource>();
 
         if (stealth)
         {
@@ -108,9 +116,8 @@ public class EnemyOoze : MonoBehaviour
                 rightUp = false;
             }
 
-            if (rb.velocity.x == 0 && rb.velocity.y == 0 && !grounded && !rightUp && jumpUp == 1)
+            if (rb.velocity.x == 0 && rb.velocity.y == 0 && !grounded && rightUp && jumpUp == 1)
             {
-                animator.SetBool("Grounded", true);
                 rb.velocity = new Vector3(speed * dir, jumpHeight, 0);
             }
         }
@@ -122,6 +129,10 @@ public class EnemyOoze : MonoBehaviour
         {
             animator.SetFloat("VelocityY", 1);
         }
+        if (rb.velocity.x == 0 && rb.velocity.y == 0 && !grounded && rightUp && jumpUp == 1)
+        {
+            animator.SetBool("Grounded", true);
+        }
     }
 
     //FUNCTIONS------------------------------------------------------------------------------------------------------------
@@ -131,7 +142,7 @@ public class EnemyOoze : MonoBehaviour
         if(grounded)
         {
             jumpTimer -= Time.deltaTime;
-            if (dir < 0 && !stealth)
+            if (dir < 0)
             {
                 mySprite.flipX = false;
             }
@@ -142,7 +153,15 @@ public class EnemyOoze : MonoBehaviour
             if(jumpTimer<=0)
             {
                 jumpTimer = jumpCD;
-                rb.velocity = new Vector3(speed * dir * jumpUp, jumpHeight, 0);
+                if(wallInFront)
+                {
+                    rb.velocity = new Vector3(speed * dir * jumpUp, jumpHeight+2, 0);
+                    wallInFront = false;
+                }
+                else
+                {
+                    rb.velocity = new Vector3(speed * dir * jumpUp, jumpHeight, 0);
+                }
             }
         }
     }
@@ -156,6 +175,7 @@ public class EnemyOoze : MonoBehaviour
         if (died)
         {
             deathExplosion.died = true;
+            soundHandler.Dying();
             died = false;
         }
 
@@ -213,14 +233,6 @@ public class EnemyOoze : MonoBehaviour
                 {
                     stealth = false;
                     mySprite.material = defaultMat;
-                    if (dir < 0)
-                    {
-                        mySprite.flipX = true;
-                    }
-                    else
-                    {
-                        mySprite.flipX = false;
-                    }
                 }
             }
             else
@@ -229,7 +241,6 @@ public class EnemyOoze : MonoBehaviour
                 {
                     hp -= 1;
                     //rb.velocity = new Vector3(5 * -dir, 5, 0);
-                    print("ENEMY HP: " + hp);
                     if (hp <= 0)
                     {
                         dead = true;
@@ -278,6 +289,19 @@ public class EnemyOoze : MonoBehaviour
                 {
                     dir = 0;
                 }
+            }
+
+            if (grounded && !dead)
+            {
+                if (!isSound)
+                {
+                    isSound = true;
+                    soundHandler.Land();
+                }
+            }
+            else
+            {
+                isSound = false;
             }
         }
     }
@@ -331,25 +355,39 @@ public class EnemyOoze : MonoBehaviour
             }
         }
 
+        jumpUp = 1;
+
         RaycastHit2D[] hitsRight;
 
         //Überprüft, ob rechts an der rechten Ecke des Gegners ein Block ist
-        hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y - halfSize + 0.15f), new Vector2(1*dir, 0), halfSize + 0.01f);
-
-        jumpUp = 1;
+        hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y - halfSize + 0.15f), new Vector2(1 * dir, 0), halfSize + 0.01f);
 
         if (hitsRight.Length == 0)
         {
-            rightUp = true;
+            hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y + halfSize - 0.15f), new Vector2(1 * dir, 0), halfSize + 0.01f);
+
+            if (hitsRight.Length == 0)
+            {
+                rightUp = true;
+            }
+            else
+            {
+                if(grounded)
+                {
+                    jumpUp = 0;
+                    wallInFront = true;
+                }
+            }
         }
         else
         {
+            rightUp = false;
             if (grounded)
             {
                 jumpUp = 0;
+                wallInFront = true;
             }
         }
-
 
         /*
         //DEBUGGING DER RAYCASTS FÜR GROUNDED!

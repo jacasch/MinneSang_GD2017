@@ -93,6 +93,7 @@ public class PlayerQuestHandler : MonoBehaviour
         Text questText = tempText.GetComponent<Text>();
         GameObject player = GameObject.Find("player");
         Camera cam = Camera.main;
+        int test = cam.pixelWidth / 2;
 
         // After Mastery
         if (player.GetComponent<PlayerQuestHandler>().activeQuest == "mastered")
@@ -133,6 +134,7 @@ public class PlayerQuestHandler : MonoBehaviour
             // GameObject master = GameObject.Find("master_of_dance");
             int itemLength = player.GetComponent<PlayerQuestHandler>().questItems.Count;
             int font_size = 22;
+            questText.text = "The high master of dance lost all his clothes. Bring him his tiara, his tutu and shoes and maybe he will instruct you in the art of dance. He told you to ask one his students or look around the mainhall.";
 
             for (int i = 0; i < itemLength; i++)
             {
@@ -144,7 +146,7 @@ public class PlayerQuestHandler : MonoBehaviour
                 text.text = questItems[i]; //master.GetComponent<MasterNpc>().quest.itemsToCollect[i];
                 text.fontSize = 18;
                 text.alignment = TextAnchor.LowerCenter;
-                text.transform.position = new Vector2(cam.pixelWidth / 2, (Screen.height / 2 - Screen.height / 7) + i * 25);
+                text.transform.position = new Vector2(test, (Screen.height / 2 - Screen.height / 7) + i * 25);
 
                 if (collectedItems.Contains(player.GetComponent<PlayerQuestHandler>().questItems[i]))
                 {
@@ -152,10 +154,9 @@ public class PlayerQuestHandler : MonoBehaviour
                 }
                 else
                 {
-                    text.color = Color.white;
+                    text.color = Color.black;
                 }
             }
-            questText.text = "The high master of dance lost all his clothes. Bring him his tiara, his tutu and shoes and maybe he will instruct you in the art of dance. He told you to ask one his students or look around the mainhall.";
         }
 
         if (player.GetComponent<PlayerQuestHandler>().activeQuest == "q2")

@@ -27,6 +27,6 @@ public class PaintSplatter : MonoBehaviour {
         //ps.startColor = paintCol;
 
         transform.position = new Vector3(position.x, position.y, 0f);
-        ps.Emit(200);
+        ps.Emit(30);
     }
 }
