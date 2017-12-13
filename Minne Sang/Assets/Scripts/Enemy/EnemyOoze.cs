@@ -38,6 +38,7 @@ public class EnemyOoze : MonoBehaviour
     bool dead = false;
     bool died = false;
     bool respawning = false;
+    bool isSound = false;
 
     int dir = 1;
     float halfSize = 0;  //Für CheckIfGrounded
@@ -63,6 +64,9 @@ public class EnemyOoze : MonoBehaviour
 
     DeathExplosion deathExplosion;
 
+    OozeSoundHandler soundHandler;
+
+    AudioSource audioSource;
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
@@ -79,6 +83,9 @@ public class EnemyOoze : MonoBehaviour
         deathExplosion = transform.Find("DeathExplosion").GetComponent<DeathExplosion>();
 
         animator = GetComponent<Animator>();
+
+        soundHandler = GetComponent<OozeSoundHandler>();
+        audioSource = GetComponent<AudioSource>();
 
         if (stealth)
         {
@@ -168,6 +175,7 @@ public class EnemyOoze : MonoBehaviour
         if (died)
         {
             deathExplosion.died = true;
+            soundHandler.Dying();
             died = false;
         }
 
@@ -281,6 +289,19 @@ public class EnemyOoze : MonoBehaviour
                 {
                     dir = 0;
                 }
+            }
+
+            if (grounded && !dead)
+            {
+                if (!isSound)
+                {
+                    isSound = true;
+                    soundHandler.Land();
+                }
+            }
+            else
+            {
+                isSound = false;
             }
         }
     }
