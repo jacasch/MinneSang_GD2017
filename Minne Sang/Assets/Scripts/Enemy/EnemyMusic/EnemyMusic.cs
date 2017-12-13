@@ -34,6 +34,7 @@ public class EnemyMusic : MonoBehaviour
     bool stealth = false;
     bool stomp = false;
     bool dead = false;
+    bool died = false;
 
     int dir = 1;
 
@@ -58,6 +59,8 @@ public class EnemyMusic : MonoBehaviour
 
     Animator animator;
 
+    DeathExplosion deathExplosion;
+
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
@@ -67,6 +70,8 @@ public class EnemyMusic : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
+
+        deathExplosion = transform.Find("DeathExplosion").GetComponent<DeathExplosion>();
 
         animator = GetComponent<Animator>();
 
@@ -148,6 +153,12 @@ public class EnemyMusic : MonoBehaviour
         enemyDmg.noDmg = true;
         auraDmg.noDmg = true;
 
+        if (died)
+        {
+            deathExplosion.died = true;
+            died = false;
+        }
+
         if (deadTimer > 0)
         {
             deadTimer -= Time.deltaTime;
@@ -171,6 +182,7 @@ public class EnemyMusic : MonoBehaviour
                 dead = false;
                 enemyDmg.noDmg = false;
                 auraDmg.noDmg = false;
+                rb.velocity = new Vector3(0, 0, 0);
                 transform.position = orgPos;
             }
             respawnTimer -= Time.deltaTime;
@@ -181,31 +193,35 @@ public class EnemyMusic : MonoBehaviour
     //Wenn der Player den Gegner angreift
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (stealth)
+        if (!dead)
         {
-            if (collision.gameObject.tag == "Paint")
+            if (stealth)
             {
-                stealth = false;
-                mySprite.material = defaultMat;
-            }
-        }
-        else
-        {
-            if (collision.gameObject.tag == "DmgToEnemy")
-            {
-                hp -= 1;
-                print("MUSIC HP: " + hp);
-                if (hp <= 0)
+                if (collision.gameObject.tag == "Paint")
                 {
-                    dead = true;
-                    deadTimer = deadTime;
-                    respawnTimer = respawnTime;
-                    walkTimer = 0;
+                    stealth = false;
+                    mySprite.material = defaultMat;
                 }
             }
-            if (collision.gameObject.tag == "StunToEnemy")
+            else
             {
-                stunTimer = timeStunned;
+                if (collision.gameObject.tag == "DmgToEnemy")
+                {
+                    hp -= 1;
+                    print("MUSIC HP: " + hp);
+                    if (hp <= 0)
+                    {
+                        dead = true;
+                        died = true;
+                        deadTimer = deadTime;
+                        respawnTimer = respawnTime;
+                        walkTimer = 0;
+                    }
+                }
+                if (collision.gameObject.tag == "StunToEnemy")
+                {
+                    stunTimer = timeStunned;
+                }
             }
         }
     }

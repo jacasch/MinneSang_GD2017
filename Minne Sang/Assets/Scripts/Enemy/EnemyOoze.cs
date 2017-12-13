@@ -35,6 +35,7 @@ public class EnemyOoze : MonoBehaviour
     bool rightUp = false;
     int jumpUp = 1;
     bool dead = false;
+    bool died = false;
 
     int dir = 1;
     float halfSize = 0;  //Für CheckIfGrounded
@@ -58,6 +59,8 @@ public class EnemyOoze : MonoBehaviour
 
     Animator animator;
 
+    DeathExplosion deathExplosion;
+
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
@@ -70,6 +73,8 @@ public class EnemyOoze : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
+
+        deathExplosion = transform.Find("DeathExplosion").GetComponent<DeathExplosion>();
 
         animator = GetComponent<Animator>();
 
@@ -147,6 +152,12 @@ public class EnemyOoze : MonoBehaviour
         enemyDmg.noDmg = true;
         auraDmg.noDmg = true;
 
+        if (died)
+        {
+            deathExplosion.died = true;
+            died = false;
+        }
+
         if (deadTimer > 0)
         {
             deadTimer -= Time.deltaTime;
@@ -171,6 +182,7 @@ public class EnemyOoze : MonoBehaviour
                 animator.SetBool("dead", false);
                 enemyDmg.noDmg = false;
                 auraDmg.noDmg = false;
+                rb.velocity = new Vector3(0, 0, 0);
                 transform.position = orgPos;
             }
             respawnTimer -= Time.deltaTime;
@@ -180,40 +192,49 @@ public class EnemyOoze : MonoBehaviour
     //Wenn der Player den Gegner angreift
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (stealth)
+        if (!dead)
         {
-            if (collision.gameObject.tag == "Paint")
+            if (stealth)
             {
-                stealth = false;
-                mySprite.material = defaultMat;
-                if (dir < 0)
+                if (collision.gameObject.tag == "Paint")
                 {
-                    mySprite.flipX = true;
-                }
-                else
-                {
-                    mySprite.flipX = false;
+                    stealth = false;
+                    mySprite.material = defaultMat;
+                    if (dir < 0)
+                    {
+                        mySprite.flipX = true;
+                    }
+                    else
+                    {
+                        mySprite.flipX = false;
+                    }
                 }
             }
-        }
-        else
-        {
-            if (collision.gameObject.tag == "DmgToEnemy")
+            else
             {
-                hp -= 1;
-                rb.velocity = new Vector3(5 * -dir, 5, 0);
-                print("ENEMY HP: " + hp);
-                if (hp <= 0)
+                if (collision.gameObject.tag == "DmgToEnemy")
                 {
-                    dead = true;
-                    animator.SetBool("dead", true);
-                    deadTimer = deadTime;
-                    respawnTimer = respawnTime;
+                    hp -= 1;
+                    //rb.velocity = new Vector3(5 * -dir, 5, 0);
+                    print("ENEMY HP: " + hp);
+                    if (hp <= 0)
+                    {
+                        dead = true;
+                        died = true;
+                        animator.SetBool("dead", true);
+                        deadTimer = deadTime;
+                        respawnTimer = respawnTime;
+                        rb.velocity = new Vector3(0, 4, 0);
+                    }
+                    else
+                    {
+                        rb.velocity = new Vector3(5 * -dir, 5, 0);
+                    }
                 }
-            }
-            if (collision.gameObject.tag == "StunToEnemy")
-            {
-                stunTimer = timeStunned;
+                if (collision.gameObject.tag == "StunToEnemy")
+                {
+                    stunTimer = timeStunned;
+                }
             }
         }
     }
