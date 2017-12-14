@@ -645,6 +645,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224714559591166454, guid: fd5ac77bb6a57694f9a7e868f65afa12,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 518.45996
+      objectReference: {fileID: 0}
+    - target: {fileID: 224714559591166454, guid: fd5ac77bb6a57694f9a7e868f65afa12,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 267.21002
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fd5ac77bb6a57694f9a7e868f65afa12, type: 2}
   m_IsPrefabParent: 0
@@ -1929,11 +1939,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114832449013302056, guid: a8037e9a3dcec1f4abb2e73954c60756,
-        type: 2}
-      propertyPath: EngageConversation.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4088330343835216, guid: a8037e9a3dcec1f4abb2e73954c60756, type: 2}
       propertyPath: m_LocalPosition.x
       value: -28.33
@@ -1966,16 +1971,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 25
       objectReference: {fileID: 0}
-    - target: {fileID: 224548345488204882, guid: a8037e9a3dcec1f4abb2e73954c60756,
-        type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 536.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 224548345488204882, guid: a8037e9a3dcec1f4abb2e73954c60756,
-        type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 266.34
-      objectReference: {fileID: 0}
     - target: {fileID: 224140307789280526, guid: a8037e9a3dcec1f4abb2e73954c60756,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -1986,21 +1981,16 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: -158.1
       objectReference: {fileID: 0}
-    - target: {fileID: 114832449013302056, guid: a8037e9a3dcec1f4abb2e73954c60756,
+    - target: {fileID: 224548345488204882, guid: a8037e9a3dcec1f4abb2e73954c60756,
         type: 2}
-      propertyPath: EngageConversation.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: d11e42395e7fa204ea9e07ae30e1bc79, type: 3}
-    - target: {fileID: 114832449013302056, guid: a8037e9a3dcec1f4abb2e73954c60756,
+      propertyPath: m_LocalPosition.x
+      value: 536.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 224548345488204882, guid: a8037e9a3dcec1f4abb2e73954c60756,
         type: 2}
-      propertyPath: EngageConversation.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 664519d696ec47945b54bc9a9525753e, type: 3}
-    - target: {fileID: 114832449013302056, guid: a8037e9a3dcec1f4abb2e73954c60756,
-        type: 2}
-      propertyPath: EngageConversation.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 5b95f7b118dd1e84282fcd2a5ddbe9dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 266.34
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8037e9a3dcec1f4abb2e73954c60756, type: 2}
   m_IsPrefabParent: 0
