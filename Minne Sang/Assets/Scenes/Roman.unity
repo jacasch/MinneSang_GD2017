@@ -2507,16 +2507,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114593004290986204, guid: ad1845b7861c4ce48aa55453800e226b,
-        type: 2}
-      propertyPath: singingSound.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114544360260385630, guid: ad1845b7861c4ce48aa55453800e226b,
-        type: 2}
-      propertyPath: screamingSound.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4409299011125814, guid: ad1845b7861c4ce48aa55453800e226b, type: 2}
       propertyPath: m_LocalPosition.x
       value: -11.59
@@ -2548,36 +2538,6 @@ Prefab:
     - target: {fileID: 4409299011125814, guid: ad1845b7861c4ce48aa55453800e226b, type: 2}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114593004290986204, guid: ad1845b7861c4ce48aa55453800e226b,
-        type: 2}
-      propertyPath: screamingSound.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 064a142024b39c640b692fac5e616444, type: 3}
-    - target: {fileID: 114544360260385630, guid: ad1845b7861c4ce48aa55453800e226b,
-        type: 2}
-      propertyPath: screamingSound.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 064a142024b39c640b692fac5e616444, type: 3}
-    - target: {fileID: 114593004290986204, guid: ad1845b7861c4ce48aa55453800e226b,
-        type: 2}
-      propertyPath: singingSound.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 76fd0722191bc05479f2937d92dfa4c0, type: 3}
-    - target: {fileID: 82342211505639000, guid: ad1845b7861c4ce48aa55453800e226b,
-        type: 2}
-      propertyPath: panLevelCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82342211505639000, guid: ad1845b7861c4ce48aa55453800e226b,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82342211505639000, guid: ad1845b7861c4ce48aa55453800e226b,
-        type: 2}
-      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad1845b7861c4ce48aa55453800e226b, type: 2}
