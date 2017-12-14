@@ -149,9 +149,6 @@ public class PlayerStats : MonoBehaviour
         }
         if (/*dmgTimer <= 0 && */poetryBuff <= 0 && collision.gameObject.tag == "PoetryDmgToPlayer")
         {
-
-
-
             //Variables
             EnemyDMG enemyDMG = collision.GetComponent<EnemyDMG>();
 

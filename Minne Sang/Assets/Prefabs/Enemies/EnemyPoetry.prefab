@@ -110,6 +110,8 @@ GameObject:
   - component: {fileID: 4234551942550196}
   - component: {fileID: 58645799239529986}
   - component: {fileID: 114617047576711866}
+  - component: {fileID: 82118783037724840}
+  - component: {fileID: 114618195910162456}
   m_Layer: 11
   m_Name: EnemyPoetryAura
   m_TagString: PoetryDmgToPlayer
@@ -144,8 +146,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4796146467507248}
   - component: {fileID: 61297229273088008}
-  - component: {fileID: 82342211505639000}
-  - component: {fileID: 114593004290986204}
   m_Layer: 11
   m_Name: PoetryDetection
   m_TagString: Detection
@@ -215,7 +215,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1260879086239440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.59, y: 2.98, z: 0}
+  m_LocalPosition: {x: -5.47, y: 2.98, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 4796146467507248}
@@ -374,12 +374,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 3}
   m_EdgeRadius: 0
---- !u!82 &82342211505639000
+--- !u!82 &82118783037724840
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1883018488457228}
+  m_GameObject: {fileID: 1721225850948838}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -607,6 +607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStealth: 0
+  dead: 0
   defaultMat: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   chameleonMat: {fileID: 2100000, guid: 32143037c032fe040860170bba74d8d8, type: 2}
   enemyDmg: {fileID: 114706199621237086}
@@ -626,21 +627,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 62075d9573371a84f850347894ce6144, type: 3}
   - {fileID: 8300000, guid: 6158be01e2860ed4c8cb5181feb3824a, type: 3}
   - {fileID: 8300000, guid: 2b78dd20c22ec1241b4a2c1204c47f22, type: 3}
---- !u!114 &114593004290986204
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1883018488457228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fde0bb02f87f5644a97fe1621d3f2a5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  singingSound:
-  - {fileID: 8300000, guid: 76fd0722191bc05479f2937d92dfa4c0, type: 3}
-  screamingSound:
-  - {fileID: 8300000, guid: 064a142024b39c640b692fac5e616444, type: 3}
 --- !u!114 &114617047576711866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -657,6 +643,22 @@ MonoBehaviour:
   knockback: 0
   noDmg: 0
   timer: 0
+--- !u!114 &114618195910162456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1721225850948838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde0bb02f87f5644a97fe1621d3f2a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singingSound:
+  - {fileID: 8300000, guid: b08de4233946ec24393a1397735d9e22, type: 3}
+  screamingSound:
+  - {fileID: 8300000, guid: 064a142024b39c640b692fac5e616444, type: 3}
+  dead: 0
 --- !u!114 &114706199621237086
 MonoBehaviour:
   m_ObjectHideFlags: 1

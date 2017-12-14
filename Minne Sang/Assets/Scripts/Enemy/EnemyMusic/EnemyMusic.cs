@@ -44,6 +44,7 @@ public class EnemyMusic : MonoBehaviour
     float stunTimer = 0;
     float deadTimer = 0;
     float respawnTimer = 0;
+    float gotDmgTimer = 0;
 
     Vector3 orgPos;
     Vector3 deadPos = new Vector3(1000, 0, 0);
@@ -119,6 +120,10 @@ public class EnemyMusic : MonoBehaviour
             }
             Move();
             Attack();
+        }
+        if (gotDmgTimer > 0)
+        {
+            gotDmgTimer -= Time.deltaTime;
         }
     }
 
@@ -216,7 +221,6 @@ public class EnemyMusic : MonoBehaviour
                 mySprite.material = chameleonMat;
             }
             dead = false;
-            animator.SetBool("dead", false);
             enemyDmg.noDmg = false;
             auraDmg.noDmg = false;
             respawning = false;
@@ -239,9 +243,10 @@ public class EnemyMusic : MonoBehaviour
             }
             else
             {
-                if (collision.gameObject.tag == "DmgToEnemy")
+                if (collision.gameObject.tag == "DmgToEnemy" && gotDmgTimer <= 0)
                 {
                     hp -= 1;
+                    gotDmgTimer = 0.2f;
                     if (hp <= 0)
                     {
                         dead = true;
