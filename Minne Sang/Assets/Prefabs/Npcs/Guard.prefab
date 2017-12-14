@@ -166,8 +166,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.4285715, y: 3.5314286}
-    newSize: {x: 0.1, y: 0.1}
+    oldSize: {x: 4, y: 3}
+    newSize: {x: 4, y: 3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -337,18 +337,18 @@ MonoBehaviour:
     text: "Who\u2019s the lucky one?"
   - spokenByNpc: 0
     messageByPrincess: 0
-    text: "Ohhh\u2026 She\u2019s the fairest of all maiden. Her lips so well formed,
+    text: "Ohhh\u2026 She\u2019s the fairest of all maidens. Her lips so well formed,
       you could never let your eyes glaze further."
   - spokenByNpc: 0
     messageByPrincess: 0
-    text: "Her eyes sparkling like waterfalls after a stormy rain and so tender you
-      will lose yourself in the most vivid color you\u2026"
+    text: "Her eyes sparkling like waterfalls after a storm and so tender you will
+      lose yourself in the most vivid color you\u2026"
   - spokenByNpc: 1
     messageByPrincess: 0
     text: Good God, stop your blabbering!
   - spokenByNpc: 0
     messageByPrincess: 0
-    text: "\u2026Beyond all manner of so much I love her."
+    text: "\u2026Beyond all manner of so much, I love her."
   - spokenByNpc: 1
     messageByPrincess: 0
     text: Although I never felt true love I feel touched by your emotions.
@@ -368,6 +368,7 @@ MonoBehaviour:
     text: Tonilot was built by the one who mastered all the high arts. He had the
       title of a polymath.
   autoStart: 1
+  EngageConversation: []
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0
@@ -465,12 +466,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 542bf0d3249b3a847b7b0449ea9e6d1a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0fc540d9dde9d034f8f81bb4e20a3771, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.1, y: 0.1}
+  m_Size: {x: 4, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

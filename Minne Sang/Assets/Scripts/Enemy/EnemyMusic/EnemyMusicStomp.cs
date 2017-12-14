@@ -30,7 +30,7 @@ public class EnemyMusicStomp : MonoBehaviour
     {
         colSize();
         liveTime -= Time.deltaTime;
-        if (liveTime <= 0)
+        if (length >= lengthMax)
         {
             Destroy(gameObject);
         }

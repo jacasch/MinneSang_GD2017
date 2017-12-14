@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 61755263920972248}
   - component: {fileID: 50057320275038572}
   - component: {fileID: 95267107130005370}
+  - component: {fileID: 82979113659988004}
   m_Layer: 10
   m_Name: Nathalie
   m_TagString: Untagged
@@ -191,7 +192,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.333333, y: 4}
+    oldSize: {x: 5.3333335, y: 4}
     newSize: {x: 5.333333, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -200,6 +201,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2124023, y: 2.9453232}
   m_EdgeRadius: 0
+--- !u!82 &82979113659988004
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1424339416338768}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95267107130005370
 Animator:
   serializedVersion: 3
@@ -263,6 +344,10 @@ MonoBehaviour:
       an insanely powerful artefact up in the high tower. But that was hundreds of
       years ago.
   autoStart: 0
+  EngageConversation:
+  - {fileID: 8300000, guid: 0d250510f3e62924c97c5d477f110957, type: 3}
+  - {fileID: 8300000, guid: 22da72c31075e1e43a65382482de2ca7, type: 3}
+  - {fileID: 8300000, guid: 2bb45df69e119d44e81e9b81a4022405, type: 3}
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0

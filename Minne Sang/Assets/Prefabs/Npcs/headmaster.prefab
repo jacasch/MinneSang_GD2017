@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 61711534535427856}
   - component: {fileID: 50816228826012984}
   - component: {fileID: 95155989324225844}
+  - component: {fileID: 82937631828973592}
   m_Layer: 10
   m_Name: headmaster
   m_TagString: Untagged
@@ -200,6 +201,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9841268, y: 3.4807806}
   m_EdgeRadius: 0
+--- !u!82 &82937631828973592
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1924951492777918}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95155989324225844
 Animator:
   serializedVersion: 3
@@ -235,6 +316,10 @@ MonoBehaviour:
     messageByPrincess: 0
     text: ' '
   autoStart: 1
+  EngageConversation:
+  - {fileID: 8300000, guid: 15dcf67140fa27d45a3f798458891eb4, type: 3}
+  - {fileID: 8300000, guid: 70ba0a49a14b62d4bad21e9d1c5548a3, type: 3}
+  - {fileID: 8300000, guid: aef300209cc33674db5f2daafec4a778, type: 3}
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0
@@ -257,8 +342,8 @@ MonoBehaviour:
       text: My kind?
     - spokenByNpc: 1
       messageByPrincess: 0
-      text: Nothing. (Why do only love drunken fools enter this academy?) I presume
-        you want to master one of the high arts.
+      text: Nothing. <size=15>*Why do only love drunken fools enter this academy?*</size>
+        I presume you want to master one of the high arts.
     - spokenByNpc: 0
       messageByPrincess: 0
       text: 'I want to master them all! '
@@ -280,8 +365,8 @@ MonoBehaviour:
         high masters."
     - spokenByNpc: 1
       messageByPrincess: 0
-      text: "They\u2019ll be your teachers. You\u2019ll find them in their studies
-        scattered around the castle. "
+      text: "They\u2019ll be your teachers. You\u2019ll find them in their respective
+        areas  scattered around the castle. "
     - spokenByNpc: 1
       messageByPrincess: 0
       text: 'Go now and leave me to my work. '

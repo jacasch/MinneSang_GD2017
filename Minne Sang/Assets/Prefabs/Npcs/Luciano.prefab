@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 61275958163399174}
   - component: {fileID: 50116049972145448}
   - component: {fileID: 95925403484652328}
+  - component: {fileID: 82579883495867814}
   m_Layer: 10
   m_Name: Luciano
   m_TagString: Untagged
@@ -200,6 +201,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7090912, y: 2.3282318}
   m_EdgeRadius: 0
+--- !u!82 &82579883495867814
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1669141758501466}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95925403484652328
 Animator:
   serializedVersion: 3
@@ -358,6 +439,10 @@ MonoBehaviour:
     messageByPrincess: 0
     text: I speak five languages. Now I'm learning the language of music.
   autoStart: 0
+  EngageConversation:
+  - {fileID: 8300000, guid: 61a43196316326640bd8e4d4a17ac37f, type: 3}
+  - {fileID: 8300000, guid: e47e736cbe80d494a94b4efeeec19376, type: 3}
+  - {fileID: 8300000, guid: 0859a53ab7b7f2f44b5a83bca7d78b62, type: 3}
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0

@@ -51,7 +51,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1930698471888836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.56, y: -1.43, z: -0.27997598}
+  m_LocalPosition: {x: -30.62, y: -5.3, z: -0.27997598}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4882709542411746}
@@ -65,8 +65,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1961895488693082}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.127, y: -1.091, z: 0}
-  m_LocalScale: {x: 28.18508, y: 36.302242, z: 1}
+  m_LocalPosition: {x: -0.11, y: -1.301, z: 0}
+  m_LocalScale: {x: 0.6959263, y: 0.6959263, z: 0.6959263}
   m_Children: []
   m_Father: {fileID: 4041441808170672}
   m_RootOrder: 0
@@ -107,9 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18916bfd1505024f8ede2bdf868372c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: start
-  destinationScene: Jan 1
-  destinationDoor: start
+  name: MainHallDoorMusic
+  destinationScene: Mainhall
+  destinationDoor: Music
 --- !u!212 &212121543155419460
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -144,8 +144,8 @@ SpriteRenderer:
   m_SortingLayerID: 1010627953
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 82ceb57a7df600d47ad74e5265fe5b07, type: 3}
-  m_Color: {r: 0.44852942, g: 0.42050773, b: 0.19458261, a: 1}
+  m_Sprite: {fileID: 21300000, guid: d6f2fab260b48654ba5cfc6b714ab471, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -65,7 +65,6 @@ public class PlayerSoundHandler : MonoBehaviour {
     #endregion
 
     private int PlaySound(AudioClip[] sound, int lastPlayedIndex) {
-        print(sound[0].name);
         if (sound[0] == null) {
             Debug.Log("exit");
             return 0;
