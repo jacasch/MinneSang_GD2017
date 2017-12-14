@@ -17,7 +17,7 @@ public class EnemyOoze : MonoBehaviour
     int hpMax = 2;  //MAX HP des Gegners
     int speed = 5;  //Geschwindigkeit des Gegners
     int jumpHeight = 7;  //Sprunghöhe
-    float dist = 0.5f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
+    float dist = 0.25f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float jumpCD = 0.2f;  //Zeit bis der Sprung nach der Landung erneut ausgeführt wird
     float timeStunned = 3;  //Zeit die der Gegner gestunnt ist wenn er gestunnt wird
     float deadTime = 0.75f;  //Zeit bis der Gegner nach dem Tot verschwindet

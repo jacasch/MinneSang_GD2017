@@ -70,7 +70,6 @@ public class DanceRangeSound : MonoBehaviour
 
     private int PlaySound(AudioClip[] sound, int lastPlayedIndex)
     {
-        print(sound[0].name);
         if (sound[0] == null)
         {
             Debug.Log("exit");
@@ -78,7 +77,6 @@ public class DanceRangeSound : MonoBehaviour
         }
 
         int newSound = lastPlayedIndex;
-        print("lastplayed: " + lastPlayedIndex);
 
         if (sound.Length == 1)
         {
