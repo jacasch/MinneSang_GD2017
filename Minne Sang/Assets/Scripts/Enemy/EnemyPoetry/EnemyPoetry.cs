@@ -29,7 +29,7 @@ public class EnemyPoetry : MonoBehaviour
 
     bool move = false;
     bool stealth = false;
-    bool dead = false;
+    public bool dead = false;
     bool died = false;
     bool respawning = false;
 
@@ -38,6 +38,7 @@ public class EnemyPoetry : MonoBehaviour
     float stunTimer = 0;
     float deadTimer = 0;
     float respawnTimer = 0;
+    float gotDmgTimer = 0;
 
     Vector3 orgPos;
     Vector3 deadPos = new Vector3(1000, 0, 0);
@@ -106,6 +107,10 @@ public class EnemyPoetry : MonoBehaviour
                 Move();
             }
         }
+        if (gotDmgTimer > 0)
+        {
+            gotDmgTimer -= Time.deltaTime;
+        }
     }
 
     //Movement des Gegners
@@ -130,6 +135,7 @@ public class EnemyPoetry : MonoBehaviour
 
         if (died)
         {
+            transform.Find("EnemyPoetryAura").GetComponent<PoetryRangeSound>().dead = true;
             deathExplosion.died = true;
             audioSource.loop = false;
             soundHandler.Dying();
@@ -172,6 +178,7 @@ public class EnemyPoetry : MonoBehaviour
                 mySprite.material = chameleonMat;
             }
             dead = false;
+            transform.Find("EnemyPoetryAura").GetComponent<PoetryRangeSound>().dead = false;
             animator.SetBool("dead", false);
             enemyDmg.noDmg = false;
             auraDmg.noDmg = false;
@@ -195,9 +202,10 @@ public class EnemyPoetry : MonoBehaviour
             }
             else
             {
-                if (collision.gameObject.tag == "DmgToEnemy")
+                if (collision.gameObject.tag == "DmgToEnemy" && gotDmgTimer<=0)
                 {
                     hp -= 1;
+                    gotDmgTimer = 0.2f;
                     if (hp <= 0)
                     {
                         dead = true;

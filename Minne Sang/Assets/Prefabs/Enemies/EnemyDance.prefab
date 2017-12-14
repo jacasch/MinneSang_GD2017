@@ -434,7 +434,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8005d955c52dd6c449f7072f5bbe3d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dancingSound: []
+  dancingSound:
+  - {fileID: 8300000, guid: a1e533b6fd6691a40b93fc38eff5a638, type: 3}
   enflameSound:
   - {fileID: 8300000, guid: bee0f973640b54e44a5a78a1149a5f6a, type: 3}
   explodingSound:

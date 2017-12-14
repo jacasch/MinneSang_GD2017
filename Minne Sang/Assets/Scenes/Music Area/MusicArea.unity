@@ -279,7 +279,7 @@ TilemapRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 96630979}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -113303,11 +113303,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4362171465173936, guid: 5b575cd53dc766a48813123fc8a35225, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 43.22
+      value: 22.46
       objectReference: {fileID: 0}
     - target: {fileID: 4362171465173936, guid: 5b575cd53dc766a48813123fc8a35225, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -13.17
+      value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: 4362171465173936, guid: 5b575cd53dc766a48813123fc8a35225, type: 2}
       propertyPath: m_LocalPosition.z
@@ -113336,12 +113336,12 @@ Prefab:
     - target: {fileID: 224408057872381382, guid: 5b575cd53dc766a48813123fc8a35225,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 755.78
+      value: 776.54
       objectReference: {fileID: 0}
     - target: {fileID: 224408057872381382, guid: 5b575cd53dc766a48813123fc8a35225,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 462.67
+      value: 449.03
       objectReference: {fileID: 0}
     - target: {fileID: 212005656879000462, guid: 5b575cd53dc766a48813123fc8a35225,
         type: 2}
@@ -113482,7 +113482,7 @@ SpriteRenderer:
   m_Size: {x: 109.00001, y: 77.00001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &247065438
 Transform:
@@ -113555,7 +113555,7 @@ SpriteRenderer:
   m_Size: {x: 105.00001, y: 38.000004}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &252730165
 Transform:
@@ -113785,6 +113785,27 @@ Prefab:
     - target: {fileID: 1929451019562650, guid: 9781bbf9350d9ac48a2ea475f57c6f6f, type: 2}
       propertyPath: m_Name
       value: EnemyDance (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114651250949541790, guid: 9781bbf9350d9ac48a2ea475f57c6f6f,
+        type: 2}
+      propertyPath: dropItem
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114651250949541790, guid: 9781bbf9350d9ac48a2ea475f57c6f6f,
+        type: 2}
+      propertyPath: questName
+      value: q3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114651250949541790, guid: 9781bbf9350d9ac48a2ea475f57c6f6f,
+        type: 2}
+      propertyPath: questDrop.drop
+      value: 
+      objectReference: {fileID: 1426578588911374, guid: 621cea58aa74f96438f4655dad05301a,
+        type: 2}
+    - target: {fileID: 114651250949541790, guid: 9781bbf9350d9ac48a2ea475f57c6f6f,
+        type: 2}
+      propertyPath: questDrop.name
+      value: MusicSheet3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9781bbf9350d9ac48a2ea475f57c6f6f, type: 2}
@@ -116893,6 +116914,16 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 114807568958910834, guid: 1e88cddcd788bea4c8332d4b4bb8af6a,
+        type: 2}
+      propertyPath: activeAct
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807568958910834, guid: 1e88cddcd788bea4c8332d4b4bb8af6a,
+        type: 2}
+      propertyPath: activeQuest
+      value: q3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
   m_IsPrefabParent: 0
@@ -117184,7 +117215,7 @@ SpriteRenderer:
   m_Size: {x: 105.00001, y: 38.000004}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &494792122
 Transform:
@@ -117287,6 +117318,27 @@ Prefab:
     - target: {fileID: 1929451019562650, guid: 9781bbf9350d9ac48a2ea475f57c6f6f, type: 2}
       propertyPath: m_Name
       value: EnemyDance (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114651250949541790, guid: 9781bbf9350d9ac48a2ea475f57c6f6f,
+        type: 2}
+      propertyPath: questDrop.drop
+      value: 
+      objectReference: {fileID: 1071217217172814, guid: 62f90c347ecd2194f96d5f9405fe1060,
+        type: 2}
+    - target: {fileID: 114651250949541790, guid: 9781bbf9350d9ac48a2ea475f57c6f6f,
+        type: 2}
+      propertyPath: questDrop.name
+      value: MusicSheet2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114651250949541790, guid: 9781bbf9350d9ac48a2ea475f57c6f6f,
+        type: 2}
+      propertyPath: dropItem
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114651250949541790, guid: 9781bbf9350d9ac48a2ea475f57c6f6f,
+        type: 2}
+      propertyPath: questName
+      value: q3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9781bbf9350d9ac48a2ea475f57c6f6f, type: 2}
@@ -117550,7 +117602,7 @@ SpriteRenderer:
   m_Size: {x: 71, y: 105.99999}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &812142278
 Transform:
@@ -117686,7 +117738,7 @@ SpriteRenderer:
   m_Size: {x: 71, y: 105.99999}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &840703847
 Transform:
@@ -117997,13 +118049,18 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114646318222291044, guid: 47ff18414a0440d4392baaa2e008c083,
+        type: 2}
+      propertyPath: quest.itemsToCollect.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4371413183073688, guid: 47ff18414a0440d4392baaa2e008c083, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 24.26
+      value: 11.81
       objectReference: {fileID: 0}
     - target: {fileID: 4371413183073688, guid: 47ff18414a0440d4392baaa2e008c083, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.05
+      value: -8.1
       objectReference: {fileID: 0}
     - target: {fileID: 4371413183073688, guid: 47ff18414a0440d4392baaa2e008c083, type: 2}
       propertyPath: m_LocalPosition.z
@@ -118032,12 +118089,12 @@ Prefab:
     - target: {fileID: 224761622451546310, guid: 47ff18414a0440d4392baaa2e008c083,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 774.74
+      value: 787.19
       objectReference: {fileID: 0}
     - target: {fileID: 224761622451546310, guid: 47ff18414a0440d4392baaa2e008c083,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 448.45
+      value: 457.6
       objectReference: {fileID: 0}
     - target: {fileID: 114646318222291044, guid: 47ff18414a0440d4392baaa2e008c083,
         type: 2}
@@ -118063,6 +118120,26 @@ Prefab:
         type: 2}
       propertyPath: m_SortingLayer
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114646318222291044, guid: 47ff18414a0440d4392baaa2e008c083,
+        type: 2}
+      propertyPath: quest.itemsToCollect.Array.data[1]
+      value: MusicSheet2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114646318222291044, guid: 47ff18414a0440d4392baaa2e008c083,
+        type: 2}
+      propertyPath: quest.itemsToCollect.Array.data[2]
+      value: MusicSheet3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114646318222291044, guid: 47ff18414a0440d4392baaa2e008c083,
+        type: 2}
+      propertyPath: quest.itemsToCollect.Array.data[3]
+      value: MusicSheet4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114646318222291044, guid: 47ff18414a0440d4392baaa2e008c083,
+        type: 2}
+      propertyPath: quest.itemsToCollect.Array.data[4]
+      value: MusicSheet5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47ff18414a0440d4392baaa2e008c083, type: 2}
@@ -118481,11 +118558,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4041441808170672, guid: 12db9a93837c0304198da223b4e3e834, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 16.34
+      value: 29.43
       objectReference: {fileID: 0}
     - target: {fileID: 4041441808170672, guid: 12db9a93837c0304198da223b4e3e834, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: -3.81
       objectReference: {fileID: 0}
     - target: {fileID: 4041441808170672, guid: 12db9a93837c0304198da223b4e3e834, type: 2}
       propertyPath: m_LocalPosition.z
@@ -119130,7 +119207,7 @@ SpriteRenderer:
   m_Size: {x: 108.99999, y: 77}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &1685370377
 Transform:
@@ -119761,6 +119838,27 @@ Prefab:
       propertyPath: m_Name
       value: EnemyDance (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 114651250949541790, guid: 9781bbf9350d9ac48a2ea475f57c6f6f,
+        type: 2}
+      propertyPath: dropItem
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114651250949541790, guid: 9781bbf9350d9ac48a2ea475f57c6f6f,
+        type: 2}
+      propertyPath: questName
+      value: q3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114651250949541790, guid: 9781bbf9350d9ac48a2ea475f57c6f6f,
+        type: 2}
+      propertyPath: questDrop.drop
+      value: 
+      objectReference: {fileID: 1071217217172814, guid: 62f90c347ecd2194f96d5f9405fe1060,
+        type: 2}
+    - target: {fileID: 114651250949541790, guid: 9781bbf9350d9ac48a2ea475f57c6f6f,
+        type: 2}
+      propertyPath: questDrop.name
+      value: MusicSheet4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9781bbf9350d9ac48a2ea475f57c6f6f, type: 2}
   m_IsPrefabParent: 0
@@ -119940,6 +120038,27 @@ Prefab:
     - target: {fileID: 1929451019562650, guid: 9781bbf9350d9ac48a2ea475f57c6f6f, type: 2}
       propertyPath: m_Name
       value: EnemyDance (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114651250949541790, guid: 9781bbf9350d9ac48a2ea475f57c6f6f,
+        type: 2}
+      propertyPath: dropItem
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114651250949541790, guid: 9781bbf9350d9ac48a2ea475f57c6f6f,
+        type: 2}
+      propertyPath: questName
+      value: q3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114651250949541790, guid: 9781bbf9350d9ac48a2ea475f57c6f6f,
+        type: 2}
+      propertyPath: questDrop.drop
+      value: 
+      objectReference: {fileID: 1071217217172814, guid: 62f90c347ecd2194f96d5f9405fe1060,
+        type: 2}
+    - target: {fileID: 114651250949541790, guid: 9781bbf9350d9ac48a2ea475f57c6f6f,
+        type: 2}
+      propertyPath: questDrop.name
+      value: MusicSheet5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9781bbf9350d9ac48a2ea475f57c6f6f, type: 2}
