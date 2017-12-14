@@ -28,13 +28,17 @@ public class Npc : MonoBehaviour {
 
     private float ratio;
 
+    public List<AudioClip> EngageConversation = new List<AudioClip>();
+    private AudioSource source;
+    private int lastSoundIndex = -1;
+
+
     [HideInInspector]
     public GameObject player;
     [HideInInspector]
     public Phrase activePhrase;
     [HideInInspector]
     public int activePhraseIndex;
-
 
     // Use this for initialization
     void Start () {
@@ -46,12 +50,14 @@ public class Npc : MonoBehaviour {
         npcNameBox.text = npcName;
         textTransform = textObject.GetComponent<RectTransform>();
         textObject.SetActive(false);
+        // Audio lines
         //activePhrase = randomLines[0];
         Initialize();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        source = GetComponent<AudioSource>();
 
 
         if (inRange) {
@@ -132,6 +138,8 @@ public class Npc : MonoBehaviour {
         Camera.main.GetComponent<CameraMovement>().ZoomIn(transform.position);
         textObject.SetActive(true);
         lastTalk = 0;
+
+        engageSound();
     }
 
     private void autoStartConvo() {
@@ -146,7 +154,17 @@ public class Npc : MonoBehaviour {
         }
     }
 
-private void Interact() {
+    private void engageSound()
+    {
+        int soundIndex;
+        do {
+            soundIndex  = Random.Range(0, EngageConversation.Count);
+        } while (lastSoundIndex == soundIndex && EngageConversation.Count >= 2);
+        source.PlayOneShot(EngageConversation[soundIndex]);
+        lastSoundIndex = soundIndex;
+    }
+
+    private void Interact() {
         Talk(activePhrase);
         //check if we are ready to check for the next phrase
         if (lastTalk > talkDelay) {

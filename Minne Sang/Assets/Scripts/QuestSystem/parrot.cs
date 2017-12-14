@@ -38,7 +38,7 @@ public class Parrot : Npc
                 player.GetComponent<PlayerQuestHandler>().letterSend = true;
                 //player.GetComponent<PlayerQuestHandler>().optionToSendLetters = false;
 
-                parrot = GameObject.Find("parrot");
+                parrot = GameObject.Find("Parrot Parent/parrot");
                 Animator animator = parrot.GetComponent<Animator>();
 
                 if (player.GetComponent<PlayerQuestHandler>().letterSend == true)
