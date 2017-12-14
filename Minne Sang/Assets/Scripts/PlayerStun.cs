@@ -44,7 +44,7 @@ public class PlayerStun : MonoBehaviour
     {
         if (repeatTimer < 0)
         {
-            if (Input.GetAxis("Stun") != 0 && playerGui.skillLevel >= 3)
+            if (Input.GetAxis("Stun") != 0 && playerGui.skillLevel >= 3 && !GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().dead)
             {
                 animator.SetBool("CastingMusic", true);
                 castTimer += Time.deltaTime;

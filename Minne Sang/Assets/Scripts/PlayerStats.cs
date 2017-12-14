@@ -37,6 +37,8 @@ public class PlayerStats : MonoBehaviour
         if (dead)
         {
             print("dead");
+
+            poetryBuff = -1;
             if (!deathAnimationStarted)
             {
                 print("dead anim started");
@@ -73,9 +75,10 @@ public class PlayerStats : MonoBehaviour
 
     void poetry()
     {
-        if(poetryBuff < -poetryCD)
+        //print(poetryBuff);
+        if (poetryBuff < -poetryCD)
         {
-            if (Input.GetAxis("Poetry") != 0 && playerGui.skillLevel >= 4)
+            if (Input.GetAxis("Poetry") != 0 && playerGui.skillLevel >= 4 && !GetComponent<PlayerController>().dead)
             {
                 animator.SetBool("CastingPoetry", true);
                 if (!playedPoetrySound)
@@ -86,7 +89,6 @@ public class PlayerStats : MonoBehaviour
                 }
                 
                 poetryCasting += Time.deltaTime;
-                //print(poetryCasting);
                 if (poetryCasting >= poetryCastTime)
                 {
                     poetryBuff = poetryTime;
@@ -103,6 +105,7 @@ public class PlayerStats : MonoBehaviour
                 playedPoetrySound = false;
             }
         }
+
         else
         {
             poetryCasting = 0;

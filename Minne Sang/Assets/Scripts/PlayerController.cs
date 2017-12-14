@@ -126,7 +126,7 @@ public class PlayerController : PhysicsObject {
             tr.enabled = true;
             dashTimer = dashDuration;            
         }
-        if (dashing) {
+        if (dashing && !knockedBack) {
             animator.SetBool("Dashing", true);
             dashTimer -= Time.deltaTime;
             if (dashTimer > 0)

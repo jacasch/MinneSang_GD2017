@@ -11,6 +11,7 @@ public class PlayerSpawnHandler : MonoBehaviour {
     public bool switched = false;
     private Door[] doors;
     private SpawnPoint[] spawnPoints;
+    private PlayerStats ps;
 
 
     private void Start()
@@ -26,6 +27,7 @@ public class PlayerSpawnHandler : MonoBehaviour {
                 //Camera.main.GetComponent<CameraMovement>().player = p;
             }
         }
+        ps = GetComponent<PlayerStats>();
     }
 
     private void OnLevelWasLoaded(int level)
@@ -61,5 +63,6 @@ public class PlayerSpawnHandler : MonoBehaviour {
         SceneManager.LoadScene(targetScene,LoadSceneMode.Single);
         PlayerController pc = GetComponent<PlayerController>();
         pc.inNpcZone = false;
+        Debug.Log("poetry cast time reset");
     }
 }
