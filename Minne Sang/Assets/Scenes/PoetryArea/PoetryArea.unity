@@ -68593,7 +68593,7 @@ Prefab:
     - target: {fileID: 224823084311599514, guid: 1e88cddcd788bea4c8332d4b4bb8af6a,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 100.79611
+      value: 75.546326
       objectReference: {fileID: 0}
     - target: {fileID: 224052034470056556, guid: 1e88cddcd788bea4c8332d4b4bb8af6a,
         type: 2}
@@ -68603,7 +68603,7 @@ Prefab:
     - target: {fileID: 224052034470056556, guid: 1e88cddcd788bea4c8332d4b4bb8af6a,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.248886
+      value: -28.498657
       objectReference: {fileID: 0}
     - target: {fileID: 224052935549467338, guid: 1e88cddcd788bea4c8332d4b4bb8af6a,
         type: 2}
@@ -70174,6 +70174,11 @@ Prefab:
         type: 2}
       propertyPath: quest.itemsToCollect.Array.data[3]
       value: Ink4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114266421281043744, guid: 460d767680337a044b79adf90a83e56b,
+        type: 2}
+      propertyPath: quest.name
+      value: q4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 460d767680337a044b79adf90a83e56b, type: 2}

@@ -103,16 +103,38 @@ public class PlayerQuestHandler : MonoBehaviour
 
         string itemQuest = "";
 
-        // After Mastery
-        if (player.GetComponent<PlayerQuestHandler>().activeQuest == "mastered")
+        // START
+        if (player.GetComponent<PlayerQuestHandler>().activeQuest == "mastered" && player.GetComponent<PlayerQuestHandler>().activeAct == -1)
         {
-            questText.text = "To master the high arts go and speak to the Headmaster";
+            questText.text = "You came to Tonilot to master the high arts. To accomplish this task you must speak with the Headmaster first.";
+        }
+
+        // After Skill Mastery
+        if (player.GetComponent<PlayerQuestHandler>().activeQuest == "mastered" && player.GetComponent<PlayerQuestHandler>().activeAct == 0)
+        {
+            questText.text = "Master the swan dash and escape the dungeon! Use (B) to dash. You can use this to avoid the exploding dancers and cover great distances.";
+        }
+
+        if (player.GetComponent<PlayerQuestHandler>().activeQuest == "mastered" && player.GetComponent<PlayerQuestHandler>().activeAct == 1)
+        {
+            questText.text = "Colour bombs can show you things you could not see before. You will need to practise to be able to escape this dungeon. Use the left Joystick to aim and (Y) to throw the colour bombs.";
+        }
+
+
+        if (player.GetComponent<PlayerQuestHandler>().activeQuest == "mastered" && player.GetComponent<PlayerQuestHandler>().activeAct == 2)
+        {
+            questText.text = "Play the powerful trumpet to break barriers and send ogres to sleep temporarily. Hold (RB) to play your tunes.";
+        }
+
+        if (player.GetComponent<PlayerQuestHandler>().activeQuest == "mastered" && player.GetComponent<PlayerQuestHandler>().activeAct == 3)
+        {
+            questText.text = "With the poetic manipulation of words, you can now shield yourself from the violent shrieks of the dreaded sirene. Hold (LB) to activate the aura of self respect.";
         }
 
         // After End
         if (player.GetComponent<PlayerQuestHandler>().activeQuest == "end")
         {
-            questText.text = "You mastered all the arts. They even call you the polymath. But you believe you lack something. So you set out to find the perfect gift for the perfect woman.";
+            questText.text = "You have mastered all the arts! You have never been closer to obtaining the love of your dear princess. But you are missing one thing. Your final task is to obtain the unobtainable. The tower challenges you.";
         }
 
         // After talking to Headmaster in different Acts
@@ -123,12 +145,12 @@ public class PlayerQuestHandler : MonoBehaviour
 
         if (player.GetComponent<PlayerQuestHandler>().activeQuest == "running" && player.GetComponent<PlayerQuestHandler>().activeAct == 1)
         {
-            questText.text = "You've mastered the art of dance. Next up: Fine arts!";
+            questText.text = "You have mastered the art of dance. For your next task, the fine arts!";
         }
 
         if (player.GetComponent<PlayerQuestHandler>().activeQuest == "running" && player.GetComponent<PlayerQuestHandler>().activeAct == 2)
         {
-            questText.text = "You've mastered fine arts and dance. You're next challenge will be the art of music!";
+            questText.text = "You have mastered the fine arts and dance. Your next challenge will be the art of music!";
         }
 
         if (player.GetComponent<PlayerQuestHandler>().activeQuest == "running" && player.GetComponent<PlayerQuestHandler>().activeAct == 3)
@@ -168,7 +190,7 @@ public class PlayerQuestHandler : MonoBehaviour
                 //text.transform.localScale = new Vector3(1, 1, 1);
 
             
-                questText.text = "The high master of dance lost all his clothes. Bring him his tiara, his tutu and shoes and maybe he will instruct you in the art of dance. He told you to ask one his students or look around the mainhall.\n" + itemQuest;
+                questText.text = "The high master of dance has lost his clothes. You must take to him his tiara, tutu and shoes, so that he may instruct you in the art of dance. Students in the dance area or main hall may have them. Look around and talk.\n" + itemQuest;
             }
         }
 
@@ -189,7 +211,7 @@ public class PlayerQuestHandler : MonoBehaviour
 
                 itemQuest = itemQuest + "\n" + itemColor + questItems[i] + "</color>";
             }
-            questText.text = "The fine arts master is in need of a new brush. Craft him one from the finest horse hair and a splendid piece of wood!\n" + itemQuest;
+            questText.text = "You must craft a brush from the finest horse hair and the best wood you can find. The music area might have what you are looking for but you doubt that there are horses inside of the castle.\n" + itemQuest;
         }
 
         if (player.GetComponent<PlayerQuestHandler>().activeQuest == "q3")
@@ -214,7 +236,7 @@ public class PlayerQuestHandler : MonoBehaviour
                 itemColor = "<color=#000000ff>";
             }
 
-            questText.text = "The high master of music lost his music sheets to the devious dancers and one of his absent minded students. Retrieve them!\n\n"+ itemColor+"Music sheets to collect: " + numberOfItems + "/" + itemLength + "</color>";
+            questText.text = "The high master of music lost his music sheets to the devious dancers and one of his absent minded students. Retrieve them in the music area.\n\n" + itemColor+"Music sheets to collect: " + numberOfItems + "/" + itemLength + "</color>";
         }
 
         if (player.GetComponent<PlayerQuestHandler>().activeQuest == "q4")
@@ -240,7 +262,7 @@ public class PlayerQuestHandler : MonoBehaviour
                 itemColor = "<color=#000000ff>";
             }
 
-            questText.text = "The high master of poetry needs ink to finish his poem. Only then will he teach you. Milk some squids an bring him the liquid of his desire!\n\n"+ itemColor+"Ink to collect: " + numberOfItems + " / " + itemLength + "</color>";
+            questText.text = "The high master of poetry needs ink to finish his poem. Only then will he be able to teach you how to be a wordsmith. Milk some squids an bring him the liquid of his desire!\n\n" + itemColor+"Ink to collect: " + numberOfItems + " / " + itemLength + "</color>";
         }
     }
 

@@ -25,7 +25,7 @@ public class EnemyPaint : MonoBehaviour
     //Questereignisse
     string activeQuest;
     public bool dropItem = false;
-    public string questName = "";
+    string questName = "q4";
     public Item questDrop;
     bool dropped = false;
 
@@ -77,7 +77,6 @@ public class EnemyPaint : MonoBehaviour
         orgPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
         objPlayer = GameObject.FindGameObjectWithTag("Player");
-        activeQuest = objPlayer.GetComponent<PlayerQuestHandler>().activeQuest;
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
 
@@ -217,6 +216,7 @@ public class EnemyPaint : MonoBehaviour
 
         if (died)
         {
+            activeQuest = objPlayer.GetComponent<PlayerQuestHandler>().activeQuest;
             deathExplosion.died = true;
             soundHandler.Dying();
             died = false;
@@ -232,8 +232,11 @@ public class EnemyPaint : MonoBehaviour
         {
             if (dropItem && !dropped)
             {
+                print("dropItem && dropped = True");
+                print("activequeset: " + activeQuest + "|| questName: " + questName);
                 if (activeQuest == questName)
                 {
+                    print("success!!!");
                     GameObject drop = Instantiate(questDrop.drop, transform.position, transform.rotation);
                     drop.GetComponent<ItemHandler>().SetName(questDrop.name);
                     dropped = true;
