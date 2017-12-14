@@ -32,7 +32,6 @@ public class EnemyPoetry : MonoBehaviour
     bool dead = false;
     bool died = false;
     bool respawning = false;
-    bool isSound = false;
 
     int dir = 0;
 
@@ -132,7 +131,6 @@ public class EnemyPoetry : MonoBehaviour
         if (died)
         {
             deathExplosion.died = true;
-            isSound = false;
             audioSource.loop = false;
             soundHandler.Dying();
             died = false;
@@ -248,12 +246,6 @@ public class EnemyPoetry : MonoBehaviour
                     animator.SetBool("move", false);
                 }
             }
-            if (!isSound && !dead)
-            {
-                audioSource.loop = true;
-                soundHandler.Screaming();
-                isSound = true;
-            }
         }
     }
 
@@ -265,8 +257,6 @@ public class EnemyPoetry : MonoBehaviour
         if (other.tag == "Player")
         {
             move = false;
-            isSound = false;
-            audioSource.loop = false;
             animator.SetBool("move", false);
         }
     }
