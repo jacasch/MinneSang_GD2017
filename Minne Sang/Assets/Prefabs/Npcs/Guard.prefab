@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 61172338324833804}
   - component: {fileID: 50786881838986032}
   - component: {fileID: 95317326974731426}
+  - component: {fileID: 82723800071872700}
   m_Layer: 10
   m_Name: Guard
   m_TagString: Untagged
@@ -200,6 +201,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.0839434, y: 2.5786138}
   m_EdgeRadius: 0
+--- !u!82 &82723800071872700
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1303559982535268}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95317326974731426
 Animator:
   serializedVersion: 3
@@ -368,7 +449,10 @@ MonoBehaviour:
     text: Tonilot was built by the one who mastered all the high arts. He had the
       title of a polymath.
   autoStart: 1
-  EngageConversation: []
+  EngageConversation:
+  - {fileID: 8300000, guid: d11e42395e7fa204ea9e07ae30e1bc79, type: 3}
+  - {fileID: 8300000, guid: 664519d696ec47945b54bc9a9525753e, type: 3}
+  - {fileID: 8300000, guid: 5b95f7b118dd1e84282fcd2a5ddbe9dc, type: 3}
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0
