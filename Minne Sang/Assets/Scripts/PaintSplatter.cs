@@ -16,17 +16,18 @@ public class PaintSplatter : MonoBehaviour {
     {
         if (Input.GetButtonDown("Fire3")) {
             print("test");
-            Paint(new Vector2(-10, -3));
+            Paint(new Vector2(-10, -3), Color.white);
         }
     }
 
-    public void Paint(Vector2 position)
+    public void Paint(Vector2 position, Color col)
     {
         //pick color and calculate gradient
         //Color paintCol = colors[(int)Random.RandomRange(0, colors.Length)];
         //ps.startColor = paintCol;
 
         transform.position = new Vector3(position.x, position.y, 0f);
+        ps.startColor = col;
         ps.Emit(30);
     }
 }
