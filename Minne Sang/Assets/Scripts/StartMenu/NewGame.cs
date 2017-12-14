@@ -27,7 +27,7 @@ public class NewGame : MonoBehaviour {
         pqh.letters = 0;
         pqh.letterSend = false;     
         psh.targetScene = "Intro";
-        psh.targetSpawn = "MainHallDoor";
+        psh.targetSpawn = "start";
 
         psh.Respawn();
     }
