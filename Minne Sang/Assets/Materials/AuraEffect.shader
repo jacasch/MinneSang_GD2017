@@ -59,7 +59,8 @@
 			{
 				// sample the texture
 				fixed4 texCol = tex2D(_MainTex, i.uv);
-				//texCol = floor(texCol * 4) / 2;
+				//texCol = floor(((texCol+ 0.9f)/4) * 4) / 1.5;
+				//texCol = floor((texCol+ 0.3f) * 3) / 3;
 
 				//calculate offset
 				float4 offset = _Intensity * texCol.r;

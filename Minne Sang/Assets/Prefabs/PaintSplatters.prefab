@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1736353750874328}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.87, y: -3.07, z: 0}
+  m_LocalPosition: {x: -27.01, y: -5.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c41c9a348d21734e855de487d1e45f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colors: []
 --- !u!198 &198180431381273370
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -65,7 +66,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -113,7 +114,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 947253852
+  randomSeed: 610516011
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -161,7 +162,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 20
+      scalar: 15
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -201,7 +202,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 2
+      minMaxState: 0
       minColor: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 1}
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
@@ -265,8 +266,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.8
-      minScalar: 0
+      scalar: 1.2
+      minScalar: 0.8
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -578,7 +579,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.01
       mode: 0
       spread: 0
       speed:
@@ -759,7 +760,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 100
+        scalar: 30
         minScalar: 0
         maxCurve:
           serializedVersion: 2
@@ -1053,7 +1054,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 55705
+        atime1: 60716
         atime2: 65535
         atime3: 0
         atime4: 0
@@ -1093,8 +1094,8 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   UVModule:
-    enabled: 0
-    mode: 0
+    enabled: 1
+    mode: 1
     frameOverTime:
       serializedVersion: 2
       minMaxState: 1
@@ -1107,17 +1108,53 @@ ParticleSystem:
           time: 0
           value: 0
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 0.25755617
+          value: 1
+          inSlope: 0.049611554
+          outSlope: 0.049611554
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 0.27348217
+          value: 0
+          inSlope: -0.2380833
+          outSlope: -0.2380833
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 0.5261484
+          value: 1
+          inSlope: -0.09007752
+          outSlope: -0.09007752
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 0.5346641
+          value: 0
+          inSlope: 1.0001659
+          outSlope: 1.0001659
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 0.8181268
+          value: 1
+          inSlope: -0.8671731
+          outSlope: -0.8671731
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 0.8794471
+          value: 0
+          inSlope: 2.706647
+          outSlope: 2.706647
           tangentMode: 0
         - serializedVersion: 2
           time: 1
           value: 1
           inSlope: 1
-          outSlope: 0
+          outSlope: 1
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -1187,7 +1224,7 @@ ParticleSystem:
     flipV: 0
     randomRow: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: 21300006, guid: 57aca34377011af48bd03c63aad224da, type: 3}
   VelocityModule:
     enabled: 0
     x:
