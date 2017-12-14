@@ -37,7 +37,8 @@ public class EnemyDance : MonoBehaviour
     bool active = false;
     bool move = false;
     bool stealth = false;
-    bool dead = false;
+    [HideInInspector]
+    public bool dead = false;
     bool exploded = false;
     bool respawning = false;
     bool isSound = false;
@@ -65,7 +66,7 @@ public class EnemyDance : MonoBehaviour
     Animator animator;
 
     DanceSoundHandler soundHandler;
-    AudioSource audioSorce;
+    AudioSource audioSource;
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
@@ -80,7 +81,7 @@ public class EnemyDance : MonoBehaviour
         animator = GetComponent<Animator>();
 
         soundHandler = GetComponent<DanceSoundHandler>();
-        audioSorce = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
 
         if (stealth)
         {
@@ -149,14 +150,19 @@ public class EnemyDance : MonoBehaviour
         if (deadTimer>0)
         {
             deadTimer -= Time.deltaTime;
-            //PrepareExplusionAnimation
+            audioSource.pitch = 1;
+            if (!isSound)
+            {
+                soundHandler.Enflame();
+                isSound = true;
+            }
         }
         else
         {
             if(!exploded)
             {
                 Instantiate(explosion, transform.position, Quaternion.identity);
-                audioSorce.loop = false;
+                audioSource.loop = false;
                 soundHandler.Exploding();
                 exploded = true;
             }
@@ -219,6 +225,7 @@ public class EnemyDance : MonoBehaviour
             if (collision.gameObject.tag == "PlayerCollision")
             {
                 dead = true;
+                isSound = false;
                 deadTimer = deadTime;
                 respawnTimer = respawnTime;
             }
@@ -228,6 +235,7 @@ public class EnemyDance : MonoBehaviour
             if (collision.gameObject.tag == "DmgToEnemy" || collision.gameObject.tag == "PlayerCollision")
             {
                 dead = true;
+                isSound = false;
                 deadTimer = deadTime;
                 respawnTimer = respawnTime;
             }
@@ -248,7 +256,7 @@ public class EnemyDance : MonoBehaviour
                 transform.position = deadPos;
                 respawnTimer = 10;
             }
-            else
+            else if(!dead)
             {
                 active = true;
                 animator.SetBool("dance", true);
@@ -271,11 +279,16 @@ public class EnemyDance : MonoBehaviour
                 {
                     move = false;
                 }
-                if (!isSound)
+                if (!isSound && !dead)
                 {
-                    audioSorce.loop = true;
-                    soundHandler.Burning();
+                    audioSource.loop = true;
+                    audioSource.pitch = 1;
+                    soundHandler.Dancing();
                     isSound = true;
+                }
+                else
+                {
+                    audioSource.pitch = 1 + (((speed - startSpeed) / (maxSpeed - startSpeed))*2);
                 }
             }
         }
@@ -290,8 +303,8 @@ public class EnemyDance : MonoBehaviour
             active = false;
             if (isSound)
             {
-                audioSorce.loop = false;
-                audioSorce.Stop();
+                audioSource.loop = false;
+                audioSource.Stop();
                 isSound = false;
             }
         }

@@ -36,6 +36,7 @@ public class EnemyMusic : MonoBehaviour
     bool dead = false;
     bool died = false;
     bool respawning = false;
+    bool isSound = false;
 
     int dir = 1;
 
@@ -62,6 +63,10 @@ public class EnemyMusic : MonoBehaviour
 
     DeathExplosion deathExplosion;
 
+    AudioSource audioSource;
+
+    MusicSoundHandler soundHandler;
+
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start ()
     {
@@ -75,6 +80,9 @@ public class EnemyMusic : MonoBehaviour
         deathExplosion = transform.Find("DeathExplosion").GetComponent<DeathExplosion>();
 
         animator = GetComponent<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
+        soundHandler = GetComponent<MusicSoundHandler>();
 
         if (stealth)
         {
@@ -94,11 +102,17 @@ public class EnemyMusic : MonoBehaviour
         }
         else if (stunTimer > 0)
         {
+            if (!isSound)
+            {
+                soundHandler.Snoring();
+                isSound = true;
+            }
             animator.SetBool("sleep", true);
             stunTimer -= Time.deltaTime;
             walkTimer = 0;
         } else if(move)
         {
+            isSound = false;
             if(animator.GetBool("sleep"))
             {
                 animator.SetBool("sleep", false);
@@ -145,6 +159,7 @@ public class EnemyMusic : MonoBehaviour
     {
         if (stomp)
         {
+            soundHandler.Stomping();
             Vector3 objPos = transform.position;
             objPos.y -= 0f;
             Instantiate(objStomp, objPos, transform.rotation);
@@ -161,6 +176,7 @@ public class EnemyMusic : MonoBehaviour
         if (died)
         {
             deathExplosion.died = true;
+            soundHandler.Dying();
             died = false;
         }
 

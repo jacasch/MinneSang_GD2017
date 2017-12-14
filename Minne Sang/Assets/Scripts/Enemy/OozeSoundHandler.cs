@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class OozeSoundHandler : MonoBehaviour
 {
+    public AudioClip[] jumpSound;
     public AudioClip[] landSound;
     public AudioClip[] dyingSound;
 
 
+    private int lastJumpSound = 0;
     private int lastLandSound = 0;
     private int lastDyingSound = 0;
 
@@ -28,20 +30,33 @@ public class OozeSoundHandler : MonoBehaviour
 
 
     #region public funcions
+    public void Jump()
+    {
+        if (jumpSound.Length != 0)
+        {
+            lastJumpSound = PlaySound(jumpSound, lastJumpSound);
+        }
+    }
+
     public void Land()
     {
-        lastLandSound = PlaySound(landSound, lastLandSound);
+        if (landSound.Length != 0)
+        {
+            lastLandSound = PlaySound(landSound, lastLandSound);
+        }
     }
 
     public void Dying()
     {
-        lastDyingSound = PlaySound(dyingSound, lastDyingSound);
+        if (dyingSound.Length != 0)
+        {
+            lastDyingSound = PlaySound(dyingSound, lastDyingSound);
+        }
     }
     #endregion
 
     private int PlaySound(AudioClip[] sound, int lastPlayedIndex)
     {
-        print(sound[0].name);
         if (sound[0] == null)
         {
             Debug.Log("exit");
@@ -49,7 +64,6 @@ public class OozeSoundHandler : MonoBehaviour
         }
 
         int newSound = lastPlayedIndex;
-        print("lastplayed: " + lastPlayedIndex);
 
         if (sound.Length == 1)
         {

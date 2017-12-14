@@ -193,6 +193,10 @@ MonoBehaviour:
   explodeSound:
   - {fileID: 8300000, guid: 6125caece2e0191488f56ac39a67d898, type: 3}
   - {fileID: 8300000, guid: ec0a34da5b329ec45935d5fed92f63de, type: 3}
+  paintColors:
+  - {r: 0.8235294, g: 0.8235294, b: 0.8235294, a: 1}
+  - {r: 0.7205882, g: 0.058282882, b: 0.058282882, a: 1}
+  - {r: 0.21842559, g: 0.74264705, b: 0.50403583, a: 1}
 --- !u!212 &212554384557507910
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -227,7 +231,7 @@ SpriteRenderer:
   m_SortingLayerID: -52085469
   m_SortingLayer: 9
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 14cca7c34ca33d04cba361c68ab40459, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 57aca34377011af48bd03c63aad224da, type: 3}
   m_Color: {r: 0.875, g: 0.875, b: 0.875, a: 1}
   m_FlipX: 0
   m_FlipY: 0
