@@ -5,11 +5,13 @@ using UnityEngine;
 public class DanceSoundHandler : MonoBehaviour
 {
 
-    public AudioClip[] burningSound;
+    public AudioClip[] dancingSound;
+    public AudioClip[] enflameSound;
     public AudioClip[] explodingSound;
 
 
-    private int lastBurningSound = 0;
+    private int lastDancingSound = 0;
+    private int lastEnflameSound = 0;
     private int lastExplodingSound = 0;
 
 
@@ -29,14 +31,28 @@ public class DanceSoundHandler : MonoBehaviour
 
 
     #region public funcions
-    public void Burning()
+    public void Dancing()
     {
-        lastBurningSound = PlaySound(burningSound, lastBurningSound);
+        if(dancingSound.Length != 0)
+        {
+            lastDancingSound = PlaySound(dancingSound, lastDancingSound);
+        }
+    }
+
+    public void Enflame()
+    {
+        if (enflameSound.Length != 0)
+        {
+            lastEnflameSound = PlaySound(enflameSound, lastEnflameSound);
+        }
     }
 
     public void Exploding()
     {
-        lastExplodingSound = PlaySound(explodingSound, lastExplodingSound);
+        if (explodingSound.Length != 0)
+        {
+            lastExplodingSound = PlaySound(explodingSound, lastExplodingSound);
+        }
     }
     #endregion
 

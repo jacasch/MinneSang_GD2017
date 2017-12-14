@@ -32,17 +32,26 @@ public class PaintSoundHandler : MonoBehaviour
     #region public funcions
     public void Idle()
     {
-        lastIdleSound = PlaySound(idleSound, lastIdleSound);
+        if (idleSound.Length != 0)
+        {
+            lastIdleSound = PlaySound(idleSound, lastIdleSound);
+        }
     }
 
     public void Shoot()
     {
-        lastShootSound = PlaySound(shootSound, lastShootSound);
+        if (shootSound.Length != 0)
+        {
+            lastShootSound = PlaySound(shootSound, lastShootSound);
+        }
     }
 
     public void Dying()
     {
-        lastDyingSound = PlaySound(dyingSound, lastDyingSound);
+        if (dyingSound.Length != 0)
+        {
+            lastDyingSound = PlaySound(dyingSound, lastDyingSound);
+        }
     }
     #endregion
 

@@ -119,6 +119,7 @@ public class EnemyOoze : MonoBehaviour
             if (rb.velocity.x == 0 && rb.velocity.y == 0 && !grounded && rightUp && jumpUp == 1)
             {
                 rb.velocity = new Vector3(speed * dir, jumpHeight, 0);
+                soundHandler.Jump();
             }
         }
         if(rb.velocity.y < 0)
@@ -153,7 +154,8 @@ public class EnemyOoze : MonoBehaviour
             if(jumpTimer<=0)
             {
                 jumpTimer = jumpCD;
-                if(wallInFront)
+                soundHandler.Jump();
+                if (wallInFront)
                 {
                     rb.velocity = new Vector3(speed * dir * jumpUp, jumpHeight+2, 0);
                     wallInFront = false;
