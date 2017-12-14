@@ -432,7 +432,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1320868096264380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.654935, y: 0.9415281, z: -0.006383083}
+  m_LocalPosition: {x: -3.76, y: 9.86, z: -0.006383083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4511053173369836}
@@ -782,7 +782,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -862,7 +862,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1328,10 +1328,10 @@ MonoBehaviour:
   stunSound:
   - {fileID: 8300000, guid: b64483aa8e799ff4395cb57d7d33908d, type: 3}
   stepSound:
-  - {fileID: 8300000, guid: 24ae1999e6992564598a4adba663772a, type: 3}
-  - {fileID: 8300000, guid: 9f7e70377ab507c4cb46214cb2fad009, type: 3}
-  - {fileID: 8300000, guid: 4f0394556787392429bad3a44d77c0df, type: 3}
-  - {fileID: 8300000, guid: 91f1d25c33338814b9aae2ccee8ae2b3, type: 3}
+  - {fileID: 8300000, guid: e3dcb10b6c3b7df4e855847928216adf, type: 3}
+  - {fileID: 8300000, guid: a5abfc8713a2d194a99eef292d6e536a, type: 3}
+  - {fileID: 8300000, guid: e504bdb1c94f6474bb4db6bd577c09e7, type: 3}
+  - {fileID: 8300000, guid: ad8e30b08883859469b123a424e0b9e8, type: 3}
 --- !u!114 &114822919219238970
 MonoBehaviour:
   m_ObjectHideFlags: 1
