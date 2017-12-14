@@ -215,7 +215,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1260879086239440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.5, y: 3.87, z: 0}
+  m_LocalPosition: {x: -11.59, y: 2.98, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 4796146467507248}
@@ -429,7 +429,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -441,7 +441,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -453,7 +453,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!82 &82436706002423916
 AudioSource:
   m_ObjectHideFlags: 1
@@ -626,7 +626,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 62075d9573371a84f850347894ce6144, type: 3}
   - {fileID: 8300000, guid: 6158be01e2860ed4c8cb5181feb3824a, type: 3}
   - {fileID: 8300000, guid: 2b78dd20c22ec1241b4a2c1204c47f22, type: 3}
-  screamingSound: []
 --- !u!114 &114593004290986204
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -638,8 +637,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde0bb02f87f5644a97fe1621d3f2a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  singingSound:
+  - {fileID: 8300000, guid: 76fd0722191bc05479f2937d92dfa4c0, type: 3}
   screamingSound:
-  - {fileID: 8300000, guid: eba7bacacba022e4b806200d7742a6ff, type: 3}
+  - {fileID: 8300000, guid: 064a142024b39c640b692fac5e616444, type: 3}
 --- !u!114 &114617047576711866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7546,7 +7547,7 @@ SpriteRenderer:
   m_Size: {x: 10, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!212 &212668659303361276
 SpriteRenderer:
