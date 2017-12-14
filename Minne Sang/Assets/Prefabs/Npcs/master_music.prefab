@@ -505,7 +505,7 @@ MonoBehaviour:
       text: "I\u2019m scared my sheets will be burnt to a crisp by those dancers."
     - spokenByNpc: 1
       messageByPrincess: 0
-      text: Retrieve 7 of them.
+      text: Retrieve 5 of them.
     - spokenByNpc: 1
       messageByPrincess: 0
       text: Also a student of mine should have one. Maybe she will give it to you!
@@ -599,8 +599,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1891356649
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 62f05983634cc3f48b1e249b6b178898, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

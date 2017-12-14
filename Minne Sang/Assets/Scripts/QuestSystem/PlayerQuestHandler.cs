@@ -98,6 +98,10 @@ public class PlayerQuestHandler : MonoBehaviour
         GameObject player = GameObject.Find("player");
         Camera cam = Camera.main;
         int test = cam.pixelWidth / 2;
+        GUIStyle textStyle = new GUIStyle();
+        string itemColor = "";
+
+        string itemQuest = "";
 
         // After Mastery
         if (player.GetComponent<PlayerQuestHandler>().activeQuest == "mastered")
@@ -127,7 +131,7 @@ public class PlayerQuestHandler : MonoBehaviour
             questText.text = "You've mastered fine arts and dance. You're next challenge will be the art of music!";
         }
 
-        if (player.GetComponent<PlayerQuestHandler>().activeQuest == "running" && player.GetComponent<PlayerQuestHandler>().activeAct == 1)
+        if (player.GetComponent<PlayerQuestHandler>().activeQuest == "running" && player.GetComponent<PlayerQuestHandler>().activeAct == 3)
         {
             questText.text = "Three high arts mastered, one left to go. It's time to ask yourself, if poetry really is the art of seduction?";
         }
@@ -139,28 +143,33 @@ public class PlayerQuestHandler : MonoBehaviour
 
             for (int i = 0; i < itemLength; i++)
             {
-                GameObject itemsQuest = new GameObject("Item" + i);
-                itemsQuest.transform.SetParent(transform.Find("menu/Panel"));
+                //GameObject itemsQuest = new GameObject("Item" + i);
+                //itemsQuest.transform.SetParent(transform.Find("menu/Panel"));
 
-                Text text = itemsQuest.AddComponent<Text>();
+                //Text text = itemsQuest.AddComponent<Text>();
                 // GET BUILT IN WRONG??
-                text.font = (Font)Resources.Load("Fonts/CalvertMTStd");
-                text.text = questItems[i];
-                text.fontSize = 18;
-                text.alignment = TextAnchor.LowerCenter;
-                text.transform.localPosition = new Vector2(-10, -(test/2-90 - i * 30));
-                text.transform.localScale = new Vector3(1, 1, 1);
+                //text.font = (Font)Resources.Load("Fonts/CalvertMTStd");
+                //text.text = questItems[i];
 
                 if (collectedItems.Contains(player.GetComponent<PlayerQuestHandler>().questItems[i]))
                 {
-                    text.color = Color.red;
+                    itemColor = "<color=#ffffffff>";
                 }
                 else
                 {
-                    text.color = Color.black;
+                    itemColor = "<color=#000000ff>";
                 }
+
+                itemQuest = itemQuest +"\n"+itemColor+questItems[i]+"</color>";
+
+                //text.fontSize = 18;
+                //text.alignment = TextAnchor.LowerCenter;
+                //text.transform.localPosition = new Vector2(-10, -(test/2-90 - i * 30));
+                //text.transform.localScale = new Vector3(1, 1, 1);
+
+            
+                questText.text = "The high master of dance lost all his clothes. Bring him his tiara, his tutu and shoes and maybe he will instruct you in the art of dance. He told you to ask one his students or look around the mainhall.\n" + itemQuest;
             }
-            questText.text = "The high master of dance lost all his clothes. Bring him his tiara, his tutu and shoes and maybe he will instruct you in the art of dance. He told you to ask one his students or look around the mainhall.";
         }
 
         if (player.GetComponent<PlayerQuestHandler>().activeQuest == "q2")
@@ -169,28 +178,18 @@ public class PlayerQuestHandler : MonoBehaviour
 
             for (int i = 0; i < itemLength; i++)
             {
-                GameObject itemsQuest = new GameObject("Item" + i);
-                itemsQuest.transform.SetParent(transform.Find("menu/Panel"));
-
-                Text text = itemsQuest.AddComponent<Text>();
-                // GET BUILT IN WRONG??
-                text.font = (Font)Resources.Load("Fonts/CalvertMTStd");
-                text.text = questItems[i];
-                text.fontSize = 18;
-                text.alignment = TextAnchor.LowerCenter;
-                text.transform.localPosition = new Vector2(-10, -(test / 2 - 90 - i * 30));
-                text.transform.localScale = new Vector3(1, 1, 1);
-
                 if (collectedItems.Contains(player.GetComponent<PlayerQuestHandler>().questItems[i]))
                 {
-                    text.color = Color.red;
+                    itemColor = "<color=#ffffffff>";
                 }
                 else
                 {
-                    text.color = Color.black;
+                    itemColor = "<color=#000000ff>";
                 }
+
+                itemQuest = itemQuest + "\n" + itemColor + questItems[i] + "</color>";
             }
-            questText.text = "The fine arts master is in need of a new brush. Craft him one from the finest horse hair and a splendid piece of wood!";
+            questText.text = "The fine arts master is in need of a new brush. Craft him one from the finest horse hair and a splendid piece of wood!\n" + itemQuest;
         }
 
         if (player.GetComponent<PlayerQuestHandler>().activeQuest == "q3")
@@ -198,9 +197,6 @@ public class PlayerQuestHandler : MonoBehaviour
             int itemLength = player.GetComponent<PlayerQuestHandler>().questItems.Count;
             int numberOfItems = 0;
 
-            GameObject itemsQuest = new GameObject("Items");
-            itemsQuest.transform.SetParent(transform.Find("menu/Panel"));
-
             for (int i = 0; i < itemLength; i++)
             {
                 if (collectedItems.Contains(player.GetComponent<PlayerQuestHandler>().questItems[i]))
@@ -209,25 +205,16 @@ public class PlayerQuestHandler : MonoBehaviour
                 }
             }
 
-
-            Text text = itemsQuest.AddComponent<Text>();
-            text.font = (Font)Resources.Load("Fonts/CalvertMTStd");
-            text.text = "Music Sheets: " + numberOfItems + "/" + itemLength;
-            text.fontSize = 18;
-            text.alignment = TextAnchor.LowerCenter;
-            text.transform.localPosition = new Vector2(-10, -(test/2-90));
-            text.transform.localScale = new Vector3(1, 1, 1);
-
             if (numberOfItems == itemLength)
             {
-                text.color = Color.red;
+                itemColor = "<color=#ffffffff>";
             }
             else
             {
-                text.color = Color.black;
+                itemColor = "<color=#000000ff>";
             }
 
-            questText.text = "The high master of music lost his music sheets to the devious dancers and one of his absent minded students. Retrieve them!";
+            questText.text = "The high master of music lost his music sheets to the devious dancers and one of his absent minded students. Retrieve them!\n\n"+ itemColor+"Music sheets to collect: " + numberOfItems + "/" + itemLength + "</color>";
         }
 
         if (player.GetComponent<PlayerQuestHandler>().activeQuest == "q4")
@@ -235,9 +222,6 @@ public class PlayerQuestHandler : MonoBehaviour
             int itemLength = player.GetComponent<PlayerQuestHandler>().questItems.Count;
             int numberOfItems = 0;
 
-            GameObject itemsQuest = new GameObject("Items");
-            itemsQuest.transform.SetParent(transform.Find("menu/Panel"));
-
             for (int i = 0; i < itemLength; i++)
             {
                 if (collectedItems.Contains(player.GetComponent<PlayerQuestHandler>().questItems[i]))
@@ -247,25 +231,16 @@ public class PlayerQuestHandler : MonoBehaviour
             }
 
 
-            Text text = itemsQuest.AddComponent<Text>();
-            text.font = (Font)Resources.Load("Fonts/CalvertMTStd");
-            text.text = "Ink collected: " + numberOfItems + "/" + itemLength;
-            text.fontSize = 18;
-            text.alignment = TextAnchor.LowerCenter;
-            text.transform.localPosition = new Vector2(-10, -(test / 2 - 90));
-            text.transform.localScale = new Vector3(1, 1, 1);
-
-
             if (numberOfItems == itemLength)
             {
-                text.color = Color.red;
+                itemColor = "<color=#ffffffff>";
             }
             else
             {
-                text.color = Color.black;
+                itemColor = "<color=#000000ff>";
             }
 
-            questText.text = "The high master of poetry needs ink to finish his poem. Only then will he teach you. Milk some squids an bring him the liquid of his desire!";
+            questText.text = "The high master of poetry needs ink to finish his poem. Only then will he teach you. Milk some squids an bring him the liquid of his desire!\n\n"+ itemColor+"Ink to collect: " + numberOfItems + " / " + itemLength + "</color>";
         }
     }
 
@@ -273,66 +248,7 @@ public class PlayerQuestHandler : MonoBehaviour
     // Redraw Menus on Input
     public void menuTextQuestDestroy()
     {
-        GameObject tempText = transform.Find("menu/QuestText").gameObject;
-        Text questText = tempText.GetComponent<Text>();
-        GameObject player = GameObject.Find("player");
-        Camera cam = Camera.main;
-
-        if (player.GetComponent<PlayerQuestHandler>().activeQuest == "q1")
-        {
-            //GameObject master = GameObject.Find("master_of_dance");
-            int itemLength = player.GetComponent<PlayerQuestHandler>().questItems.Count;
-
-            for (int i = 0; i < itemLength; i++)
-            {
-                GameObject itemsQuest = transform.Find("menu/Panel/Item" + i).gameObject;
-                itemsQuest.transform.SetParent(transform.Find("menu"));
-
-                Destroy(itemsQuest);
-            }
-        }
-
-        if (player.GetComponent<PlayerQuestHandler>().activeQuest == "q2")
-        {
-            //GameObject master = GameObject.Find("master_of_dance");
-            int itemLength = player.GetComponent<PlayerQuestHandler>().questItems.Count;
-
-            for (int i = 0; i < itemLength; i++)
-            {
-                GameObject itemsQuest = transform.Find("menu/Panel/Item" + i).gameObject;
-                itemsQuest.transform.SetParent(transform.Find("menu"));
-
-                Destroy(itemsQuest);
-            }
-        }
-
-        if (player.GetComponent<PlayerQuestHandler>().activeQuest == "q3")
-        {
-            //GameObject master = GameObject.Find("master_of_dance");
-            int itemLength = player.GetComponent<PlayerQuestHandler>().questItems.Count;
-
-            for (int i = 0; i < itemLength; i++)
-            {
-                GameObject itemsQuest = transform.Find("menu/Panel/Items").gameObject;
-                itemsQuest.transform.SetParent(transform.Find("menu"));
-
-                Destroy(itemsQuest);
-            }
-        }
-
-        if (player.GetComponent<PlayerQuestHandler>().activeQuest == "q4")
-        {
-            //GameObject master = GameObject.Find("master_of_dance");
-            int itemLength = player.GetComponent<PlayerQuestHandler>().questItems.Count;
-
-            for (int i = 0; i < itemLength; i++)
-            {
-                GameObject itemsQuest = transform.Find("menu/Panel/Items").gameObject;
-                itemsQuest.transform.SetParent(transform.Find("menu"));
-
-                Destroy(itemsQuest);
-            }
-        }
+        
     }
 }
 
