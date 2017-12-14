@@ -161,8 +161,8 @@ public class EnemyPaint : MonoBehaviour
             float dirX = objPlayer.transform.position.x - transform.position.x;
             float dirY = objPlayer.transform.position.y - transform.position.y;
             soundHandler.Shoot();
-            GameObject instance = Instantiate(objShot, new Vector2(objPos.x + (0.65f * dir),objPos.y-0.65f), transform.rotation) as GameObject;
-            instance.GetComponent<EnemyPaintShot>().direction = new Vector3(dirX, dirY, 0);
+            GameObject instance = Instantiate(objShot, new Vector2(objPos.x + (0.57f * dir),objPos.y-0.44f), transform.rotation) as GameObject;
+            instance.GetComponent<EnemyPaintShot>().direction = new Vector3(dirX, dirY+0.4f, 0);
             instance.layer = 0;
             shootTimer = shootCD;
             animator.SetBool("Shooting", false);
