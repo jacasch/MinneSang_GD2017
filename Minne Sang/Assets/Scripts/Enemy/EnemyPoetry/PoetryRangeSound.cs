@@ -19,6 +19,7 @@ public class PoetryRangeSound : MonoBehaviour
     float soundScale = 8;
     bool isSinging = false;
     bool isScreaming = false;
+    public bool dead = false;
 
     // Use this for initialization
     void Start()
@@ -33,20 +34,18 @@ public class PoetryRangeSound : MonoBehaviour
     void Update()
     {
         dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y), new Vector2(player.transform.position.x, player.transform.position.y));
-        if (dist < soundDist)
+        if (dist < soundDist && !dead)
         {
-            if (dist < 3.5f)
+            if (isScreaming)
             {
-                isSinging = false;
-                if (!isScreaming)
+                if (isSinging)
                 {
+                    isSinging = false;
                     Screaming();
-                    isScreaming = true;
                 }
             }
             else
             {
-                isScreaming = false;
                 if (!isSinging)
                 {
                     Singing();
@@ -65,6 +64,10 @@ public class PoetryRangeSound : MonoBehaviour
         else
         {
             isSinging = false;
+            audioSource.Stop();
+        }
+        if(dead)
+        {
             audioSource.Stop();
         }
     }
@@ -114,5 +117,21 @@ public class PoetryRangeSound : MonoBehaviour
         audioSource.Play();
 
         return lastPlayedIndex;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            isScreaming = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            isScreaming = false;
+        }
     }
 }

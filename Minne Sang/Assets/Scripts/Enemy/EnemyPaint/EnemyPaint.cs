@@ -259,7 +259,7 @@ public class EnemyPaint : MonoBehaviour
             }
             else
             {
-                if (collision.gameObject.tag == "DmgToEnemy")
+                if (collision.gameObject.tag == "DmgToEnemy" && gotDmgTimer <= 0)
                 {
                     hp -= 1;
                     //rb.velocity = new Vector3(4f * -dir, -1, 0);
