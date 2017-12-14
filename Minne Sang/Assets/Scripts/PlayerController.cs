@@ -32,6 +32,8 @@ public class PlayerController : PhysicsObject {
     private PlayerSoundHandler psh;
     private float lastStepTime;
     private float stepInterval = 0.35f;
+    Vector2 dashDirection = new Vector2(0, 0);
+    private float lastXInput = 0;
 
     private bool canMove;
     private bool attacking;
@@ -54,6 +56,8 @@ public class PlayerController : PhysicsObject {
 
     protected override void ComputeVelocity()
     {
+        lastXInput = Input.GetAxis("Horizontal") != 0 ? Input.GetAxis("Horizontal") : lastXInput;
+
         Vector2 move = Vector2.zero;
         trailDelay -= Time.deltaTime;
         dashAnimationDelay -= Time.deltaTime;
@@ -118,11 +122,12 @@ public class PlayerController : PhysicsObject {
             groundNormal = Vector2.up;
         }
 
-        if (Input.GetButtonDown("Dash") && !inNpcZone && canMove && canDash && !dashing && pg.skillLevel >= 1)
-        {
+        if (Input.GetButtonDown("Dash") && !inNpcZone && canMove && canDash && !dashing && pg.skillLevel >= 1) {
             psh.Dash();
             dashesLeft--;
             dashing = true;
+            dashDirection = new Vector2(lastXInput, 0).normalized;
+            print(dashDirection);
             tr.enabled = true;
             dashTimer = dashDuration;            
         }
@@ -132,7 +137,7 @@ public class PlayerController : PhysicsObject {
             if (dashTimer > 0)
             {
                 //Vector2 dashDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
-                Vector2 dashDirection = new Vector2(Input.GetAxis("Horizontal"), 0).normalized;
+                //dashDirection = new Vector2(Input.GetAxis("Horizontal"), 0).normalized;
                 move.x += dashDirection.x * 5;
                 velocity.y = 0f;
                 //velocity.y = dashDirection.y * 5 * (-Physics2D.gravity.y / 3);
@@ -188,7 +193,8 @@ public class PlayerController : PhysicsObject {
             && grounded
             && !dashing
             && canMove
-            && !attacking) {
+            && !attacking
+            && !GetComponent<AudioSource>().isPlaying) {
             //step
             lastStepTime = Time.time;
             psh.Step();

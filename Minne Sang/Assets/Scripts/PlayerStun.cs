@@ -17,7 +17,7 @@ public class PlayerStun : MonoBehaviour
     float particleStartTime;
 
     private bool soundPlayed = false;
-    private float soundTimer = 0.5f;
+    private float soundTimer = 0.75f;
 
     private GameObject particles;
 
@@ -57,7 +57,7 @@ public class PlayerStun : MonoBehaviour
 
                 if (castTimer >= castTime)
                 {
-                    animator.SetBool("CastingMusic", false);
+                    //animator.SetBool("CastingMusic", false);
                     soundPlayed = false;
                     stunTimer = castDuration;
                     repeatTimer = repeatCD;
@@ -101,6 +101,8 @@ public class PlayerStun : MonoBehaviour
 
         if (particleStartTime + particleDelay <= Time.time) {
             particles.active = false;
+            if (soundPlayed)
+            animator.SetBool("CastingMusic", false);
         }
     }
 }
