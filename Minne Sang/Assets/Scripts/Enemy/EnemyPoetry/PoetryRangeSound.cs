@@ -5,17 +5,20 @@ using UnityEngine;
 public class PoetryRangeSound : MonoBehaviour
 {
 
+    public AudioClip[] singingSound;
     public AudioClip[] screamingSound;
 
+    private int lastSingingSound = 0;
     private int lastScreamingSound = 0;
 
     private AudioSource audioSource;
 
     GameObject player;
     float dist = 100;
-    float soundDist = 4;
-    float soundScale = 1;
-    bool isSound = false;
+    float soundDist = 12;
+    float soundScale = 8;
+    bool isSinging = false;
+    bool isScreaming = false;
 
     // Use this for initialization
     void Start()
@@ -32,30 +35,51 @@ public class PoetryRangeSound : MonoBehaviour
         dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y), new Vector2(player.transform.position.x, player.transform.position.y));
         if (dist < soundDist)
         {
-            if (!isSound)
+            if (dist < 3.5f)
             {
-                Idle();
-                isSound = true;
-            }
-            if (dist > soundDist - soundScale)
-            {
-                audioSource.volume = (soundDist - dist) / soundScale;
+                isSinging = false;
+                if (!isScreaming)
+                {
+                    Screaming();
+                    isScreaming = true;
+                }
             }
             else
             {
-                audioSource.volume = 1;
+                isScreaming = false;
+                if (!isSinging)
+                {
+                    Singing();
+                    isSinging = true;
+                }
+                if (dist > soundDist - soundScale)
+                {
+                    audioSource.volume = (soundDist - dist) / soundScale;
+                }
+                else
+                {
+                    audioSource.volume = 1;
+                }
             }
         }
         else
         {
-            isSound = false;
+            isSinging = false;
             audioSource.Stop();
         }
     }
 
 
     #region public funcions
-    public void Idle()
+    public void Singing()
+    {
+        if (singingSound.Length != 0)
+        {
+            lastSingingSound = PlaySound(singingSound, lastSingingSound);
+        }
+    }
+
+    public void Screaming()
     {
         if (screamingSound.Length != 0)
         {

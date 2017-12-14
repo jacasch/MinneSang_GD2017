@@ -626,7 +626,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 62075d9573371a84f850347894ce6144, type: 3}
   - {fileID: 8300000, guid: 6158be01e2860ed4c8cb5181feb3824a, type: 3}
   - {fileID: 8300000, guid: 2b78dd20c22ec1241b4a2c1204c47f22, type: 3}
-  screamingSound: []
+  screamingSound:
+  - {fileID: 8300000, guid: 064a142024b39c640b692fac5e616444, type: 3}
 --- !u!114 &114593004290986204
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -639,7 +640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screamingSound:
-  - {fileID: 8300000, guid: eba7bacacba022e4b806200d7742a6ff, type: 3}
+  - {fileID: 0}
 --- !u!114 &114617047576711866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7546,7 +7547,7 @@ SpriteRenderer:
   m_Size: {x: 10, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!212 &212668659303361276
 SpriteRenderer:

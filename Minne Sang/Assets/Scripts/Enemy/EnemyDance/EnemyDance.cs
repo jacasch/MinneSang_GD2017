@@ -123,6 +123,15 @@ public class EnemyDance : MonoBehaviour
             speed = startSpeed;
             animator.SetBool("dance", false);
         }
+        if(!dead)
+        {
+            audioSource.pitch = 1 + (((speed - startSpeed) / (maxSpeed - startSpeed)) * 2);
+            if(speed == startSpeed)
+            {
+                audioSource.Stop();
+                isSound = false;
+            }
+        }
     }
 
     //FUNCTIONS------------------------------------------------------------------------------------------------------------
@@ -286,10 +295,6 @@ public class EnemyDance : MonoBehaviour
                     soundHandler.Dancing();
                     isSound = true;
                 }
-                else
-                {
-                    audioSource.pitch = 1 + (((speed - startSpeed) / (maxSpeed - startSpeed))*2);
-                }
             }
         }
     }
@@ -301,12 +306,6 @@ public class EnemyDance : MonoBehaviour
         if (other.tag == "Player")
         {
             active = false;
-            if (isSound)
-            {
-                audioSource.loop = false;
-                audioSource.Stop();
-                isSound = false;
-            }
         }
     }
 }

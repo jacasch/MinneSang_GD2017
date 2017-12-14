@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class PaintSoundHandler : MonoBehaviour
 {
-    public AudioClip[] idleSound;
     public AudioClip[] shootSound;
     public AudioClip[] dyingSound;
 
 
-    private int lastIdleSound = 0;
     private int lastShootSound = 0;
     private int lastDyingSound = 0;
 
@@ -30,14 +28,6 @@ public class PaintSoundHandler : MonoBehaviour
 
 
     #region public funcions
-    public void Idle()
-    {
-        if (idleSound.Length != 0)
-        {
-            lastIdleSound = PlaySound(idleSound, lastIdleSound);
-        }
-    }
-
     public void Shoot()
     {
         if (shootSound.Length != 0)

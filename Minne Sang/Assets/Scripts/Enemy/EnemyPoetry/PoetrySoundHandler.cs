@@ -5,11 +5,9 @@ using UnityEngine;
 public class PoetrySoundHandler : MonoBehaviour
 {
     public AudioClip[] dyingSound;
-    public AudioClip[] screamingSound;
 
 
     private int lastDyingSound = 0;
-    private int lastScreamingSound = 0;
 
 
     private AudioSource audioSource;
@@ -33,14 +31,6 @@ public class PoetrySoundHandler : MonoBehaviour
         if (dyingSound.Length != 0)
         {
             lastDyingSound = PlaySound(dyingSound, lastDyingSound);
-        }
-    }
-
-    public void Screaming()
-    {
-        if (screamingSound.Length != 0)
-        {
-            lastScreamingSound = PlaySound(screamingSound, lastScreamingSound);
         }
     }
     #endregion
