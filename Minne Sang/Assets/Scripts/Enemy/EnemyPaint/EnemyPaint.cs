@@ -25,7 +25,7 @@ public class EnemyPaint : MonoBehaviour
     //Questereignisse
     string activeQuest;
     public bool dropItem = false;
-    public string questName = "";
+    string questName = "q4";
     public Item questDrop;
     bool dropped = false;
 
@@ -38,6 +38,7 @@ public class EnemyPaint : MonoBehaviour
     bool dead = false;
     bool died = false;
     bool respawning = false;
+    bool wall = false;
 
     public int dir = 1;
 
@@ -76,7 +77,6 @@ public class EnemyPaint : MonoBehaviour
         orgPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
         objPlayer = GameObject.FindGameObjectWithTag("Player");
-        activeQuest = objPlayer.GetComponent<PlayerQuestHandler>().activeQuest;
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
 
@@ -115,7 +115,7 @@ public class EnemyPaint : MonoBehaviour
         }
         else if(active)
         {
-            if(move)
+            if(move && !wall)
             {
                 Move();
             }
@@ -143,6 +143,41 @@ public class EnemyPaint : MonoBehaviour
                 rb.velocity = new Vector3(0, 0, 0);
             }
         }
+
+        if(!dead)
+        {
+            wall = false;
+            RaycastHit2D[] hits;
+
+            //Überprüft, ob Grounded an der rechten Ecke des Gegners
+            hits = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y-0.8f), new Vector2(1*dir, 0), 0.9f);
+
+            if (hits.Length > 0)
+            {
+                wall = true;
+            }
+            else
+            {
+                hits = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y + 0.05f), new Vector2(1 * dir, 0), 0.9f);
+                if (hits.Length > 0)
+                {
+                    wall = true;
+                }
+            }
+            
+            /*
+            //DEBUGGING DER RAYCASTS FÜR GROUNDED!
+            foreach (RaycastHit2D hit in hits)
+            {
+                GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                marker.transform.position = hit.point;
+                marker.transform.localScale = Vector3.one * 0.1f;
+                Destroy(marker, 0.1f);
+            }
+            */
+        }
+
+
     }
 
     //FUNCTIONS------------------------------------------------------------------------------------------------------------
@@ -161,8 +196,8 @@ public class EnemyPaint : MonoBehaviour
             float dirX = objPlayer.transform.position.x - transform.position.x;
             float dirY = objPlayer.transform.position.y - transform.position.y;
             soundHandler.Shoot();
-            GameObject instance = Instantiate(objShot, new Vector2(objPos.x + (0.65f * dir),objPos.y-0.65f), transform.rotation) as GameObject;
-            instance.GetComponent<EnemyPaintShot>().direction = new Vector3(dirX, dirY, 0);
+            GameObject instance = Instantiate(objShot, new Vector2(objPos.x + (0.57f * dir),objPos.y-0.44f), transform.rotation) as GameObject;
+            instance.GetComponent<EnemyPaintShot>().direction = new Vector3(dirX, dirY+0.4f, 0);
             instance.layer = 0;
             shootTimer = shootCD;
             animator.SetBool("Shooting", false);
@@ -181,6 +216,7 @@ public class EnemyPaint : MonoBehaviour
 
         if (died)
         {
+            activeQuest = objPlayer.GetComponent<PlayerQuestHandler>().activeQuest;
             deathExplosion.died = true;
             soundHandler.Dying();
             died = false;
@@ -196,8 +232,11 @@ public class EnemyPaint : MonoBehaviour
         {
             if (dropItem && !dropped)
             {
+                print("dropItem && dropped = True");
+                print("activequeset: " + activeQuest + "|| questName: " + questName);
                 if (activeQuest == questName)
                 {
+                    print("success!!!");
                     GameObject drop = Instantiate(questDrop.drop, transform.position, transform.rotation);
                     drop.GetComponent<ItemHandler>().SetName(questDrop.name);
                     dropped = true;
@@ -259,7 +298,7 @@ public class EnemyPaint : MonoBehaviour
             }
             else
             {
-                if (collision.gameObject.tag == "DmgToEnemy")
+                if (collision.gameObject.tag == "DmgToEnemy" && gotDmgTimer <= 0)
                 {
                     hp -= 1;
                     //rb.velocity = new Vector3(4f * -dir, -1, 0);

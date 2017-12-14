@@ -47,6 +47,7 @@ public class EnemyOoze : MonoBehaviour
     float stunTimer = 0;
     float deadTimer = 0;
     float respawnTimer = 0;
+    float gotDmgTimer = 0;
 
     Vector3 orgPos;
     Vector3 deadPos = new Vector3(1000, 0, 0);
@@ -133,6 +134,10 @@ public class EnemyOoze : MonoBehaviour
         if (rb.velocity.x == 0 && rb.velocity.y == 0 && !grounded && rightUp && jumpUp == 1)
         {
             animator.SetBool("Grounded", true);
+        }
+        if (gotDmgTimer > 0)
+        {
+            gotDmgTimer -= Time.deltaTime;
         }
     }
 
@@ -239,10 +244,11 @@ public class EnemyOoze : MonoBehaviour
             }
             else
             {
-                if (collision.gameObject.tag == "DmgToEnemy")
+                if (collision.gameObject.tag == "DmgToEnemy" && gotDmgTimer <= 0)
                 {
                     hp -= 1;
                     //rb.velocity = new Vector3(5 * -dir, 5, 0);
+                    gotDmgTimer = 0.2f;
                     if (hp <= 0)
                     {
                         dead = true;
