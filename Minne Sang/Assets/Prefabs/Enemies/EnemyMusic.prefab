@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 114060148822749288}
   - component: {fileID: 60579952715552728}
   m_Layer: 11
-  m_Name: PaintDMG
+  m_Name: OgreKnockback
   m_TagString: DmgToPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
