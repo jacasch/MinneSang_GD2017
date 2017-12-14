@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 61796429802198450}
   - component: {fileID: 50820090467682300}
   - component: {fileID: 114125788927484386}
+  - component: {fileID: 95764446029722330}
   m_Layer: 10
   m_Name: chest
   m_TagString: Untagged
@@ -109,8 +110,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1424225899411600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.42, y: -15.76, z: 0}
-  m_LocalScale: {x: 7.0966797, y: 12.9185, z: 10.589769}
+  m_LocalPosition: {x: -14.79, y: -2.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4785795613464344}
   - {fileID: 224651927808094970}
@@ -162,18 +163,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.010804415, y: -0.9723573}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.1, y: 0.1}
+    oldSize: {x: 4, y: 3.0025003}
     newSize: {x: 0.1, y: 0.1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1}
+  m_Size: {x: 1.8934579, y: 1.0507498}
   m_EdgeRadius: 0
 --- !u!61 &61854617680490740
 BoxCollider2D:
@@ -187,7 +188,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007374972, y: 0.00011153519}
+  m_Offset: {x: -0.014577389, y: -0.96864367}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -198,8 +199,25 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5926673, y: 0.0993911}
+  m_Size: {x: 3.9923134, y: 1.0573416}
   m_EdgeRadius: 0
+--- !u!95 &95764446029722330
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1424225899411600}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1cf7aab848a959d4da68e8cc0fedf106, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114089099462244502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -265,6 +283,7 @@ MonoBehaviour:
     messageByPrincess: 0
     text: Finally!
   autoStart: 1
+  ConvoStarter: []
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0
@@ -298,6 +317,7 @@ MonoBehaviour:
     spokenByNpc: 0
     messageByPrincess: 0
     text: 
+  chest: {fileID: 0}
   targetScene: 
 --- !u!114 &114272597497554472
 MonoBehaviour:
@@ -351,6 +371,7 @@ MonoBehaviour:
   questDialogue: []
   randomLines: []
   autoStart: 0
+  ConvoStarter: []
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0
@@ -480,8 +501,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 82ceb57a7df600d47ad74e5265fe5b07, type: 3}
-  m_Color: {r: 0.41911763, g: 0.39199826, b: 0.2403763, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 71cd2a7b5ae76c049b7e014b75e97e89, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

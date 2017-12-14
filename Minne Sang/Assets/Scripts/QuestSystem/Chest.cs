@@ -8,6 +8,7 @@ public class Chest : Npc
     public int relevantAct;
     public Quest quest;
     public Phrase encounterBeforeHeadMaster;
+    public GameObject chest;
 
     public string targetScene;
 
@@ -25,7 +26,7 @@ public class Chest : Npc
         if (player.GetComponent<PlayerQuestHandler>().activeAct == -1)
         {
             if (activePhraseIndex >= 1)
-                EndInteraction();
+                //EndInteraction();
             activePhrase = encounterBeforeHeadMaster;
             activePhraseIndex++;
         }
@@ -33,6 +34,8 @@ public class Chest : Npc
         else if (relevantAct == player.GetComponent<PlayerQuestHandler>().activeAct)
         {
 
+            chest = GameObject.Find("chest");
+            Animator animator = chest.GetComponent<Animator>();
             { // weare ready to talk to this master.
                 //if we have not yet gotten the quest, get the quest.
                 if (player.GetComponent<PlayerQuestHandler>().activeQuest == "end")
@@ -47,27 +50,41 @@ public class Chest : Npc
                     { //else we progress in the dialogues
                         activePhrase = quest.dialogue[activePhraseIndex];
                         activePhraseIndex++;
+
+                        Debug.Log(activePhraseIndex);
+
+                        if (activePhraseIndex == 3)
+                        {
+                            animator.SetBool("opening", true);
+                        }
                     }
                 }
                 else
                 { //we are already doing the quest he gave us
-                    //if we have all the items do endDialogue
-                    
-                        //if dialogue is over we will end the dialogue and enter the masterylevel
-                        if (activePhraseIndex >= quest.endDialogue.Length)
-                        {
-                            //TODO GO TO NEXT LEVEL
-                            player.GetComponent<PlayerQuestHandler>().activeQuest = "end";
+                  //if we have all the items do endDialogue
+
+                    //if dialogue is over we will end the dialogue and enter the masterylevel
+                    if (activePhraseIndex >= quest.endDialogue.Length)
+                    {
+                        //TODO GO TO NEXT LEVEL
+                        player.GetComponent<PlayerQuestHandler>().activeQuest = "end";
                         ending();
                     }
-                        else
-                        { //else we progress in the dialogues
-                            activePhrase = quest.endDialogue[activePhraseIndex];
-                            activePhraseIndex++;
+                    else
+                    { //else we progress in the dialogues
+                        activePhrase = quest.endDialogue[activePhraseIndex];
+                        activePhraseIndex++;
+
+                        if (activePhraseIndex == 2)
+                        {
+                            chest = transform.Find("chest").gameObject;
+                            animator = chest.GetComponent<Animator>();
+                            animator.SetBool("opening", true);
                         }
-                    
 
 
+
+                    }
                 }
             }
         }

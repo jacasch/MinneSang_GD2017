@@ -916,7 +916,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 10
+        scalar: 6
         minScalar: 0
         maxCurve:
           serializedVersion: 2
@@ -3614,7 +3614,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -314450581
+  randomSeed: -1884057461
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7616,7 +7616,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 3
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -7628,10 +7628,10 @@ ParticleSystem:
           outSlope: 0
           tangentMode: 0
         - serializedVersion: 2
-          time: 0.8426184
-          value: 0.9794521
-          inSlope: 2.3941958
-          outSlope: 2.3941958
+          time: 0.29250854
+          value: 0.99265283
+          inSlope: -0.065109745
+          outSlope: -0.065109745
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -10243,7 +10243,7 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_Materials:
   - {fileID: 2100000, guid: 7519649248fbbc64c95c98cc493a4858, type: 2}
-  - {fileID: 2100000, guid: 7519649248fbbc64c95c98cc493a4858, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

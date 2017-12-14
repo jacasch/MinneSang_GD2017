@@ -202,8 +202,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: e44af29d541eb5143ad349ebcdb710ed, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -236,7 +236,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -260,7 +260,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -340,7 +340,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burningSound:
   - {fileID: 8300000, guid: e44af29d541eb5143ad349ebcdb710ed, type: 3}
-  - {fileID: 8300000, guid: da46379d3112935409f7988c22c64480, type: 3}
   explodingSound:
   - {fileID: 8300000, guid: c967407749fee8746a5cace0f9c96a63, type: 3}
   - {fileID: 8300000, guid: 59b536a240118a842ba379088e0c0709, type: 3}
