@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 114209710257174348}
   - component: {fileID: 50800048469224698}
   - component: {fileID: 95715675356990272}
+  - component: {fileID: 82768231999692332}
   m_Layer: 10
   m_Name: parrot
   m_TagString: Untagged
@@ -157,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1637568099846592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.469, y: -3.133, z: 0}
+  m_LocalPosition: {x: -23.958, y: -3.148, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4396503902800094}
@@ -308,6 +309,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1649017, y: 2.3569217}
   m_EdgeRadius: 0
+--- !u!82 &82768231999692332
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1074121566586446}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95715675356990272
 Animator:
   serializedVersion: 3
@@ -377,6 +458,10 @@ MonoBehaviour:
     messageByPrincess: 0
     text: Come closer my friend.
   autoStart: 0
+  EngageConversation:
+  - {fileID: 8300000, guid: 300feca6116ee664981e355d03e55350, type: 3}
+  - {fileID: 8300000, guid: 304706044b13b604681862fb519a42ef, type: 3}
+  - {fileID: 8300000, guid: 67216ffc022992047be7dc761f02cf52, type: 3}
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0
@@ -390,7 +475,7 @@ MonoBehaviour:
       text: Do you want to send a message?
     - spokenByNpc: 0
       messageByPrincess: 0
-      text: Ah, a lovely voice message for my beloved! What grand idea! Bring words
+      text: Ah, a lovely voice message for my beloved! What a grand idea! Bring words
         of my love to the kingdom of Sihl!
     - spokenByNpc: 1
       messageByPrincess: 0
@@ -431,7 +516,7 @@ MonoBehaviour:
       text: You got a message.
     - spokenByNpc: 0
       messageByPrincess: 0
-      text: A message by my lovely Freya! Do not wait anylonger! Play it, please!
+      text: A message by my lovely Freya! Do not wait any longer! Play it, please!
     - spokenByNpc: 0
       messageByPrincess: 1
       text: '"Knight in shining armor, '
@@ -458,8 +543,8 @@ MonoBehaviour:
         am miserable without seeing you. "
     - spokenByNpc: 0
       messageByPrincess: 0
-      text: You shall know me soon as the one, mastering all the highest arts of the
-        high arts, for the undying love of a princess worth the effort.
+      text: You shall know me soon as the one who has mastered all the high arts.
+        I shall be worthy for the undying love of a princess.
     - spokenByNpc: 0
       messageByPrincess: 0
       text: So sincere and loving, your knight in shining armor."
@@ -494,16 +579,16 @@ MonoBehaviour:
       text: '"Knight in shining armor,'
     - spokenByNpc: 0
       messageByPrincess: 1
-      text: "I\u2019m not sure if you mean it serious with me or if your intentions
-        are to keep playing with my feelings."
+      text: "I\u2019m not sure if you mean it serious or if your intentions are to
+        keep playing with my feelings."
     - spokenByNpc: 0
       messageByPrincess: 1
       text: "Show me that you\u2019re worth the wait and are able to master those
-        arts you spoke of and prove me you are a man of culture not just brute force,
-        like normal knights would be."
+        arts you spoke of and prove to me you are a man of culture not just brute
+        force, like normal knights would be."
     - spokenByNpc: 0
       messageByPrincess: 1
-      text: 'Signed: Princess of the Sihl Kingdom"'
+      text: 'Signed: princess of the Sihl Kingdom"'
     - spokenByNpc: 1
       messageByPrincess: 0
       text: That's all.
@@ -512,15 +597,15 @@ MonoBehaviour:
       text: I have some words for her myself!
     - spokenByNpc: 0
       messageByPrincess: 0
-      text: '"Dearest Freya, most beautiful Princess and Princess of the Sihl Kingdom '
+      text: '"Dearest Freya, most beautiful princess and princess of the Sihl kingdom '
     - spokenByNpc: 0
       messageByPrincess: 0
       text: "I\u2019m always walking in my thoughts, hand in hand with you. But as
         soon as our lips match, you vanish. So I\u2019m trying everyday to become
-        the best so that no one could take you away from me."
+        the best so that no one can take you away from me."
     - spokenByNpc: 0
       messageByPrincess: 0
-      text: Always fighting for your love, Knight in shining armor."
+      text: Always fighting for your love, knight in shining armor."
     - spokenByNpc: 1
       messageByPrincess: 0
       text: Off I go then!
@@ -540,7 +625,7 @@ MonoBehaviour:
       text: A message is waiting for you.
     - spokenByNpc: 0
       messageByPrincess: 1
-      text: "\"Dear Knight, I\u2019m touched by your words - but I still can\u2019t
+      text: "\"Dear knight, I\u2019m touched by your words - but I still can\u2019t
         believe it."
     - spokenByNpc: 0
       messageByPrincess: 1
@@ -548,13 +633,13 @@ MonoBehaviour:
         my love.
     - spokenByNpc: 0
       messageByPrincess: 1
-      text: I might be thinking about you, Princess Freya."
+      text: I might be thinking about you, princess Freya."
     - spokenByNpc: 0
       messageByPrincess: 0
       text: She might be thinking about me? Record my words of passion then!
     - spokenByNpc: 0
       messageByPrincess: 0
-      text: '"My Darling Freya,'
+      text: '"My darling Freya,'
     - spokenByNpc: 0
       messageByPrincess: 0
       text: "How did I define love before I knew you \u2014 before the wish for your
@@ -754,7 +839,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -385255217
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300006, guid: 517286021c6aedd4a8c949837e1418b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
