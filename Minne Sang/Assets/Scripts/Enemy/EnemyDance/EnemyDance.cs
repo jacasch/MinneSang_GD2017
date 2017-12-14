@@ -74,7 +74,6 @@ public class EnemyDance : MonoBehaviour
         stealth = isStealth;
         orgPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
-        activeQuest = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>().activeQuest;
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
 
@@ -170,6 +169,7 @@ public class EnemyDance : MonoBehaviour
         {
             if(!exploded)
             {
+                activeQuest = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>().activeQuest;
                 Instantiate(explosion, transform.position, Quaternion.identity);
                 audioSource.loop = false;
                 soundHandler.Exploding();
