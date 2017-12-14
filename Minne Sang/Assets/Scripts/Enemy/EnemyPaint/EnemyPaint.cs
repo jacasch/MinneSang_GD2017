@@ -38,6 +38,7 @@ public class EnemyPaint : MonoBehaviour
     bool dead = false;
     bool died = false;
     bool respawning = false;
+    bool wall = false;
 
     public int dir = 1;
 
@@ -115,7 +116,7 @@ public class EnemyPaint : MonoBehaviour
         }
         else if(active)
         {
-            if(move)
+            if(move && !wall)
             {
                 Move();
             }
@@ -143,6 +144,41 @@ public class EnemyPaint : MonoBehaviour
                 rb.velocity = new Vector3(0, 0, 0);
             }
         }
+
+        if(!dead)
+        {
+            wall = false;
+            RaycastHit2D[] hits;
+
+            //Überprüft, ob Grounded an der rechten Ecke des Gegners
+            hits = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y-0.8f), new Vector2(1*dir, 0), 0.9f);
+
+            if (hits.Length > 0)
+            {
+                wall = true;
+            }
+            else
+            {
+                hits = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y + 0.05f), new Vector2(1 * dir, 0), 0.9f);
+                if (hits.Length > 0)
+                {
+                    wall = true;
+                }
+            }
+            
+            /*
+            //DEBUGGING DER RAYCASTS FÜR GROUNDED!
+            foreach (RaycastHit2D hit in hits)
+            {
+                GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                marker.transform.position = hit.point;
+                marker.transform.localScale = Vector3.one * 0.1f;
+                Destroy(marker, 0.1f);
+            }
+            */
+        }
+
+
     }
 
     //FUNCTIONS------------------------------------------------------------------------------------------------------------

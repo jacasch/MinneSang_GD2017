@@ -135,6 +135,10 @@ public class EnemyOoze : MonoBehaviour
         {
             animator.SetBool("Grounded", true);
         }
+        if (gotDmgTimer > 0)
+        {
+            gotDmgTimer -= Time.deltaTime;
+        }
     }
 
     //FUNCTIONS------------------------------------------------------------------------------------------------------------
@@ -264,10 +268,6 @@ public class EnemyOoze : MonoBehaviour
                     stunTimer = timeStunned;
                 }
             }
-        }
-        if (gotDmgTimer > 0)
-        {
-            gotDmgTimer -= Time.deltaTime;
         }
     }
 
