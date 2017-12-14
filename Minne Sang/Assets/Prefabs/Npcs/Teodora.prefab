@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 61873615913564252}
   - component: {fileID: 50581463930518536}
   - component: {fileID: 95263275800242018}
+  - component: {fileID: 82059403659272756}
   m_Layer: 10
   m_Name: Teodora
   m_TagString: Untagged
@@ -200,6 +201,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3774261, y: 2.2790082}
   m_EdgeRadius: 0
+--- !u!82 &82059403659272756
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1791201084006394}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95263275800242018
 Animator:
   serializedVersion: 3
@@ -260,6 +341,10 @@ MonoBehaviour:
     messageByPrincess: 0
     text: "I hate that horse. It kicks me even when I don\u2019t go near it. "
   autoStart: 0
+  EngageConversation:
+  - {fileID: 8300000, guid: 90a1f60ba5149fc46a95d658effde0b3, type: 3}
+  - {fileID: 8300000, guid: 9cbacf7354bb139449ac1b3ac82b92af, type: 3}
+  - {fileID: 8300000, guid: 5b7371d799ea8c8468c8e94fc019e072, type: 3}
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0

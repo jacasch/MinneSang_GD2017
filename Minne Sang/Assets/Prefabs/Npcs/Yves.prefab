@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 61656617459132132}
   - component: {fileID: 50535088673405820}
   - component: {fileID: 95414055345527064}
+  - component: {fileID: 82304443359272570}
   m_Layer: 10
   m_Name: Yves
   m_TagString: Untagged
@@ -173,7 +174,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.01972, y: 1.9683514}
+  m_Size: {x: 3.7218752, y: 1.9683514}
   m_EdgeRadius: 0
 --- !u!61 &61656617459132132
 BoxCollider2D:
@@ -200,6 +201,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1768589, y: 1.9759846}
   m_EdgeRadius: 0
+--- !u!82 &82304443359272570
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1543543700464332}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95414055345527064
 Animator:
   serializedVersion: 3
@@ -255,11 +336,11 @@ MonoBehaviour:
     text: I just met the Master of Dance!
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: Oh, awwww! He told me to wash his dancing dress, but i let myself be tempted
-      to say something about his body shape.
+    text: Oh, awwww! He told me to wash his tutu, but I let myself be tempted to say
+      something about his body shape.
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: Now he doesn't want to see me anymore. Maybe you can bring him the dress?
+    text: Now he doesn't want to see me anymore. Maybe you could bring him the tutu?
   - spokenByNpc: 1
     messageByPrincess: 0
     text: It would be an honor.
@@ -275,6 +356,10 @@ MonoBehaviour:
     messageByPrincess: 0
     text: "It\u2019s like a labyrinth in here. "
   autoStart: 0
+  EngageConversation:
+  - {fileID: 8300000, guid: 7f39f51c7b461154f91e125d81790c63, type: 3}
+  - {fileID: 8300000, guid: d60601fa04bd5df499a434f04c10b9fc, type: 3}
+  - {fileID: 8300000, guid: 98376701eb9be1a45876a1c2289bc7ff, type: 3}
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0
@@ -287,7 +372,7 @@ MonoBehaviour:
     messageByPrincess: 0
     text: I hope the master is not mad at me...
   questDrop:
-    drop: {fileID: 1860303378271198, guid: 88816944a13339841b305ec57423564a, type: 2}
+    drop: {fileID: 1610943650234476, guid: 57d8d23c20d00164083f130538e28119, type: 2}
     name: Tutu
 --- !u!114 &114251683661425736
 MonoBehaviour:

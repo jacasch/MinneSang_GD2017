@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 61011746166967778}
   - component: {fileID: 95349217573714830}
   - component: {fileID: 82182915594871012}
+  - component: {fileID: 114195277280545116}
   m_Layer: 10
   m_Name: EnemyMusic
   m_TagString: Enemy
@@ -111,7 +112,7 @@ GameObject:
   - component: {fileID: 114060148822749288}
   - component: {fileID: 60579952715552728}
   m_Layer: 11
-  m_Name: PaintDMG
+  m_Name: OgreKnockback
   m_TagString: DmgToPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -534,6 +535,25 @@ MonoBehaviour:
   knockback: 0
   noDmg: 0
   timer: 0
+--- !u!114 &114195277280545116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1180802239627378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f594b5b832faa49b13621532149377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snoringSound:
+  - {fileID: 8300000, guid: 6b1321202648f88418ff5ab14941927e, type: 3}
+  - {fileID: 8300000, guid: 652679ae96eb6314f9b7a80b08ff5ccf, type: 3}
+  stompingSound:
+  - {fileID: 8300000, guid: 25d5b2ee87e31b648889c03b1b9f9b06, type: 3}
+  - {fileID: 8300000, guid: 7af684ade18792b42a2cbf33be182533, type: 3}
+  dyingSound:
+  - {fileID: 8300000, guid: a87015616bdf12042b8d2489592800bb, type: 3}
 --- !u!114 &114451358030853890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7470,8 +7490,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -52085469
-  m_SortingLayer: 9
+  m_SortingLayerID: -1770038037
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 03ebd03854bf45742bfda9c54fa6652b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

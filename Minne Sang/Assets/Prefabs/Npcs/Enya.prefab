@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 61825593958865228}
   - component: {fileID: 50780830804649448}
   - component: {fileID: 95213186625116686}
+  - component: {fileID: 82691514432842954}
   m_Layer: 10
   m_Name: Enya
   m_TagString: Untagged
@@ -200,6 +201,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3446465, y: 1.5153933}
   m_EdgeRadius: 0
+--- !u!82 &82691514432842954
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1918535583870920}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95213186625116686
 Animator:
   serializedVersion: 3
@@ -272,11 +353,11 @@ MonoBehaviour:
     text: Alright! There you go! Have fun!
   - spokenByNpc: 0
     messageByPrincess: 0
-    text: 'Thank you myLady! '
+    text: 'Thank you m''Lady! '
   randomLines:
   - spokenByNpc: 1
     messageByPrincess: 0
-    text: 'Have you seen this fantastic bird? '
+    text: Have you seen this fantastic bird? They can send voicemails!
   - spokenByNpc: 1
     messageByPrincess: 0
     text: The monsters are annoying for sure but so are you.
@@ -284,6 +365,10 @@ MonoBehaviour:
     messageByPrincess: 0
     text: "Hmm... someone should think about cleaning the castle\u2026 "
   autoStart: 0
+  EngageConversation:
+  - {fileID: 8300000, guid: 730688794ebd2074b81bb5dfdae3a689, type: 3}
+  - {fileID: 8300000, guid: 9b8d2dfabffb05645909cb018bd3d7a2, type: 3}
+  - {fileID: 8300000, guid: 38696ad12e4c39745bf8d55fe95701e0, type: 3}
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0
@@ -296,7 +381,7 @@ MonoBehaviour:
     messageByPrincess: 0
     text: Those pretty shoes don't match your style...
   questDrop:
-    drop: {fileID: 1860303378271198, guid: 88816944a13339841b305ec57423564a, type: 2}
+    drop: {fileID: 1057231938353770, guid: c0162c3fa11a6c34b9ba807fbab34aef, type: 2}
     name: Shoes
 --- !u!114 &114339237009541096
 MonoBehaviour:
