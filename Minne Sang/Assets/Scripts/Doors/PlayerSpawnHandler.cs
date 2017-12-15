@@ -44,7 +44,6 @@ public class PlayerSpawnHandler : MonoBehaviour {
 
     private void Reposition() {
         doors = FindObjectsOfType(typeof(Door)) as Door[];
-        print(doors.Length);
         spawnPoints = FindObjectsOfType(typeof(SpawnPoint)) as SpawnPoint[];
         foreach (Door d in doors)
         {

@@ -19,7 +19,7 @@ public class EnemyMusic : MonoBehaviour
     float dist = 0.6f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float walkDist = 0.5f;  //Zeit die der Gegner zwischen den Schritten sich vorwärtz bewegt
     float walkCD = 1f; //Zeit bis zum nächsten Schritt
-    float timeStunned = 3f;  //Zeit die der Gegner gestunnt ist
+    float timeStunned = 2.5f;  //Zeit die der Gegner gestunnt ist
     float deadTime = 1;  //Zeit bis der Gegner nach dem Tot verschwindet
     float respawnTime = 90;  //Zeit bis der Gegner respawnt
 
@@ -31,7 +31,8 @@ public class EnemyMusic : MonoBehaviour
 
     bool active = false;
     bool move = false;
-    bool stealth = false;
+    [HideInInspector]
+    public bool stealth = false;
     bool stomp = false;
     bool dead = false;
     bool died = false;
@@ -111,15 +112,17 @@ public class EnemyMusic : MonoBehaviour
             animator.SetBool("sleep", true);
             stunTimer -= Time.deltaTime;
             walkTimer = 0;
-        } else if(move)
+            move = false;
+            animator.SetBool("stomp", false);
+        } else
         {
+            animator.SetBool("sleep", false);
             isSound = false;
-            if(animator.GetBool("sleep"))
+            if (move)
             {
-                animator.SetBool("sleep", false);
+                Move();
+                Attack();
             }
-            Move();
-            Attack();
         }
         if (gotDmgTimer > 0)
         {

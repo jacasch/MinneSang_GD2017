@@ -31,7 +31,8 @@ public class EnemyOoze : MonoBehaviour
 
     bool active = false;
     bool grounded = false;
-    bool stealth = false;
+    [HideInInspector]
+    public bool stealth = false;
     bool rightUp = false;
     bool wallInFront = false;
     int jumpUp = 1;
@@ -39,6 +40,7 @@ public class EnemyOoze : MonoBehaviour
     bool died = false;
     bool respawning = false;
     bool isSound = false;
+    bool jumpedUp = false;
 
     int dir = 1;
     float halfSize = 0;  //Für CheckIfGrounded
@@ -111,16 +113,6 @@ public class EnemyOoze : MonoBehaviour
         else if (active)
         {
             Move();
-            if (rightUp && rb.velocity.x == 0 && !grounded)
-            {
-                rb.velocity = new Vector3(1.25f * dir, rb.velocity.y, 0);
-                rightUp = false;
-            }
-            if (rb.velocity.x == 0 && rb.velocity.y == 0 && !grounded && rightUp && jumpUp == 1)
-            {
-                rb.velocity = new Vector3(speed * dir, jumpHeight, 0);
-                soundHandler.Jump();
-            }
         }
         if(rb.velocity.y < 0)
         {
@@ -133,6 +125,15 @@ public class EnemyOoze : MonoBehaviour
         if (rb.velocity.x == 0 && rb.velocity.y == 0 && !grounded && rightUp && jumpUp == 1)
         {
             animator.SetBool("Grounded", true);
+        }
+        if (rightUp && rb.velocity.x == 0 && !grounded && jumpedUp)
+        {
+            rb.velocity = new Vector3(1.25f * dir, rb.velocity.y, 0);
+            rightUp = false;
+            if (rb.velocity.x > 0)
+            {
+                jumpedUp = false;
+            }
         }
         if (gotDmgTimer > 0)
         {
@@ -167,6 +168,29 @@ public class EnemyOoze : MonoBehaviour
                 else
                 {
                     rb.velocity = new Vector3(speed * dir * jumpUp, jumpHeight, 0);
+                }
+            }
+        }
+        else
+        {
+            if (rb.velocity.x == 0 && rb.velocity.y == 0 && rightUp && jumpUp == 1)
+            {
+                jumpTimer -= Time.deltaTime;
+                if (dir < 0)
+                {
+                    mySprite.flipX = false;
+                }
+                else
+                {
+                    mySprite.flipX = true;
+                }
+                if (jumpTimer <= 0)
+                {
+                    jumpTimer = jumpCD;
+                    soundHandler.Jump();
+                    rb.velocity = new Vector3(speed * dir, jumpHeight, 0);
+                    soundHandler.Jump();
+                    print("test");
                 }
             }
         }
@@ -397,6 +421,10 @@ public class EnemyOoze : MonoBehaviour
                     wallInFront = true;
                 }
             }
+        }
+        if(jumpUp == 0)
+        {
+            jumpedUp = true;
         }
 
         /*

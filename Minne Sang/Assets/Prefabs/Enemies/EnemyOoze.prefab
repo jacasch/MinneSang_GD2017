@@ -562,6 +562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStealth: 0
+  stealth: 0
   defaultMat: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   chameleonMat: {fileID: 2100000, guid: 32143037c032fe040860170bba74d8d8, type: 2}
   enemyDmg: {fileID: 114131888766922656}
