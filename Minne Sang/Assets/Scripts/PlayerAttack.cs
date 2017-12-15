@@ -17,6 +17,8 @@ public class PlayerAttack : MonoBehaviour
     GameObject hitEffect;
     ParticleSystem particleSystem;
 
+    HitSound hitSound;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -24,6 +26,7 @@ public class PlayerAttack : MonoBehaviour
         animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         hitEffect = transform.GetChild(0).gameObject;
         particleSystem = hitEffect.GetComponent<ParticleSystem>();
+        hitSound = GetComponent<HitSound>();
     }
 	
 	// Update is called once per frame
@@ -70,6 +73,7 @@ public class PlayerAttack : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             hitEffect.transform.localPosition = new Vector3(8.5f * dir, 15, 0);
+            hitSound.Hitting();
 
             if (collision.GetComponent<EnemyOoze>() != null && !collision.GetComponent<EnemyOoze>().stealth)
             {

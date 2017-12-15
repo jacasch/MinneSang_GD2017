@@ -2,16 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OozeSoundHandler : MonoBehaviour
+public class HitSound : MonoBehaviour
 {
-    public AudioClip[] jumpSound;
-    public AudioClip[] landSound;
-    public AudioClip[] dyingSound;
+    public AudioClip[] hittingSound;
 
 
-    private int lastJumpSound = 0;
-    private int lastLandSound = 0;
-    private int lastDyingSound = 0;
+    private int lastHittingSound = 0;
 
 
     private AudioSource audioSource;
@@ -30,27 +26,11 @@ public class OozeSoundHandler : MonoBehaviour
 
 
     #region public funcions
-    public void Jump()
+    public void Hitting()
     {
-        if (jumpSound.Length != 0)
+        if (hittingSound.Length != 0)
         {
-            lastJumpSound = PlaySound(jumpSound, lastJumpSound);
-        }
-    }
-
-    public void Land()
-    {
-        if (landSound.Length != 0)
-        {
-            lastLandSound = PlaySound(landSound, lastLandSound);
-        }
-    }
-
-    public void Dying()
-    {
-        if (dyingSound.Length != 0)
-        {
-            lastDyingSound = PlaySound(dyingSound, lastDyingSound);
+            lastHittingSound = PlaySound(hittingSound, lastHittingSound);
         }
     }
     #endregion

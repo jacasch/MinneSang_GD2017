@@ -324,6 +324,7 @@ GameObject:
   - component: {fileID: 124318397795429006}
   - component: {fileID: 81151874206243612}
   - component: {fileID: 82543488056629782}
+  - component: {fileID: 114212604105067414}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -392,6 +393,8 @@ GameObject:
   - component: {fileID: 4952459018313004}
   - component: {fileID: 61591530679180838}
   - component: {fileID: 114374500217204208}
+  - component: {fileID: 82826659740306262}
+  - component: {fileID: 114843519340684874}
   m_Layer: 12
   m_Name: PlayerAttack
   m_TagString: DmgToEnemy
@@ -523,7 +526,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1320868096264380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.5510554, y: 1.5551937, z: -0.006383083}
+  m_LocalPosition: {x: -3.87, y: 9.72, z: -0.006383083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4511053173369836}
@@ -612,7 +615,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1352789460429074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.52, y: 19.8, z: -0.34}
+  m_LocalPosition: {x: 8.5, y: 20, z: -0.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4952459018313004}
@@ -1061,6 +1064,86 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!82 &82826659740306262
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1844845208802622}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!92 &92680768208256226
 Behaviour:
   m_ObjectHideFlags: 1
@@ -1293,6 +1376,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68fbf3c88eb4b76438b3bb55ae0d0f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114212604105067414
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1774410894461850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e740877de60d034dab448a4af8845db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music:
+  - clip: {fileID: 8300000, guid: 348a4a7a86456ca47bb8087dc891c55b, type: 3}
+    sceneName:
+    - Intro
+  - clip: {fileID: 8300000, guid: b5e153667702d0740b3e4d6d0da795e2, type: 3}
+    sceneName:
+    - DanceArea
+  - clip: {fileID: 8300000, guid: 069ba639289555b47a9f6f0ab934b9f2, type: 3}
+    sceneName:
+    - DanceMastery
+  - clip: {fileID: 8300000, guid: 469d23538984e2d4ebb6bfdea0a5942f, type: 3}
+    sceneName:
+    - PaintingArea
+    - PaintingMastery
+  - clip: {fileID: 0}
+    sceneName: []
+  - clip: {fileID: 8300000, guid: a2f7605a54146264c8df733aa14f0ee8, type: 3}
+    sceneName:
+    - MusicArea
+    - MusicMastery
+  - clip: {fileID: 0}
+    sceneName: []
+  - clip: {fileID: 8300000, guid: 3661225736365d1419064306dc2944fe, type: 3}
+    sceneName:
+    - PoetryArea
+  - clip: {fileID: 8300000, guid: 74ec8a9c58a9fbc408bd95480dd6d409, type: 3}
+    sceneName:
+    - PoetryMastery
+  - clip: {fileID: 8300000, guid: 947a42bb910f5a244ae2727df40347f6, type: 3}
+    sceneName:
+    - FinalArea
+    - FinalRoom
+  - clip: {fileID: 8300000, guid: 48526430a3f73004891f7f9add43d610, type: 3}
+    sceneName:
+    - MainHall
+  - clip: {fileID: 0}
+    sceneName: []
 --- !u!114 &114319182754025338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1583,7 +1714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeQuest: mastered
-  activeAct: -1
+  activeAct: 4
   letters: 0
   letterSend: 0
   questEnabled: 0
@@ -1602,10 +1733,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSound:
-  - {fileID: 8300000, guid: 9a8a03584469ba74681002801fb1775a, type: 3}
-  - {fileID: 8300000, guid: 28a64a32bb277ea4580ae97d65333fbc, type: 3}
-  - {fileID: 8300000, guid: 5164c88539d5ee642b949ccdc04929ab, type: 3}
-  - {fileID: 8300000, guid: f16bac087feeed14683903f9c67218ef, type: 3}
+  - {fileID: 8300000, guid: bd5d647488e963540928ab5299a9d4b7, type: 3}
+  - {fileID: 8300000, guid: 6b3baeec3b4ad434582fdb4f47956b45, type: 3}
+  - {fileID: 8300000, guid: c3ecf9206a7b7024ead10cdd9f5b52ab, type: 3}
+  - {fileID: 8300000, guid: 5068ad996dd62eb4f88e1577091e2145, type: 3}
+  - {fileID: 8300000, guid: 8212e39cdc12fb943a2d121b4a618c93, type: 3}
+  - {fileID: 8300000, guid: a04289c6cd51e5c4da54c9fd327672b7, type: 3}
   hitSound:
   - {fileID: 8300000, guid: 4a779a26a03c0d147a1ded5cd3d9d370, type: 3}
   - {fileID: 8300000, guid: 01fa3caf026de454fa74e7b9b6293f85, type: 3}
@@ -1674,6 +1807,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Press (START) or (M) to access your Quest Log.
+--- !u!114 &114843519340684874
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1844845208802622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8fae73e9dd7fcc408e8b8703fb793a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hittingSound:
+  - {fileID: 8300000, guid: 9a8a03584469ba74681002801fb1775a, type: 3}
+  - {fileID: 8300000, guid: 28a64a32bb277ea4580ae97d65333fbc, type: 3}
+  - {fileID: 8300000, guid: 5164c88539d5ee642b949ccdc04929ab, type: 3}
+  - {fileID: 8300000, guid: f16bac087feeed14683903f9c67218ef, type: 3}
 --- !u!114 &114872506006494494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8587,7 +8736,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1390164649
+  randomSeed: -1491798140
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -12349,7 +12498,7 @@ RectTransform:
   m_GameObject: {fileID: 1693482278552630}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.006383083}
-  m_LocalScale: {x: 1.3333334, y: 1.3333334, z: 1}
+  m_LocalScale: {x: 1.108, y: 1.108, z: 0.831}
   m_Children:
   - {fileID: 224073570572451494}
   - {fileID: 224823084311599514}

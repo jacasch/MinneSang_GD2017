@@ -10,18 +10,19 @@ public class ComputeRespawnTiles : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        collisionMap = transform.parent.Find("Colider").gameObject.GetComponent<Tilemap>();
-        collisionMap.CompressBounds();
-        respawnMap = GetComponent<Tilemap>();
-
-        CalculateCollision();
 	}
 
     // Update is called once per frame
     void Update() {
     }
 
+    [ContextMenu("Generate Colliders")]
     void CalculateCollision() {
+
+        collisionMap = transform.parent.Find("Collider").gameObject.GetComponent<Tilemap>();
+        collisionMap.CompressBounds();
+        respawnMap = GetComponent<Tilemap>();
+
         int xMin = collisionMap.cellBounds.xMin;
         int xMax = collisionMap.cellBounds.xMax;
         int yMin = collisionMap.cellBounds.yMin;
