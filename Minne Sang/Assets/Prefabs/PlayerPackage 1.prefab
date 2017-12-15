@@ -1791,10 +1791,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e504bdb1c94f6474bb4db6bd577c09e7, type: 3}
   - {fileID: 8300000, guid: ad8e30b08883859469b123a424e0b9e8, type: 3}
   jumpSound:
-  - {fileID: 8300000, guid: caef4d170b7ba2e459c416eeb2d561d8, type: 3}
+  - {fileID: 8300000, guid: 464289daea282534d8143fe95f641b52, type: 3}
+  - {fileID: 8300000, guid: 464289daea282534d8143fe95f641b52, type: 3}
   landSound:
-  - {fileID: 8300000, guid: 7a5225de9f6d1964aa6e4a1f95ffda6c, type: 3}
-  - {fileID: 8300000, guid: fd56c6a320eb85b4280a7de277ee2c2b, type: 3}
+  - {fileID: 8300000, guid: 0d7bc58daf23bc541b2a6a9f1e67799d, type: 3}
+  - {fileID: 8300000, guid: 6b95dab04622ce446a2552b765b092f3, type: 3}
+  - {fileID: 8300000, guid: 65a057c8b7da37e47b4b3951387bdb1a, type: 3}
 --- !u!114 &114822919219238970
 MonoBehaviour:
   m_ObjectHideFlags: 1
