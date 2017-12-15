@@ -64,11 +64,14 @@ public class PlayerSpawnHandler : MonoBehaviour {
     }
 
     public void Respawn() {
-        SceneManager.LoadScene(targetScene,LoadSceneMode.Single);
-        PlayerController pc = GetComponent<PlayerController>();
-        pc.inNpcZone = false;
-        SaveGameState();
+        if (!SceneManager.GetSceneByName(targetScene).Equals(null)) {
+            SceneManager.LoadScene(targetScene, LoadSceneMode.Single);
+            PlayerController pc = GetComponent<PlayerController>();
+            pc.inNpcZone = false;
+            SaveGameState();
+        }
     }
+        
 
     public void SaveGameState() {
         PlayerPrefs.SetInt("act", pqh.activeAct);

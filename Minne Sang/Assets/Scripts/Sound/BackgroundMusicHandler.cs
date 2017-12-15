@@ -38,6 +38,14 @@ public class BackgroundMusicHandler : MonoBehaviour {
     {
         string sceneName = SceneManager.GetActiveScene().name;
 
+        if (currentSong.Equals(null))
+            return;
+        if (currentSong.sceneName == null)
+            return;
+        if (currentSong.clip == null)
+            return;
+
+
         foreach (string name in currentSong.sceneName) {
         }
 

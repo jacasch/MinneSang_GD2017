@@ -50,6 +50,7 @@ public class PlayerStats : MonoBehaviour
                 gameObject.layer = 9;
                 GetComponent<PlayerController>().KnockBack(0);
                 animator.SetBool("Dead", false);
+                hp = maxHP;
                 deathAnimationStarted = false;
 
                 GetComponent<PlayerSpawnHandler>().Respawn();
@@ -125,7 +126,8 @@ public class PlayerStats : MonoBehaviour
             {
                 //DMG to player
                 hp -= enemyDMG.dmg;
-                GetComponent<PlayerSoundHandler>().Hit();
+                if (!dead)
+                    GetComponent<PlayerSoundHandler>().Hit();
                 //print("HP: " + hp);
 
                 //UnverwundbarkeitsTimer
