@@ -24,5 +24,10 @@ public class openingScene : MonoBehaviour {
         {
             SceneManager.LoadScene("Intro", LoadSceneMode.Single);
         }
+
+        if (Input.anyKey)
+        {
+            SceneManager.LoadScene("Intro", LoadSceneMode.Single);
+        }
     }
 }
