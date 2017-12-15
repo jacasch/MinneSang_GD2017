@@ -19,12 +19,14 @@ public class PlayerPaintShot : MonoBehaviour {
         lr = GetComponent<LineRenderer>();
         animator = GetComponent<Animator>();
         lr.enabled = false;
+        lr.sortingLayerName = "Player";
+        lr.sortingOrder = -100;
         pc.aiming = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        bool canPaint = pg.skillLevel >= 2 && !animator.GetBool("CastingPoetry") && !animator.GetBool("CastingMusic");
+        bool canPaint = pg.skillLevel >= 2 && !animator.GetBool("CastingPoetry") && !animator.GetBool("CastingMusic") && !pc.dead;
 
         if (canPaint)
         {
