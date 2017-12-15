@@ -11,6 +11,8 @@ public class openingScene : MonoBehaviour {
     private Camera cam;
     private int count = 0;
 
+    public bool endScene = false;
+
     // Use this for initialization
     void Start () {
         cam = Camera.main;
@@ -22,12 +24,25 @@ public class openingScene : MonoBehaviour {
         video = cam.GetComponent<VideoPlayer>();
 		if (count > 100 && !video.isPlaying)
         {
+            if (endScene)
+            {
+                SceneManager.LoadScene("Credits", LoadSceneMode.Additive);
+            }
+            else { 
             SceneManager.LoadScene("Intro", LoadSceneMode.Single);
+            }
         }
 
         if (Input.anyKey)
         {
+            if (endScene)
+            {
+                SceneManager.LoadScene("Credits", LoadSceneMode.Additive);
+            }
+        else
+        {
             SceneManager.LoadScene("Intro", LoadSceneMode.Single);
         }
+    }
     }
 }

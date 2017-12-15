@@ -62,3 +62,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Other/BadEnding.unity
     guid: 293fa3cfa3289a140b65a79fb67fe297
+  - enabled: 1
+    path: Assets/Scenes/Other/Credits.unity
+    guid: c77fadcc0f7ea1142aa1862f81d13ff6
