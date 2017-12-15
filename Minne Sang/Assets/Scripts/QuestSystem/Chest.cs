@@ -60,6 +60,7 @@ public class Chest : Npc
                         if (activePhraseIndex == 3)
                         {
                             AudioSource openingSound = GetComponent<AudioSource>();
+                            openingSound.Play();
                             openingSound.PlayOneShot(opening);
                             animator.SetBool("opening", true);
                         }

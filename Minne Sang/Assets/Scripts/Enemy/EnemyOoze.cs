@@ -111,12 +111,11 @@ public class EnemyOoze : MonoBehaviour
         else if (active)
         {
             Move();
-            if (rightUp && rb.velocity.x == 0)
+            if (rightUp && rb.velocity.x == 0 && !grounded)
             {
                 rb.velocity = new Vector3(1.25f * dir, rb.velocity.y, 0);
                 rightUp = false;
             }
-
             if (rb.velocity.x == 0 && rb.velocity.y == 0 && !grounded && rightUp && jumpUp == 1)
             {
                 rb.velocity = new Vector3(speed * dir, jumpHeight, 0);
@@ -365,35 +364,38 @@ public class EnemyOoze : MonoBehaviour
 
         jumpUp = 1;
 
-        RaycastHit2D[] hitsRight;
-
-        //Überprüft, ob rechts an der rechten Ecke des Gegners ein Block ist
-        hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y - halfSize + 0.15f), new Vector2(1 * dir, 0), halfSize + 0.01f);
-
-        if (hitsRight.Length == 0)
+        if (active || !grounded)
         {
-            hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y + halfSize - 0.15f), new Vector2(1 * dir, 0), halfSize + 0.01f);
+            RaycastHit2D[] hitsRight;
+
+            //Überprüft, ob rechts an der rechten Ecke des Gegners ein Block ist
+            hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y - halfSize + 0.15f), new Vector2(1 * dir, 0), halfSize + 0.01f);
 
             if (hitsRight.Length == 0)
             {
-                rightUp = true;
+                hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y + halfSize - 0.15f), new Vector2(1 * dir, 0), halfSize + 0.01f);
+
+                if (hitsRight.Length == 0)
+                {
+                    rightUp = true;
+                }
+                else
+                {
+                    if (grounded)
+                    {
+                        jumpUp = 0;
+                        wallInFront = true;
+                    }
+                }
             }
             else
             {
-                if(grounded)
+                rightUp = false;
+                if (grounded)
                 {
                     jumpUp = 0;
                     wallInFront = true;
                 }
-            }
-        }
-        else
-        {
-            rightUp = false;
-            if (grounded)
-            {
-                jumpUp = 0;
-                wallInFront = true;
             }
         }
 

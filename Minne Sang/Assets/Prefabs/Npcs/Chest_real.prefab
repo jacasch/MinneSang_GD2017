@@ -210,11 +210,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 3ea7de548f9dd994289afc64d9b7aa3f, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -365,7 +365,7 @@ MonoBehaviour:
     messageByPrincess: 0
     text: What the fuck???
   chest: {fileID: 0}
-  opening: {fileID: 8300000, guid: e361a31656e900c42830ec10a0f42a93, type: 3}
+  opening: {fileID: 8300000, guid: 4eace931256cda04386bb2da8a30f892, type: 3}
   targetScene: 
 --- !u!114 &114288502827091738
 MonoBehaviour:

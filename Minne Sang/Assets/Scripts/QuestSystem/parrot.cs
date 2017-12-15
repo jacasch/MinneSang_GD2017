@@ -40,9 +40,12 @@ public class Parrot : Npc
 
                 parrot = GameObject.Find("Parrot Parent/parrot");
                 Animator animator = parrot.GetComponent<Animator>();
+                AudioSource sourceChild = parrot.GetComponent<AudioSource>();
+                AudioClip clip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Quest/Wing Flaps.wav");
 
                 if (player.GetComponent<PlayerQuestHandler>().letterSend == true)
                 {
+                    sourceChild.PlayOneShot(clip);
                     animator.SetBool("flying", true);
                 } else
                 {
