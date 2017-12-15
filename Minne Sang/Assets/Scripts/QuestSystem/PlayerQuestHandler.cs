@@ -20,6 +20,9 @@ public class PlayerQuestHandler : MonoBehaviour
     public List<string> collectedItems = new List<string>();
     public List<string> questItems = new List<string>();
 
+    private AudioSource sourceDrop;
+
+
     // Use this for initialization
     void Start()
     {
@@ -39,6 +42,12 @@ public class PlayerQuestHandler : MonoBehaviour
         {
             if (collision.gameObject.transform.parent.gameObject.tag == "Item")
             {
+                //Play Audio
+                sourceDrop = GetComponent<AudioSource>();
+                AudioClip clip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Items/PickupItem.wav");
+                sourceDrop.PlayOneShot(clip);
+
+                // Pickup
                 AddItem(collision.gameObject.transform.parent.gameObject.GetComponent<ItemHandler>().GetName());
                 print("picked up");
                 Destroy(collision.gameObject.transform.parent.gameObject);
@@ -132,7 +141,7 @@ public class PlayerQuestHandler : MonoBehaviour
         }
 
         // After End
-        if (player.GetComponent<PlayerQuestHandler>().activeQuest == "end")
+        if (player.GetComponent<PlayerQuestHandler>().activeQuest == "end" || player.GetComponent<PlayerQuestHandler>().activeAct == 4)
         {
             questText.text = "You have mastered all the arts! You have never been closer to obtaining the love of your dear princess. But you are missing one thing. Your final task is to obtain the unobtainable. The tower challenges you.";
         }

@@ -16,6 +16,13 @@ public class MasterNpc : Npc{
     public override void Initialize()
     {
         base.Initialize();
+        GameObject player = GameObject.Find("player");
+        GameObject dancer = GameObject.Find("Umkleide");
+        Animator animator = dancer.GetComponent<Animator>();
+        if (player.GetComponent<PlayerQuestHandler>().activeAct >= 1)
+        {
+            animator.SetBool("finished", true);
+        }
     }
 
     public override void NextPhrase()
@@ -73,6 +80,15 @@ public class MasterNpc : Npc{
                         { //else we progress in the dialogues
                             activePhrase = quest.endDialogue[activePhraseIndex];
                             activePhraseIndex++;
+
+                            // Trigger Dance animation
+                            GameObject dancer = GameObject.Find("Umkleide");
+                            Animator animator = dancer.GetComponent<Animator>();
+
+                            if (player.GetComponent<PlayerQuestHandler>().activeAct == 0 && activePhrase == quest.endDialogue[3])
+                            {
+                                animator.SetBool("folding", true);
+                            }
                         }
                     }
                     //else we are in the quest but havent completed, so drop random questline
