@@ -42,6 +42,6 @@ public class PaintShot : MonoBehaviour {
         GetComponent<AudioSource>().Play();
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
-        Destroy(gameObject, explodeSound.Length);
+        Destroy(gameObject, explodeSound[0].length);
     }
 }

@@ -9,6 +9,8 @@ public class EnemyPaintShot : MonoBehaviour
 
     public Vector3 direction;
     public float velocity;
+    public AudioClip explodeSound;
+    public Color color;
     Rigidbody2D rb2d;
 
     //MAIN-----------------------------------------------------------------------------------------------------------------
@@ -26,7 +28,7 @@ public class EnemyPaintShot : MonoBehaviour
         liveTime -= Time.deltaTime;
         if(liveTime<=0)
         {
-            Destroy(gameObject);
+            Explode();
         }
     }
 
@@ -36,7 +38,17 @@ public class EnemyPaintShot : MonoBehaviour
     {
         if(other.tag != "Enemy" && other.tag != "DmgToPlayer" && other.tag != "Detection")
         {
-            Destroy(gameObject);
+            Explode();
         }
+    }
+
+    public void Explode()
+    {
+        GameObject.FindGameObjectWithTag("PaintSplatter").GetComponent<PaintSplatter>().Paint(new Vector2(transform.position.x, transform.position.y), color);
+        GetComponent<AudioSource>().clip = explodeSound;
+        GetComponent<AudioSource>().Play();
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        Destroy(gameObject, explodeSound.length);
     }
 }
