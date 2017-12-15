@@ -13,6 +13,7 @@ public class PlayerQuestHandler : MonoBehaviour
 
     private int delay = 100;
     private bool menuEnabled = false;
+    public bool questEnabled = false;
 
     Vector3 Vector3 = new Vector3(Screen.width/2, Screen.height/2);
     //    public bool optionToSendLetters = false;
@@ -21,6 +22,8 @@ public class PlayerQuestHandler : MonoBehaviour
     public List<string> questItems = new List<string>();
 
     private AudioSource sourceDrop;
+    private float currCountdownValue;
+
 
 
     // Use this for initialization
@@ -32,8 +35,8 @@ public class PlayerQuestHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 = new Vector3(Screen.width / 2, Screen.height / 2);
         menuHandler();
+        questAlarm();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -51,6 +54,47 @@ public class PlayerQuestHandler : MonoBehaviour
                 AddItem(collision.gameObject.transform.parent.gameObject.GetComponent<ItemHandler>().GetName());
                 print("picked up");
                 Destroy(collision.gameObject.transform.parent.gameObject);
+            }
+        }
+    }
+
+    public void questAlarm()
+    {
+        GameObject questAL = transform.Find("canvasQuest").gameObject; 
+        Canvas canvasQuest = questAL.GetComponent<Canvas>();
+        GameObject player = GameObject.Find("player");
+        AudioSource source = questAL.GetComponent<AudioSource>();
+
+        if (questEnabled)
+            {
+            source.Play();
+
+            //Debug.Log("got Quest");
+            canvasQuest.enabled = true;
+            QuestCountdown();
+            } else
+        {
+            canvasQuest.enabled = false;
+        }
+    }
+
+    public IEnumerator QuestCountdown(float countdownValue = 1)
+    {
+        GameObject questAL = transform.Find("canvasQuest").gameObject;
+        Canvas canvasQuest = questAL.GetComponent<Canvas>();
+        currCountdownValue = countdownValue;
+        while (currCountdownValue >= 0)
+        {
+            Debug.Log(currCountdownValue);
+
+            // Debug.Log("Countdown: " + currCountdownValue);
+            yield return new WaitForSeconds(5.0f);
+            currCountdownValue--;
+            Debug.Log(currCountdownValue);
+            if (currCountdownValue == 0)
+            {
+                questEnabled = false;
+                canvasQuest.enabled = false;
             }
         }
     }
@@ -174,13 +218,6 @@ public class PlayerQuestHandler : MonoBehaviour
 
             for (int i = 0; i < itemLength; i++)
             {
-                //GameObject itemsQuest = new GameObject("Item" + i);
-                //itemsQuest.transform.SetParent(transform.Find("menu/Panel"));
-
-                //Text text = itemsQuest.AddComponent<Text>();
-                // GET BUILT IN WRONG??
-                //text.font = (Font)Resources.Load("Fonts/CalvertMTStd");
-                //text.text = questItems[i];
 
                 if (collectedItems.Contains(player.GetComponent<PlayerQuestHandler>().questItems[i]))
                 {
@@ -193,12 +230,6 @@ public class PlayerQuestHandler : MonoBehaviour
 
                 itemQuest = itemQuest +"\n"+itemColor+questItems[i]+"</color>";
 
-                //text.fontSize = 18;
-                //text.alignment = TextAnchor.LowerCenter;
-                //text.transform.localPosition = new Vector2(-10, -(test/2-90 - i * 30));
-                //text.transform.localScale = new Vector3(1, 1, 1);
-
-            
                 questText.text = "The high master of dance has lost his clothes. You must take to him his tiara, tutu and shoes, so that he may instruct you in the art of dance. Students in the dance area or main hall may have them. Look around and talk.\n" + itemQuest;
             }
         }
