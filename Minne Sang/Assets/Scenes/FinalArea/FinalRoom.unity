@@ -7132,7 +7132,7 @@ Tilemap:
   - serializedVersion: 1
     m_DirtyIndex: 0
   - serializedVersion: 1
-    m_DirtyIndex: 1
+    m_DirtyIndex: 0
 --- !u!66 &96630984
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -7657,7 +7657,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f0000000000000000000000000000003f0000003f000000000000000000000000000000bf000000bf0000000000000000000000000000003f000000bf000000000000000000000000
+      _typelessdata: 000000bf0000003f00000000000000000000803f0000003f0000003f000000000000803f0000803f000000bf000000bf0000000000000000000000000000003f000000bf000000000000803f00000000
     textureRect:
       serializedVersion: 2
       x: 0
@@ -7728,7 +7728,7 @@ SpriteRenderer:
   m_Size: {x: 105.00001, y: 75.00001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &235176066
 Transform:
@@ -23920,7 +23920,7 @@ Tilemap:
   - serializedVersion: 1
     m_DirtyIndex: 0
   - serializedVersion: 1
-    m_DirtyIndex: 1
+    m_DirtyIndex: 0
 --- !u!1001 &370437207
 Prefab:
   m_ObjectHideFlags: 0
@@ -24045,7 +24045,7 @@ SpriteRenderer:
   m_Size: {x: 102.99999, y: 72}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &576542676
 Transform:
@@ -24581,13 +24581,23 @@ Prefab:
     - target: {fileID: 224119900153177024, guid: 00706dd587fc27a45ace67b0f2ed04e6,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 331.70276
+      value: 928.20276
       objectReference: {fileID: 0}
     - target: {fileID: 224119900153177024, guid: 00706dd587fc27a45ace67b0f2ed04e6,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 154.0055
+      value: 447.0055
       objectReference: {fileID: 0}
+    - target: {fileID: 82407615961879088, guid: 00706dd587fc27a45ace67b0f2ed04e6,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: df80791fc1617fc4c8c6a0c1f0e61a9f, type: 3}
+    - target: {fileID: 114205124343809242, guid: 00706dd587fc27a45ace67b0f2ed04e6,
+        type: 2}
+      propertyPath: opening
+      value: 
+      objectReference: {fileID: 8300000, guid: 92b5ce2856884934095400f2c4311749, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00706dd587fc27a45ace67b0f2ed04e6, type: 2}
   m_IsPrefabParent: 0
@@ -24768,7 +24778,7 @@ SpriteRenderer:
   m_Size: {x: 206, y: 144}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &1584822150
 Transform:
@@ -24930,11 +24940,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4680036697732550, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 53.84
+      value: 22.32
       objectReference: {fileID: 0}
     - target: {fileID: 4680036697732550, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 43.59
+      value: 46.33
       objectReference: {fileID: 0}
     - target: {fileID: 4680036697732550, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -24983,12 +24993,12 @@ Prefab:
     - target: {fileID: 224052935549467338, guid: 1e88cddcd788bea4c8332d4b4bb8af6a,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 403.5467
+      value: 1240.9067
       objectReference: {fileID: 0}
     - target: {fileID: 224052935549467338, guid: 1e88cddcd788bea4c8332d4b4bb8af6a,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 209.21335
+      value: 596.2267
       objectReference: {fileID: 0}
     - target: {fileID: 224052935549467338, guid: 1e88cddcd788bea4c8332d4b4bb8af6a,
         type: 2}
@@ -25003,12 +25013,17 @@ Prefab:
     - target: {fileID: 224419875129098430, guid: 1e88cddcd788bea4c8332d4b4bb8af6a,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 403.5467
+      value: 1240.9067
       objectReference: {fileID: 0}
     - target: {fileID: 224419875129098430, guid: 1e88cddcd788bea4c8332d4b4bb8af6a,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 209.21335
+      value: 596.2267
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807568958910834, guid: 1e88cddcd788bea4c8332d4b4bb8af6a,
+        type: 2}
+      propertyPath: activeQuest
+      value: end
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
@@ -25237,7 +25252,7 @@ SpriteRenderer:
   m_Size: {x: 98.16, y: 96.72}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &2012184825
 Transform:
