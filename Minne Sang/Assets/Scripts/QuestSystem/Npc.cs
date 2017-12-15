@@ -76,7 +76,7 @@ public class Npc : MonoBehaviour {
             Interact();
         }
         autoStartConvo();
-	}
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -27,9 +27,9 @@ public class EnemyDance : MonoBehaviour
     public bool isStealth = false;
 
     //Questereignisse
-    string activeQuest;
+    PlayerQuestHandler questHandler;
     public bool dropItem = false;
-    public string questName = "";
+    string questName = "q3";
     public Item questDrop;
     bool dropped = false;
 
@@ -74,9 +74,10 @@ public class EnemyDance : MonoBehaviour
         stealth = isStealth;
         orgPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
-        activeQuest = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>().activeQuest;
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
+
+        questHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>();
 
         animator = GetComponent<Animator>();
 
@@ -175,9 +176,18 @@ public class EnemyDance : MonoBehaviour
                 soundHandler.Exploding();
                 exploded = true;
             }
-            if(dropItem && !dropped)
+
+            foreach (string item in questHandler.collectedItems)
             {
-                if (activeQuest == questName)
+                if (item == questDrop.name)
+                {
+                    dropped = true;
+                }
+            }
+
+            if (dropItem && !dropped)
+            {
+                if (questHandler.activeQuest == questName)
                 {
                     GameObject drop = Instantiate(questDrop.drop, transform.position, transform.rotation);
                     drop.GetComponent<ItemHandler>().SetName(questDrop.name);

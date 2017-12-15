@@ -9,6 +9,11 @@ public class NormalNpc : Npc {
     public Item questDrop;
     private bool itemExists = false;
     private int newIndex = 0;
+    private float itemTimer = 30.0f;
+    float currCountdownValue;
+    private AudioSource sourceChild;
+
+
 
     //public Phrase[] questDialogue;
 
@@ -37,7 +42,8 @@ public class NormalNpc : Npc {
                 {
 
                     DropItem();
-                itemExists = true;
+                    itemExists = true;
+                
 
                     //abort conversation
                     EndInteraction();
@@ -68,8 +74,26 @@ public class NormalNpc : Npc {
     private void DropItem()
     {
        if (questDrop.drop != null) {
-            GameObject drop = Instantiate(questDrop.drop, transform.position, transform.rotation);
-            drop.GetComponent<ItemHandler>().SetName(questDrop.name);
+            sourceChild = GetComponent<AudioSource>();
+            AudioClip clip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Items/Item drop.wav");
+            sourceChild.PlayOneShot(clip);
+            StartCoroutine(StartCountdown());
+        }
+    }
+
+    public IEnumerator StartCountdown(float countdownValue = 1)
+    {
+        currCountdownValue = countdownValue;
+        while (currCountdownValue >= 0)
+        {
+            // Debug.Log("Countdown: " + currCountdownValue);
+            yield return new WaitForSeconds(2.0f);
+            currCountdownValue--;
+            if (currCountdownValue == 0)
+            {
+                GameObject drop = Instantiate(questDrop.drop, transform.position, transform.rotation);
+                drop.GetComponent<ItemHandler>().SetName(questDrop.name);
+            }
         }
     }
 

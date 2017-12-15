@@ -13,9 +13,14 @@ public class PlayerSpawnHandler : MonoBehaviour {
     private SpawnPoint[] spawnPoints;
     private PlayerStats ps;
 
+    private PlayerQuestHandler pqh;
+    private PlayerSpawnHandler psh;
+
 
     private void Start()
     {
+        pqh = GetComponent<PlayerQuestHandler>();
+        psh = GetComponent<PlayerSpawnHandler>();
         Reposition();
         //if there is another player in the scen destroy it
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
@@ -38,10 +43,10 @@ public class PlayerSpawnHandler : MonoBehaviour {
     }
 
     private void Reposition() {
-
-
         doors = FindObjectsOfType(typeof(Door)) as Door[];
+        print(doors.Length);
         spawnPoints = FindObjectsOfType(typeof(SpawnPoint)) as SpawnPoint[];
+        print(spawnPoints.Length);
         foreach (Door d in doors)
         {
             if (d.name == targetSpawn)
@@ -56,6 +61,7 @@ public class PlayerSpawnHandler : MonoBehaviour {
                 Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
             }
         }
+        
         Camera.main.GetComponent<CameraMovement>().ZoomOut();
     }
 
@@ -63,6 +69,15 @@ public class PlayerSpawnHandler : MonoBehaviour {
         SceneManager.LoadScene(targetScene,LoadSceneMode.Single);
         PlayerController pc = GetComponent<PlayerController>();
         pc.inNpcZone = false;
-        Debug.Log("poetry cast time reset");
+        SaveGameState();
+    }
+
+    public void SaveGameState() {
+        PlayerPrefs.SetInt("act", pqh.activeAct);
+        PlayerPrefs.SetString("quest", pqh.activeQuest);
+        PlayerPrefs.SetInt("letters", pqh.letters);
+        PlayerPrefs.SetInt("send", pqh.letterSend ? 1 : 0);
+        PlayerPrefs.SetString("scene", psh.targetScene);
+        PlayerPrefs.SetString("spawn", psh.targetSpawn);
     }
 }
