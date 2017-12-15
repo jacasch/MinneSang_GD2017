@@ -7,7 +7,6 @@ public class MasterNpc : Npc{
     public int relevantAct;
     public Quest quest;
     public Phrase encounterBeforeHeadMaster;
-
     public string targetScene;
 
     //public Phrase afterDropLine;
@@ -52,6 +51,7 @@ public class MasterNpc : Npc{
                         {
                             player.GetComponent<PlayerQuestHandler>().questItems.Add(name);
                         }
+                        player.GetComponent<PlayerQuestHandler>().questEnabled = true;
                         EndInteraction();
                     }
                     else
