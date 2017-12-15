@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8fff689ec76114582bba51c44cd0ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStealth: 1
+  isStealth: 0
   dropItem: 0
   questDrop:
     drop: {fileID: 0}
