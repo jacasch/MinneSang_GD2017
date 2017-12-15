@@ -10,7 +10,7 @@ public class ComputeRespawnTiles : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        collisionMap = transform.parent.Find("Collider").gameObject.GetComponent<Tilemap>();
+        collisionMap = transform.parent.Find("Colider").gameObject.GetComponent<Tilemap>();
         collisionMap.CompressBounds();
         respawnMap = GetComponent<Tilemap>();
 
