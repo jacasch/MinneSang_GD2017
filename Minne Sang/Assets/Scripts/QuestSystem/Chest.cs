@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Chest : Npc
 {
@@ -9,6 +11,8 @@ public class Chest : Npc
     public Quest quest;
     public Phrase encounterBeforeHeadMaster;
     public GameObject chest;
+
+    public AudioClip opening;
 
     public string targetScene;
 
@@ -55,6 +59,8 @@ public class Chest : Npc
 
                         if (activePhraseIndex == 3)
                         {
+                            AudioSource openingSound = GetComponent<AudioSource>();
+                            openingSound.PlayOneShot(opening);
                             animator.SetBool("opening", true);
                         }
                     }
@@ -94,9 +100,11 @@ public class Chest : Npc
     {
         if (player.GetComponent<PlayerQuestHandler>().letters >= 4)
         {
+            SceneManager.LoadScene("GoodEnding", LoadSceneMode.Single);
             Debug.Log("Good Ending", gameObject);
         } else
         {
+            SceneManager.LoadScene("BadEnding", LoadSceneMode.Single);
             Debug.Log("Bad Ending", gameObject);
         }
         EndInteraction();

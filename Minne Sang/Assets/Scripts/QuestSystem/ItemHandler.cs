@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemHandler : MonoBehaviour {
     public string name = "Item Template";
 
-    private float pickUpDelay = 1.5f;
+    private float pickUpDelay = 1f;
 
     private void Start()
     {
@@ -20,7 +20,6 @@ public class ItemHandler : MonoBehaviour {
         else
         {
             transform.Find("trigger").gameObject.layer = 0;
-            print("layermoed");
         }
     }
 

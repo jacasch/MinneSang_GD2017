@@ -46,7 +46,6 @@ public class PlayerSpawnHandler : MonoBehaviour {
         doors = FindObjectsOfType(typeof(Door)) as Door[];
         print(doors.Length);
         spawnPoints = FindObjectsOfType(typeof(SpawnPoint)) as SpawnPoint[];
-        print(spawnPoints.Length);
         foreach (Door d in doors)
         {
             if (d.name == targetSpawn)

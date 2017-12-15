@@ -327,7 +327,8 @@ MonoBehaviour:
   questDialogue: []
   randomLines: []
   autoStart: 0
-  EngageConversation: []
+  EngageConversation:
+  - {fileID: 0}
   player: {fileID: 0}
   activePhrase:
     spokenByNpc: 0
@@ -364,6 +365,7 @@ MonoBehaviour:
     messageByPrincess: 0
     text: What the fuck???
   chest: {fileID: 0}
+  opening: {fileID: 8300000, guid: e361a31656e900c42830ec10a0f42a93, type: 3}
   targetScene: 
 --- !u!114 &114288502827091738
 MonoBehaviour:
