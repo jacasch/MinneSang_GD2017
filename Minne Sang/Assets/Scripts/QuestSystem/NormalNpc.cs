@@ -13,8 +13,6 @@ public class NormalNpc : Npc {
     float currCountdownValue;
     private AudioSource sourceChild;
 
-
-
     //public Phrase[] questDialogue;
 
     public override void NextPhrase()

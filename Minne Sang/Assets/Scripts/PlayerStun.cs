@@ -100,7 +100,7 @@ public class PlayerStun : MonoBehaviour
         }
 
         if (particleStartTime + particleDelay <= Time.time) {
-            particles.active = false;
+            particles.SetActive(false);
             if (soundPlayed)
             animator.SetBool("CastingMusic", false);
         }
