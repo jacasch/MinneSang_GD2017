@@ -23,7 +23,7 @@ public class EnemyPaint : MonoBehaviour
     float respawnTime = 90;  //Zeit bis der Gegner respawnt
 
     //Questereignisse
-    string activeQuest;
+    PlayerQuestHandler questHandler;
     public bool dropItem = false;
     string questName = "q4";
     public Item questDrop;
@@ -79,6 +79,8 @@ public class EnemyPaint : MonoBehaviour
         objPlayer = GameObject.FindGameObjectWithTag("Player");
         mySprite = GetComponent<SpriteRenderer>();
         auraDmg = aura.GetComponent<EnemyDMG>();
+
+        questHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerQuestHandler>();
 
         stealth = true;
 
@@ -216,7 +218,6 @@ public class EnemyPaint : MonoBehaviour
 
         if (died)
         {
-            activeQuest = objPlayer.GetComponent<PlayerQuestHandler>().activeQuest;
             deathExplosion.died = true;
             soundHandler.Dying();
             died = false;
@@ -230,13 +231,18 @@ public class EnemyPaint : MonoBehaviour
         }
         else
         {
+            foreach (string item in questHandler.collectedItems)
+            {
+                if (item == questDrop.name)
+                {
+                    dropped = true;
+                }
+            }
+
             if (dropItem && !dropped)
             {
-                print("dropItem && dropped = True");
-                print("activequeset: " + activeQuest + "|| questName: " + questName);
-                if (activeQuest == questName)
+                if (questHandler.activeQuest == questName)
                 {
-                    print("success!!!");
                     GameObject drop = Instantiate(questDrop.drop, transform.position, transform.rotation);
                     drop.GetComponent<ItemHandler>().SetName(questDrop.name);
                     dropped = true;
