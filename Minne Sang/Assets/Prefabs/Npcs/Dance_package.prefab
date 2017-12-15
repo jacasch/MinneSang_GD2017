@@ -204,7 +204,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1535193024737080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.066895, y: -4.279255, z: 10.667268}
+  m_LocalPosition: {x: 65.73582, y: 39.521717, z: 10.667268}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4492698528100144}
@@ -746,7 +746,7 @@ MonoBehaviour:
     messageByPrincess: 0
     text: Heigh-ho there! I perceive your presence but I cannot show myself because
       I cannot find my clothes! Come see me later!
-  targetScene: 
+  targetScene: DanceMastery
 --- !u!114 &114546161395426810
 MonoBehaviour:
   m_ObjectHideFlags: 1
