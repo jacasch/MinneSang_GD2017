@@ -19,7 +19,7 @@ public class ComputeRespawnTiles : MonoBehaviour {
     [ContextMenu("Generate Colliders")]
     void CalculateCollision() {
 
-        collisionMap = transform.parent.Find("Collider").gameObject.GetComponent<Tilemap>();
+        collisionMap = transform.parent.Find("Colider").gameObject.GetComponent<Tilemap>();
         collisionMap.CompressBounds();
         respawnMap = GetComponent<Tilemap>();
 
