@@ -39,6 +39,8 @@ public class PlayerController : PhysicsObject {
     private bool attacking;
     public bool dead = false;
 
+    bool isLanded = false;
+
     protected override void Initialize()
     {
         tr = GetComponent<TrailRenderer>();
@@ -61,6 +63,16 @@ public class PlayerController : PhysicsObject {
         Vector2 move = Vector2.zero;
         trailDelay -= Time.deltaTime;
         dashAnimationDelay -= Time.deltaTime;
+
+        if(!isLanded && grounded)
+        {
+            psh.Land();
+            isLanded = true;
+        }
+        else if(!grounded)
+        {
+            isLanded = false;
+        }
 
         #region Input
 
@@ -120,6 +132,7 @@ public class PlayerController : PhysicsObject {
         if (Input.GetButtonDown("Jump") && grounded && !inNpcZone && canMove) {
             velocity.y = jumpTakeOffSpeed;
             groundNormal = Vector2.up;
+            psh.Jump();
         }
 
         if (Input.GetButtonDown("Dash") && !inNpcZone && canMove && canDash && !dashing && pg.skillLevel >= 1) {
