@@ -15,12 +15,16 @@ public class MasterNpc : Npc{
     {
         base.Initialize();
         GameObject player = GameObject.Find("player");
-        GameObject dancer = GameObject.Find("Umkleide");
-        Animator animator = dancer.GetComponent<Animator>();
+        if (GameObject.Find("Umkleide") != null)
+        {
+            GameObject dancer = GameObject.Find("Umkleide");
+            Animator animator = dancer.GetComponent<Animator>();
         if (player.GetComponent<PlayerQuestHandler>().activeAct >= 1)
         {
             animator.SetBool("finished", true);
         }
+        }
+
     }
 
     public override void NextPhrase()
@@ -81,6 +85,7 @@ public class MasterNpc : Npc{
                             activePhraseIndex++;
 
                             // Trigger Dance animation
+                            if (GameObject.Find("Umkleide") != null) { 
                             GameObject dancer = GameObject.Find("Umkleide");
                             Animator animator = dancer.GetComponent<Animator>();
                             AudioSource sourceChild = dancer.GetComponent<AudioSource>();
@@ -90,6 +95,7 @@ public class MasterNpc : Npc{
                             {
                                 animator.SetBool("folding", true);
                                 sourceChild.PlayOneShot(clip);
+                            }
                             }
                         }
                     }

@@ -72,7 +72,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            hitEffect.transform.localPosition = new Vector3(8.5f * dir, 20, 0);
+            hitEffect.transform.localPosition = new Vector3(8.5f * dir, 15, 0);
             hitSound.Hitting();
 
             if (collision.GetComponent<EnemyOoze>() != null && !collision.GetComponent<EnemyOoze>().stealth)
