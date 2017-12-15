@@ -23,12 +23,13 @@ public class PlayerQuestHandler : MonoBehaviour
 
     private AudioSource sourceDrop;
     private float currCountdownValue;
-
+    private int down = 0;
 
 
     // Use this for initialization
     void Start()
     {
+        questEnabled = false;
 
     }
 
@@ -47,7 +48,7 @@ public class PlayerQuestHandler : MonoBehaviour
             {
                 //Play Audio
                 sourceDrop = GetComponent<AudioSource>();
-                AudioClip clip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Items/item_pick_up.wav");
+                AudioClip clip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Items/PickupItem.wav");
                 sourceDrop.PlayOneShot(clip);
 
                 // Pickup
@@ -64,39 +65,30 @@ public class PlayerQuestHandler : MonoBehaviour
         Canvas canvasQuest = questAL.GetComponent<Canvas>();
         GameObject player = GameObject.Find("player");
         AudioSource source = questAL.GetComponent<AudioSource>();
+        AudioClip clip = source.clip;
 
         if (questEnabled)
             {
-            source.Play();
+            down++;
+
+            if (down == 1) { 
+                source.PlayOneShot(clip);
+            }
+
 
             //Debug.Log("got Quest");
             canvasQuest.enabled = true;
-            QuestCountdown();
-            } else
-        {
-            canvasQuest.enabled = false;
-        }
-    }
-
-    public IEnumerator QuestCountdown(float countdownValue = 1)
-    {
-        GameObject questAL = transform.Find("canvasQuest").gameObject;
-        Canvas canvasQuest = questAL.GetComponent<Canvas>();
-        currCountdownValue = countdownValue;
-        while (currCountdownValue >= 0)
-        {
-            Debug.Log(currCountdownValue);
-
-            // Debug.Log("Countdown: " + currCountdownValue);
-            yield return new WaitForSeconds(5.0f);
-            currCountdownValue--;
-            Debug.Log(currCountdownValue);
-            if (currCountdownValue == 0)
+            //QuestCountdown();
+            if (down > 800 || Input.GetKeyDown("joystick 1 button 7") || Input.GetKeyDown("m")) // || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick 1 button 0"))
             {
+                down = 0;
                 questEnabled = false;
                 canvasQuest.enabled = false;
             }
-        }
+        } else
+        {
+            canvasQuest.enabled = false;
+        } 
     }
 
     public void menuHandler()
@@ -165,7 +157,7 @@ public class PlayerQuestHandler : MonoBehaviour
         // After Skill Mastery
         if (player.GetComponent<PlayerQuestHandler>().activeQuest == "mastered" && player.GetComponent<PlayerQuestHandler>().activeAct == 0)
         {
-            questText.text = "Master the swan dash and escape the dungeon! Use (B) to dash. You can use this to avoid the exploding dancers and cover great distances.";
+            questText.text = "Master the swan dash and escape the dungeon! Use (B) to dash. You can use this to avoid the exploding dancers and cover great distances. But beware! The dash can't be used more than two times in succession.";
         }
 
         if (player.GetComponent<PlayerQuestHandler>().activeQuest == "mastered" && player.GetComponent<PlayerQuestHandler>().activeAct == 1)

@@ -8,7 +8,6 @@ public class MasterNpc : Npc{
     public Quest quest;
     public Phrase encounterBeforeHeadMaster;
     public string targetScene;
-
     //public Phrase afterDropLine;
     //public Item questDrop;
 
@@ -84,10 +83,13 @@ public class MasterNpc : Npc{
                             // Trigger Dance animation
                             GameObject dancer = GameObject.Find("Umkleide");
                             Animator animator = dancer.GetComponent<Animator>();
+                            AudioSource sourceChild = dancer.GetComponent<AudioSource>();
+                            AudioClip clip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Quest/Dance master paper sliding.wav");
 
                             if (player.GetComponent<PlayerQuestHandler>().activeAct == 0 && activePhrase == quest.endDialogue[3])
                             {
                                 animator.SetBool("folding", true);
+                                sourceChild.PlayOneShot(clip);
                             }
                         }
                     }
