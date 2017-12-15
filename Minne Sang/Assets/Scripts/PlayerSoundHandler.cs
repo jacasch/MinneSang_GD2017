@@ -11,6 +11,8 @@ public class PlayerSoundHandler : MonoBehaviour {
     public AudioClip[] poetryCastSound;
     public AudioClip[] stunSound;
     public AudioClip[] stepSound;
+    public AudioClip[] jumpSound;
+    public AudioClip[] landSound;
 
     private int lastAttackSound = 0;
     private int lastHitSound = 0;
@@ -19,6 +21,8 @@ public class PlayerSoundHandler : MonoBehaviour {
     private int lastPoetryCastSound = 0;
     private int lastStunSound = 0;
     private int lastStepSound = 0;
+    private int lastJumpSound = 0;
+    private int lastLandSound = 0;
 
     private AudioSource audioSource;
 
@@ -62,11 +66,18 @@ public class PlayerSoundHandler : MonoBehaviour {
     public void Step() {
         lastStepSound = PlaySound(stepSound, lastStepSound);
     }
+    public void Jump()
+    {
+        lastJumpSound = PlaySound(jumpSound, lastJumpSound);
+    }
+    public void Land()
+    {
+        lastLandSound = PlaySound(landSound, lastLandSound);
+    }
     #endregion
 
     private int PlaySound(AudioClip[] sound, int lastPlayedIndex) {
         if (sound[0] == null) {
-            Debug.Log("exit");
             return 0;
         }
 
@@ -79,7 +90,7 @@ public class PlayerSoundHandler : MonoBehaviour {
         else {
             while (newSound == lastPlayedIndex)
             {
-                newSound = (int)Random.Range(0, sound.Length - 1);
+                newSound = (int)Random.Range(0, sound.Length);
             }
             lastPlayedIndex = newSound;
         }
