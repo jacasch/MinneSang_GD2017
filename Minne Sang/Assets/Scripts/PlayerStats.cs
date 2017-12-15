@@ -129,6 +129,7 @@ public class PlayerStats : MonoBehaviour
             {
                 //DMG to player
                 hp -= enemyDMG.dmg;
+                GetComponent<PlayerSoundHandler>().Hit();
                 //print("HP: " + hp);
 
                 //UnverwundbarkeitsTimer
@@ -161,6 +162,7 @@ public class PlayerStats : MonoBehaviour
             {
                 //Die Sirene verursacht Schaden pro Sekunde!
                 hp -= Time.deltaTime * enemyDMG.dmg;
+                GetComponent<PlayerSoundHandler>().Hit();
                 //print("HP: " + hp);
 
                 //UnverwundbarkeitsTimer
