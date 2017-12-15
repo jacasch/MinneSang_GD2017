@@ -26,7 +26,7 @@ public class openingScene : MonoBehaviour {
         {
             if (endScene)
             {
-                SceneManager.LoadScene("Credits", LoadSceneMode.Additive);
+                SceneManager.LoadScene("Credits", LoadSceneMode.Single);
             }
             else { 
             SceneManager.LoadScene("Intro", LoadSceneMode.Single);
@@ -37,7 +37,7 @@ public class openingScene : MonoBehaviour {
         {
             if (endScene)
             {
-                SceneManager.LoadScene("Credits", LoadSceneMode.Additive);
+                SceneManager.LoadScene("Credits", LoadSceneMode.Single);
             }
         else
         {
