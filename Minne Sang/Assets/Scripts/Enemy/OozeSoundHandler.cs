@@ -59,7 +59,6 @@ public class OozeSoundHandler : MonoBehaviour
     {
         if (sound[0] == null)
         {
-            Debug.Log("exit");
             return 0;
         }
 
