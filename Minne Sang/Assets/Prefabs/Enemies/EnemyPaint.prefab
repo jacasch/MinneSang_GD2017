@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da64b27c52b15ac4eac17e7fedff1e1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 2
+  dmg: 1
   dmgTime: 1
   knockback: 1
   noDmg: 0
@@ -719,7 +719,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 650b5a61373cd6a418eddc3e72e47891, type: 3}
   - {fileID: 8300000, guid: c1775199d7af27045b01cc93238c06be, type: 3}
   dyingSound:
-  - {fileID: 8300000, guid: a1e533b6fd6691a40b93fc38eff5a638, type: 3}
+  - {fileID: 8300000, guid: 28eec7b5cf5302c4184297ebd8fb6224, type: 3}
 --- !u!114 &114597208901231414
 MonoBehaviour:
   m_ObjectHideFlags: 1

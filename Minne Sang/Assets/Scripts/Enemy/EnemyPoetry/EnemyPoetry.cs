@@ -16,7 +16,7 @@ public class EnemyPoetry : MonoBehaviour
     //Eigenschaften des Gegners. (DMG ist untergeordnet im DMG Objekt und im Prefab EnemyPoetryAura festgelegt!)
     int hpMax = 3;  //MAX HP des Gegners
     float speed = 0.5f;  //Geschwindigkeit des Gegners
-    float dist = 0;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
+    float dist = 0.25f;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
     float timeStunned = 3f;  //Zeit die der Gegner gestunnt ist
     float deadTime = 1;  //Zeit bis der Gegner nach dem Tot verschwindet
     float respawnTime = 90;  //Zeit bis der Gegner respawnt
