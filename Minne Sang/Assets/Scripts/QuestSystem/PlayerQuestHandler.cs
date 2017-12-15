@@ -44,7 +44,7 @@ public class PlayerQuestHandler : MonoBehaviour
             {
                 //Play Audio
                 sourceDrop = GetComponent<AudioSource>();
-                AudioClip clip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Items/PickupItem.wav");
+                AudioClip clip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Items/item_pick_up.wav");
                 sourceDrop.PlayOneShot(clip);
 
                 // Pickup

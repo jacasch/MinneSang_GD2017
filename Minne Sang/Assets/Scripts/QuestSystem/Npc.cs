@@ -157,11 +157,13 @@ public class Npc : MonoBehaviour {
     private void engageSound()
     {
         int soundIndex;
+        if(EngageConversation.Count != null) { 
         do {
             soundIndex  = Random.Range(0, EngageConversation.Count);
         } while (lastSoundIndex == soundIndex && EngageConversation.Count >= 2);
         source.PlayOneShot(EngageConversation[soundIndex]);
         lastSoundIndex = soundIndex;
+        }
     }
 
     private void Interact() {

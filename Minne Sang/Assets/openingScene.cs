@@ -5,16 +5,22 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
 public class openingScene : MonoBehaviour {
-    VideoPlayer video;
-    VideoClip clip;
-	// Use this for initialization
-	void Start () {
-		
-	}
+    private VideoPlayer video;
+    private VideoClip clip;
+    public AudioClip videoAudio;
+    private Camera cam;
+    private int count = 0;
+
+    // Use this for initialization
+    void Start () {
+        cam = Camera.main;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		if (video.isPlaying == false)
+        count += 1;
+        video = cam.GetComponent<VideoPlayer>();
+		if (count > 100 && !video.isPlaying)
         {
             SceneManager.LoadScene("Intro", LoadSceneMode.Single);
         }
