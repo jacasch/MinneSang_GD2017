@@ -14,11 +14,16 @@ public class PlayerAttack : MonoBehaviour
     BoxCollider2D collider;
     Animator animator;
 
+    GameObject hitEffect;
+    ParticleSystem particleSystem;
+
 	// Use this for initialization
 	void Start ()
     {
         collider = GetComponent<BoxCollider2D>();
         animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        hitEffect = transform.GetChild(0).gameObject;
+        particleSystem = hitEffect.GetComponent<ParticleSystem>();
     }
 	
 	// Update is called once per frame
@@ -60,7 +65,38 @@ public class PlayerAttack : MonoBehaviour
         repeatTimer -= Time.deltaTime;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            hitEffect.transform.localPosition = new Vector3(hitEffect.transform.position.x * dir, hitEffect.transform.position.y, hitEffect.transform.position.z);
 
+            if (collision.GetComponent<EnemyOoze>() != null && !collision.GetComponent<EnemyOoze>().stealth)
+            {
+                particleSystem.Play();
+            }
+
+            if (collision.GetComponent<EnemyDance>() != null && !collision.GetComponent<EnemyDance>().stealth)
+            {
+                particleSystem.Play();
+            }
+
+            if (collision.GetComponent<EnemyPaint>() != null && !collision.GetComponent<EnemyPaint>().stealth)
+            {
+                particleSystem.Play();
+            }
+
+            if (collision.GetComponent<EnemyMusic>() != null && !collision.GetComponent<EnemyMusic>().stealth)
+            {
+                particleSystem.Play();
+            }
+
+            if (collision.GetComponent<EnemyPoetry>() != null && !collision.GetComponent<EnemyPoetry>().stealth)
+            {
+                particleSystem.Play();
+            }
+        }
+    }
 
 
 }
