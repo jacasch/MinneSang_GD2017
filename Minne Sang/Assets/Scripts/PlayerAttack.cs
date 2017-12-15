@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     int dir = 1;
-    float distPlayer = 0.5f;  //Front
+    float distPlayer = 0.8f;  //Front
     float hitTimer;
     float hitDuration = 0.2f;
     public float repeatCD = 0.75f;
@@ -35,7 +35,7 @@ public class PlayerAttack : MonoBehaviour
                 dir = 1;
             }
         }
-        transform.localPosition = new Vector3(distPlayer * dir, 0, 0);
+        transform.localPosition = new Vector3(distPlayer * dir, 0.15f, 0);
 
         if(hitTimer>=0)
         {
