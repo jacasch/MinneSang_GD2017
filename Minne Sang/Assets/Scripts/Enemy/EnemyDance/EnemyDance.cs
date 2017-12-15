@@ -36,7 +36,8 @@ public class EnemyDance : MonoBehaviour
     //ScriptVariables
     bool active = false;
     bool move = false;
-    bool stealth = false;
+    [HideInInspector]
+    public bool stealth = false;
     [HideInInspector]
     public bool dead = false;
     bool exploded = false;

@@ -578,6 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStealth: 0
+  stealth: 0
   objStomp: {fileID: 1094260634597318, guid: d01d7ebcc3afe9d4a8557cbf0a2f7f71, type: 2}
   defaultMat: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   chameleonMat: {fileID: 2100000, guid: 32143037c032fe040860170bba74d8d8, type: 2}

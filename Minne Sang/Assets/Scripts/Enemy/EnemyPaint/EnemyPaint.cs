@@ -17,7 +17,7 @@ public class EnemyPaint : MonoBehaviour
     int hpMax = 2;  //MAX HP des Gegners
     int speed = 2;  //Speed des Gegners
     float dist = 5;  //Distanz ab welcher der Gegner stillsteht(X-Achse)
-    float shootCD = 1.5f;  //Cooldown des Schusses
+    float shootCD = 2f;  //Cooldown des Schusses
     float timeStunned = 2f;  //Zeit die der Gegner gestunnt ist
     float deadTime = 0.75f;  //Zeit bis der Gegner nach dem Tot verschwindet
     float respawnTime = 90;  //Zeit bis der Gegner respawnt
@@ -34,7 +34,8 @@ public class EnemyPaint : MonoBehaviour
 
     bool active = false;
     bool move = false;
-    [HideInInspector] public bool stealth = true;
+    [HideInInspector]
+    public bool stealth = true;
     bool dead = false;
     bool died = false;
     bool respawning = false;

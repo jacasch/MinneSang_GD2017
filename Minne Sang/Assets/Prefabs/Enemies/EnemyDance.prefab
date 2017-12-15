@@ -412,12 +412,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8fff689ec76114582bba51c44cd0ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStealth: 0
+  isStealth: 1
   dropItem: 0
-  questName: 
   questDrop:
     drop: {fileID: 0}
     name: 
+  stealth: 0
   dead: 0
   explosion: {fileID: 1301026462000042, guid: 22c80e1415043f04fb0b4ef443cad7aa, type: 2}
   defaultMat: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}

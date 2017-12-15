@@ -28,7 +28,8 @@ public class EnemyPoetry : MonoBehaviour
     int hp;  //HP des Gegners
 
     bool move = false;
-    bool stealth = false;
+    [HideInInspector]
+    public bool stealth = false;
     public bool dead = false;
     bool died = false;
     bool respawning = false;
@@ -214,6 +215,11 @@ public class EnemyPoetry : MonoBehaviour
                         deadTimer = deadTime;
                         rb.velocity = new Vector3(0, 0, 0);
                         respawnTimer = respawnTime;
+                        rb.velocity = new Vector3(0, 2, 0);
+                    }
+                    else
+                    {
+                        rb.velocity = new Vector3(3 * -dir, 3, 0);
                     }
                 }
                 if (collision.gameObject.tag == "StunToEnemy")
