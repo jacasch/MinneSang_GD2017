@@ -141,7 +141,7 @@ public class PlayerQuestHandler : MonoBehaviour
         }
 
         // After End
-        if (player.GetComponent<PlayerQuestHandler>().activeQuest == "end")
+        if (player.GetComponent<PlayerQuestHandler>().activeQuest == "end" || player.GetComponent<PlayerQuestHandler>().activeAct == 4)
         {
             questText.text = "You have mastered all the arts! You have never been closer to obtaining the love of your dear princess. But you are missing one thing. Your final task is to obtain the unobtainable. The tower challenges you.";
         }
