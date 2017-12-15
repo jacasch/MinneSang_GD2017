@@ -20,7 +20,6 @@ public class ItemHandler : MonoBehaviour {
         else
         {
             transform.Find("trigger").gameObject.layer = 0;
-            print("layermoed");
         }
     }
 
