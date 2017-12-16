@@ -13,8 +13,8 @@ public class DanceRangeSound : MonoBehaviour
 
     GameObject player;
     float dist = 100;
-    float soundDist = 15;
-    float soundScale = 7;
+    float soundDist = 10;
+    float soundScale = 4;
     bool isSound = false;
 
     EnemyDance enemyDance;
