@@ -170,7 +170,7 @@ SpriteRenderer:
   m_Size: {x: 50, y: 40}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &6584616
 Transform:
@@ -183,7 +183,7 @@ Transform:
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 77
+  m_RootOrder: 76
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &11472380
 Prefab:
@@ -32991,7 +32991,7 @@ Tilemap:
   - serializedVersion: 1
     m_DirtyIndex: 0
   - serializedVersion: 1
-    m_DirtyIndex: 1
+    m_DirtyIndex: 0
 --- !u!66 &96630984
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -34561,7 +34561,7 @@ SpriteRenderer:
   m_Size: {x: 50, y: 40}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &182944033
 Transform:
@@ -34574,7 +34574,7 @@ Transform:
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 79
+  m_RootOrder: 78
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &185188275
 Prefab:
@@ -34757,7 +34757,7 @@ SpriteRenderer:
   m_Size: {x: 60.185, y: 40.000004}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &276725006
 Transform:
@@ -34863,7 +34863,7 @@ SpriteRenderer:
   m_Size: {x: 40, y: 50}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &315269853
 Transform:
@@ -35112,12 +35112,12 @@ Prefab:
     - target: {fileID: 224052935549467338, guid: 1e88cddcd788bea4c8332d4b4bb8af6a,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 517.17334
+      value: 793.1733
       objectReference: {fileID: 0}
     - target: {fileID: 224052935549467338, guid: 1e88cddcd788bea4c8332d4b4bb8af6a,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 234.02666
+      value: 562.0267
       objectReference: {fileID: 0}
     - target: {fileID: 4957541366257436, guid: 1e88cddcd788bea4c8332d4b4bb8af6a, type: 2}
       propertyPath: m_LocalPosition.x
@@ -35153,12 +35153,12 @@ Prefab:
     - target: {fileID: 224419875129098430, guid: 1e88cddcd788bea4c8332d4b4bb8af6a,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 517.17334
+      value: 793.1733
       objectReference: {fileID: 0}
     - target: {fileID: 224419875129098430, guid: 1e88cddcd788bea4c8332d4b4bb8af6a,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 234.02666
+      value: 562.0267
       objectReference: {fileID: 0}
     - target: {fileID: 114807568958910834, guid: 1e88cddcd788bea4c8332d4b4bb8af6a,
         type: 2}
@@ -35453,7 +35453,7 @@ SpriteRenderer:
   m_Size: {x: 109.00001, y: 70.00001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &468111515
 Transform:
@@ -35572,7 +35572,7 @@ Transform:
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 47
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &566578705
 Prefab:
@@ -35678,7 +35678,7 @@ SpriteRenderer:
   m_Size: {x: 109.00001, y: 70.00001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &574414872
 Transform:
@@ -35824,7 +35824,7 @@ SpriteRenderer:
   m_Size: {x: 146, y: 74.99999}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &664299252
 Transform:
@@ -36065,12 +36065,12 @@ Prefab:
     - target: {fileID: 224504686317917334, guid: b067c54ff1319bd44876c34fe8f00abd,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 353.7
+      value: 560.7
       objectReference: {fileID: 0}
     - target: {fileID: 224504686317917334, guid: b067c54ff1319bd44876c34fe8f00abd,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 200.29
+      value: 446.29
       objectReference: {fileID: 0}
     - target: {fileID: 212646402793765636, guid: b067c54ff1319bd44876c34fe8f00abd,
         type: 2}
@@ -36199,7 +36199,7 @@ SpriteRenderer:
   m_Size: {x: 40, y: 50}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &807331304
 Transform:
@@ -36708,7 +36708,7 @@ SpriteRenderer:
   m_Size: {x: 292, y: 149.99998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &1084115670
 Transform:
@@ -36805,7 +36805,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4041441808170672, guid: 12db9a93837c0304198da223b4e3e834, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -44.29
+      value: -45.728
       objectReference: {fileID: 0}
     - target: {fileID: 4041441808170672, guid: 12db9a93837c0304198da223b4e3e834, type: 2}
       propertyPath: m_LocalPosition.z
@@ -36829,7 +36829,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4041441808170672, guid: 12db9a93837c0304198da223b4e3e834, type: 2}
       propertyPath: m_RootOrder
-      value: 27
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 1930698471888836, guid: 12db9a93837c0304198da223b4e3e834, type: 2}
       propertyPath: m_Name
@@ -36993,7 +36993,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f0000000000000000000000000000003f0000003f000000000000000000000000000000bf000000bf0000000000000000000000000000003f000000bf000000000000000000000000
+      _typelessdata: 000000bf0000003f00000000000000000000803f0000003f0000003f000000000000803f0000803f000000bf000000bf0000000000000000000000000000003f000000bf000000000000803f00000000
     textureRect:
       serializedVersion: 2
       x: 0
@@ -37110,7 +37110,7 @@ SpriteRenderer:
   m_Size: {x: 50, y: 40}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &1199556458
 Transform:
@@ -37123,7 +37123,7 @@ Transform:
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 78
+  m_RootOrder: 77
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1209790048
 GameObject:
@@ -37166,7 +37166,7 @@ Transform:
   - {fileID: 1052013745}
   - {fileID: 1732589256}
   m_Father: {fileID: 0}
-  m_RootOrder: 46
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1234092099
 Prefab:
@@ -37268,7 +37268,7 @@ SpriteRenderer:
   m_Size: {x: 40, y: 50}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &1271099963
 Transform:
@@ -37452,7 +37452,7 @@ SpriteRenderer:
   m_Size: {x: 50, y: 40}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &1292991632
 Transform:
@@ -37556,12 +37556,12 @@ Prefab:
     - target: {fileID: 224855173993977550, guid: 460d767680337a044b79adf90a83e56b,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 384
+      value: 591
       objectReference: {fileID: 0}
     - target: {fileID: 224855173993977550, guid: 460d767680337a044b79adf90a83e56b,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 175.53
+      value: 421.53
       objectReference: {fileID: 0}
     - target: {fileID: 114266421281043744, guid: 460d767680337a044b79adf90a83e56b,
         type: 2}
@@ -114299,7 +114299,7 @@ Tilemap:
   - serializedVersion: 1
     m_DirtyIndex: 0
   - serializedVersion: 1
-    m_DirtyIndex: 1
+    m_DirtyIndex: 0
 --- !u!4 &1732589256
 Transform:
   m_ObjectHideFlags: 0
@@ -114623,7 +114623,7 @@ SpriteRenderer:
   m_Size: {x: 40, y: 50}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &1803868731
 Transform:
@@ -114696,7 +114696,7 @@ SpriteRenderer:
   m_Size: {x: 40, y: 50}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &1824942150
 Transform:
@@ -115012,7 +115012,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f0000000000000000000000000000003f0000003f000000000000000000000000000000bf000000bf0000000000000000000000000000003f000000bf000000000000000000000000
+      _typelessdata: 000000bf0000003f00000000000000000000803f0000003f0000003f000000000000803f0000803f000000bf000000bf0000000000000000000000000000003f000000bf000000000000803f00000000
     textureRect:
       serializedVersion: 2
       x: 0
@@ -115205,12 +115205,12 @@ Prefab:
     - target: {fileID: 224652452374027018, guid: 07b02b676ac93084a9b8d3e1994310d9,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 394.22833
+      value: 601.22833
       objectReference: {fileID: 0}
     - target: {fileID: 224652452374027018, guid: 07b02b676ac93084a9b8d3e1994310d9,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 251.33
+      value: 497.33002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07b02b676ac93084a9b8d3e1994310d9, type: 2}
