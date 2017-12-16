@@ -64,7 +64,7 @@ public class PlayerController : PhysicsObject {
         trailDelay -= Time.deltaTime;
         dashAnimationDelay -= Time.deltaTime;
 
-        if(!isLanded && grounded)
+        if(!isLanded && grounded && !dead)
         {
             psh.Land();
             isLanded = true;
