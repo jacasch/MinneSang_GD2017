@@ -73,31 +73,35 @@ public class PlayerAttack : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             hitEffect.transform.localPosition = new Vector3(8.5f * dir, 15, 0);
-            hitSound.Hitting();
 
             if (collision.GetComponent<EnemyOoze>() != null && !collision.GetComponent<EnemyOoze>().stealth)
             {
                 particleSystem.Play();
+                hitSound.Hitting();
             }
 
             if (collision.GetComponent<EnemyDance>() != null && !collision.GetComponent<EnemyDance>().stealth)
             {
                 particleSystem.Play();
+                hitSound.Hitting();
             }
 
             if (collision.GetComponent<EnemyPaint>() != null && !collision.GetComponent<EnemyPaint>().stealth)
             {
                 particleSystem.Play();
+                hitSound.Hitting();
             }
 
             if (collision.GetComponent<EnemyMusic>() != null && !collision.GetComponent<EnemyMusic>().stealth)
             {
                 particleSystem.Play();
+                hitSound.Hitting();
             }
 
             if (collision.GetComponent<EnemyPoetry>() != null && !collision.GetComponent<EnemyPoetry>().stealth)
             {
                 particleSystem.Play();
+                hitSound.Hitting();
             }
         }
     }
