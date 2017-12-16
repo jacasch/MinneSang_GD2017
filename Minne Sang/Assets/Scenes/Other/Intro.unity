@@ -4749,7 +4749,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4905231531005716, guid: 7b7bb3d28513ad34f8498350ab423f28, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 212688330221165080, guid: 7b7bb3d28513ad34f8498350ab423f28,
         type: 2}
@@ -4950,7 +4950,7 @@ Transform:
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!213 &364946940
 Sprite:
@@ -5423,7 +5423,7 @@ Transform:
   - {fileID: 96630980}
   - {fileID: 1326412875}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1326412868
 GameObject:
@@ -16341,8 +16341,50 @@ Transform:
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2050353203
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4234360497352018, guid: e79f891483dabe044862e5fe5c52b70e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 18.13268
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234360497352018, guid: e79f891483dabe044862e5fe5c52b70e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.2798092
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234360497352018, guid: e79f891483dabe044862e5fe5c52b70e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234360497352018, guid: e79f891483dabe044862e5fe5c52b70e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234360497352018, guid: e79f891483dabe044862e5fe5c52b70e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234360497352018, guid: e79f891483dabe044862e5fe5c52b70e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234360497352018, guid: e79f891483dabe044862e5fe5c52b70e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4234360497352018, guid: e79f891483dabe044862e5fe5c52b70e, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e79f891483dabe044862e5fe5c52b70e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &2119667208
 Prefab:
   m_ObjectHideFlags: 0
