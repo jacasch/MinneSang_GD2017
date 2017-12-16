@@ -213,7 +213,7 @@ public class PlayerQuestHandler : MonoBehaviour
 
                 if (collectedItems.Contains(player.GetComponent<PlayerQuestHandler>().questItems[i]))
                 {
-                    itemColor = "<color=#ffffffff>";
+                    itemColor = "<color=#bca655FF>";
                 }
                 else
                 {
@@ -234,7 +234,7 @@ public class PlayerQuestHandler : MonoBehaviour
             {
                 if (collectedItems.Contains(player.GetComponent<PlayerQuestHandler>().questItems[i]))
                 {
-                    itemColor = "<color=#ffffffff>";
+                    itemColor = "<color=#bca655FF>";
                 }
                 else
                 {
@@ -261,7 +261,7 @@ public class PlayerQuestHandler : MonoBehaviour
 
             if (numberOfItems == itemLength)
             {
-                itemColor = "<color=#ffffffff>";
+                itemColor = "<color=#bca655FF>";
             }
             else
             {
@@ -287,7 +287,7 @@ public class PlayerQuestHandler : MonoBehaviour
 
             if (numberOfItems == itemLength)
             {
-                itemColor = "<color=#ffffffff>";
+                itemColor = "<color=#bca655FF>";
             }
             else
             {
