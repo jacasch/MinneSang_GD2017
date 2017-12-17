@@ -218,7 +218,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1314307054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6647da35dfeaf354ea672941354ec5bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 80c2a5789749125488802067302cdb6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   videoAudio: {fileID: 0}
@@ -357,7 +357,7 @@ VideoPlayer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1314307054}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: fc31f06b36566644b92d03c4a04b645e, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: dd281d0e949ddb04d933d958a35b3979, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera: {fileID: 1314307057}
   m_TargetTexture: {fileID: 0}

@@ -204,7 +204,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1535193024737080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 65.73582, y: 39.521717, z: 10.667268}
+  m_LocalPosition: {x: 5.2476487, y: -4.3, z: 10.667268}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4492698528100144}
@@ -699,8 +699,16 @@ MonoBehaviour:
         without my clothes! '
     - spokenByNpc: 1
       messageByPrincess: 0
-      text: 'Bring me my Tutu, my Tiara and my shoes - and I will teach you the high
-        art of dance! '
+      text: Bring me my tutu, my tiara and my shoes - and I will teach you the high
+        art of dance!
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: Maybe someone in the mainhall knows more about the tutu. When you're there,
+        check out the post office as I already ordered new shoes.
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: 'About the Tiara: maybe one of my students took it. Some of them are surprisingly
+        greedy.'
     randomLines:
     - spokenByNpc: 1
       messageByPrincess: 0
@@ -736,7 +744,7 @@ MonoBehaviour:
         evade dangerous enemies.
     - spokenByNpc: 1
       messageByPrincess: 0
-      text: 'Just calm yourself, focus, take a deep breath and push the (A) button! '
+      text: Just calm yourself, focus, take a deep breath and push the (B) button!
     - spokenByNpc: 1
       messageByPrincess: 0
       text: "Now go and dance with your love, young knight! Don\u2019t you dare disappoint
