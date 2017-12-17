@@ -1,9 +1,22 @@
 fileFormatVersion: 2
-guid: da2a44db6d57c9a4aa2787e2228c4a7a
-timeCreated: 1513511169
+guid: ba0f5249d27c3cb4986cc7d5d716d571
+timeCreated: 1513442836
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Asset_WappenAnimiertBreit_Animiert_0
+    21300002: Asset_WappenAnimiertBreit_Animiert_1
+    21300004: Asset_WappenAnimiertBreit_Animiert_2
+    21300006: Asset_WappenAnimiertBreit_Animiert_3
+    21300008: Asset_WappenAnimiertBreit_Animiert_4
+    21300010: Asset_WappenAnimiertBreit_Animiert_5
+    21300012: Asset_WappenAnimiertBreit_Animiert_6
+    21300014: Asset_WappenAnimiertBreit_Animiert_7
+    21300016: Asset_WappenAnimiertBreit_Animiert_8
+    21300018: Asset_WappenAnimiertBreit_Animiert_9
+    21300020: Asset_WappenAnimiertBreit_Animiert_10
+    21300022: Asset_WappenAnimiertBreit_Animiert_11
+    21300024: Asset_WappenAnimiertBreit_Animiert_12
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -40,13 +53,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -65,9 +78,200 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Asset_WappenAnimiertBreit_Animiert_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 867
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Asset_WappenAnimiertBreit_Animiert_1
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 0
+        width: 867
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Asset_WappenAnimiertBreit_Animiert_2
+      rect:
+        serializedVersion: 2
+        x: 1734
+        y: 0
+        width: 867
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Asset_WappenAnimiertBreit_Animiert_3
+      rect:
+        serializedVersion: 2
+        x: 2601
+        y: 0
+        width: 867
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Asset_WappenAnimiertBreit_Animiert_4
+      rect:
+        serializedVersion: 2
+        x: 3468
+        y: 0
+        width: 867
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Asset_WappenAnimiertBreit_Animiert_5
+      rect:
+        serializedVersion: 2
+        x: 4335
+        y: 0
+        width: 867
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Asset_WappenAnimiertBreit_Animiert_6
+      rect:
+        serializedVersion: 2
+        x: 5202
+        y: 0
+        width: 867
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Asset_WappenAnimiertBreit_Animiert_7
+      rect:
+        serializedVersion: 2
+        x: 6069
+        y: 0
+        width: 867
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Asset_WappenAnimiertBreit_Animiert_8
+      rect:
+        serializedVersion: 2
+        x: 6936
+        y: 0
+        width: 867
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Asset_WappenAnimiertBreit_Animiert_9
+      rect:
+        serializedVersion: 2
+        x: 7803
+        y: 0
+        width: 867
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Asset_WappenAnimiertBreit_Animiert_10
+      rect:
+        serializedVersion: 2
+        x: 8670
+        y: 0
+        width: 867
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Asset_WappenAnimiertBreit_Animiert_11
+      rect:
+        serializedVersion: 2
+        x: 9537
+        y: 0
+        width: 867
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Asset_WappenAnimiertBreit_Animiert_12
+      rect:
+        serializedVersion: 2
+        x: 10404
+        y: 0
+        width: 867
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 
