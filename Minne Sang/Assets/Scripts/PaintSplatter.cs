@@ -12,14 +12,6 @@ public class PaintSplatter : MonoBehaviour {
         ps = GetComponent<ParticleSystem>();
 	}
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Fire3")) {
-            print("test");
-            Paint(new Vector2(-10, -3), Color.white);
-        }
-    }
-
     public void Paint(Vector2 position, Color col)
     {
         //pick color and calculate gradient
