@@ -71,7 +71,18 @@ public class PlayerSpawnHandler : MonoBehaviour {
             SaveGameState();
         }
     }
-        
+
+    public void backToStart()
+    {
+        if (GameObject.FindWithTag("Player") != null)
+        {
+            SaveGameState();
+            Destroy(transform.parent.gameObject);
+        }
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("StartScreen", LoadSceneMode.Single);
+    }
+
 
     public void SaveGameState() {
         PlayerPrefs.SetInt("act", pqh.activeAct);

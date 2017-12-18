@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 3998bf95cb78b874e9a97dfaa761cda4
-timeCreated: 1513610795
+guid: 10067d0e94c1ad54da20785df08bf267
+timeCreated: 1513621931
 licenseType: Free
 VideoClipImporter:
   externalObjects: {}
@@ -17,7 +17,7 @@ VideoClipImporter:
   frameRate: 30
   colorSpace: 0
   deinterlace: 0
-  sourceFileSize: 90381978
+  sourceFileSize: 80292002
   encodeAlpha: 0
   sourceHasAlpha: 0
   flipVertical: 0
@@ -46,7 +46,7 @@ VideoClipImporter:
     streamedResource:
       source: 
       offset: 0
-      size: 90381978
+      size: 80292002
   userData: 
   assetBundleName: 
   assetBundleVariant: 

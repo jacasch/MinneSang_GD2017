@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
 public class PlayerQuestHandler : MonoBehaviour
@@ -32,7 +33,8 @@ public class PlayerQuestHandler : MonoBehaviour
     void Start()
     {
         questEnabled = false;
-
+        GameObject exit = GameObject.Find("menu/Exit");
+        exit.GetComponent<Button>().enabled = false;
     }
 
     // Update is called once per frame
@@ -116,6 +118,13 @@ public class PlayerQuestHandler : MonoBehaviour
                 Debug.Log("Start open", gameObject);
                 Debug.Log(questItems, gameObject);
                 menuTextQuest();
+
+                GameObject start = GameObject.Find("menu/Button");
+                GameObject myEventSystem = GameObject.Find("EventSystem");
+                EventSystem.current.SetSelectedGameObject(start, null);
+
+                GameObject exit = GameObject.Find("menu/Exit");
+                exit.GetComponent<Button>().enabled = true;
             }
             else
             {
@@ -124,10 +133,22 @@ public class PlayerQuestHandler : MonoBehaviour
                 menuEnabled = false;
                 Debug.Log("Start closed", gameObject);
                 menuTextQuestDestroy();
+                GameObject exit = GameObject.Find("menu/Exit");
+                exit.GetComponent<Button>().enabled = false;
             }
         }
     }
 
+    public void closeMenu()
+    {
+        GameObject tempObject = transform.Find("menu").gameObject;
+        Canvas canvasMenu = tempObject.GetComponent<Canvas>();
+        GameObject exit = GameObject.Find("menu/Exit");
+        exit.GetComponent<Button>().enabled = false;
+        canvasMenu.enabled = false;
+        menuEnabled = false;
+        Time.timeScale = 1f;
+    }
 
     public void AddItem(string item) {
         if (!collectedItems.Contains(item)) {
