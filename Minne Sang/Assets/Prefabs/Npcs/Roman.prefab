@@ -390,6 +390,7 @@ MonoBehaviour:
   questDrop:
     drop: {fileID: 0}
     name: 
+  clip: {fileID: 8300000, guid: f582c21018f342643ba78e3e2f3094f7, type: 3}
 --- !u!114 &114349108568753058
 MonoBehaviour:
   m_ObjectHideFlags: 1

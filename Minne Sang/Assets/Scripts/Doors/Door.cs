@@ -8,6 +8,12 @@ public class Door : MonoBehaviour {
     public string name;
     public string destinationScene;
     public string destinationDoor;
+    float soundTimer = 0;
+    float enterTimer = 0;
+    bool isSound = false;
+    bool enter = false;
+
+    DoorSounds doorSound;
     
     private GameObject player;
     GameObject panel;
@@ -16,6 +22,7 @@ public class Door : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        doorSound = GetComponent<DoorSounds>();
     }
 
     // Update is called once per frame
@@ -25,7 +32,19 @@ public class Door : MonoBehaviour {
         if (playerInRange)
             if (player.GetComponent<PlayerController>().grounded)
                 CheckInput();
-		
+        if(enter)
+        {
+            enterTimer += Time.deltaTime;
+            if(enterTimer >= 1)
+            {
+                enter = false;
+                isSound = false;
+                enterTimer = 0;
+                player.GetComponent<PlayerSpawnHandler>().switched = true;
+
+                ChangeScene();
+            }
+        }
 	}
 
     private void CheckInput() {
@@ -33,10 +52,31 @@ public class Door : MonoBehaviour {
         {
             if (Input.GetAxis("Horizontal") > -0.3f && Input.GetAxis("Horizontal") < 0.3f)
             {
-                player.GetComponent<PlayerSpawnHandler>().switched = true;
-               
-                ChangeScene();
+                if (soundTimer >=0.25f)
+                {
+                    print(enter);
+                    enter = true;
+                    if (!isSound)
+                    {
+                        doorSound.Open();
+                    }
+                    isSound = true;
+                }
+                else
+                {
+                    soundTimer += Time.deltaTime;
+                }
             }
+            else
+            {
+                soundTimer = 0;
+                isSound = false;
+            }
+        }
+        else
+        {
+            soundTimer = 0;
+            isSound = false;
         }
     }
 
