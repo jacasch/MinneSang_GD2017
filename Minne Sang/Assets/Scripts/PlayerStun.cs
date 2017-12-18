@@ -51,7 +51,7 @@ public class PlayerStun : MonoBehaviour
                 if (castTimer >= soundTimer && !soundPlayed) {
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSoundHandler>().Stun();
                     soundPlayed = true;
-                    particles.active = true;
+                    particles.SetActive(true);
                     particleStartTime = Time.time;
                 }
 
@@ -94,8 +94,22 @@ public class PlayerStun : MonoBehaviour
             }
             else
             {
-                repeatTimer -= Time.deltaTime;
                 boxCollider.enabled = false;
+                repeatTimer -= Time.deltaTime;
+
+                if (Input.GetAxis("Horizontal") < 0)
+                {
+                    dir = -1;
+                    shapeModule.rotation = new Vector3(0, 0, -68 + 180);
+                }
+                else if (Input.GetAxis("Horizontal") > 0)
+                {
+                    dir = 1;
+                    shapeModule.rotation = new Vector3(0, 0, -68);
+                }
+                transform.localPosition = new Vector3(distPlayer * dir, 0, 0);
+                particles.transform.localPosition = new Vector3(-(0.3f * dir), 0.25f, 0);
+                boxCollider.offset = new Vector2(0f * dir, 0);
             }
         }
 

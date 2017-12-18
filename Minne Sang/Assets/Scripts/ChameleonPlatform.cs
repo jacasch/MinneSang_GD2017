@@ -28,11 +28,8 @@ public class ChameleonPlatform : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player") {
             playerIsInsidePlatform = true;
-            print("player entered");
         }
-        print(collision.gameObject.name);
         if ((collision.gameObject.tag == "Paint" || collision.gameObject.name == "EnemyPaintShot(Clone)") && !playerIsInsidePlatform) {
-            print("valid");
             bc2d.isTrigger = false;
             if (collision.gameObject.tag == "Paint")
                 collision.gameObject.GetComponent<PaintShot>().Explode();
