@@ -11,6 +11,8 @@ public class MasterNpc : Npc{
     //public Phrase afterDropLine;
     //public Item questDrop;
 
+    public AudioClip clip;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -89,12 +91,15 @@ public class MasterNpc : Npc{
                             GameObject dancer = GameObject.Find("Umkleide");
                             Animator animator = dancer.GetComponent<Animator>();
                             AudioSource sourceChild = dancer.GetComponent<AudioSource>();
-                            AudioClip clip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Quest/Dance master paper sliding.wav");
+                            /*AudioClip clip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Quest/Dance master paper sliding.wav");*/
 
                             if (player.GetComponent<PlayerQuestHandler>().activeAct == 0 && activePhrase == quest.endDialogue[3])
                             {
                                 animator.SetBool("folding", true);
-                                sourceChild.PlayOneShot(clip);
+                                if (clip != null)
+                                {
+                                    sourceChild.PlayOneShot(clip);
+                                }
                             }
                             }
                         }

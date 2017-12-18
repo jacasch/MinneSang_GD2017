@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Parrot : Npc
 {
+    public AudioClip clip;
+
     // private string princess = "Princess Freya";
     public Act[] sendingLetters;
 
@@ -41,7 +43,7 @@ public class Parrot : Npc
                 parrot = GameObject.Find("Parrot Parent/parrot");
                 Animator animator = parrot.GetComponent<Animator>();
                 AudioSource sourceChild = parrot.GetComponent<AudioSource>();
-                AudioClip clip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Quest/Wing Flaps.wav");
+                /*AudioClip clip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Quest/Wing Flaps.wav");*/
 
                 if (player.GetComponent<PlayerQuestHandler>().letterSend == true)
                 {

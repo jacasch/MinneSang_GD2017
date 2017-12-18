@@ -656,9 +656,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   singingSound:
-  - {fileID: 8300000, guid: b08de4233946ec24393a1397735d9e22, type: 3}
+  - {fileID: 8300000, guid: 379100b5090d43747a65732c1df79acc, type: 3}
   screamingSound:
-  - {fileID: 8300000, guid: 064a142024b39c640b692fac5e616444, type: 3}
+  - {fileID: 8300000, guid: c98f077ce7ac56c438e7b02a6c20a929, type: 3}
   dead: 0
 --- !u!114 &114706199621237086
 MonoBehaviour:

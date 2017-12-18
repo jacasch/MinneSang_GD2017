@@ -12,6 +12,7 @@ public class NormalNpc : Npc {
     private float itemTimer = 30.0f;
     float currCountdownValue;
     private AudioSource sourceChild;
+    public AudioClip clip;
 
     //public Phrase[] questDialogue;
 
@@ -73,7 +74,7 @@ public class NormalNpc : Npc {
     {
        if (questDrop.drop != null) {
             sourceChild = GetComponent<AudioSource>();
-            AudioClip clip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Items/Item drop.wav");
+            /*AudioClip clip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Items/Item drop.wav");*/
             sourceChild.PlayOneShot(clip);
             StartCoroutine(StartCountdown());
         }
