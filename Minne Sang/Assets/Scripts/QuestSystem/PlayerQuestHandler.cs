@@ -115,8 +115,8 @@ public class PlayerQuestHandler : MonoBehaviour
                 //Time.timeScale = 1.0f;
                 canvasMenu.enabled = true;
                 menuEnabled = true;
-                Debug.Log("Start open", gameObject);
-                Debug.Log(questItems, gameObject);
+                //Debug.Log("Start open", gameObject);
+                //Debug.Log(questItems, gameObject);
                 menuTextQuest();
 
                 /* GameObject start = GameObject.Find("menu/Button");
@@ -131,7 +131,7 @@ public class PlayerQuestHandler : MonoBehaviour
                 Time.timeScale = 1.0f;
                 canvasMenu.enabled = false;
                 menuEnabled = false;
-                Debug.Log("Start closed", gameObject);
+                //Debug.Log("Start closed", gameObject);
                 menuTextQuestDestroy();
                // GameObject exit = GameObject.Find("menu/Exit");
                 //exit.GetComponent<Button>().enabled = false;
@@ -293,7 +293,7 @@ public class PlayerQuestHandler : MonoBehaviour
                 itemColor = "<color=#000000ff>";
             }
 
-            questText.text = "The high master of music lost his music sheets to the devious dancers and one of his absent minded students. Retrieve them in the music area.\n\n" + itemColor+"Music sheets to collect: " + numberOfItems + "/" + itemLength + "</color>";
+            questText.text = "The high master of music lost her music sheets to the devious dancers and one of her absent minded students. Retrieve them in the music area.\n\n" + itemColor+"Music sheets to collect: " + numberOfItems + "/" + itemLength + "</color>";
         }
 
         if (player.GetComponent<PlayerQuestHandler>().activeQuest == "q4")

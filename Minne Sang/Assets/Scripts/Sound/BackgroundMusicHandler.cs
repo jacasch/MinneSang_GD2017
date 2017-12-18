@@ -65,10 +65,10 @@ public class BackgroundMusicHandler : MonoBehaviour {
             //search for new song
             foreach (Music song in music)
             {
-                foreach (string name in song.sceneName)
+                /*foreach (string name in song.sceneName)
                 {
                     print(name);
-                }
+                }*/
                 if (song.sceneName.Contains(sceneName))
                 {
                     //change song

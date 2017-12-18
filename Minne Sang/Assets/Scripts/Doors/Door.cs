@@ -58,7 +58,7 @@ public class Door : MonoBehaviour {
             {
                 if (soundTimer >=0.1f)
                 {
-                    print(enter);
+                    //print(enter);
                     enter = true;
                     pc.enabled = false;
                     if (!isSound)

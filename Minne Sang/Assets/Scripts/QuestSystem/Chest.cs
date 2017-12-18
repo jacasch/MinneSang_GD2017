@@ -103,16 +103,16 @@ public class Chest : Npc
          
         {
             //Destroy(player);
-            //SceneManager.LoadScene("GoodEnding", LoadSceneMode.Single);
-            Debug.Log("Good Ending", gameObject);
-            player = GameObject.FindWithTag("Player").transform.parent.gameObject;
+            SceneManager.LoadScene("GoodEnding", LoadSceneMode.Single);
+            //Debug.Log("Good Ending", gameObject);
+            //player = GameObject.FindWithTag("Player").transform.parent.gameObject;
         }
         else
         {
             //player = GameObject.FindWithTag("Player").transform.parent.gameObject;
             //Destroy(player);
             SceneManager.LoadScene("BadEnding", LoadSceneMode.Single);
-            Debug.Log("Bad Ending", gameObject);
+            //Debug.Log("Bad Ending", gameObject);
         }
         //EndInteraction();
     }
