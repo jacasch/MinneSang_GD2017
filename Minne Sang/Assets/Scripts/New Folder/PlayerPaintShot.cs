@@ -10,6 +10,7 @@ public class PlayerPaintShot : MonoBehaviour {
     private LineRenderer lr;
     private Animator animator;
     public bool aiming = false;
+    private float aimCooldown = 0.1f;
 
 	// Use this for initialization
 	void Start () {
@@ -27,18 +28,20 @@ public class PlayerPaintShot : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         bool canPaint = pg.skillLevel >= 2 && !animator.GetBool("CastingPoetry") && !animator.GetBool("CastingMusic") && !pc.dead;
-
+        aimCooldown -= Time.deltaTime;
         if (canPaint)
         {
 
             if (Input.GetButtonDown("Paint"))
             {
+                aimCooldown = 0.2f;
                 pc.aiming = true;
                 lr.enabled = true;
                 DrawArc();
             }
             if (Input.GetButton("Paint"))
             {
+                aimCooldown = 0.2f;
                 DrawArc();
 
             }
@@ -48,13 +51,16 @@ public class PlayerPaintShot : MonoBehaviour {
                 GameObject instance = Instantiate(prefab, transform.position, transform.rotation) as GameObject;
                 Vector3 direction = (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0) ? new Vector3(sr.flipX ? -1 : 1, 1, 0) : new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical") + 0.1f, 0);
                 instance.GetComponent<PaintShot>().direction = direction;
-                pc.aiming = false;
                 lr.enabled = false;
             }
         }
         else {
             pc.aiming = false;
             lr.enabled = false;
+        }
+
+        if (aimCooldown <= 0f) {
+            pc.aiming = false;
         }
 	}
 
