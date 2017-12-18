@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Door : MonoBehaviour {
     public string name;
@@ -9,16 +10,18 @@ public class Door : MonoBehaviour {
     public string destinationDoor;
     
     private GameObject player;
+    GameObject panel;
 
     private bool playerInRange = false;
 
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update () {
+        GameObject panel = GameObject.Find("TOP/Fade");
+
         if (playerInRange)
             if (player.GetComponent<PlayerController>().grounded)
                 CheckInput();
@@ -31,15 +34,21 @@ public class Door : MonoBehaviour {
             if (Input.GetAxis("Horizontal") > -0.3f && Input.GetAxis("Horizontal") < 0.3f)
             {
                 player.GetComponent<PlayerSpawnHandler>().switched = true;
+               
                 ChangeScene();
             }
         }
     }
 
     private void ChangeScene() {
-        player.GetComponent<PlayerSpawnHandler>().targetSpawn = destinationDoor;
-        player.GetComponent<PlayerSpawnHandler>().targetScene = destinationScene;
-        player.GetComponent<PlayerSpawnHandler>().Respawn();
+        
+
+        
+        
+            player.GetComponent<PlayerSpawnHandler>().targetSpawn = destinationDoor;
+            player.GetComponent<PlayerSpawnHandler>().targetScene = destinationScene;
+            player.GetComponent<PlayerSpawnHandler>().Respawn();
+        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
