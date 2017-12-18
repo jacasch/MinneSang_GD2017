@@ -26,7 +26,7 @@ public class NewGame : MonoBehaviour {
         pqh.activeQuest = "mastered";
         pqh.letters = 0;
         pqh.letterSend = false;     
-        psh.targetScene = "Intro";
+        psh.targetScene = "Opening";
         psh.targetSpawn = "start";
 
         psh.Respawn();

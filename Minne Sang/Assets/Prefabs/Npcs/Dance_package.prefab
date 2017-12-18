@@ -755,6 +755,7 @@ MonoBehaviour:
     text: Heigh-ho there! I perceive your presence but I cannot show myself because
       I cannot find my clothes! Come see me later!
   targetScene: DanceMastery
+  clip: {fileID: 8300000, guid: 7b6acd2d85d71684cacbb7e66f422cc8, type: 3}
 --- !u!114 &114546161395426810
 MonoBehaviour:
   m_ObjectHideFlags: 1

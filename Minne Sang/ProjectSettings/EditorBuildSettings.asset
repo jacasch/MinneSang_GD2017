@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Other/StartScreen.unity
     guid: 8004ee342648ca3438fd2792a4ac3308
   - enabled: 1
+    path: Assets/Scenes/Other/Opening.unity
+    guid: 697761513761a16488d004480890c61e
+  - enabled: 1
     path: Assets/Scenes/Other/Intro.unity
     guid: 89dde14a5562cb24194781bfc2da449b
   - enabled: 1
@@ -27,10 +30,10 @@ EditorBuildSettings:
     path: Assets/Scenes/FinalArea/FinalRoom.unity
     guid: d5c1b09c8914e434b9f4e0539f21bacd
   - enabled: 1
-    path: Assets/Scenes/Dance Area/DanceMastery.unity
+    path: Assets/Scenes/Dance Area/DanceArea.unity
     guid: 3a163e05a43aede4a8108bf1b909f2f5
   - enabled: 1
-    path: Assets/Scenes/Dance Area/DanceArea.unity
+    path: Assets/Scenes/Dance Area/DanceMastery.unity
     guid: 506d60f6ba0a1654ab4f9a33c5fafcae
   - enabled: 1
     path: Assets/Scenes/Other/MainHall.unity
