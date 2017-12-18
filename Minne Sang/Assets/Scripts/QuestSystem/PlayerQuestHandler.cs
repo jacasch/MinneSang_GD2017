@@ -33,7 +33,8 @@ public class PlayerQuestHandler : MonoBehaviour
     void Start()
     {
         questEnabled = false;
-
+        GameObject exit = GameObject.Find("menu/Exit");
+        exit.GetComponent<Button>().enabled = false;
     }
 
     // Update is called once per frame
@@ -121,6 +122,9 @@ public class PlayerQuestHandler : MonoBehaviour
                 GameObject start = GameObject.Find("menu/Button");
                 GameObject myEventSystem = GameObject.Find("EventSystem");
                 EventSystem.current.SetSelectedGameObject(start, null);
+
+                GameObject exit = GameObject.Find("menu/Exit");
+                exit.GetComponent<Button>().enabled = true;
             }
             else
             {
@@ -129,6 +133,8 @@ public class PlayerQuestHandler : MonoBehaviour
                 menuEnabled = false;
                 Debug.Log("Start closed", gameObject);
                 menuTextQuestDestroy();
+                GameObject exit = GameObject.Find("menu/Exit");
+                exit.GetComponent<Button>().enabled = false;
             }
         }
     }
@@ -137,8 +143,11 @@ public class PlayerQuestHandler : MonoBehaviour
     {
         GameObject tempObject = transform.Find("menu").gameObject;
         Canvas canvasMenu = tempObject.GetComponent<Canvas>();
+        GameObject exit = GameObject.Find("menu/Exit");
+        exit.GetComponent<Button>().enabled = false;
         canvasMenu.enabled = false;
         menuEnabled = false;
+        Time.timeScale = 1f;
     }
 
     public void AddItem(string item) {
