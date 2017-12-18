@@ -20,6 +20,7 @@ public class BackgroundMusicHandler : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
         audioSource.loop = true;
         currentSong = music[0];
+        UpdateMusic();
     }
 
     void OnEnable()
@@ -36,6 +37,11 @@ public class BackgroundMusicHandler : MonoBehaviour {
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
+        UpdateMusic();
+    }
+
+    private void UpdateMusic()
+    {
         string sceneName = SceneManager.GetActiveScene().name;
 
         if (currentSong.Equals(null))
@@ -45,12 +51,10 @@ public class BackgroundMusicHandler : MonoBehaviour {
         if (currentSong.clip == null)
             return;
 
-
-        foreach (string name in currentSong.sceneName) {
-        }
-
-        if (currentSong.sceneName.Contains(sceneName)) {
-            if (!audioSource.isPlaying) {
+        if (currentSong.sceneName.Contains(sceneName))
+        {
+            if (!audioSource.isPlaying)
+            {
                 audioSource.Stop();
                 audioSource.clip = currentSong.clip;
                 audioSource.Play();
@@ -61,7 +65,8 @@ public class BackgroundMusicHandler : MonoBehaviour {
             //search for new song
             foreach (Music song in music)
             {
-                foreach (string name in song.sceneName) {
+                foreach (string name in song.sceneName)
+                {
                     print(name);
                 }
                 if (song.sceneName.Contains(sceneName))
@@ -76,5 +81,4 @@ public class BackgroundMusicHandler : MonoBehaviour {
             }
         } //else keep playing the current song
     }
-
 }
