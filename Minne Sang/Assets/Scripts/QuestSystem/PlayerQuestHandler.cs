@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
 public class PlayerQuestHandler : MonoBehaviour
@@ -116,6 +117,10 @@ public class PlayerQuestHandler : MonoBehaviour
                 Debug.Log("Start open", gameObject);
                 Debug.Log(questItems, gameObject);
                 menuTextQuest();
+
+                GameObject start = GameObject.Find("menu/Button");
+                GameObject myEventSystem = GameObject.Find("EventSystem");
+                EventSystem.current.SetSelectedGameObject(start, null);
             }
             else
             {
@@ -128,6 +133,13 @@ public class PlayerQuestHandler : MonoBehaviour
         }
     }
 
+    public void closeMenu()
+    {
+        GameObject tempObject = transform.Find("menu").gameObject;
+        Canvas canvasMenu = tempObject.GetComponent<Canvas>();
+        canvasMenu.enabled = false;
+        menuEnabled = false;
+    }
 
     public void AddItem(string item) {
         if (!collectedItems.Contains(item)) {
