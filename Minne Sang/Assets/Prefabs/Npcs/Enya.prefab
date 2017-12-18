@@ -383,6 +383,7 @@ MonoBehaviour:
   questDrop:
     drop: {fileID: 1057231938353770, guid: c0162c3fa11a6c34b9ba807fbab34aef, type: 2}
     name: Shoes
+  clip: {fileID: 8300000, guid: f582c21018f342643ba78e3e2f3094f7, type: 3}
 --- !u!114 &114339237009541096
 MonoBehaviour:
   m_ObjectHideFlags: 1
