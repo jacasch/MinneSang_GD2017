@@ -25,6 +25,8 @@ public class PlayerQuestHandler : MonoBehaviour
     private float currCountdownValue;
     private int down = 0;
 
+    public AudioClip clip;
+
 
     // Use this for initialization
     void Start()
@@ -48,7 +50,7 @@ public class PlayerQuestHandler : MonoBehaviour
             {
                 //Play Audio
                 sourceDrop = GetComponent<AudioSource>();
-                AudioClip clip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Items/PickupItem.wav");
+                /*AudioClip clip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Sounds/Items/PickupItem.wav");*/
                 sourceDrop.PlayOneShot(clip);
 
                 // Pickup
