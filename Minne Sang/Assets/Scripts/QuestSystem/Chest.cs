@@ -42,7 +42,7 @@ public class Chest : Npc
             Animator animator = chest.GetComponent<Animator>(); 
             { // weare ready to talk to this master.
                 //if we have not yet gotten the quest, get the quest.
-                if (player.GetComponent<PlayerQuestHandler>().activeAct == 4)
+                if (player.GetComponent<PlayerQuestHandler>().activeAct >= 4)
                 {
                     //if dialogue is over we will end the dialogue and give the quest
                     if (activePhraseIndex >= quest.dialogue.Length)
@@ -74,7 +74,7 @@ public class Chest : Npc
                     if (activePhraseIndex >= quest.endDialogue.Length)
                     {
                         //TODO GO TO NEXT LEVEL
-                        player.GetComponent<PlayerQuestHandler>().activeQuest = "end";
+                        //player.GetComponent<PlayerQuestHandler>().activeQuest = "end";
                         ending();
                     }
                     else
@@ -114,6 +114,6 @@ public class Chest : Npc
             SceneManager.LoadScene("BadEnding", LoadSceneMode.Single);
             Debug.Log("Bad Ending", gameObject);
         }
-        EndInteraction();
+        //EndInteraction();
     }
 }

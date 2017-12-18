@@ -119,12 +119,12 @@ public class PlayerQuestHandler : MonoBehaviour
                 Debug.Log(questItems, gameObject);
                 menuTextQuest();
 
-                GameObject start = GameObject.Find("menu/Button");
+                /* GameObject start = GameObject.Find("menu/Button");
                 GameObject myEventSystem = GameObject.Find("EventSystem");
                 EventSystem.current.SetSelectedGameObject(start, null);
 
                 GameObject exit = GameObject.Find("menu/Exit");
-                exit.GetComponent<Button>().enabled = true;
+                exit.GetComponent<Button>().enabled = true; */
             }
             else
             {
