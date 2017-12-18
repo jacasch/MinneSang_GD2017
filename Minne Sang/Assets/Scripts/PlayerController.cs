@@ -195,10 +195,13 @@ public class PlayerController : PhysicsObject {
     }
 
     public void KnockBack(float intensity) {
-        knockbackintensity = intensity;
-        knockedBack = true;
-        velocity.y = jumpTakeOffSpeed * Mathf.Abs(intensity)/2;
-        grounded = false;
+        if (!dead)
+        {
+            knockbackintensity = intensity;
+            knockedBack = true;
+            velocity.y = jumpTakeOffSpeed * Mathf.Abs(intensity) / 2;
+            grounded = false;
+        }
     }
 
     private void PlayStep() {
