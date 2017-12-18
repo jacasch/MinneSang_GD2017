@@ -366,10 +366,11 @@ MonoBehaviour:
     - spokenByNpc: 1
       messageByPrincess: 0
       text: "They\u2019ll be your teachers. You\u2019ll find them in their respective
-        areas  scattered around the castle. "
+        areas scattered around the castle."
     - spokenByNpc: 1
       messageByPrincess: 0
-      text: 'Go now and leave me to my work. '
+      text: 'I heard the master of dance is in need of help. Go now and leave me to
+        my work. '
     - spokenByNpc: 1
       messageByPrincess: 0
       text: 'But beware: some areas of this castle are riddled with monsters and other
