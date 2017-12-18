@@ -443,6 +443,7 @@ public class EnemyOoze : MonoBehaviour
 
             counterAdd = 0;
 
+            /*
             //DEBUGGING DER RAYCASTS FÜR GROUNDED!
             foreach (RaycastHit2D hit in hitsRight)
             {
@@ -451,6 +452,7 @@ public class EnemyOoze : MonoBehaviour
                 marker.transform.localScale = Vector3.one * 0.1f;
                 Destroy(marker, 0.1f);
             }
+            */
 
         }
         if(jumpUp == 0)
