@@ -123,7 +123,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1273923098489232}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4772282, y: 0.16450882, z: -1}
+  m_LocalPosition: {x: -14.658045, y: -2.6236587, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224537032752396030}
@@ -210,7 +210,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: df80791fc1617fc4c8c6a0c1f0e61a9f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: cd7ce1278ede49c47b86406fab79ebd9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -358,7 +358,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: 
   questDialogue: []
-  randomLines: []
+  randomLines:
+  - spokenByNpc: 0
+    messageByPrincess: 0
+    text: WTF? What am I doing here?
+  - spokenByNpc: 0
+    messageByPrincess: 0
+    text: This is all just a dream. This never happened.
+  - spokenByNpc: 0
+    messageByPrincess: 0
+    text: Man, I got here through glitches. I'm such a nerd. Freya won't like me...
   autoStart: 0
   EngageConversation:
   - {fileID: 0}
@@ -398,7 +407,7 @@ MonoBehaviour:
     messageByPrincess: 0
     text: What the fuck???
   chest: {fileID: 0}
-  opening: {fileID: 8300000, guid: 92b5ce2856884934095400f2c4311749, type: 3}
+  opening: {fileID: 8300000, guid: 5dc0833ace4ba604e81ee07bc07deff7, type: 3}
   targetScene: 
 --- !u!114 &114579613879433362
 MonoBehaviour:
