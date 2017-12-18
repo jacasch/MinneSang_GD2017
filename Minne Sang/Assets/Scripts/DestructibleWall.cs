@@ -8,8 +8,9 @@ public class DestructibleWall : MonoBehaviour
     SpriteRenderer mySprite;
     AudioSource audioSource;
     BoxCollider2D boxCol;
+    ParticleSystem ps;
 
-    float destroyTimer = 0.5f;
+    float destroyTimer = 3;
 
     bool destroy = false;
 
@@ -19,7 +20,9 @@ public class DestructibleWall : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         mySprite = GetComponent<SpriteRenderer>();
         boxCol = GetComponent<BoxCollider2D>();
-	}
+        ps = transform.Find("DestroyedWall").GetComponent<ParticleSystem>();
+
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -43,6 +46,7 @@ public class DestructibleWall : MonoBehaviour
             audioSource.Play();
             mySprite.enabled = false;
             boxCol.enabled = false;
+            ps.Play();
         }
     }
 }
