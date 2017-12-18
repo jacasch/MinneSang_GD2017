@@ -17,7 +17,7 @@ public class NewGame : MonoBehaviour {
 
     private void StartNewGame() {
 
-        GameObject temp = Instantiate(playerPackage, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
+        /*GameObject temp = Instantiate(playerPackage, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
         player = temp.transform.Find("player").gameObject;
         pqh = player.GetComponent<PlayerQuestHandler>();
         psh = player.GetComponent<PlayerSpawnHandler>();
@@ -29,6 +29,8 @@ public class NewGame : MonoBehaviour {
         psh.targetScene = "Opening";
         psh.targetSpawn = "start";
 
-        psh.Respawn();
+        psh.Respawn();*/
+
+        SceneManager.LoadScene("Opening");
     }
 }
