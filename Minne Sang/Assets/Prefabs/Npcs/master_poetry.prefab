@@ -452,6 +452,7 @@ MonoBehaviour:
     messageByPrincess: 0
     text: What are you doing here? The headmaster is looking for you!
   targetScene: 
+  clip: {fileID: 8300000, guid: 7b6acd2d85d71684cacbb7e66f422cc8, type: 3}
 --- !u!114 &114351925977759954
 MonoBehaviour:
   m_ObjectHideFlags: 1

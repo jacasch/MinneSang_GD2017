@@ -375,6 +375,7 @@ MonoBehaviour:
   questDrop:
     drop: {fileID: 1579532319167928, guid: 5f958170b53f08949b0aa624d0c346b4, type: 2}
     name: Spoon
+  clip: {fileID: 8300000, guid: f582c21018f342643ba78e3e2f3094f7, type: 3}
 --- !u!114 &114502398729750462
 MonoBehaviour:
   m_ObjectHideFlags: 1

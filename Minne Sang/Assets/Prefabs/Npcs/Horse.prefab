@@ -495,6 +495,7 @@ MonoBehaviour:
   questDrop:
     drop: {fileID: 1776366781571938, guid: e84c5e6b4d244074ea894731efc5631e, type: 2}
     name: Hair
+  clip: {fileID: 8300000, guid: f582c21018f342643ba78e3e2f3094f7, type: 3}
 --- !u!212 &212412036817982454
 SpriteRenderer:
   m_ObjectHideFlags: 1
