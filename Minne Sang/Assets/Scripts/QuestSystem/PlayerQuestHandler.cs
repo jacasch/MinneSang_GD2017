@@ -33,8 +33,8 @@ public class PlayerQuestHandler : MonoBehaviour
     void Start()
     {
         questEnabled = false;
-        GameObject exit = GameObject.Find("menu/Exit");
-        exit.GetComponent<Button>().enabled = false;
+       // GameObject exit = GameObject.Find("menu/Exit");
+        //exit.GetComponent<Button>().enabled = false;
     }
 
     // Update is called once per frame
@@ -83,7 +83,7 @@ public class PlayerQuestHandler : MonoBehaviour
             //Debug.Log("got Quest");
             canvasQuest.enabled = true;
             //QuestCountdown();
-            if (down > 800 || Input.GetKeyDown("joystick 1 button 7") || Input.GetKeyDown("m")) // || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick 1 button 0"))
+            if (down > 400 || Input.GetKeyDown("joystick 1 button 7") || Input.GetKeyDown("m")) // || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick 1 button 0"))
             {
                 down = 0;
                 questEnabled = false;
@@ -133,8 +133,8 @@ public class PlayerQuestHandler : MonoBehaviour
                 menuEnabled = false;
                 Debug.Log("Start closed", gameObject);
                 menuTextQuestDestroy();
-                GameObject exit = GameObject.Find("menu/Exit");
-                exit.GetComponent<Button>().enabled = false;
+               // GameObject exit = GameObject.Find("menu/Exit");
+                //exit.GetComponent<Button>().enabled = false;
             }
         }
     }

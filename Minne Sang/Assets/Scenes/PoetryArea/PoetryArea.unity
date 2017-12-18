@@ -35581,6 +35581,79 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a24d5a87cc05ce4fafe0d98c388dce9, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &437551801
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4256713028315274, guid: 7a4677cbfc93b1145b7891c20d473da9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 26.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256713028315274, guid: 7a4677cbfc93b1145b7891c20d473da9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256713028315274, guid: 7a4677cbfc93b1145b7891c20d473da9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256713028315274, guid: 7a4677cbfc93b1145b7891c20d473da9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256713028315274, guid: 7a4677cbfc93b1145b7891c20d473da9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256713028315274, guid: 7a4677cbfc93b1145b7891c20d473da9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256713028315274, guid: 7a4677cbfc93b1145b7891c20d473da9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256713028315274, guid: 7a4677cbfc93b1145b7891c20d473da9, type: 2}
+      propertyPath: m_RootOrder
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 1966227227176608, guid: 7a4677cbfc93b1145b7891c20d473da9, type: 2}
+      propertyPath: m_Name
+      value: DestructibleWall (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256713028315274, guid: 7a4677cbfc93b1145b7891c20d473da9, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 212225218851481720, guid: 7a4677cbfc93b1145b7891c20d473da9,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7a4677cbfc93b1145b7891c20d473da9, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &437551802 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1966227227176608, guid: 7a4677cbfc93b1145b7891c20d473da9,
+    type: 2}
+  m_PrefabInternal: {fileID: 437551801}
+--- !u!114 &437551803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 437551802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecf5bbc62a6acce48a5d709e841dc8f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultmat: {fileID: 2100000, guid: 34e2fe766848a34418fafc982e741e8d, type: 2}
+  chameleonmat: {fileID: 2100000, guid: 32143037c032fe040860170bba74d8d8, type: 2}
 --- !u!1001 &450346031
 Prefab:
   m_ObjectHideFlags: 0
@@ -35657,7 +35730,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 34e2fe766848a34418fafc982e741e8d, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -37109,7 +37182,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4321643471324186, guid: 966730ab76c13e74e89281b87e3e453a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 31.03
+      value: 34.67
       objectReference: {fileID: 0}
     - target: {fileID: 4321643471324186, guid: 966730ab76c13e74e89281b87e3e453a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -37474,7 +37547,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 34e2fe766848a34418fafc982e741e8d, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
