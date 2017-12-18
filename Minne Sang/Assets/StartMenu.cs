@@ -73,4 +73,9 @@ public class StartMenu : MonoBehaviour {
     {
         controlsenabled = false;
     }
+
+    public void endGame()
+    {
+        Application.Quit();
+    }
 }

@@ -101,10 +101,15 @@ public class Chest : Npc
     {
         if (player.GetComponent<PlayerQuestHandler>().letters >= 4)
         {
-            SceneManager.LoadScene("GoodEnding", LoadSceneMode.Single);
+            //Destroy(player);
+            //SceneManager.LoadScene("GoodEnding", LoadSceneMode.Single);
             Debug.Log("Good Ending", gameObject);
-        } else
+            player = GameObject.FindWithTag("Player").transform.parent.gameObject;
+        }
+        else
         {
+            //player = GameObject.FindWithTag("Player").transform.parent.gameObject;
+            //Destroy(player);
             SceneManager.LoadScene("BadEnding", LoadSceneMode.Single);
             Debug.Log("Bad Ending", gameObject);
         }

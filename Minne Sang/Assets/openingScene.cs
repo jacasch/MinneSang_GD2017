@@ -14,13 +14,23 @@ public class openingScene : MonoBehaviour {
     public bool endScene = false;
     public bool credits = false;
 
+    GameObject player;
+
     // Use this for initialization
     void Start () {
-        cam = Camera.main;
+        if (GameObject.FindWithTag("Player") != null) {
+            player = GameObject.FindWithTag("Player").transform.parent.gameObject;
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
+        if (player != null)
+        {
+            Destroy(player);
+        }
+        cam = Camera.main;
+
         count += 1;
         video = cam.GetComponent<VideoPlayer>();
 		if (count > 100 && !video.isPlaying)

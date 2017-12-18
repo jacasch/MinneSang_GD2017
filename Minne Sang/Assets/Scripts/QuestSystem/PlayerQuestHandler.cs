@@ -108,6 +108,8 @@ public class PlayerQuestHandler : MonoBehaviour
             if (menuEnabled == false)
             {
                 canvasMenu.enabled = true;
+                Time.timeScale = 0.00001f;
+
                 //Time.timeScale = 1.0f;
                 canvasMenu.enabled = true;
                 menuEnabled = true;
