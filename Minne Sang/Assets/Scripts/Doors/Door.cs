@@ -34,22 +34,21 @@ public class Door : MonoBehaviour {
             if (Input.GetAxis("Horizontal") > -0.3f && Input.GetAxis("Horizontal") < 0.3f)
             {
                 player.GetComponent<PlayerSpawnHandler>().switched = true;
-                GameObject panel = GameObject.Find("Fade");
-                panel.GetComponent<fade>().fadeIn();
+               
                 ChangeScene();
             }
         }
     }
 
     private void ChangeScene() {
-        GameObject panel = GameObject.Find("Fade");
+        
 
-        if (panel.GetComponent<fade>().fadeIn())
-        {
+        
+        
             player.GetComponent<PlayerSpawnHandler>().targetSpawn = destinationDoor;
             player.GetComponent<PlayerSpawnHandler>().targetScene = destinationScene;
             player.GetComponent<PlayerSpawnHandler>().Respawn();
-        }  
+        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
