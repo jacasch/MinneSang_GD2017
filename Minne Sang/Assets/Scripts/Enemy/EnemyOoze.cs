@@ -71,6 +71,8 @@ public class EnemyOoze : MonoBehaviour
 
     AudioSource audioSource;
 
+    private int layerMask = ~(0 << 14);
+
     //MAIN-----------------------------------------------------------------------------------------------------------------
     void Start()
     {
@@ -190,7 +192,6 @@ public class EnemyOoze : MonoBehaviour
                     soundHandler.Jump();
                     rb.velocity = new Vector3(speed * dir, jumpHeight, 0);
                     soundHandler.Jump();
-                    print("test");
                 }
             }
         }
@@ -362,6 +363,8 @@ public class EnemyOoze : MonoBehaviour
     //GroundedCheck
     void CheckIfGrounded()
     {
+        int counterAdd = 0;
+
         grounded = false;
         animator.SetBool("Grounded", false);
         RaycastHit2D[] hits;
@@ -393,13 +396,29 @@ public class EnemyOoze : MonoBehaviour
             RaycastHit2D[] hitsRight;
 
             //Überprüft, ob rechts an der rechten Ecke des Gegners ein Block ist
-            hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y - halfSize + 0.15f), new Vector2(1 * dir, 0), halfSize + 0.01f);
+            hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y - halfSize + 0.15f), new Vector2(1 * dir, 0), halfSize + 0.01f, layerMask);
 
-            if (hitsRight.Length == 0)
+            foreach(RaycastHit2D hit in hitsRight)
             {
-                hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y + halfSize - 0.15f), new Vector2(1 * dir, 0), halfSize + 0.01f);
+                if(hit.transform.tag == "Player")
+                {
+                    counterAdd = 1;
+                }
+            }
 
-                if (hitsRight.Length == 0)
+            if (hitsRight.Length == counterAdd)
+            {
+                hitsRight = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y + halfSize - 0.15f), new Vector2(1 * dir, 0), halfSize + 0.01f, layerMask);
+
+                foreach (RaycastHit2D hit in hitsRight)
+                {
+                    if (hit.transform.tag == "Player")
+                    {
+                        counterAdd = 1;
+                    }
+                }
+
+                if (hitsRight.Length == counterAdd)
                 {
                     rightUp = true;
                 }
@@ -421,21 +440,23 @@ public class EnemyOoze : MonoBehaviour
                     wallInFront = true;
                 }
             }
+
+            counterAdd = 0;
+
+            //DEBUGGING DER RAYCASTS FÜR GROUNDED!
+            foreach (RaycastHit2D hit in hitsRight)
+            {
+                GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                marker.transform.position = hit.point;
+                marker.transform.localScale = Vector3.one * 0.1f;
+                Destroy(marker, 0.1f);
+            }
+
         }
         if(jumpUp == 0)
         {
             jumpedUp = true;
         }
-
-        /*
-        //DEBUGGING DER RAYCASTS FÜR GROUNDED!
-        foreach (RaycastHit2D hit in hitsRight)
-        {
-            GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            marker.transform.position = hit.point;
-            marker.transform.localScale = Vector3.one * 0.1f;
-            Destroy(marker, 0.1f);
-        }
-        */
+        
     }
 }
