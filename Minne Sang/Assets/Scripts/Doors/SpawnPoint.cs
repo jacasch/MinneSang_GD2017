@@ -10,6 +10,9 @@ public class SpawnPoint : MonoBehaviour {
 
     private SpawnPoint[] otherSpawnPoints;
     private BoxCollider2D collider;
+
+    private PlayerQuestHandler pqh;
+    private PlayerSpawnHandler psh;
     // Use this for initialization
     void Awake()
     {
@@ -35,9 +38,12 @@ public class SpawnPoint : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player") {
+        if (collision.tag == "Player")
+        {
             collision.gameObject.GetComponent<PlayerSpawnHandler>().targetSpawn = name;
             collision.gameObject.GetComponent<PlayerSpawnHandler>().targetScene = SceneManager.GetActiveScene().name;
+
+            collision.gameObject.GetComponent<PlayerSpawnHandler>().SaveGameState();
         }
     }
 }

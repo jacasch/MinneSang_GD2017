@@ -29,6 +29,19 @@ public class LoadGame : MonoBehaviour {
         psh.targetScene = PlayerPrefs.GetString("scene");
         psh.targetSpawn = PlayerPrefs.GetString("spawn");
 
+        //load questitems
+        int count = PlayerPrefs.GetInt("questItemAmount");
+        for (int i = 0; i < count; i++)
+        {
+            pqh.questItems.Add(PlayerPrefs.GetString("questItem" + i.ToString()));
+        }
+        //load collected items
+        int collcount = PlayerPrefs.GetInt("collectedItemAmount");
+        for (int i = 0; i < collcount; i++)
+        {
+            pqh.collectedItems.Add(PlayerPrefs.GetString("collectedItem" + i.ToString()));
+        }
+
         psh.Respawn();
     }
 }

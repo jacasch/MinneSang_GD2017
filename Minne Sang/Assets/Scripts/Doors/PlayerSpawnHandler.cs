@@ -80,5 +80,17 @@ public class PlayerSpawnHandler : MonoBehaviour {
         PlayerPrefs.SetInt("send", pqh.letterSend ? 1 : 0);
         PlayerPrefs.SetString("scene", psh.targetScene);
         PlayerPrefs.SetString("spawn", psh.targetSpawn);
+
+        //save questitems
+        PlayerPrefs.SetInt("questItemAmount", pqh.questItems.Count);
+        for (int i = 0; i < pqh.questItems.Count; i++) {
+            PlayerPrefs.SetString("questItem" + i.ToString(), pqh.questItems[i]);
+        }
+        //save collecteditems
+        PlayerPrefs.SetInt("collectedItemAmount", pqh.questItems.Count);
+        for (int i = 0; i < pqh.collectedItems.Count; i++)
+        {
+            PlayerPrefs.SetString("collectedItem" + i.ToString(), pqh.collectedItems[i]);
+        }
     }
 }
