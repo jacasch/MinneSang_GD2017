@@ -52,7 +52,7 @@ public class Door : MonoBehaviour {
         {
             if (Input.GetAxis("Horizontal") > -0.3f && Input.GetAxis("Horizontal") < 0.3f)
             {
-                if (soundTimer >=0.25f)
+                if (soundTimer >=0.1f)
                 {
                     print(enter);
                     enter = true;
