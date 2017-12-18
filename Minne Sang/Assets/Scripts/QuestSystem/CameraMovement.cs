@@ -29,7 +29,7 @@ public class CameraMovement : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void LateUpdate() {
+    void FixedUpdate() {
         if (!playerFocused)
         {
             //player = player = GameObject.FindGameObjectWithTag("Player");
@@ -55,13 +55,13 @@ public class CameraMovement : MonoBehaviour {
             //move camera towards player by amount bigger than max dist
             Vector2 movement = (pos - targetPos).normalized * (targetDistance - distance);
             Vector3 movement3D = new Vector3(movement.x, movement.y, 0f);
-            transform.position = Vector3.Lerp(transform.position + movement3D, transform.position, lerpWeight * Time.deltaTime * 150);
+            transform.position = Vector3.Lerp(transform.position + movement3D, transform.position, lerpWeight);
 
         }
     }
 
     private void LerpZoom() {
-        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetZoom, zoomSpeed * Time.deltaTime * 40);
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetZoom, zoomSpeed);
     }
 
     public void ZoomIn(Vector2 npcPos) {
