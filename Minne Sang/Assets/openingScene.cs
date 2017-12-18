@@ -12,6 +12,7 @@ public class openingScene : MonoBehaviour {
     private int count = 0;
 
     public bool endScene = false;
+    public bool credits = false;
 
     // Use this for initialization
     void Start () {
@@ -31,6 +32,11 @@ public class openingScene : MonoBehaviour {
             else { 
             SceneManager.LoadScene("Intro", LoadSceneMode.Single);
             }
+
+            if(credits)
+            {
+                SceneManager.LoadScene("StartScreen", LoadSceneMode.Single);
+            }
         }
 
         if (Input.anyKey)
@@ -43,6 +49,10 @@ public class openingScene : MonoBehaviour {
         {
             SceneManager.LoadScene("Intro", LoadSceneMode.Single);
         }
-    }
+            if (credits)
+            {
+                SceneManager.LoadScene("StartScreen", LoadSceneMode.Single);
+            }
+        }
     }
 }

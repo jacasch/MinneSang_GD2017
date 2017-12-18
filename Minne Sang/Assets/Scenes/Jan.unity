@@ -15093,7 +15093,7 @@ Prefab:
     - target: {fileID: 114081770404995780, guid: 12db9a93837c0304198da223b4e3e834,
         type: 2}
       propertyPath: destinationScene
-      value: Jan
+      value: MainHall
       objectReference: {fileID: 0}
     - target: {fileID: 114081770404995780, guid: 12db9a93837c0304198da223b4e3e834,
         type: 2}

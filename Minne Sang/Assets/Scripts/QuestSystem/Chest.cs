@@ -42,7 +42,7 @@ public class Chest : Npc
             Animator animator = chest.GetComponent<Animator>(); 
             { // weare ready to talk to this master.
                 //if we have not yet gotten the quest, get the quest.
-                if (player.GetComponent<PlayerQuestHandler>().activeQuest == "end")
+                if (player.GetComponent<PlayerQuestHandler>().activeAct == 4)
                 {
                     //if dialogue is over we will end the dialogue and give the quest
                     if (activePhraseIndex >= quest.dialogue.Length)
