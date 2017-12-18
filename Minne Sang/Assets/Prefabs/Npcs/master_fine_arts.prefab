@@ -110,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1124579218913290}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.11, y: -9.32, z: 0}
+  m_LocalPosition: {x: -28.93, y: -9.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4429617365303928}
@@ -411,7 +411,15 @@ MonoBehaviour:
     - spokenByNpc: 1
       messageByPrincess: 0
       text: Bring me a masterpiece of a brush forged of real horsehair and the finest
-        wood and then I shall teach you. Go then!
+        wood and then I shall teach you.
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: 'There''s a student of the high art of music with a magnificent wooden
+        spoon. As for the horse: I don''t believe there are any horses inside the
+        castle.'
+    - spokenByNpc: 1
+      messageByPrincess: 0
+      text: Go then and leave me be!
     randomLines:
     - spokenByNpc: 1
       messageByPrincess: 0
@@ -439,15 +447,15 @@ MonoBehaviour:
       text: "I\u2019m teaching you the Colour Bomb Skill."
     - spokenByNpc: 1
       messageByPrincess: 0
-      text: Move around the area and use (L) to aim and (B) to throw the Colour Bomb
-        and reveal what was hidden before.
+      text: Move around the area and hold (Y) to aim. Release (Y) to throw colour
+        bombs and reveal what was hidden before.
     - spokenByNpc: 1
       messageByPrincess: 0
       text: But no dilly dally, off you go!
   encounterBeforeHeadMaster:
     spokenByNpc: 1
     messageByPrincess: 0
-    text: go to the headmaster first.
+    text: What are you doing here? The headmaster is looking for you!
   targetScene: 
 --- !u!114 &114602991554915206
 MonoBehaviour:

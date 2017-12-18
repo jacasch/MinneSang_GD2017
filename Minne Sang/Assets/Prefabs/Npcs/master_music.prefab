@@ -505,10 +505,11 @@ MonoBehaviour:
       text: "I\u2019m scared my sheets will be burnt to a crisp by those dancers."
     - spokenByNpc: 1
       messageByPrincess: 0
-      text: Retrieve 5 of them.
+      text: Go and retrieve 5 of them.
     - spokenByNpc: 1
       messageByPrincess: 0
-      text: Also a student of mine should have one. Maybe she will give it to you!
+      text: Also a student of mine should have another one. Maybe she will give it
+        to you!
     randomLines:
     - spokenByNpc: 1
       messageByPrincess: 0
@@ -543,12 +544,12 @@ MonoBehaviour:
         certain obstacles.
     - spokenByNpc: 1
       messageByPrincess: 0
-      text: To use it, press (XX) and play your Instrument! So show me the melodies
+      text: To use it, hold (RB) and play your Instrument! So show me the melodies
         of your determination!
   encounterBeforeHeadMaster:
     spokenByNpc: 1
     messageByPrincess: 0
-    text: go to the headmaster first.
+    text: What are you doing here? The headmaster is looking for you!
   targetScene: 
 --- !u!114 &114848318685400242
 MonoBehaviour:

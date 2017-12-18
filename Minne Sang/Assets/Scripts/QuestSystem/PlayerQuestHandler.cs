@@ -162,7 +162,7 @@ public class PlayerQuestHandler : MonoBehaviour
 
         if (player.GetComponent<PlayerQuestHandler>().activeQuest == "mastered" && player.GetComponent<PlayerQuestHandler>().activeAct == 1)
         {
-            questText.text = "Colour bombs can show you things you could not see before. You will need to practise to be able to escape this dungeon. Use the left Joystick to aim and (Y) to throw the colour bombs.";
+            questText.text = "Colour bombs can show you things you could not see before. You will need to practise to be able to escape this dungeon. Hold (Y) to aim and release it to throw the colour bombs.";
         }
 
 

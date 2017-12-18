@@ -419,7 +419,8 @@ MonoBehaviour:
         thee, but only if thou get me the ink needed.
     - spokenByNpc: 1
       messageByPrincess: 0
-      text: Take these 4 bottles and come back when they are filled.
+      text: The best ink can only be procured from the hazardous squids of this area.
+        Take these 4 bottles and come back when they are filled.
     randomLines:
     - spokenByNpc: 1
       messageByPrincess: 0
@@ -441,7 +442,7 @@ MonoBehaviour:
       text: 'The secret of poetry is: The quill is more powerful than the sword.'
     - spokenByNpc: 1
       messageByPrincess: 0
-      text: Use the XX-button to recite a poem and shield thyself from evil.
+      text: Hold (LB) to recite a poem and shield thyself from evil.
     - spokenByNpc: 1
       messageByPrincess: 0
       text: With this knowledge thou have everything thou need to continue thy path
@@ -449,7 +450,7 @@ MonoBehaviour:
   encounterBeforeHeadMaster:
     spokenByNpc: 1
     messageByPrincess: 0
-    text: go to the headmaster first.
+    text: What are you doing here? The headmaster is looking for you!
   targetScene: 
 --- !u!114 &114351925977759954
 MonoBehaviour:
