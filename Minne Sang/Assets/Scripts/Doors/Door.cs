@@ -18,11 +18,14 @@ public class Door : MonoBehaviour {
     private GameObject player;
     GameObject panel;
 
+    PlayerController pc;
+
     private bool playerInRange = false;
 
 	// Use this for initialization
 	void Start () {
         doorSound = GetComponent<DoorSounds>();
+        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -37,6 +40,7 @@ public class Door : MonoBehaviour {
             enterTimer += Time.deltaTime;
             if(enterTimer >= 1)
             {
+                pc.enabled = true;
                 enter = false;
                 isSound = false;
                 enterTimer = 0;
@@ -56,6 +60,7 @@ public class Door : MonoBehaviour {
                 {
                     print(enter);
                     enter = true;
+                    pc.enabled = false;
                     if (!isSound)
                     {
                         doorSound.Open();
