@@ -26,16 +26,23 @@ public class PlayerStats : MonoBehaviour
 
     private bool playedPoetrySound = false;
 
+    AudioSource asHeartBeat;
+    bool isHeartBeat = false;
+
     void Start ()
     {
         playerGui = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerGui>();
         animator = GetComponent<Animator>();
+
+        asHeartBeat = transform.Find("HeartBeat").GetComponent<AudioSource>();
     }
 
     void Update()
     {
         if (dead)
         {
+            asHeartBeat.Stop();
+            isHeartBeat = false;
             poetryBuff = -1;
             if (!deathAnimationStarted)
             {
@@ -61,6 +68,12 @@ public class PlayerStats : MonoBehaviour
             if(hp<=0)
             {
                 dead = true;
+            }
+            if(!isHeartBeat && hp<=2)
+            {
+
+                asHeartBeat.Play();
+                isHeartBeat = true;
             }
             poetry();
             //if (dmgTimer>0)
