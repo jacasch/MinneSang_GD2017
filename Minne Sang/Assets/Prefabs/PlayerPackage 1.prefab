@@ -571,7 +571,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1347827384260054}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.81, y: -10.95, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 4752438643246230}
@@ -1498,42 +1498,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music:
-  - clip: {fileID: 8300000, guid: 348a4a7a86456ca47bb8087dc891c55b, type: 3}
+  - clip: {fileID: 8300000, guid: 65a74fde844f96e4a86ed44f5137729c, type: 3}
     sceneName:
     - Intro
-  - clip: {fileID: 8300000, guid: b5e153667702d0740b3e4d6d0da795e2, type: 3}
+  - clip: {fileID: 8300000, guid: 5cad41db3222c694399099a63f47d359, type: 3}
     sceneName:
     - DanceArea
-  - clip: {fileID: 8300000, guid: 069ba639289555b47a9f6f0ab934b9f2, type: 3}
+  - clip: {fileID: 8300000, guid: 0de271395b4e4114eb59e29bbca6bdee, type: 3}
     sceneName:
     - DanceMastery
-  - clip: {fileID: 8300000, guid: 469d23538984e2d4ebb6bfdea0a5942f, type: 3}
+  - clip: {fileID: 8300000, guid: f9c05af093ae4bc479e0313ae74730f5, type: 3}
     sceneName:
     - PaintingArea
     - PaintingMastery
   - clip: {fileID: 0}
     sceneName: []
-  - clip: {fileID: 8300000, guid: a2f7605a54146264c8df733aa14f0ee8, type: 3}
+  - clip: {fileID: 8300000, guid: 05ac550ff6ef3e5408a4716ac991a947, type: 3}
     sceneName:
     - MusicArea
+  - clip: {fileID: 8300000, guid: aff7ad46450c70747ab32cb4b81359cf, type: 3}
+    sceneName:
     - MusicMastery
-  - clip: {fileID: 0}
-    sceneName: []
-  - clip: {fileID: 8300000, guid: 3661225736365d1419064306dc2944fe, type: 3}
+  - clip: {fileID: 8300000, guid: a070ee46841d7874c991c622ac952395, type: 3}
     sceneName:
     - PoetryArea
-  - clip: {fileID: 8300000, guid: 74ec8a9c58a9fbc408bd95480dd6d409, type: 3}
+  - clip: {fileID: 8300000, guid: 651c3ecc47790aa4089c655a0bae93ef, type: 3}
     sceneName:
     - PoetryMastery
-  - clip: {fileID: 8300000, guid: 947a42bb910f5a244ae2727df40347f6, type: 3}
+  - clip: {fileID: 8300000, guid: 2ae4fae7ba3d15742a40a08ef9c76fe5, type: 3}
     sceneName:
     - FinalArea
+  - clip: {fileID: 8300000, guid: 41a967cb47d11194288e063b590a256f, type: 3}
+    sceneName:
     - FinalRoom
-  - clip: {fileID: 8300000, guid: 48526430a3f73004891f7f9add43d610, type: 3}
+  - clip: {fileID: 8300000, guid: 6ca03d4fad51d0341986da332a1c23b3, type: 3}
     sceneName:
     - MainHall
-  - clip: {fileID: 0}
-    sceneName: []
 --- !u!114 &114319182754025338
 MonoBehaviour:
   m_ObjectHideFlags: 1
