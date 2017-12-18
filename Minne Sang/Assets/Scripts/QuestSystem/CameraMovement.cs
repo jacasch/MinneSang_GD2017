@@ -55,13 +55,13 @@ public class CameraMovement : MonoBehaviour {
             //move camera towards player by amount bigger than max dist
             Vector2 movement = (pos - targetPos).normalized * (targetDistance - distance);
             Vector3 movement3D = new Vector3(movement.x, movement.y, 0f);
-            transform.position = Vector3.Lerp(transform.position + movement3D, transform.position, lerpWeight);
+            transform.position = Vector3.Lerp(transform.position + movement3D, transform.position, lerpWeight * Time.deltaTime * 150);
 
         }
     }
 
     private void LerpZoom() {
-        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetZoom, zoomSpeed);
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetZoom, zoomSpeed * Time.deltaTime * 40);
     }
 
     public void ZoomIn(Vector2 npcPos) {
