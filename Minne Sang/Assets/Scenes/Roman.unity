@@ -1229,12 +1229,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e504bdb1c94f6474bb4db6bd577c09e7, type: 3}
   - {fileID: 8300000, guid: ad8e30b08883859469b123a424e0b9e8, type: 3}
   jumpSound:
-  - {fileID: 8300000, guid: 464289daea282534d8143fe95f641b52, type: 3}
-  - {fileID: 8300000, guid: 464289daea282534d8143fe95f641b52, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   landSound:
-  - {fileID: 8300000, guid: 0d7bc58daf23bc541b2a6a9f1e67799d, type: 3}
-  - {fileID: 8300000, guid: 6b95dab04622ce446a2552b765b092f3, type: 3}
-  - {fileID: 8300000, guid: 65a057c8b7da37e47b4b3951387bdb1a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!82 &485902375
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6137,11 +6137,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4041441808170672, guid: 12db9a93837c0304198da223b4e3e834, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -15.83
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 4041441808170672, guid: 12db9a93837c0304198da223b4e3e834, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 18.27
+      value: 16.8
       objectReference: {fileID: 0}
     - target: {fileID: 4041441808170672, guid: 12db9a93837c0304198da223b4e3e834, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7255,7 +7255,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1703436470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8fae73e9dd7fcc408e8b8703fb793a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 7aa2e20b9850dc747aef16a7f8f94108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hittingSound:
