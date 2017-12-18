@@ -320,6 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoAudio: {fileID: 0}
   endScene: 0
+  credits: 1
 --- !u!1 &2012410519
 GameObject:
   m_ObjectHideFlags: 0
