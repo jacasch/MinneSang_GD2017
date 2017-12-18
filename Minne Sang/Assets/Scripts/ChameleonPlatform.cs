@@ -28,11 +28,11 @@ public class ChameleonPlatform : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player") {
             playerIsInsidePlatform = true;
-            print("player entered");
         }
-        if (collision.gameObject.tag == "Paint" && !playerIsInsidePlatform) {
+        if ((collision.gameObject.tag == "Paint" || collision.gameObject.name == "EnemyPaintShot(Clone)") && !playerIsInsidePlatform) {
             bc2d.isTrigger = false;
-            collision.gameObject.GetComponent<PaintShot>().Explode();
+            if (collision.gameObject.tag == "Paint")
+                collision.gameObject.GetComponent<PaintShot>().Explode();
             sr.material = defaultmat;
             bc2d.isTrigger = false;
             sr.sortingLayerName = "MidGround";

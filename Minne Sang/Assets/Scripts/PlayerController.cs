@@ -124,7 +124,7 @@ public class PlayerController : PhysicsObject {
             {
                 knockedBack = false;
             }
-            else if (!dead) {
+            else {
                 move.x = knockbackintensity;
             }
         }

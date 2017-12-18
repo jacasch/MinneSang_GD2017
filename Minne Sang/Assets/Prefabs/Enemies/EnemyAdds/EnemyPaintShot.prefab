@@ -192,7 +192,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   velocity: 7
   explodeSound: {fileID: 8300000, guid: 6125caece2e0191488f56ac39a67d898, type: 3}
-  color: {r: 0.10845588, g: 0.16455376, b: 0.43382353, a: 0}
+  color: {r: 0.228, g: 0.179, b: 0.45098042, a: 1}
 --- !u!114 &114589921498776612
 MonoBehaviour:
   m_ObjectHideFlags: 1

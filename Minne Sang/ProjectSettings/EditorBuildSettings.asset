@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Jan.unity
     guid: cb2653e210532214b91da4179a745486
   - enabled: 0
@@ -30,10 +30,10 @@ EditorBuildSettings:
     path: Assets/Scenes/FinalArea/FinalRoom.unity
     guid: d5c1b09c8914e434b9f4e0539f21bacd
   - enabled: 1
-    path: Assets/Scenes/Dance Area/DanceArea.unity
+    path: Assets/Scenes/Dance Area/DanceMastery.unity
     guid: 3a163e05a43aede4a8108bf1b909f2f5
   - enabled: 1
-    path: Assets/Scenes/Dance Area/DanceMastery.unity
+    path: Assets/Scenes/Dance Area/DanceArea.unity
     guid: 506d60f6ba0a1654ab4f9a33c5fafcae
   - enabled: 1
     path: Assets/Scenes/Other/MainHall.unity

@@ -368,6 +368,7 @@ MonoBehaviour:
   questDrop:
     drop: {fileID: 1426578588911374, guid: 621cea58aa74f96438f4655dad05301a, type: 2}
     name: MusicSheet1
+  clip: {fileID: 8300000, guid: f582c21018f342643ba78e3e2f3094f7, type: 3}
 --- !u!114 &114555333421803176
 MonoBehaviour:
   m_ObjectHideFlags: 1

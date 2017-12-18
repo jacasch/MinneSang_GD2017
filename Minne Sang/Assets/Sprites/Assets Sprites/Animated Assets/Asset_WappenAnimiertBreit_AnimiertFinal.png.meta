@@ -1,22 +1,20 @@
 fileFormatVersion: 2
-guid: ba0f5249d27c3cb4986cc7d5d716d571
-timeCreated: 1513442836
+guid: 77272eb581a18b249abd58b3aebadda2
+timeCreated: 1513604046
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Asset_WappenAnimiertBreit_Animiert_0
-    21300002: Asset_WappenAnimiertBreit_Animiert_1
-    21300004: Asset_WappenAnimiertBreit_Animiert_2
-    21300006: Asset_WappenAnimiertBreit_Animiert_3
-    21300008: Asset_WappenAnimiertBreit_Animiert_4
-    21300010: Asset_WappenAnimiertBreit_Animiert_5
-    21300012: Asset_WappenAnimiertBreit_Animiert_6
-    21300014: Asset_WappenAnimiertBreit_Animiert_7
-    21300016: Asset_WappenAnimiertBreit_Animiert_8
-    21300018: Asset_WappenAnimiertBreit_Animiert_9
-    21300020: Asset_WappenAnimiertBreit_Animiert_10
-    21300022: Asset_WappenAnimiertBreit_Animiert_11
-    21300024: Asset_WappenAnimiertBreit_Animiert_12
+    21300000: Asset_WappenAnimiertBreit_AnimiertFinal_0
+    21300002: Asset_WappenAnimiertBreit_AnimiertFinal_1
+    21300004: Asset_WappenAnimiertBreit_AnimiertFinal_2
+    21300006: Asset_WappenAnimiertBreit_AnimiertFinal_3
+    21300008: Asset_WappenAnimiertBreit_AnimiertFinal_4
+    21300010: Asset_WappenAnimiertBreit_AnimiertFinal_5
+    21300012: Asset_WappenAnimiertBreit_AnimiertFinal_6
+    21300014: Asset_WappenAnimiertBreit_AnimiertFinal_7
+    21300016: Asset_WappenAnimiertBreit_AnimiertFinal_8
+    21300018: Asset_WappenAnimiertBreit_AnimiertFinal_9
+    21300020: Asset_WappenAnimiertBreit_AnimiertFinal_10
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -91,13 +89,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Asset_WappenAnimiertBreit_Animiert_0
+      name: Asset_WappenAnimiertBreit_AnimiertFinal_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 867
-        height: 1800
+        width: 1000
+        height: 2000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -105,13 +103,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Asset_WappenAnimiertBreit_Animiert_1
+      name: Asset_WappenAnimiertBreit_AnimiertFinal_1
       rect:
         serializedVersion: 2
-        x: 867
+        x: 1000
         y: 0
-        width: 867
-        height: 1800
+        width: 1000
+        height: 2000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,13 +117,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Asset_WappenAnimiertBreit_Animiert_2
+      name: Asset_WappenAnimiertBreit_AnimiertFinal_2
       rect:
         serializedVersion: 2
-        x: 1734
+        x: 2000
         y: 0
-        width: 867
-        height: 1800
+        width: 1000
+        height: 2000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,13 +131,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Asset_WappenAnimiertBreit_Animiert_3
+      name: Asset_WappenAnimiertBreit_AnimiertFinal_3
       rect:
         serializedVersion: 2
-        x: 2601
+        x: 3000
         y: 0
-        width: 867
-        height: 1800
+        width: 1000
+        height: 2000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,13 +145,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Asset_WappenAnimiertBreit_Animiert_4
+      name: Asset_WappenAnimiertBreit_AnimiertFinal_4
       rect:
         serializedVersion: 2
-        x: 3468
+        x: 4000
         y: 0
-        width: 867
-        height: 1800
+        width: 1000
+        height: 2000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,13 +159,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Asset_WappenAnimiertBreit_Animiert_5
+      name: Asset_WappenAnimiertBreit_AnimiertFinal_5
       rect:
         serializedVersion: 2
-        x: 4335
+        x: 5000
         y: 0
-        width: 867
-        height: 1800
+        width: 1000
+        height: 2000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,13 +173,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Asset_WappenAnimiertBreit_Animiert_6
+      name: Asset_WappenAnimiertBreit_AnimiertFinal_6
       rect:
         serializedVersion: 2
-        x: 5202
+        x: 6000
         y: 0
-        width: 867
-        height: 1800
+        width: 1000
+        height: 2000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,13 +187,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Asset_WappenAnimiertBreit_Animiert_7
+      name: Asset_WappenAnimiertBreit_AnimiertFinal_7
       rect:
         serializedVersion: 2
-        x: 6069
+        x: 7000
         y: 0
-        width: 867
-        height: 1800
+        width: 1000
+        height: 2000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,13 +201,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Asset_WappenAnimiertBreit_Animiert_8
+      name: Asset_WappenAnimiertBreit_AnimiertFinal_8
       rect:
         serializedVersion: 2
-        x: 6936
+        x: 8000
         y: 0
-        width: 867
-        height: 1800
+        width: 1000
+        height: 2000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,13 +215,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Asset_WappenAnimiertBreit_Animiert_9
+      name: Asset_WappenAnimiertBreit_AnimiertFinal_9
       rect:
         serializedVersion: 2
-        x: 7803
+        x: 9000
         y: 0
-        width: 867
-        height: 1800
+        width: 1000
+        height: 2000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,41 +229,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Asset_WappenAnimiertBreit_Animiert_10
+      name: Asset_WappenAnimiertBreit_AnimiertFinal_10
       rect:
         serializedVersion: 2
-        x: 8670
+        x: 10000
         y: 0
-        width: 867
-        height: 1800
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Asset_WappenAnimiertBreit_Animiert_11
-      rect:
-        serializedVersion: 2
-        x: 9537
-        y: 0
-        width: 867
-        height: 1800
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Asset_WappenAnimiertBreit_Animiert_12
-      rect:
-        serializedVersion: 2
-        x: 10404
-        y: 0
-        width: 867
-        height: 1800
+        width: 1000
+        height: 2000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
