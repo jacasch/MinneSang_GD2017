@@ -15,7 +15,7 @@ public class LoadGame : MonoBehaviour {
         LoadPreviousGame();
     }
 
-    private void LoadPreviousGame()
+    public void LoadPreviousGame()
     {
         GameObject temp = Instantiate(playerPackage,new Vector3(0,0,0), Quaternion.Euler(0,0,0));
         player = temp.transform.Find("player").gameObject;
