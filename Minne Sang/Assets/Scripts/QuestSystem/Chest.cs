@@ -99,7 +99,8 @@ public class Chest : Npc
 
     private void ending()
     {
-        if (player.GetComponent<PlayerQuestHandler>().letters >= 4)
+        if (player.GetComponent<PlayerQuestHandler>().letters >= 3)
+         
         {
             //Destroy(player);
             //SceneManager.LoadScene("GoodEnding", LoadSceneMode.Single);
