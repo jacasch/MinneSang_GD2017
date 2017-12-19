@@ -158,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1637568099846592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.958, y: -3.148, z: 0}
+  m_LocalPosition: {x: 34.536095, y: 10.222, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4396503902800094}
@@ -376,7 +376,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -468,6 +468,7 @@ MonoBehaviour:
     messageByPrincess: 0
     text: 
   activePhraseIndex: 0
+  flapClip: {fileID: 8300000, guid: c88caf29d8b4bba4786fb1fa2aaed209, type: 3}
   sendingLetters:
   - dialogue:
     - spokenByNpc: 1

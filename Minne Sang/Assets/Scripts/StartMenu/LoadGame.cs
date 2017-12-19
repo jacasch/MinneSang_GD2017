@@ -44,4 +44,24 @@ public class LoadGame : MonoBehaviour {
 
         psh.Respawn();
     }
+
+    public void LoadGameAct(int act)
+    {
+        string[] scenes = new string[] {"DanceArea", "PaintingArea", "MusicArea", "PoetryArea", "FinalArea"};
+        string[] doors = new string[] { "MainHallDance", "MainHallDoorPainting", "MainHallDoorMusic", "MainHallDoorPoetry", "MainhallDoorFinal" };
+
+        GameObject temp = Instantiate(playerPackage, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
+        player = temp.transform.Find("player").gameObject;
+        pqh = player.GetComponent<PlayerQuestHandler>();
+        psh = player.GetComponent<PlayerSpawnHandler>();
+
+        pqh.activeAct = act - 1;
+        pqh.activeQuest = act == 5 ? "mastered" : "running";
+        pqh.letters = act - 1;
+        pqh.letterSend = act == 5 ? true : false;
+        psh.targetScene = scenes[act - 1];
+        psh.targetSpawn = doors[act -1 ];
+
+        psh.Respawn();
+    }
 }

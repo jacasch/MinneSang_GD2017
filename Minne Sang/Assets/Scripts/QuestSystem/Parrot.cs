@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Parrot : Npc
 {
-    public AudioClip clip;
+    public AudioClip flapClip;
+
 
     // private string princess = "Princess Freya";
     public Act[] sendingLetters;
@@ -47,7 +48,7 @@ public class Parrot : Npc
 
                 if (player.GetComponent<PlayerQuestHandler>().letterSend == true)
                 {
-                    sourceChild.PlayOneShot(clip);
+                    sourceChild.PlayOneShot(flapClip);
                     animator.SetBool("flying", true);
                 } else
                 {
