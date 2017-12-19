@@ -521,21 +521,21 @@ MonoBehaviour:
       messageByPrincess: 0
       text: "Leave me to my work. Return when you\u2019re done."
     endDialogue:
-    - spokenByNpc: 0
+    - spokenByNpc: 1
       messageByPrincess: 0
       text: You have succeeded. An easy task it was. Now, you must show me if you
         even know how to play anything.
-    - spokenByNpc: 1
+    - spokenByNpc: 0
       messageByPrincess: 0
       text: So tell me my task!
-    - spokenByNpc: 0
+    - spokenByNpc: 1
       messageByPrincess: 0
       text: "What you must do is follow me. Sometimes, true innovation leads one to
         really tickle those ivories\u2019. Other times, imitation is the way to learn."
-    - spokenByNpc: 1
+    - spokenByNpc: 0
       messageByPrincess: 0
       text: "Uh\u2026 but what about piracy?"
-    - spokenByNpc: 0
+    - spokenByNpc: 1
       messageByPrincess: 0
       text: "I\u2019m not telling you to steal! Credit where credit is due."
     - spokenByNpc: 1

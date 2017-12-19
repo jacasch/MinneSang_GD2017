@@ -59,8 +59,8 @@ public class PlayerSpawnHandler : MonoBehaviour {
                 Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
             }
         }
-        
-        Camera.main.GetComponent<CameraMovement>().ZoomOut();
+
+        if (Camera.main.GetComponent<CameraMovement>() != null) { Camera.main.GetComponent<CameraMovement>().ZoomOut(); }
     }
 
     public void Respawn() {

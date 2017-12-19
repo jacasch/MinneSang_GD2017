@@ -341,7 +341,7 @@ MonoBehaviour:
   - spokenByNpc: 1
     messageByPrincess: 0
     text: Now he doesn't want to see me anymore. Maybe you could bring him the tutu?
-  - spokenByNpc: 1
+  - spokenByNpc: 0
     messageByPrincess: 0
     text: It would be an honor.
   randomLines:
